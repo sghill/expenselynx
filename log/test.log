@@ -46,3 +46,8 @@ Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.4ms)
 WARNING: Can't mass-assign protected attributes: id
 Redirected to http://test.host/stores/980190962
 Completed 302 Found in 2ms
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-24 21:21:05.718371', NULL, '2010-10-24 21:21:05.718371')
