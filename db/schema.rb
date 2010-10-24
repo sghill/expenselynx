@@ -10,7 +10,15 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101024205015) do
+ActiveRecord::Schema.define(:version => 20101024215028) do
+
+  create_table "receipts", :force => true do |t|
+    t.integer  "store_id"
+    t.datetime "purchase_date"
+    t.decimal  "total",         :precision => 9, :scale => 2
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "stores", :force => true do |t|
     t.string   "name"
