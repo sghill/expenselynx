@@ -9,6 +9,7 @@ class StoreTest < ActiveSupport::TestCase
   test "should not save store without name" do
     store = Store.new
     assert store.invalid?
+    assert store.errors[:name].any?
   end
   
   test "should not save store with same name" do
@@ -17,6 +18,7 @@ class StoreTest < ActiveSupport::TestCase
     store1.save!
     
     assert store2.invalid?
+    assert store2.errors[:name].any?
   end
   
   test "should not save store with same name but different case" do
@@ -25,5 +27,6 @@ class StoreTest < ActiveSupport::TestCase
     store1.save!
     
     assert store2.invalid?
+    assert store2.errors[:name].any?
   end
 end
