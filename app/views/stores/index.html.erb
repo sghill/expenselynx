@@ -1,0 +1,23 @@
+<h1>Listing stores</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @stores.each do |store| %>
+  <tr>
+    <td><%= store.name %></td>
+    <td><%= link_to 'Show', store %></td>
+    <td><%= link_to 'Edit', edit_store_path(store) %></td>
+    <td><%= link_to 'Destroy', store, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Store', new_store_path %>
