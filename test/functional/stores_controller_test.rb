@@ -3,6 +3,9 @@ require 'test_helper'
 class StoresControllerTest < ActionController::TestCase
   setup do
     @store = stores(:one)
+    @update = {
+      :name => 'Panera Bread'
+    }
   end
 
   test "should get index" do
@@ -18,7 +21,7 @@ class StoresControllerTest < ActionController::TestCase
 
   test "should create store" do
     assert_difference('Store.count') do
-      post :create, :store => @store.attributes
+      post :create, :store => @update
     end
 
     assert_redirected_to store_path(assigns(:store))
@@ -35,7 +38,7 @@ class StoresControllerTest < ActionController::TestCase
   end
 
   test "should update store" do
-    put :update, :id => @store.to_param, :store => @store.attributes
+    put :update, :id => @store.to_param, :store => @update
     assert_redirected_to store_path(assigns(:store))
   end
 
