@@ -1,4 +1,5 @@
-<h1>Listing stores</h1>
+<div id="store_list">
+<h1>Stores</h1>
 
 <table>
   <tr>
@@ -9,7 +10,7 @@
   </tr>
 
 <% @stores.each do |store| %>
-  <tr>
+  <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
     <td><%= store.name %></td>
     <td><%= link_to 'Show', store %></td>
     <td><%= link_to 'Edit', edit_store_path(store) %></td>
@@ -21,3 +22,4 @@
 <br />
 
 <%= link_to 'New Store', new_store_path %>
+</div>

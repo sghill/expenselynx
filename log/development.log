@@ -122,3 +122,24 @@ Started GET "/stores" for 127.0.0.1 at 2010-10-24 17:05:54 -0400
   [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores"
 Rendered stores/index.html.erb within layouts/application (12.1ms)
 Completed 200 OK in 77ms (Views: 15.4ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2010-10-24 17:15:51 -0400
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (44.0ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Rendered stores/index.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 110ms (Views: 59.5ms | ActiveRecord: 44.0ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2010-10-24 17:17:00 -0400
+  Processing by StoresController#index as HTML
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/index.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 20ms (Views: 12.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2010-10-24 17:17:31 -0400
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Rendered stores/index.html.erb within layouts/application (34.5ms)
+Completed 200 OK in 44ms (Views: 37.5ms | ActiveRecord: 0.4ms)
