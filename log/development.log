@@ -2485,3 +2485,58 @@ Started GET "/receipts" for 127.0.0.1 at 2010-10-24 21:04:51 -0400
   [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
 Rendered receipts/index.html.erb within layouts/application (157.1ms)
 Completed 200 OK in 345ms (Views: 159.9ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-24 21:16:36 -0400
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (37.3ms)[0m  SELECT "receipts".* FROM "receipts"
+Rendered receipts/index.html.erb within layouts/application (9.0ms)
+Completed   in 61ms
+
+ActionView::Template::Error (Missing partial receipts/receipt with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths "/Users/ThoughtWorks/sgdev/expenselynx/app/views"):
+    9:     <th></th>
+    10:     <th></th>
+    11:   </tr>
+    12: <%= render(@receipts) %>
+    13: </table>
+    14: 
+    15: <br />
+  app/views/receipts/index.html.erb:12:in `_app_views_receipts_index_html_erb__4320824049701399093_2153643900_4183751181327969525'
+  app/controllers/receipts_controller.rb:7:in `index'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.6ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-24 21:17:48 -0400
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts"[0m
+Rendered receipts/index.html.erb within layouts/application (1.2ms)
+Completed   in 13ms
+
+ActionView::Template::Error (Missing partial receipts/receipt with {:handlers=>[:erb, :rjs, :builder, :rhtml, :rxml], :formats=>[:html], :locale=>[:en, :en]} in view paths "/Users/ThoughtWorks/sgdev/expenselynx/app/views"):
+    9:     <th></th>
+    10:     <th></th>
+    11:   </tr>
+    12: <%= render(@receipts) %>
+    13: </table>
+    14: 
+    15: <br />
+  app/views/receipts/index.html.erb:12:in `_app_views_receipts_index_html_erb__4320824049701399093_2156842840_4183751181327969525'
+  app/controllers/receipts_controller.rb:7:in `index'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (29.6ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (33.5ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-24 21:20:06 -0400
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (1.8ms)[0m  SELECT "receipts".* FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (61.8ms)
+Rendered receipts/index.html.erb within layouts/application (64.7ms)
+Completed 200 OK in 78ms (Views: 67.8ms | ActiveRecord: 2.3ms)

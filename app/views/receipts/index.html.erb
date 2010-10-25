@@ -10,16 +10,7 @@
     <th></th>
   </tr>
 
-<% @receipts.each do |receipt| %>
-  <tr>
-    <td><%= receipt.store.name %></td>
-    <td><%= receipt.purchase_date %></td>
-    <td><%= receipt.total %></td>
-    <td><%= link_to 'Show', receipt %></td>
-    <td><%= link_to 'Edit', edit_receipt_path(receipt) %></td>
-    <td><%= link_to 'Destroy', receipt, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
+<%= render(@receipts) %>
 </table>
 
 <br />
