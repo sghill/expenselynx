@@ -12,7 +12,7 @@
 
 <% @receipts.each do |receipt| %>
   <tr>
-    <td><%= receipt.store_id %></td>
+    <td><%= receipt.store.name %></td>
     <td><%= receipt.purchase_date %></td>
     <td><%= receipt.total %></td>
     <td><%= link_to 'Show', receipt %></td>
