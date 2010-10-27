@@ -1343,3 +1343,1399 @@ Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.4ms)
   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-10-25 00:47:20.622747' WHERE ("stores"."id" = 980190963)[0m
 Redirected to http://test.host/stores/980190963
 Completed 302 Found in 3ms
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" ORDER BY stores.id DESC LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:33:50.576666', 'Red Lobster', '2010-10-27 05:33:50.576666')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:33:50.632637', 'Old Navy', '2010-10-27 05:33:50.632637')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:33:50.746039', 'La Shish', '2010-10-27 05:33:50.746039')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" ORDER BY stores.id DESC LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:37:58.321200', 'Red Lobster', '2010-10-27 05:37:58.321200')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:37:58.332408', 'Old Navy', '2010-10-27 05:37:58.332408')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:37:58.346240', 'La Shish', '2010-10-27 05:37:58.346240')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:42:25.288728', 'Red Lobster', '2010-10-27 05:42:25.288728')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:42:25.305513', 'Old Navy', '2010-10-27 05:42:25.305513')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:42:25.311030', 'La Shish', '2010-10-27 05:42:25.311030')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.340603', 'My Test Store', '2010-10-27 05:43:36.340603')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.362345', 'My Test Store', '2010-10-27 05:43:36.362345')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.375786', 'My Test Store', '2010-10-27 05:43:36.375786')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.391798', 'My Test Store', '2010-10-27 05:43:36.391798')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.404036', 'My Test Store', '2010-10-27 05:43:36.404036')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.415782', 'My Test Store', '2010-10-27 05:43:36.415782')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.420126', 'My Test Store', '2010-10-27 05:43:36.420126')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.428580', 'My Test Store', '2010-10-27 05:43:36.428580')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.442177', 'My Test Store', '2010-10-27 05:43:36.442177')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.475129', 'Red Lobster', '2010-10-27 05:43:36.475129')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.494749', 'Old Navy', '2010-10-27 05:43:36.494749')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:43:36.501300', 'La Shish', '2010-10-27 05:43:36.501300')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.110735', 'My Test Store', '2010-10-27 05:44:45.110735')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.131491', 'My Test Store', '2010-10-27 05:44:45.131491')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.138406', 'My Test Store', '2010-10-27 05:44:45.138406')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.146112', 'My Test Store', '2010-10-27 05:44:45.146112')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.157811', 'My Test Store', '2010-10-27 05:44:45.157811')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.170203', 'My Test Store', '2010-10-27 05:44:45.170203')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.177810', 'My Test Store', '2010-10-27 05:44:45.177810')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.182146', 'My Test Store', '2010-10-27 05:44:45.182146')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.188266', 'My Test Store', '2010-10-27 05:44:45.188266')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.193791', 'Red Lobster', '2010-10-27 05:44:45.193791')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.198313', 'Old Navy', '2010-10-27 05:44:45.198313')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:44:45.204713', 'La Shish', '2010-10-27 05:44:45.204713')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.035339', 'My Test Store', '2010-10-27 05:45:59.035339')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.055328', 'My Test Store', '2010-10-27 05:45:59.055328')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.064292', 'My Test Store', '2010-10-27 05:45:59.064292')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.071291', 'My Test Store', '2010-10-27 05:45:59.071291')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.081910', 'My Test Store', '2010-10-27 05:45:59.081910')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.085752', 'My Test Store', '2010-10-27 05:45:59.085752')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.096772', 'My Test Store', '2010-10-27 05:45:59.096772')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.100992', 'My Test Store', '2010-10-27 05:45:59.100992')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.114668', 'My Test Store', '2010-10-27 05:45:59.114668')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.119502', 'Red Lobster', '2010-10-27 05:45:59.119502')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlIc')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.122950', 'Banana rePuBlIc', '2010-10-27 05:45:59.122950')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana Republic')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.128166', 'Old Navy', '2010-10-27 05:45:59.128166')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:45:59.139826', 'La Shish', '2010-10-27 05:45:59.139826')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.338772', 'My Test Store', '2010-10-27 05:47:54.338772')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.370418', 'My Test Store', '2010-10-27 05:47:54.370418')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.407349', 'My Test Store', '2010-10-27 05:47:54.407349')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.415177', 'My Test Store', '2010-10-27 05:47:54.415177')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.457500', 'My Test Store', '2010-10-27 05:47:54.457500')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.462139', 'My Test Store', '2010-10-27 05:47:54.462139')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.466723', 'My Test Store', '2010-10-27 05:47:54.466723')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.471059', 'My Test Store', '2010-10-27 05:47:54.471059')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.478821', 'My Test Store', '2010-10-27 05:47:54.478821')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.485727', 'Red Lobster', '2010-10-27 05:47:54.485727')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlIc')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.489469', 'Banana rePuBlIc', '2010-10-27 05:47:54.489469')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana Republic')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.507425', 'Old Navy', '2010-10-27 05:47:54.507425')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:47:54.512594', 'La Shish', '2010-10-27 05:47:54.512594')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.167401', 'My Test Store', '2010-10-27 05:48:46.167401')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.193439', 'My Test Store', '2010-10-27 05:48:46.193439')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.202648', 'My Test Store', '2010-10-27 05:48:46.202648')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.213993', 'My Test Store', '2010-10-27 05:48:46.213993')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.263230', 'My Test Store', '2010-10-27 05:48:46.263230')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.269331', 'My Test Store', '2010-10-27 05:48:46.269331')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.289523', 'My Test Store', '2010-10-27 05:48:46.289523')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.295220', 'My Test Store', '2010-10-27 05:48:46.295220')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.303530', 'My Test Store', '2010-10-27 05:48:46.303530')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.316829', 'Red Lobster', '2010-10-27 05:48:46.316829')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlIc')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.329602', 'Banana rePuBlIc', '2010-10-27 05:48:46.329602')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana Republic')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.337202', 'Old Navy', '2010-10-27 05:48:46.337202')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:48:46.342074', 'La Shish', '2010-10-27 05:48:46.342074')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.232208', 'My Test Store', '2010-10-27 05:50:55.232208')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.251470', 'My Test Store', '2010-10-27 05:50:55.251470')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.263781', 'My Test Store', '2010-10-27 05:50:55.263781')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.270965', 'My Test Store', '2010-10-27 05:50:55.270965')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.276395', 'My Test Store', '2010-10-27 05:50:55.276395')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.280608', 'My Test Store', '2010-10-27 05:50:55.280608')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.294489', 'My Test Store', '2010-10-27 05:50:55.294489')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.298898', 'My Test Store', '2010-10-27 05:50:55.298898')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.304400', 'My Test Store', '2010-10-27 05:50:55.304400')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.317693', 'Red Lobster', '2010-10-27 05:50:55.317693')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.320741', 'Banana rePuBlic', '2010-10-27 05:50:55.320741')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana Republic')) LIMIT 1[0m
+  [1m[35mStore Load (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.330378', 'Old Navy', '2010-10-27 05:50:55.330378')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:50:55.334186', 'La Shish', '2010-10-27 05:50:55.334186')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:25.889773', 'My Test Store', '2010-10-27 05:51:25.889773')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:25.912979', 'My Test Store', '2010-10-27 05:51:25.912979')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:25.922679', 'My Test Store', '2010-10-27 05:51:25.922679')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:25.961441', 'My Test Store', '2010-10-27 05:51:25.961441')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:25.968665', 'My Test Store', '2010-10-27 05:51:25.968665')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:25.973732', 'My Test Store', '2010-10-27 05:51:25.973732')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:25.977871', 'My Test Store', '2010-10-27 05:51:25.977871')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:25.982964', 'My Test Store', '2010-10-27 05:51:25.982964')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:25.992614', 'My Test Store', '2010-10-27 05:51:25.992614')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:25.998726', 'Red Lobster', '2010-10-27 05:51:25.998726')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:26.004365', 'Banana rePuBlic', '2010-10-27 05:51:26.004365')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana Republic')) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:26.012435', 'Old Navy', '2010-10-27 05:51:26.012435')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 05:51:26.017313', 'La Shish', '2010-10-27 05:51:26.017313')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.013654', 'My Test Store', '2010-10-27 06:08:06.013654')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.079286', 'My Test Store', '2010-10-27 06:08:06.079286')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.096703', 'My Test Store', '2010-10-27 06:08:06.096703')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.106693', 'My Test Store', '2010-10-27 06:08:06.106693')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.113537', 'My Test Store', '2010-10-27 06:08:06.113537')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.118671', 'My Test Store', '2010-10-27 06:08:06.118671')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.123524', 'My Test Store', '2010-10-27 06:08:06.123524')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.128279', 'My Test Store', '2010-10-27 06:08:06.128279')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.135525', 'My Test Store', '2010-10-27 06:08:06.135525')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.142040', 'Red Lobster', '2010-10-27 06:08:06.142040')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.146855', 'Banana rePuBlic', '2010-10-27 06:08:06.146855')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana Republic')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.154565', 'Old Navy', '2010-10-27 06:08:06.154565')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:06.159552', 'La Shish', '2010-10-27 06:08:06.159552')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.564641', 'My Test Store', '2010-10-27 06:08:31.564641')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.583671', 'My Test Store', '2010-10-27 06:08:31.583671')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.594457', 'My Test Store', '2010-10-27 06:08:31.594457')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.605640', 'My Test Store', '2010-10-27 06:08:31.605640')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.611882', 'My Test Store', '2010-10-27 06:08:31.611882')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.617617', 'My Test Store', '2010-10-27 06:08:31.617617')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.623038', 'My Test Store', '2010-10-27 06:08:31.623038')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.627306', 'My Test Store', '2010-10-27 06:08:31.627306')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.633147', 'My Test Store', '2010-10-27 06:08:31.633147')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.638541', 'Red Lobster', '2010-10-27 06:08:31.638541')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.650656', 'Banana rePuBlic', '2010-10-27 06:08:31.650656')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.654964', 'Old Navy', '2010-10-27 06:08:31.654964')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:08:31.659690', 'La Shish', '2010-10-27 06:08:31.659690')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.647834', 'My Test Store', '2010-10-27 06:09:53.647834')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.670814', 'My Test Store', '2010-10-27 06:09:53.670814')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.684315', 'My Test Store', '2010-10-27 06:09:53.684315')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.693541', 'My Test Store', '2010-10-27 06:09:53.693541')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.733008', 'My Test Store', '2010-10-27 06:09:53.733008')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.742548', 'My Test Store', '2010-10-27 06:09:53.742548')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.754607', 'My Test Store', '2010-10-27 06:09:53.754607')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.758230', 'My Test Store', '2010-10-27 06:09:53.758230')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.765522', 'My Test Store', '2010-10-27 06:09:53.765522')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.772991', 'Red Lobster', '2010-10-27 06:09:53.772991')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.784079', 'Banana rePuBlic', '2010-10-27 06:09:53.784079')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.792948', 'Old Navy', '2010-10-27 06:09:53.792948')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:09:53.796968', 'La Shish', '2010-10-27 06:09:53.796968')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.169921', 'My Test Store', '2010-10-27 06:10:48.169921')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.190079', 'My Test Store', '2010-10-27 06:10:48.190079')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.198005', 'My Test Store', '2010-10-27 06:10:48.198005')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.207986', 'My Test Store', '2010-10-27 06:10:48.207986')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.218537', 'My Test Store', '2010-10-27 06:10:48.218537')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.223776', 'My Test Store', '2010-10-27 06:10:48.223776')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.228948', 'My Test Store', '2010-10-27 06:10:48.228948')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.233344', 'My Test Store', '2010-10-27 06:10:48.233344')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.239836', 'My Test Store', '2010-10-27 06:10:48.239836')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.252221', 'Red Lobster', '2010-10-27 06:10:48.252221')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.262958', 'Banana rePuBlic', '2010-10-27 06:10:48.262958')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'banana republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.269240', 'Old Navy', '2010-10-27 06:10:48.269240')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:10:48.275998', 'La Shish', '2010-10-27 06:10:48.275998')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.298883', 'My Test Store', '2010-10-27 06:20:46.298883')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.320520', 'My Test Store', '2010-10-27 06:20:46.320520')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.547801', 'My Test Store', '2010-10-27 06:20:46.547801')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.558086', 'My Test Store', '2010-10-27 06:20:46.558086')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.565066', 'My Test Store', '2010-10-27 06:20:46.565066')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.569165', 'My Test Store', '2010-10-27 06:20:46.569165')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.574537', 'My Test Store', '2010-10-27 06:20:46.574537')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.578751', 'My Test Store', '2010-10-27 06:20:46.578751')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.586335', 'My Test Store', '2010-10-27 06:20:46.586335')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.591945', 'Red Lobster', '2010-10-27 06:20:46.591945')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.595730', 'Banana rePuBlic', '2010-10-27 06:20:46.595730')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'banana republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.600954', 'Old Navy', '2010-10-27 06:20:46.600954')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:20:46.605822', 'La Shish', '2010-10-27 06:20:46.605822')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.336616', 'My Test Store', '2010-10-27 06:24:12.336616')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.355074', 'My Test Store', '2010-10-27 06:24:12.355074')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.364404', 'My Test Store', '2010-10-27 06:24:12.364404')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.403777', 'My Test Store', '2010-10-27 06:24:12.403777')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.414661', 'My Test Store', '2010-10-27 06:24:12.414661')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.426481', 'My Test Store', '2010-10-27 06:24:12.426481')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.432772', 'My Test Store', '2010-10-27 06:24:12.432772')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.436418', 'My Test Store', '2010-10-27 06:24:12.436418')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.446856', 'My Test Store', '2010-10-27 06:24:12.446856')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.455595', 'Red Lobster', '2010-10-27 06:24:12.455595')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.459944', 'Banana rePuBlic', '2010-10-27 06:24:12.459944')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'banana republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.470460', 'Old Navy', '2010-10-27 06:24:12.470460')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:24:12.474391', 'La Shish', '2010-10-27 06:24:12.474391')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.030386', 'My Test Store', '2010-10-27 06:26:24.030386')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.050595', 'My Test Store', '2010-10-27 06:26:24.050595')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.349454', 'My Test Store', '2010-10-27 06:26:24.349454')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.359071', 'My Test Store', '2010-10-27 06:26:24.359071')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.365964', 'My Test Store', '2010-10-27 06:26:24.365964')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.372158', 'My Test Store', '2010-10-27 06:26:24.372158')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.378096', 'My Test Store', '2010-10-27 06:26:24.378096')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.383844', 'My Test Store', '2010-10-27 06:26:24.383844')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.391598', 'My Test Store', '2010-10-27 06:26:24.391598')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.397126', 'Red Lobster', '2010-10-27 06:26:24.397126')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.439742', 'Banana rePuBlic', '2010-10-27 06:26:24.439742')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'banana republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Banana Republic')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.447999', 'Old Navy', '2010-10-27 06:26:24.447999')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:26:24.454339', 'La Shish', '2010-10-27 06:26:24.454339')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.191089', 'My Test Store', '2010-10-27 06:27:05.191089')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.241010', 'My Test Store', '2010-10-27 06:27:05.241010')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.252103', 'My Test Store', '2010-10-27 06:27:05.252103')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.259917', 'My Test Store', '2010-10-27 06:27:05.259917')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.276406', 'My Test Store', '2010-10-27 06:27:05.276406')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.281123', 'My Test Store', '2010-10-27 06:27:05.281123')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.293045', 'My Test Store', '2010-10-27 06:27:05.293045')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.298184', 'My Test Store', '2010-10-27 06:27:05.298184')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.311790', 'My Test Store', '2010-10-27 06:27:05.311790')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.319426', 'Red Lobster', '2010-10-27 06:27:05.319426')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.323857', 'Banana rePuBlic', '2010-10-27 06:27:05.323857')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'banana republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'banana republic')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.329618', 'Old Navy', '2010-10-27 06:27:05.329618')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:27:05.334454', 'La Shish', '2010-10-27 06:27:05.334454')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.388552', 'My Test Store', '2010-10-27 06:37:36.388552')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.407911', 'My Test Store', '2010-10-27 06:37:36.407911')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.414889', 'My Test Store', '2010-10-27 06:37:36.414889')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.422046', 'My Test Store', '2010-10-27 06:37:36.422046')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.426888', 'My Test Store', '2010-10-27 06:37:36.426888')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.430860', 'My Test Store', '2010-10-27 06:37:36.430860')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.434476', 'My Test Store', '2010-10-27 06:37:36.434476')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.437644', 'My Test Store', '2010-10-27 06:37:36.437644')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.469923', 'My Test Store', '2010-10-27 06:37:36.469923')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'My Test Store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Typical Party Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.487987', 'Typical Party Store', '2010-10-27 06:37:36.487987')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'typical party stoRE') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.492213', 'Red Lobster', '2010-10-27 06:37:36.492213')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.496169', 'Old Navy', '2010-10-27 06:37:36.496169')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:37:36.500476', 'La Shish', '2010-10-27 06:37:36.500476')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.301349', 'My Test Store', '2010-10-27 06:39:50.301349')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.346259', 'My Test Store', '2010-10-27 06:39:50.346259')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.362480', 'My Test Store', '2010-10-27 06:39:50.362480')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.368994', 'My Test Store', '2010-10-27 06:39:50.368994')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.374774', 'My Test Store', '2010-10-27 06:39:50.374774')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.378247', 'My Test Store', '2010-10-27 06:39:50.378247')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.382243', 'My Test Store', '2010-10-27 06:39:50.382243')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.385819', 'My Test Store', '2010-10-27 06:39:50.385819')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.391246', 'My Test Store', '2010-10-27 06:39:50.391246')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Typical Party Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.396005', 'Typical Party Store', '2010-10-27 06:39:50.396005')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'typical party store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.402775', 'Red Lobster', '2010-10-27 06:39:50.402775')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.405993', 'Old Navy', '2010-10-27 06:39:50.405993')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:39:50.421236', 'La Shish', '2010-10-27 06:39:50.421236')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.242328', 'My Test Store', '2010-10-27 06:47:12.242328')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.262588', 'My Test Store', '2010-10-27 06:47:12.262588')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.289181', 'My Test Store', '2010-10-27 06:47:12.289181')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.346951', 'My Test Store', '2010-10-27 06:47:12.346951')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.361466', 'My Test Store', '2010-10-27 06:47:12.361466')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.366100', 'My Test Store', '2010-10-27 06:47:12.366100')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.369997', 'My Test Store', '2010-10-27 06:47:12.369997')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.373800', 'My Test Store', '2010-10-27 06:47:12.373800')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.378978', 'My Test Store', '2010-10-27 06:47:12.378978')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Typical Party Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.384750', 'Typical Party Store', '2010-10-27 06:47:12.384750')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'typical party store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('MyThai')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.388338', 'MyThai', '2010-10-27 06:47:12.388338')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (name = 'MyThai') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.391563', 'Red Lobster', '2010-10-27 06:47:12.391563')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.395674', 'Old Navy', '2010-10-27 06:47:12.395674')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:47:12.399889', 'La Shish', '2010-10-27 06:47:12.399889')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.547128', 'My Test Store', '2010-10-27 06:55:08.547128')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.567707', 'My Test Store', '2010-10-27 06:55:08.567707')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.830686', 'My Test Store', '2010-10-27 06:55:08.830686')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.837782', 'My Test Store', '2010-10-27 06:55:08.837782')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.843795', 'My Test Store', '2010-10-27 06:55:08.843795')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.849022', 'My Test Store', '2010-10-27 06:55:08.849022')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.853689', 'My Test Store', '2010-10-27 06:55:08.853689')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.857950', 'My Test Store', '2010-10-27 06:55:08.857950')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.863733', 'My Test Store', '2010-10-27 06:55:08.863733')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Rainforest CaFe')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.872081', 'Rainforest CaFe', '2010-10-27 06:55:08.872081')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'rainforest cafe')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Typical Party Store')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.875448', 'Typical Party Store', '2010-10-27 06:55:08.875448')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'typical party store') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('MyThai')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.878427', 'MyThai', '2010-10-27 06:55:08.878427')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (name = 'MyThai') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.881564', 'Red Lobster', '2010-10-27 06:55:08.881564')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."name" = 'Red Lobster')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.885260', 'Old Navy', '2010-10-27 06:55:08.885260')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:55:08.890397', 'La Shish', '2010-10-27 06:55:08.890397')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.100258', 'My Test Store', '2010-10-27 06:58:09.100258')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.124597', 'My Test Store', '2010-10-27 06:58:09.124597')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.134202', 'My Test Store', '2010-10-27 06:58:09.134202')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.142349', 'My Test Store', '2010-10-27 06:58:09.142349')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.148861', 'My Test Store', '2010-10-27 06:58:09.148861')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.152391', 'My Test Store', '2010-10-27 06:58:09.152391')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.161222', 'My Test Store', '2010-10-27 06:58:09.161222')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.170223', 'My Test Store', '2010-10-27 06:58:09.170223')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.180873', 'My Test Store', '2010-10-27 06:58:09.180873')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Rainforest CaFe')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.187679', 'Rainforest CaFe', '2010-10-27 06:58:09.187679')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'rainforest cafe')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Typical Party Store')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.194592', 'Typical Party Store', '2010-10-27 06:58:09.194592')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'typical party store') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('MyThai')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.199998', 'MyThai', '2010-10-27 06:58:09.199998')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (name = 'MyThai') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.210873', 'Red Lobster', '2010-10-27 06:58:09.210873')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.220823', 'Old Navy', '2010-10-27 06:58:09.220823')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:58:09.226181', 'La Shish', '2010-10-27 06:58:09.226181')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.382030', 'My Test Store', '2010-10-27 06:59:25.382030')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.409401', 'My Test Store', '2010-10-27 06:59:25.409401')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.420257', 'My Test Store', '2010-10-27 06:59:25.420257')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.453568', 'My Test Store', '2010-10-27 06:59:25.453568')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.463802', 'My Test Store', '2010-10-27 06:59:25.463802')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.472347', 'My Test Store', '2010-10-27 06:59:25.472347')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.481193', 'My Test Store', '2010-10-27 06:59:25.481193')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.495996', 'My Test Store', '2010-10-27 06:59:25.495996')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.501605', 'My Test Store', '2010-10-27 06:59:25.501605')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Rainforest CaFe')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.506878', 'Rainforest CaFe', '2010-10-27 06:59:25.506878')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'rainforest cafe')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Sports Authority')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.510142', 'Sports Authority', '2010-10-27 06:59:25.510142')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (name = 'sports authority')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Typical Party Store')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.513142', 'Typical Party Store', '2010-10-27 06:59:25.513142')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'typical party store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('MyThai')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.520869', 'MyThai', '2010-10-27 06:59:25.520869')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (name = 'MyThai') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.524910', 'Red Lobster', '2010-10-27 06:59:25.524910')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.528347', 'Old Navy', '2010-10-27 06:59:25.528347')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:25.532616', 'La Shish', '2010-10-27 06:59:25.532616')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.563665', 'My Test Store', '2010-10-27 06:59:47.563665')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.617605', 'My Test Store', '2010-10-27 06:59:47.617605')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.632737', 'My Test Store', '2010-10-27 06:59:47.632737')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.639800', 'My Test Store', '2010-10-27 06:59:47.639800')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.645731', 'My Test Store', '2010-10-27 06:59:47.645731')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.653557', 'My Test Store', '2010-10-27 06:59:47.653557')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.661449', 'My Test Store', '2010-10-27 06:59:47.661449')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.675089', 'My Test Store', '2010-10-27 06:59:47.675089')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.681656', 'My Test Store', '2010-10-27 06:59:47.681656')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Rainforest CaFe')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.691876', 'Rainforest CaFe', '2010-10-27 06:59:47.691876')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'rainforest cafe')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Sports Authority')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.695889', 'Sports Authority', '2010-10-27 06:59:47.695889')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (name = 'Sports Authority')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Typical Party Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.699685', 'Typical Party Store', '2010-10-27 06:59:47.699685')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'typical party store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('MyThai')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.703266', 'MyThai', '2010-10-27 06:59:47.703266')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (name = 'MyThai') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.707057', 'Red Lobster', '2010-10-27 06:59:47.707057')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.718969', 'Old Navy', '2010-10-27 06:59:47.718969')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 06:59:47.724068', 'La Shish', '2010-10-27 06:59:47.724068')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.212051', 'My Test Store', '2010-10-27 07:01:01.212051')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.234289', 'My Test Store', '2010-10-27 07:01:01.234289')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.241825', 'My Test Store', '2010-10-27 07:01:01.241825')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.278257', 'My Test Store', '2010-10-27 07:01:01.278257')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.282955', 'My Test Store', '2010-10-27 07:01:01.282955')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" IS NULL) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.288406', 'My Test Store', '2010-10-27 07:01:01.288406')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1001) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.292476', 'My Test Store', '2010-10-27 07:01:01.292476')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.296615', 'My Test Store', '2010-10-27 07:01:01.296615')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('My Test Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.301771', 'My Test Store', '2010-10-27 07:01:01.301771')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'my test store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Rainforest CaFe')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.307161', 'Rainforest CaFe', '2010-10-27 07:01:01.307161')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'rainforest cafe')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Sports Authority')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.310637', 'Sports Authority', '2010-10-27 07:01:01.310637')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (name = 'Sports Authority')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Typical Party Store')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.314231', 'Typical Party Store', '2010-10-27 07:01:01.314231')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'typical party store') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('MyThai')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.317620', 'MyThai', '2010-10-27 07:01:01.317620')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (name = 'MyThai') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Red Lobster')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.320895', 'Red Lobster', '2010-10-27 07:01:01.320895')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'red lobster')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Banana rePuBlic')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.324673', 'Banana rePuBlic', '2010-10-27 07:01:01.324673')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'banana republic') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'banana republic')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.328056', 'Old Navy', '2010-10-27 07:01:01.328056')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Old Navy')) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('La Shish')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-27 07:01:01.332632', 'La Shish', '2010-10-27 07:01:01.332632')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('la shish')) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE ("stores"."name" IS NULL) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('anything unique')) LIMIT 1[0m
