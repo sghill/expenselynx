@@ -1,7 +1,8 @@
 Expenselynx::Application.routes.draw do
+  match 'stores/search' => 'stores#search'
   resources :receipts
-
   resources :stores
+  
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

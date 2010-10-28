@@ -2,9 +2,26 @@
 <html>
 <head>
   <title>ExpenseLynx</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/black-tie/jquery-ui.css" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js" %>
   <%= csrf_meta_tag %>
+  
+  <script type="text/javascript">$(document).ready(function() {
+    $("input#autocomplete").autocomplete({
+      minLength: 0,
+      source: function(request, response) {
+        $.ajax({
+          url: "/stores/search",
+          dataType: "json",
+          data: {term: request.term},
+          success: function( data ) {
+            response( data );
+          }
+        });
+      }
+    })
+  });</script>
+  
 </head>
 <body>
 

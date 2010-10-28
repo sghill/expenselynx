@@ -3471,3 +3471,2637 @@ Completed 200 OK in 78ms (Views: 67.8ms | ActiveRecord: 2.3ms)
   [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
   [1m[36mSQL (9.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
   [1m[35mSQL (13.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (20.9ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.4ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (3.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (6.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (11.2ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (17.4ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (23.0ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.7ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (10.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (5.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.5ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (19.2ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (5.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (14.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 19:08:48 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (44.3ms)
+Rendered receipts/new.html.erb within layouts/application (57.5ms)
+Completed 200 OK in 127ms (Views: 89.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-27 19:09:03 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (0.4ms)[0m  SELECT "receipts".* FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (60.9ms)
+Rendered receipts/index.html.erb within layouts/application (334.1ms)
+Completed 200 OK in 346ms (Views: 337.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 19:12:31 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.4ms)
+Rendered receipts/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 22ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 19:13:02 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (39.0ms)
+Rendered receipts/new.html.erb within layouts/application (41.6ms)
+Completed 200 OK in 56ms (Views: 45.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 19:15:01 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.3ms)
+Rendered receipts/new.html.erb within layouts/application (64.0ms)
+Completed 200 OK in 77ms (Views: 67.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 19:15:36 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (36.8ms)
+Rendered receipts/new.html.erb within layouts/application (75.7ms)
+Completed 200 OK in 88ms (Views: 78.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 19:22:03 -0700
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"search"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 0) LIMIT 1
+Completed   in 11ms
+
+ActiveRecord::RecordNotFound (Couldn't find Store with ID=search):
+  app/controllers/stores_controller.rb:16:in `show'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (11.6ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 19:23:33 -0700
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"search"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 0) LIMIT 1[0m
+Completed   in 41ms
+
+ActiveRecord::RecordNotFound (Couldn't find Store with ID=search):
+  app/controllers/stores_controller.rb:16:in `show'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 19:25:14 -0700
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"search"}
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 0) LIMIT 1
+Completed   in 78ms
+
+ActiveRecord::RecordNotFound (Couldn't find Store with ID=search):
+  app/controllers/stores_controller.rb:16:in `show'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (30.2ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 19:25:39 -0700
+
+ActionController::RoutingError (uninitialized constant StoreController):
+  
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.3ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 19:26:31 -0700
+
+ActionController::RoutingError (uninitialized constant StoreController):
+  
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.1ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 19:28:54 -0700
+  Processing by StoresController#search as HTML
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 406 Not Acceptable in 11ms
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 19:29:07 -0700
+  Processing by StoresController#search as HTML
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Completed 406 Not Acceptable in 10ms
+
+
+Started GET "/stores/search?q=test" for 127.0.0.1 at 2010-10-27 19:30:15 -0700
+  Processing by StoresController#search as HTML
+  Parameters: {"q"=>"test"}
+  [1m[36mStore Load (29.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test%')[0m
+Completed 406 Not Acceptable in 38ms
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 19:32:02 -0700
+  Processing by StoresController#search as HTML
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 169ms (Views: 159.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?q=ban" for 127.0.0.1 at 2010-10-27 19:33:33 -0700
+  Processing by StoresController#search as HTML
+  Parameters: {"q"=>"ban"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'ban%')[0m
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?q=ban" for 127.0.0.1 at 2010-10-27 19:38:34 -0700
+  Processing by StoresController#search as HTML
+  Parameters: {"q"=>"ban"}
+  [1m[35mStore Load (7.8ms)[0m  SELECT "stores".* FROM "stores" WHERE (name ILIKE 'ban%')
+SQLite3::SQLException: near "ILIKE": syntax error: SELECT     "stores".* FROM       "stores"  WHERE     (name ILIKE 'ban%')
+Completed   in 16ms
+
+ActiveRecord::StatementInvalid (SQLite3::SQLException: near "ILIKE": syntax error: SELECT     "stores".* FROM       "stores"  WHERE     (name ILIKE 'ban%')):
+  app/controllers/stores_controller.rb:87:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)
+
+
+Started GET "/stores/search?q=ban" for 127.0.0.1 at 2010-10-27 19:38:50 -0700
+  Processing by StoresController#search as HTML
+  Parameters: {"q"=>"ban"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (name LIKE 'ban%')[0m
+Completed 200 OK in 65ms (Views: 55.7ms | ActiveRecord: 8.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 19:47:50 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (28.1ms)
+Rendered receipts/new.html.erb within layouts/application (43.5ms)
+Completed 200 OK in 510ms (Views: 102.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=b" for 127.0.0.1 at 2010-10-27 19:47:59 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"b"}
+  [1m[35mStore Load (0.7ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 49ms (Views: 37.8ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/stores/search?term=ba" for 127.0.0.1 at 2010-10-27 19:48:01 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ba"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 17ms (Views: 8.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=ban" for 127.0.0.1 at 2010-10-27 19:48:04 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ban"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 46ms (Views: 7.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=bana" for 127.0.0.1 at 2010-10-27 19:48:05 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"bana"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 18ms (Views: 8.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=banaa" for 127.0.0.1 at 2010-10-27 19:48:09 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"banaa"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 17ms (Views: 7.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=banana" for 127.0.0.1 at 2010-10-27 19:48:10 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"banana"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 46ms (Views: 36.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=banana+" for 127.0.0.1 at 2010-10-27 19:48:11 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"banana "}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 19ms (Views: 9.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=banana" for 127.0.0.1 at 2010-10-27 19:48:12 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"banana"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 17ms (Views: 8.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 20:35:32 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (35.7ms)
+Rendered receipts/new.html.erb within layouts/application (78.1ms)
+Completed 200 OK in 119ms (Views: 109.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 20:38:18 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.7ms)
+Rendered receipts/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 25ms (Views: 14.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-27 20:38:30 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 17ms (Views: 8.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 20:38:33 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 16ms (Views: 7.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 20:38:34 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 21ms (Views: 11.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-10-27 20:38:35 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 51ms (Views: 42.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 20:40:17 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.6ms)
+Rendered receipts/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 56ms (Views: 46.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 20:41:55 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (40.5ms)
+Rendered receipts/new.html.erb within layouts/application (42.6ms)
+Completed 200 OK in 56ms (Views: 45.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 20:48:47 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.6ms)
+Rendered receipts/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 62ms (Views: 44.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-27 20:48:50 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 20ms (Views: 7.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 20:48:51 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 19ms (Views: 9.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 20:48:52 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 21ms (Views: 10.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-10-27 20:48:52 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 54ms (Views: 41.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 20:59:06 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.8ms)
+Rendered receipts/new.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 40ms (Views: 20.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-27 20:59:10 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 16ms (Views: 7.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 20:59:11 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 18ms (Views: 7.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 20:59:12 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 18ms (Views: 7.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-10-27 20:59:13 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 47ms (Views: 38.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 21:06:26 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (15.5ms)
+Rendered receipts/new.html.erb within layouts/application (19.7ms)
+Completed 200 OK in 38ms (Views: 23.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-27 21:06:30 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 't%')
+Completed 200 OK in 17ms (Views: 5.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 21:06:31 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'te%')[0m
+Completed 200 OK in 18ms (Views: 6.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 21:06:33 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'tes%')
+Completed 200 OK in 17ms (Views: 6.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 21:08:40 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.0ms)
+Rendered receipts/new.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 58ms (Views: 47.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search.js?term=t" for 127.0.0.1 at 2010-10-27 21:08:43 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"t"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 't%')[0m
+Completed 200 OK in 17ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.js?term=te" for 127.0.0.1 at 2010-10-27 21:08:44 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'te%')
+Completed 200 OK in 16ms (Views: 5.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.js?term=tes" for 127.0.0.1 at 2010-10-27 21:08:45 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'tes%')[0m
+Completed 200 OK in 20ms (Views: 6.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 21:19:04 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.1ms)
+Rendered receipts/new.html.erb within layouts/application (11.6ms)
+Completed 200 OK in 108ms (Views: 22.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search.json?term=t" for 127.0.0.1 at 2010-10-27 21:19:07 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 't%')
+Completed 406 Not Acceptable in 43ms
+
+
+Started GET "/stores/search.json?term=te" for 127.0.0.1 at 2010-10-27 21:19:09 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'te%')[0m
+Completed 406 Not Acceptable in 11ms
+
+
+Started GET "/stores/search.json?term=tes" for 127.0.0.1 at 2010-10-27 21:19:10 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'tes%')
+Completed 406 Not Acceptable in 11ms
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 21:19:37 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.8ms)
+Rendered receipts/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 28ms (Views: 15.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/stores/search.json?term=t" for 127.0.0.1 at 2010-10-27 21:19:40 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 't%')[0m
+Completed 200 OK in 42ms (Views: 31.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.json?term=te" for 127.0.0.1 at 2010-10-27 21:19:42 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'te%')
+Completed 200 OK in 17ms (Views: 6.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.json?term=tes" for 127.0.0.1 at 2010-10-27 21:19:43 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'tes%')[0m
+Completed 200 OK in 48ms (Views: 38.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 21:23:30 -0700
+  Processing by StoresController#search as HTML
+  [1m[35mStore Load (2.2ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/search.html.erb within layouts/application (1.0ms)
+Completed 200 OK in 17ms (Views: 5.3ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 21:27:02 -0700
+  Processing by StoresController#search as HTML
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+ERROR: compiling _app_views_stores_search_html_erb__1296969638130786776_2154395480_2774977955552061952 RAISED /Users/ThoughtWorks/sgdev/expenselynx/app/views/stores/search.html.erb:5: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/ThoughtWorks/sgdev/expenselynx/app/views/stores/search.html.erb:7: syntax error, unexpected $end, expecting keyword_end
+Function body:           def _app_views_stores_search_html_erb__1296969638130786776_2154395480_2774977955552061952(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "stores/search";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new; data = [] 
+@output_buffer.append_if_string=  @stores.each do |s| 
+   data << {:label => "#{h(s.name)}", :value => "#{h(s.id)}"} 
+@output_buffer.append= ( data.to_json );@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/template.rb:255:in `module_eval'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/template.rb:255:in `compile'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/template.rb:134:in `block in render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications.rb:54:in `instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/template.rb:127:in `render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:26:in `render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:92:in `render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/rendering.rb:17:in `render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/ThoughtWorks/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/implicit_render.rb:10:in `default_render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/mime_responds.rb:261:in `block in retrieve_response_from_mimes'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/stores_controller.rb:93:in `search'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/base.rb:150:in `process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:435:in `_run__2759526441997497653__process_action__4197641089675892565__callbacks'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/base.rb:119:in `process'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:40:in `process'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal.rb:133:in `dispatch'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal.rb:173:in `block in action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `block in call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/cookies.rb:287:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:32:in `block in call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:12:in `cache'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:31:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/rack/logger.rb:13:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/application.rb:168:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/application.rb:77:in `method_missing'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/rack/log_tailer.rb:14:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/Users/ThoughtWorks/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/Users/ThoughtWorks/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/Users/ThoughtWorks/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered stores/search.html.erb within layouts/application (197.3ms)
+Completed   in 210ms
+
+ActionView::Template::Error (/Users/ThoughtWorks/sgdev/expenselynx/app/views/stores/search.html.erb:5: syntax error, unexpected keyword_ensure, expecting keyword_end
+/Users/ThoughtWorks/sgdev/expenselynx/app/views/stores/search.html.erb:7: syntax error, unexpected $end, expecting keyword_end):
+    2: <% @stores.each do |s| %>
+    3:   <% data << {:label => "#{h(s.name)}", :value => "#{h(s.id)}"} %>
+    4: <%= data.to_json %>
+  app/controllers/stores_controller.rb:93:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.5ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 21:27:23 -0700
+  Processing by StoresController#search as HTML
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/search.html.erb within layouts/application (6.6ms)
+Completed 200 OK in 19ms (Views: 9.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 21:27:28 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.9ms)
+Rendered receipts/new.html.erb within layouts/application (12.9ms)
+Completed 200 OK in 52ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-27 21:27:30 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 't%')[0m
+Rendered stores/search.html.erb within layouts/application (35.5ms)
+Completed 200 OK in 47ms (Views: 38.4ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 21:27:32 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 'te%')
+Rendered stores/search.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 18ms (Views: 8.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 21:27:33 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'tes%')[0m
+Rendered stores/search.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 18ms (Views: 8.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 21:31:33 -0700
+  Processing by StoresController#search as HTML
+Rendered stores/search.html.erb (0.5ms)
+Completed   in 2ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <% data = [] %>
+    2: <% @stores.each do |s| %>
+    3:   <% data << {:label => "#{h(s.name)}", :value => "#{h(s.id)}"} %>
+    4: <%= data.to_json %>
+    5: <% end %>
+  app/views/stores/search.html.erb:2:in `_app_views_stores_search_html_erb__1296969638130786776_2181462140_2774977955552061952'
+  app/controllers/stores_controller.rb:86:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 21:33:16 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (11.8ms)
+Rendered receipts/new.html.erb within layouts/application (14.9ms)
+Completed 200 OK in 62ms (Views: 51.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 21:33:22 -0700
+  Processing by StoresController#search as HTML
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/search.html.erb (36.5ms)
+Completed   in 49ms
+
+AbstractController::DoubleRenderError (Render and/or redirect were called multiple times in this action. Please note that you may only call render OR redirect, and at most once per action. Also note that neither redirect nor render terminate execution of the action, so if you want to exit an action after redirecting, you need to do something like "redirect_to(...) and return".):
+  app/controllers/stores_controller.rb:93:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.6ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 21:33:39 -0700
+
+SyntaxError (/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/stores_controller.rb:94: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+      format.html, :layout => false
+                             ^):
+  
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.0ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 21:34:06 -0700
+  Processing by StoresController#search as HTML
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Rendered stores/search.html.erb (5.5ms)
+Completed 200 OK in 17ms (Views: 6.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 21:34:12 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (38.3ms)
+Rendered receipts/new.html.erb within layouts/application (40.4ms)
+Completed 200 OK in 53ms (Views: 43.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 21:34:14 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.2ms)
+Rendered receipts/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 25ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-27 21:34:16 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 't%')
+Rendered stores/search.html.erb (5.1ms)
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 21:34:17 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'te%')[0m
+Rendered stores/search.html.erb (4.9ms)
+Completed 200 OK in 17ms (Views: 6.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 21:34:18 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 'tes%')
+Rendered stores/search.html.erb (4.6ms)
+Completed 200 OK in 15ms (Views: 6.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-10-27 21:34:19 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'test%')[0m
+Rendered stores/search.html.erb (35.6ms)
+Completed 200 OK in 48ms (Views: 37.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 21:35:05 -0700
+  Processing by StoresController#search as HTML
+  [1m[35mStore Load (1.1ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/search.html.erb (5.8ms)
+Completed 200 OK in 18ms (Views: 7.4ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-27 21:35:10 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 't%')[0m
+Rendered stores/search.html.erb (5.2ms)
+Completed 200 OK in 15ms (Views: 6.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 21:35:11 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 'te%')
+Rendered stores/search.html.erb (4.4ms)
+Completed 200 OK in 49ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 21:35:12 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'tes%')[0m
+Rendered stores/search.html.erb (5.3ms)
+Completed 200 OK in 18ms (Views: 6.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-10-27 21:35:13 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 'test%')
+Rendered stores/search.html.erb (6.7ms)
+Completed 200 OK in 21ms (Views: 8.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 21:58:12 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (11.2ms)
+Rendered receipts/new.html.erb within layouts/application (14.1ms)
+Completed 200 OK in 54ms (Views: 45.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-27 21:58:15 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 't%')[0m
+Completed 200 OK in 16ms (Views: 6.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 21:58:16 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 'te%')
+Completed 200 OK in 15ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:01:30 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.7ms)
+Rendered receipts/new.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 52ms (Views: 42.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search.js?term=t" for 127.0.0.1 at 2010-10-27 22:01:34 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"t"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 't%')[0m
+Completed 200 OK in 45ms (Views: 36.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.js?term=te" for 127.0.0.1 at 2010-10-27 22:01:34 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 'te%')
+Completed 200 OK in 14ms (Views: 5.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.js?term=tes" for 127.0.0.1 at 2010-10-27 22:01:36 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'tes%')[0m
+Completed 200 OK in 14ms (Views: 5.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:04:28 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (14.4ms)
+Rendered receipts/new.html.erb within layouts/application (17.8ms)
+Completed 200 OK in 30ms (Views: 21.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search.js?term=t" for 127.0.0.1 at 2010-10-27 22:04:33 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 't%')
+Completed 200 OK in 15ms (Views: 6.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.js?term=te" for 127.0.0.1 at 2010-10-27 22:04:34 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'te%')[0m
+Completed 200 OK in 48ms (Views: 39.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:04:53 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.6ms)
+Rendered receipts/new.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 23ms (Views: 14.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search.js?term=t" for 127.0.0.1 at 2010-10-27 22:04:55 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 't%')
+Completed 200 OK in 10ms (Views: 1.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.js?term=te" for 127.0.0.1 at 2010-10-27 22:04:57 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'te%')[0m
+Completed 200 OK in 39ms (Views: 1.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:08:03 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.2ms)
+Rendered receipts/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 24ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search.js?term=t" for 127.0.0.1 at 2010-10-27 22:08:06 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 't%')
+Completed 200 OK in 16ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.js?term=te" for 127.0.0.1 at 2010-10-27 22:08:08 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'te%')[0m
+Completed 200 OK in 14ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.js?term=tes" for 127.0.0.1 at 2010-10-27 22:08:10 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 'tes%')
+Completed 200 OK in 16ms (Views: 6.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:09:08 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.0ms)
+Rendered receipts/new.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 54ms (Views: 45.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search.js?term=t" for 127.0.0.1 at 2010-10-27 22:09:11 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"t"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 't%')[0m
+Completed 200 OK in 15ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search.js?term=te" for 127.0.0.1 at 2010-10-27 22:09:12 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 'te%')
+Completed 200 OK in 14ms (Views: 5.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:12:05 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.5ms)
+Rendered receipts/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 73ms (Views: 31.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search.js?term=tes" for 127.0.0.1 at 2010-10-27 22:12:12 -0700
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'tes%')[0m
+Completed 200 OK in 14ms (Views: 5.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stores/search.s" for 127.0.0.1 at 2010-10-27 22:12:25 -0700
+  Processing by StoresController#search as 
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores"
+Completed 406 Not Acceptable in 40ms
+
+
+Started GET "/stores/search.js" for 127.0.0.1 at 2010-10-27 22:12:29 -0700
+  Processing by StoresController#search as JS
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 18ms (Views: 7.9ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 22:16:41 -0700
+  Processing by StoresController#search as HTML
+  [1m[35mStore Load (4.3ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/search.html.erb (5.4ms)
+Completed 200 OK in 32ms (Views: 18.2ms | ActiveRecord: 4.3ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:16:47 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.6ms)
+Rendered receipts/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 86ms (Views: 46.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:17:02 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.9ms)
+Rendered receipts/new.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 24ms (Views: 14.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 22:17:09 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'tes%')[0m
+Rendered stores/search.html.erb (5.3ms)
+Completed 200 OK in 15ms (Views: 6.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 22:17:34 -0700
+  Processing by StoresController#search as HTML
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/search.html.erb (5.5ms)
+Completed 200 OK in 16ms (Views: 7.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 22:18:58 -0700
+  Processing by StoresController#search as HTML
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+ERROR: compiling _app_views_stores_search_html_erb__1296969638130786776_2153610980_2774977955552061952 RAISED /Users/ThoughtWorks/sgdev/expenselynx/app/views/stores/search.html.erb:3: syntax error, unexpected $undefined
+   data << {:label => \"#{(s.name)}\", :value => \"#{(s.id)}\"} 
+                       ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/views/stores/search.html.erb:3: unterminated string meets end of file
+/Users/ThoughtWorks/sgdev/expenselynx/app/views/stores/search.html.erb:3: syntax error, unexpected $end, expecting keyword_end
+Function body:           def _app_views_stores_search_html_erb__1296969638130786776_2153610980_2774977955552061952(local_assigns)
+            _old_virtual_path, @_virtual_path = @_virtual_path, "stores/search";_old_output_buffer = @output_buffer;;@output_buffer = ActionView::OutputBuffer.new; data = [] 
+@output_buffer.append_if_string=  @stores.each do |s| 
+   data << {:label => \"#{(s.name)}\", :value => \"#{(s.id)}\"} 
+@output_buffer.append= ( data.to_json );@output_buffer.safe_concat('
+'); end ;@output_buffer.to_s
+          ensure
+            @_virtual_path, @output_buffer = _old_virtual_path, _old_output_buffer
+          end
+Backtrace: /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/template.rb:255:in `module_eval'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/template.rb:255:in `compile'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/template.rb:134:in `block in render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications.rb:54:in `instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/template.rb:127:in `render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:59:in `block in _render_template'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:56:in `_render_template'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_view/render/rendering.rb:26:in `render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:114:in `_render_template'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:108:in `render_to_body'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/renderers.rb:47:in `render_to_body'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/compatibility.rb:55:in `render_to_body'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:101:in `render_to_string'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:92:in `render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/rendering.rb:17:in `render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:40:in `block (2 levels) in render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/core_ext/benchmark.rb:5:in `block in ms'
+/Users/ThoughtWorks/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/benchmark.rb:309:in `realtime'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/core_ext/benchmark.rb:5:in `ms'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:40:in `block in render'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:78:in `cleanup_view_runtime'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/railties/controller_runtime.rb:15:in `cleanup_view_runtime'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:39:in `render'
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/stores_controller.rb:94:in `block (2 levels) in search'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/mime_responds.rb:192:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/mime_responds.rb:192:in `respond_to'
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/stores_controller.rb:93:in `search'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/implicit_render.rb:4:in `send_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/base.rb:150:in `process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/rendering.rb:11:in `process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/callbacks.rb:18:in `block in process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:435:in `_run__2759526441997497653__process_action__4197641089675892565__callbacks'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:409:in `_run_process_action_callbacks'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:93:in `run_callbacks'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/callbacks.rb:17:in `process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:30:in `block in process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `block in instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications/instrumenter.rb:21:in `instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/notifications.rb:52:in `instrument'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/instrumentation.rb:29:in `process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/rescue.rb:17:in `process_action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/base.rb:119:in `process'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/abstract_controller/rendering.rb:40:in `process'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal.rb:133:in `dispatch'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal/rack_delegation.rb:14:in `dispatch'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_controller/metal.rb:173:in `block in action'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:62:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:62:in `dispatch'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:27:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:148:in `block in call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:93:in `block in recognize'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:68:in `optimized_each'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-mount-0.6.13/lib/rack/mount/code_generation.rb:92:in `recognize'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-mount-0.6.13/lib/rack/mount/route_set.rb:139:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/routing/route_set.rb:492:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/best_standards_support.rb:17:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/head.rb:14:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/methodoverride.rb:24:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/params_parser.rb:21:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/flash.rb:182:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/session/abstract_store.rb:149:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/cookies.rb:287:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:32:in `block in call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/connection_adapters/abstract/query_cache.rb:28:in `cache'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:12:in `cache'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/query_cache.rb:31:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activerecord-3.0.0/lib/active_record/connection_adapters/abstract/connection_pool.rb:355:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/callbacks.rb:46:in `block in call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/callbacks.rb:415:in `_run_call_callbacks'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/callbacks.rb:44:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/sendfile.rb:107:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/remote_ip.rb:48:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/show_exceptions.rb:46:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/rack/logger.rb:13:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/runtime.rb:17:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/activesupport-3.0.0/lib/active_support/cache/strategy/local_cache.rb:72:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/lock.rb:11:in `block in call'
+<internal:prelude>:10:in `synchronize'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/lock.rb:11:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/static.rb:30:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/application.rb:168:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/application.rb:77:in `method_missing'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/railties-3.0.0/lib/rails/rack/log_tailer.rb:14:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/content_length.rb:13:in `call'
+/Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/rack-1.2.1/lib/rack/handler/webrick.rb:52:in `service'
+/Users/ThoughtWorks/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/httpserver.rb:111:in `service'
+/Users/ThoughtWorks/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/httpserver.rb:70:in `run'
+/Users/ThoughtWorks/.rvm/rubies/ruby-1.9.2-p0/lib/ruby/1.9.1/webrick/server.rb:183:in `block in start_thread'
+Rendered stores/search.html.erb (0.7ms)
+Completed   in 10ms
+
+ActionView::Template::Error (/Users/ThoughtWorks/sgdev/expenselynx/app/views/stores/search.html.erb:3: syntax error, unexpected $undefined
+   data << {:label => \"#{(s.name)}\", :value => \"#{(s.id)}\"} 
+                       ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/views/stores/search.html.erb:3: unterminated string meets end of file
+/Users/ThoughtWorks/sgdev/expenselynx/app/views/stores/search.html.erb:3: syntax error, unexpected $end, expecting keyword_end):
+    1: <% data = [] %>
+    2: <% @stores.each do |s| %>
+    3:   <% data << {:label => \"#{(s.name)}\", :value => \"#{(s.id)}\"} %>
+    4: <%= data.to_json %>
+    5: <% end %>
+  app/controllers/stores_controller.rb:94:in `block (2 levels) in search'
+  app/controllers/stores_controller.rb:93:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (32.8ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (39.0ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 22:20:41 -0700
+  Processing by StoresController#search as HTML
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Completed 406 Not Acceptable in 9ms
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 22:23:00 -0700
+  Processing by StoresController#search as HTML
+  [1m[36mStore Load (51.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 406 Not Acceptable in 61ms
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 22:23:10 -0700
+  Processing by StoresController#search as HTML
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/search.html.erb (36.6ms)
+Completed 200 OK in 49ms (Views: 38.4ms | ActiveRecord: 51.9ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 22:23:14 -0700
+  Processing by StoresController#search as HTML
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Rendered stores/search.html.erb (7.8ms)
+Completed 200 OK in 20ms (Views: 9.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:23:39 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.8ms)
+Rendered receipts/new.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 50ms (Views: 40.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 22:23:45 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name,id FROM "stores" WHERE (name LIKE 'tes%')
+Rendered stores/search.html.erb (4.9ms)
+Completed 200 OK in 16ms (Views: 6.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:25:36 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.8ms)
+Rendered receipts/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 25ms (Views: 14.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 22:25:44 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name,id FROM "stores" WHERE (name LIKE 'tes%')[0m
+Rendered stores/search.html.erb (39.2ms)
+Completed 200 OK in 51ms (Views: 40.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:32:36 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.5ms)
+Rendered receipts/new.html.erb within layouts/application (13.4ms)
+Completed 200 OK in 63ms (Views: 51.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 22:32:40 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'te%')
+Rendered stores/search.html.erb (7.2ms)
+Completed 200 OK in 46ms (Views: 35.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=mac" for 127.0.0.1 at 2010-10-27 22:32:43 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mac"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'mac%')[0m
+Rendered stores/search.html.erb (0.5ms)
+Completed 200 OK in 13ms (Views: 2.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2010-10-27 22:32:51 -0700
+  Processing by StoresController#index as HTML
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/index.html.erb within layouts/application (11.9ms)
+Completed 200 OK in 68ms (Views: 58.6ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/new" for 127.0.0.1 at 2010-10-27 22:32:58 -0700
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (35.5ms)
+Rendered stores/new.html.erb within layouts/application (37.7ms)
+Completed 200 OK in 72ms (Views: 61.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/stores" for 127.0.0.1 at 2010-10-27 22:33:07 -0700
+  Processing by StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"db6vWJajPOYZOJaemrHT8x9DWgCrK8eyP0eYUWMRs00=", "store"=>{"name"=>"The Limited"}, "commit"=>"Create Store"}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('The Limited')) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-28 05:33:07.503074', 'The Limited', '2010-10-28 05:33:07.503074')
+Redirected to http://localhost:3000/stores/7
+Completed 302 Found in 414ms
+
+
+Started GET "/stores/7" for 127.0.0.1 at 2010-10-27 22:33:07 -0700
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 7) LIMIT 1[0m
+Rendered stores/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 81ms (Views: 35.9ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:33:15 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (11.2ms)
+Rendered receipts/new.html.erb within layouts/application (13.3ms)
+Completed 200 OK in 25ms (Views: 16.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=the" for 127.0.0.1 at 2010-10-27 22:33:17 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"the"}
+  [1m[35mStore Load (0.3ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'the%')
+Rendered stores/search.html.erb (33.5ms)
+Completed 200 OK in 44ms (Views: 34.8ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stores/search?term=Th" for 127.0.0.1 at 2010-10-27 22:33:32 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"Th"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'Th%')[0m
+Rendered stores/search.html.erb (5.6ms)
+Completed 200 OK in 16ms (Views: 7.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=The" for 127.0.0.1 at 2010-10-27 22:33:34 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"The"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'The%')
+Rendered stores/search.html.erb (4.5ms)
+Completed 200 OK in 14ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 22:34:12 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'te%')[0m
+Rendered stores/search.html.erb (4.9ms)
+Completed 200 OK in 46ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=th" for 127.0.0.1 at 2010-10-27 22:34:16 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"th"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'th%')
+Rendered stores/search.html.erb (4.9ms)
+Completed 200 OK in 15ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=the" for 127.0.0.1 at 2010-10-27 22:34:17 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"the"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'the%')[0m
+Rendered stores/search.html.erb (4.6ms)
+Completed 200 OK in 15ms (Views: 6.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=the+" for 127.0.0.1 at 2010-10-27 22:34:19 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"the "}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'the %')
+Rendered stores/search.html.erb (4.9ms)
+Completed 200 OK in 16ms (Views: 6.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=the+l" for 127.0.0.1 at 2010-10-27 22:34:19 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"the l"}
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'the l%')[0m
+Rendered stores/search.html.erb (4.8ms)
+Completed 200 OK in 15ms (Views: 6.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stores/new" for 127.0.0.1 at 2010-10-27 22:34:35 -0700
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (33.0ms)
+Rendered stores/new.html.erb within layouts/application (35.0ms)
+Completed 200 OK in 47ms (Views: 38.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/stores" for 127.0.0.1 at 2010-10-27 22:34:39 -0700
+  Processing by StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"db6vWJajPOYZOJaemrHT8x9DWgCrK8eyP0eYUWMRs00=", "store"=>{"name"=>"maybelline"}, "commit"=>"Create Store"}
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('maybelline')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-28 05:34:39.616837', 'maybelline', '2010-10-28 05:34:39.616837')[0m
+Redirected to http://localhost:3000/stores/8
+Completed 302 Found in 31ms
+
+
+Started GET "/stores/8" for 127.0.0.1 at 2010-10-27 22:34:39 -0700
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 8) LIMIT 1
+Rendered stores/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 23ms (Views: 13.0ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2010-10-27 22:34:41 -0700
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Rendered stores/index.html.erb within layouts/application (15.9ms)
+Completed 200 OK in 28ms (Views: 19.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/new" for 127.0.0.1 at 2010-10-27 22:34:45 -0700
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (4.9ms)
+Rendered stores/new.html.erb within layouts/application (7.1ms)
+Completed 200 OK in 20ms (Views: 10.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/stores" for 127.0.0.1 at 2010-10-27 22:34:48 -0700
+  Processing by StoresController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"db6vWJajPOYZOJaemrHT8x9DWgCrK8eyP0eYUWMRs00=", "store"=>{"name"=>"mayfield"}, "commit"=>"Create Store"}
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('mayfield')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-28 05:34:48.192890', 'mayfield', '2010-10-28 05:34:48.192890')[0m
+Redirected to http://localhost:3000/stores/9
+Completed 302 Found in 64ms
+
+
+Started GET "/stores/9" for 127.0.0.1 at 2010-10-27 22:34:48 -0700
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 9) LIMIT 1
+Rendered stores/show.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 23ms (Views: 11.6ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:34:54 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.3ms)
+Rendered receipts/new.html.erb within layouts/application (12.4ms)
+Completed 200 OK in 55ms (Views: 15.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=may" for 127.0.0.1 at 2010-10-27 22:34:57 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"may"}
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'may%')[0m
+Rendered stores/search.html.erb (4.5ms)
+Completed 200 OK in 15ms (Views: 5.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stores/search?term=mayf" for 127.0.0.1 at 2010-10-27 22:35:00 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mayf"}
+  [1m[35mStore Load (0.3ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'mayf%')
+Rendered stores/search.html.erb (33.8ms)
+Completed 200 OK in 44ms (Views: 35.2ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stores/search?term=may" for 127.0.0.1 at 2010-10-27 22:35:04 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"may"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'may%')[0m
+Rendered stores/search.html.erb (5.2ms)
+Completed 200 OK in 17ms (Views: 6.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:35:52 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.4ms)
+Rendered receipts/new.html.erb within layouts/application (12.2ms)
+Completed 200 OK in 27ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 22:35:55 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[35mStore Load (26.9ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'm%')
+Rendered stores/search.html.erb (6.0ms)
+Completed 200 OK in 120ms (Views: 51.3ms | ActiveRecord: 26.9ms)
+
+
+Started GET "/stores/search?term=ma" for 127.0.0.1 at 2010-10-27 22:35:57 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ma"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'ma%')[0m
+Rendered stores/search.html.erb (10.2ms)
+Completed 200 OK in 22ms (Views: 12.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=may" for 127.0.0.1 at 2010-10-27 22:35:58 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"may"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'may%')
+Rendered stores/search.html.erb (8.1ms)
+Completed 200 OK in 22ms (Views: 10.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=mayb" for 127.0.0.1 at 2010-10-27 22:35:59 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mayb"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'mayb%')[0m
+Rendered stores/search.html.erb (4.9ms)
+Completed 200 OK in 18ms (Views: 6.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=may" for 127.0.0.1 at 2010-10-27 22:42:13 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"may"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'may%')
+Completed   in 11ms
+
+NoMethodError (undefined method `limit' for [#<Store name: "maybelline">, #<Store name: "mayfield">]:Array):
+  app/controllers/stores_controller.rb:88:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:42:47 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.7ms)
+Rendered receipts/new.html.erb within layouts/application (13.6ms)
+Completed 200 OK in 86ms (Views: 47.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 22:42:52 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+Completed   in 10ms
+
+ActiveRecord::RecordNotFound (Couldn't find Store without an ID):
+  app/controllers/stores_controller.rb:88:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.7ms)
+
+
+Started GET "/stores/search?term=ma" for 127.0.0.1 at 2010-10-27 22:42:52 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ma"}
+Completed   in 8ms
+
+ActiveRecord::RecordNotFound (Couldn't find Store without an ID):
+  app/controllers/stores_controller.rb:88:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.5ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.3ms)
+
+
+Started GET "/stores/search?term=may" for 127.0.0.1 at 2010-10-27 22:42:53 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"may"}
+Completed   in 8ms
+
+ActiveRecord::RecordNotFound (Couldn't find Store without an ID):
+  app/controllers/stores_controller.rb:88:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.9ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:43:26 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.2ms)
+Rendered receipts/new.html.erb within layouts/application (10.2ms)
+Completed 200 OK in 23ms (Views: 13.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 22:43:30 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'm%') LIMIT 10[0m
+Rendered stores/search.html.erb (4.6ms)
+Completed 200 OK in 46ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=ma" for 127.0.0.1 at 2010-10-27 22:43:32 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ma"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'ma%') LIMIT 10
+Rendered stores/search.html.erb (4.5ms)
+Completed 200 OK in 15ms (Views: 5.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=may" for 127.0.0.1 at 2010-10-27 22:43:35 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"may"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'may%') LIMIT 10[0m
+Rendered stores/search.html.erb (4.7ms)
+Completed 200 OK in 14ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=mayb" for 127.0.0.1 at 2010-10-27 22:43:38 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mayb"}
+  [1m[35mStore Load (0.3ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'mayb%') LIMIT 10
+Rendered stores/search.html.erb (4.3ms)
+Completed 200 OK in 14ms (Views: 5.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:44:06 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.7ms)
+Rendered receipts/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 25ms (Views: 15.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 22:44:11 -0700
+  Processing by StoresController#search as JSON
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Rendered stores/search.html.erb (5.2ms)
+Completed 200 OK in 46ms (Views: 6.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 22:44:13 -0700
+  Processing by StoresController#search as JSON
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/search.html.erb (5.6ms)
+Completed 200 OK in 16ms (Views: 7.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search" for 127.0.0.1 at 2010-10-27 22:44:14 -0700
+  Processing by StoresController#search as JSON
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Rendered stores/search.html.erb (5.6ms)
+Completed 200 OK in 15ms (Views: 6.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:45:16 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.4ms)
+Rendered receipts/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 57ms (Views: 47.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 22:45:22 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'm%') LIMIT 10
+Rendered stores/search.html.erb (6.5ms)
+Completed 200 OK in 47ms (Views: 38.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:46:23 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.7ms)
+Rendered receipts/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 59ms (Views: 17.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 22:46:28 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'm%') LIMIT 10[0m
+Rendered stores/search.html.erb (5.5ms)
+Completed   in 16ms
+
+ActionView::Template::Error (can't convert Hash into Array):
+    1: <% data = [] %>
+    2: <% @stores.each do |s| %>
+    3:   <% data += {:label => "#{(s.name)}"} %>
+    4: <%= data.to_json.html_safe %>
+    5: <% end %>
+  app/views/stores/search.html.erb:3:in `block in _app_views_stores_search_html_erb__1296969638130786776_2165456840_2774977955552061952'
+  app/views/stores/search.html.erb:2:in `each'
+  app/views/stores/search.html.erb:2:in `_app_views_stores_search_html_erb__1296969638130786776_2165456840_2774977955552061952'
+  app/controllers/stores_controller.rb:94:in `block (2 levels) in search'
+  app/controllers/stores_controller.rb:93:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.6ms)
+
+
+Started GET "/stores/search?term=ma" for 127.0.0.1 at 2010-10-27 22:47:22 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ma"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'ma%') LIMIT 10
+Rendered stores/search.html.erb (4.6ms)
+Completed   in 45ms
+
+ActionView::Template::Error (undefined method `+' for {}:Hash):
+    1: <% data = {} %>
+    2: <% @stores.each do |s| %>
+    3:   <% data += {:label => "#{(s.name)}"} %>
+    4: <%= data.to_json.html_safe %>
+    5: <% end %>
+  app/views/stores/search.html.erb:3:in `block in _app_views_stores_search_html_erb__1296969638130786776_2181823420_2774977955552061952'
+  app/views/stores/search.html.erb:2:in `each'
+  app/views/stores/search.html.erb:2:in `_app_views_stores_search_html_erb__1296969638130786776_2181823420_2774977955552061952'
+  app/controllers/stores_controller.rb:94:in `block (2 levels) in search'
+  app/controllers/stores_controller.rb:93:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:47:28 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.4ms)
+Rendered receipts/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 23ms (Views: 13.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 22:47:38 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT name FROM "stores" WHERE (name LIKE 'm%') LIMIT 10[0m
+Rendered stores/search.html.erb (5.5ms)
+Completed   in 46ms
+
+ActionView::Template::Error (undefined method `+' for {}:Hash):
+    1: <% data = {} %>
+    2: <% @stores.each do |s| %>
+    3:   <% data += {:label => "#{(s.name)}"} %>
+    4: <%= data.to_json.html_safe %>
+    5: <% end %>
+  app/views/stores/search.html.erb:3:in `block in _app_views_stores_search_html_erb__1296969638130786776_2181896340_2774977955552061952'
+  app/views/stores/search.html.erb:2:in `each'
+  app/views/stores/search.html.erb:2:in `_app_views_stores_search_html_erb__1296969638130786776_2181896340_2774977955552061952'
+  app/controllers/stores_controller.rb:94:in `block (2 levels) in search'
+  app/controllers/stores_controller.rb:93:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (5.9ms)
+
+
+Started GET "/stores/search?term=ma" for 127.0.0.1 at 2010-10-27 22:47:40 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ma"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT name FROM "stores" WHERE (name LIKE 'ma%') LIMIT 10
+Rendered stores/search.html.erb (4.6ms)
+Completed   in 15ms
+
+ActionView::Template::Error (undefined method `+' for {}:Hash):
+    1: <% data = {} %>
+    2: <% @stores.each do |s| %>
+    3:   <% data += {:label => "#{(s.name)}"} %>
+    4: <%= data.to_json.html_safe %>
+    5: <% end %>
+  app/views/stores/search.html.erb:3:in `block in _app_views_stores_search_html_erb__1296969638130786776_2165176420_2774977955552061952'
+  app/views/stores/search.html.erb:2:in `each'
+  app/views/stores/search.html.erb:2:in `_app_views_stores_search_html_erb__1296969638130786776_2165176420_2774977955552061952'
+  app/controllers/stores_controller.rb:94:in `block (2 levels) in search'
+  app/controllers/stores_controller.rb:93:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:57:44 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.0ms)
+Rendered receipts/new.html.erb within layouts/application (12.7ms)
+Completed 200 OK in 79ms (Views: 39.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 22:57:54 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" LIMIT 10[0m
+Completed   in 12ms
+
+NoMethodError (undefined method `search_for_name' for #<ActiveRecord::Relation:0x00000102296b40>):
+  app/controllers/stores_controller.rb:89:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:58:30 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.9ms)
+Rendered receipts/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 53ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-27 22:58:47 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 't') LIMIT 1
+Rendered stores/search.html.erb (0.6ms)
+Completed   in 13ms
+
+ActionView::Template::Error (You have a nil object when you didn't expect it!
+You might have expected an instance of Array.
+The error occurred while evaluating nil.each):
+    1: <% data = [] %>
+    2: <% @stores.each do |s| %>
+    3:   <% data << {:label => "#{(s.name)}"} %>
+    4: <%= data.to_json.html_safe %>
+    5: <% end %>
+  app/views/stores/search.html.erb:2:in `_app_views_stores_search_html_erb__1296969638130786776_2165892860_2774977955552061952'
+  app/controllers/stores_controller.rb:95:in `block (2 levels) in search'
+  app/controllers/stores_controller.rb:94:in `search'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 22:59:46 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (37.0ms)
+Rendered receipts/new.html.erb within layouts/application (39.1ms)
+Completed 200 OK in 51ms (Views: 42.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 22:59:55 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'm')[0m
+Rendered stores/search.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:07:25 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.7ms)
+Rendered receipts/new.html.erb within layouts/application (12.5ms)
+Completed 200 OK in 110ms (Views: 56.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 23:07:44 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'm%')
+Rendered stores/search.html.erb (7.0ms)
+Completed 200 OK in 46ms (Views: 37.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=" for 127.0.0.1 at 2010-10-27 23:09:15 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>""}
+  [1m[36mStore Load (10.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE '%')[0m
+Rendered stores/search.html.erb (5.1ms)
+Completed 200 OK in 26ms (Views: 6.8ms | ActiveRecord: 10.1ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 23:09:18 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'm%')
+Rendered stores/search.html.erb (33.7ms)
+Completed 200 OK in 44ms (Views: 35.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=ma" for 127.0.0.1 at 2010-10-27 23:09:22 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ma"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'ma%')[0m
+Rendered stores/search.html.erb (4.6ms)
+Completed 200 OK in 15ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-27 23:09:57 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'm%')
+Rendered stores/search.html.erb (4.5ms)
+Completed 200 OK in 16ms (Views: 5.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=" for 127.0.0.1 at 2010-10-27 23:10:01 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>""}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE '%')[0m
+Rendered stores/search.html.erb (4.6ms)
+Completed 200 OK in 44ms (Views: 5.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=ma" for 127.0.0.1 at 2010-10-27 23:11:52 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ma"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'ma%')
+Rendered stores/search.html.erb (4.6ms)
+Completed 200 OK in 15ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:11:57 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store_id"=>"maybelline", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"07", "total"=>"5.667"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 0) LIMIT 1[0m
+Rendered receipts/_form.html.erb (7.8ms)
+Rendered receipts/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 353ms (Views: 56.3ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/stores/search?term=ma" for 127.0.0.1 at 2010-10-27 23:14:02 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ma"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'ma%')
+Rendered stores/search.html.erb (4.8ms)
+Completed 200 OK in 15ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:14:04 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store_id"=>"maybelline", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"07", "total"=>"5.667"}, "commit"=>"Create Receipt"}
+Completed   in 49ms
+
+NoMethodError (undefined method `store_id' for #<ActiveSupport::HashWithIndifferentAccess:0x00000100cc1e00>):
+  app/controllers/receipts_controller.rb:44:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.8ms)
+
+
+Started GET "/stores/search?term=ma" for 127.0.0.1 at 2010-10-27 23:14:47 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ma"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'ma%')[0m
+Rendered stores/search.html.erb (11.6ms)
+Completed 200 OK in 65ms (Views: 55.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:14:50 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store_id"=>"maybelline", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"07", "total"=>"5.667"}, "commit"=>"Create Receipt"}
+Completed   in 60ms
+
+NameError (undefined local variable or method `store_id' for #<ReceiptsController:0x00000100cb1d20>):
+  app/controllers/receipts_controller.rb:44:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.3ms)
+
+
+Started GET "/stores/search?term=may" for 127.0.0.1 at 2010-10-27 23:16:02 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"may"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'may%')
+Rendered stores/search.html.erb (4.8ms)
+Completed 200 OK in 16ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:16:05 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store_id"=>"mayfield", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"07", "total"=>"5.667"}, "commit"=>"Create Receipt"}
+Completed   in 50ms
+
+NoMethodError (undefined method `downcase' for nil:NilClass):
+  app/models/store.rb:12:in `find_or_create_by_name'
+  app/controllers/receipts_controller.rb:44:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.9ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:17:03 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.1ms)
+Rendered receipts/new.html.erb within layouts/application (10.1ms)
+Completed 200 OK in 22ms (Views: 13.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=ta" for 127.0.0.1 at 2010-10-27 23:17:12 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ta"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'ta%')[0m
+Rendered stores/search.html.erb (4.8ms)
+Completed 200 OK in 15ms (Views: 6.1ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=T" for 127.0.0.1 at 2010-10-27 23:17:15 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"T"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 't%')
+Rendered stores/search.html.erb (4.8ms)
+Completed 200 OK in 16ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:17:23 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"The Gap", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"17", "total"=>"5.42"}, "commit"=>"Create Receipt"}
+Completed   in 85ms
+
+ActiveRecord::AssociationTypeMismatch (Store(#2181458180) expected, got String(#2151988680)):
+  app/controllers/receipts_controller.rb:43:in `new'
+  app/controllers/receipts_controller.rb:43:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.8ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.7ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-27 23:18:23 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts"[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+Rendered receipts/_receipt.html.erb (50.8ms)
+Rendered receipts/index.html.erb within layouts/application (59.5ms)
+Completed 200 OK in 108ms (Views: 98.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:18:30 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.2ms)
+Rendered receipts/new.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 24ms (Views: 14.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-27 23:18:36 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 't%')[0m
+Rendered stores/search.html.erb (34.7ms)
+Completed 200 OK in 45ms (Views: 36.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:18:41 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Target", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"18", "total"=>"9.09"}, "commit"=>"Create Receipt"}
+Completed   in 21ms
+
+ActiveRecord::AssociationTypeMismatch (Store(#2167189720) expected, got String(#2151988680)):
+  app/controllers/receipts_controller.rb:43:in `new'
+  app/controllers/receipts_controller.rb:43:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.0ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-27 23:23:22 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (7.0ms)[0m  SELECT "receipts".* FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (60.2ms)
+Rendered receipts/index.html.erb within layouts/application (62.6ms)
+Completed 200 OK in 91ms (Views: 74.5ms | ActiveRecord: 7.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:23:27 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (38.1ms)
+Rendered receipts/new.html.erb within layouts/application (40.4ms)
+Completed 200 OK in 53ms (Views: 43.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 23:23:32 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')
+Rendered stores/search.html.erb (7.2ms)
+Completed 200 OK in 54ms (Views: 44.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:23:38 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"tESt", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"23", "total"=>"534"}, "commit"=>"Create Receipt"}
+Completed   in 20ms
+
+ActiveRecord::AssociationTypeMismatch (Store(#2154173860) expected, got String(#2151988680)):
+  app/controllers/receipts_controller.rb:43:in `new'
+  app/controllers/receipts_controller.rb:43:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (34.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (39.2ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-27 23:26:54 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (1.0ms)[0m  [1mSELECT "receipts".* FROM "receipts"[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+Rendered receipts/_receipt.html.erb (32.2ms)
+Rendered receipts/index.html.erb within layouts/application (62.9ms)
+Completed 200 OK in 101ms (Views: 91.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:27:03 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.5ms)
+Rendered receipts/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 26ms (Views: 15.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=th" for 127.0.0.1 at 2010-10-27 23:27:09 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"th"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'th%')[0m
+Rendered stores/search.html.erb (6.9ms)
+Completed 200 OK in 45ms (Views: 34.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:27:13 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"The Gap", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"27", "total"=>"45903"}, "commit"=>"Create Receipt"}
+Completed   in 20ms
+
+ActiveRecord::AssociationTypeMismatch (Store(#2169166180) expected, got String(#2151988680)):
+  app/controllers/receipts_controller.rb:43:in `new'
+  app/controllers/receipts_controller.rb:43:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.2ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:28:53 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.0ms)
+Rendered receipts/new.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 21ms (Views: 12.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=the" for 127.0.0.1 at 2010-10-27 23:28:58 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"the"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'the%')
+Rendered stores/search.html.erb (4.5ms)
+Completed 200 OK in 15ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:29:01 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"The Gap", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"28", "total"=>"6.54"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'the gap') LIMIT 1[0m
+Completed   in 15ms
+
+NoMethodError (undefined method `store_id=' for nil:NilClass):
+  app/controllers/receipts_controller.rb:43:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:29:45 -0700
+
+SyntaxError (/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:44: syntax error, unexpected tIVAR, expecting ')'
+    @receipt = Receipt.new(params[:receipt])
+            ^):
+  
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.5ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.6ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:30:06 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.4ms)
+Rendered receipts/new.html.erb within layouts/application (11.5ms)
+Completed 200 OK in 23ms (Views: 14.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 23:30:10 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tes%')
+Rendered stores/search.html.erb (4.5ms)
+Completed 200 OK in 16ms (Views: 5.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:30:14 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"tESt", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"30", "total"=>"423"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+Completed   in 43ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.update_attributes!):
+  app/controllers/receipts_controller.rb:43:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.9ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-27 23:33:21 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (1.2ms)[0m  SELECT "receipts".* FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (58.2ms)
+Rendered receipts/index.html.erb within layouts/application (61.0ms)
+Completed 200 OK in 99ms (Views: 89.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:33:27 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.7ms)
+Rendered receipts/new.html.erb within layouts/application (10.8ms)
+Completed 200 OK in 23ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=th" for 127.0.0.1 at 2010-10-27 23:33:34 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"th"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'th%')
+Rendered stores/search.html.erb (36.7ms)
+Completed 200 OK in 91ms (Views: 82.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:33:39 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"The Gap", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"33", "total"=>"2.21"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'the gap') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+Rendered receipts/_form.html.erb (9.1ms)
+Rendered receipts/new.html.erb within layouts/application (11.0ms)
+Completed 200 OK in 41ms (Views: 13.8ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 23:35:48 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')
+Rendered stores/search.html.erb (4.8ms)
+Completed 200 OK in 16ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:35:51 -0700
+
+SyntaxError (/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:44: syntax error, unexpected '(', expecting ']'
+...arams[:receipt][:purchase_date(1i)] + "-" + params[:receipt]...
+...                               ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:44: syntax error, unexpected '(', expecting ']'
+...arams[:receipt][:purchase_date(2i)] + "-" + params[:receipt]...
+...                               ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:44: syntax error, unexpected '(', expecting ']'
+...arams[:receipt][:purchase_date(3i)],
+...                               ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:46: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+      :store_id => Store.find_or_create_by_name...
+                  ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:46: syntax error, unexpected ')', expecting keyword_end):
+  
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:36:49 -0700
+
+SyntaxError (/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:45: syntax error, unexpected tUPLUS, expecting ')'
+        + params[:receipt]["purchase_date(2i)"] + "-" 
+         ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:46: syntax error, unexpected ',', expecting keyword_end
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:48: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+      :store_id => Store.find_or_create_by_name...
+                  ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:48: syntax error, unexpected ')', expecting keyword_end):
+  
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.6ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.6ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:39:49 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (11.0ms)
+Rendered receipts/new.html.erb within layouts/application (13.9ms)
+Completed 200 OK in 79ms (Views: 62.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 23:39:54 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tes%')[0m
+Rendered stores/search.html.erb (7.1ms)
+Completed 200 OK in 59ms (Views: 49.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:39:57 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"tESt", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"39", "total"=>"423"}, "commit"=>"Create Receipt"}
+Completed   in 6ms
+
+NoMethodError (undefined method `+@' for "10":String):
+  app/controllers/receipts_controller.rb:45:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:42:26 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.9ms)
+Rendered receipts/new.html.erb within layouts/application (10.9ms)
+Completed 200 OK in 53ms (Views: 13.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=tyer" for 127.0.0.1 at 2010-10-27 23:42:29 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tyer"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tyer%')
+Rendered stores/search.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=tyer%3D%3D" for 127.0.0.1 at 2010-10-27 23:42:30 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tyer=="}
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tyer==%')[0m
+Rendered stores/search.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 2.0ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stores/search?term=tt" for 127.0.0.1 at 2010-10-27 23:42:31 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tt"}
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tt%')
+Rendered stores/search.html.erb (0.6ms)
+Completed 200 OK in 12ms (Views: 2.1ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-10-27 23:42:32 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tes%')[0m
+Rendered stores/search.html.erb (4.8ms)
+Completed 200 OK in 15ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:42:43 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"tESt", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"42", "total"=>"32"}, "commit"=>"Create Receipt"}
+Completed   in 7ms
+
+TypeError (String can't be coerced into Fixnum):
+  app/controllers/receipts_controller.rb:44:in `+'
+  app/controllers/receipts_controller.rb:44:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:43:17 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.4ms)
+Rendered receipts/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 52ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 23:43:27 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')
+Rendered stores/search.html.erb (4.9ms)
+Completed 200 OK in 15ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:43:30 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"tESt", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"43", "total"=>"3.21"}, "commit"=>"Create Receipt"}
+Completed   in 6ms
+
+NoMethodError (undefined method `+@' for "10":String):
+  app/controllers/receipts_controller.rb:45:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.7ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:44:22 -0700
+
+SyntaxError (/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:45: syntax error, unexpected tLSHFT, expecting ')'
+        << params[:receipt][:"purchase_date(2i)"] << "-" 
+          ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:46: syntax error, unexpected tLSHFT, expecting ')'
+        << params[:receipt][:"purchase_date(3i)"]),
+          ^):
+  
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (4.7ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:44:57 -0700
+
+SyntaxError (/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:45: syntax error, unexpected tLSHFT, expecting ')'
+        << params[:receipt][:"purchase_date(2i)"].to_s << "-" 
+          ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:46: syntax error, unexpected tLSHFT, expecting ')'
+        << params[:receipt][:"purchase_date(3i)"].to_s),
+          ^):
+  
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:45:16 -0700
+
+SyntaxError (/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:45: syntax error, unexpected tLSHFT, expecting ')'
+        << params[:receipt][:"purchase_date(3i)"].to_s),
+          ^):
+  
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.9ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:45:27 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.3ms)
+Rendered receipts/new.html.erb within layouts/application (13.0ms)
+Completed 200 OK in 51ms (Views: 41.5ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-27 23:45:30 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.7ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')[0m
+Rendered stores/search.html.erb (48.2ms)
+Completed 200 OK in 93ms (Views: 76.1ms | ActiveRecord: 0.7ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:45:34 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"tESt", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"45", "total"=>"21"}, "commit"=>"Create Receipt"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (42.7ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-10-28 06:45:34.077202', '2010-10-28 00:00:00.000000', 6, 21.0, '2010-10-28 06:45:34.077202')
+Redirected to http://localhost:3000/receipts/4
+Completed 302 Found in 117ms
+
+
+Started GET "/receipts/4" for 127.0.0.1 at 2010-10-27 23:45:34 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 4) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 21ms (Views: 10.7ms | ActiveRecord: 43.4ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2010-10-27 23:46:00 -0700
+  Processing by StoresController#index as HTML
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/index.html.erb within layouts/application (15.5ms)
+Completed 200 OK in 54ms (Views: 44.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:46:10 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (11.3ms)
+Rendered receipts/new.html.erb within layouts/application (13.8ms)
+Completed 200 OK in 26ms (Views: 16.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=nonexistene" for 127.0.0.1 at 2010-10-27 23:46:14 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"nonexistene"}
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'nonexistene%')[0m
+Rendered stores/search.html.erb (0.6ms)
+Completed 200 OK in 11ms (Views: 1.9ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/stores/search?term=nonexistent+s" for 127.0.0.1 at 2010-10-27 23:46:15 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"nonexistent s"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'nonexistent s%')
+Rendered stores/search.html.erb (0.5ms)
+Completed 200 OK in 10ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=nonexistent+sTO" for 127.0.0.1 at 2010-10-27 23:46:17 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"nonexistent sTO"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'nonexistent sto%')[0m
+Rendered stores/search.html.erb (0.8ms)
+Completed 200 OK in 17ms (Views: 2.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=nonexistent+sTOre" for 127.0.0.1 at 2010-10-27 23:46:18 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"nonexistent sTOre"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'nonexistent store%')
+Rendered stores/search.html.erb (0.5ms)
+Completed 200 OK in 13ms (Views: 1.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:46:21 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"nonexistent sTOre", "purchase_date(1i)"=>"2010", "purchase_date(2i)"=>"10", "purchase_date(3i)"=>"28", "purchase_date(4i)"=>"06", "purchase_date(5i)"=>"46", "total"=>"6.53"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'nonexistent store') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('nonexistent sTOre')) LIMIT 1
+  [1m[36mSQL (246.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-28 06:46:21.887627', 'nonexistent sTOre', '2010-10-28 06:46:21.887627')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-10-28 06:46:22.213299', '2010-10-28 00:00:00.000000', 10, 6.53, '2010-10-28 06:46:22.213299')[0m
+Redirected to http://localhost:3000/receipts/5
+Completed 302 Found in 366ms
+
+
+Started GET "/receipts/5" for 127.0.0.1 at 2010-10-27 23:46:22 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"5"}
+  [1m[35mReceipt Load (0.1ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 5) LIMIT 1
+Rendered receipts/show.html.erb within layouts/application (35.7ms)
+Completed 200 OK in 49ms (Views: 38.8ms | ActiveRecord: 247.5ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2010-10-27 23:46:30 -0700
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Rendered stores/index.html.erb within layouts/application (15.0ms)
+Completed 200 OK in 28ms (Views: 18.1ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (5.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (8.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (5.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.7ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (18.7ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (12.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')

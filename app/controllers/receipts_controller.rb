@@ -40,7 +40,10 @@ class ReceiptsController < ApplicationController
   # POST /receipts
   # POST /receipts.xml
   def create
-    @receipt = Receipt.new(params[:receipt])
+    @receipt = Receipt.new(
+      :purchase_date => (params[:receipt][:"purchase_date(1i)"].to_s << "-" << params[:receipt][:"purchase_date(2i)"].to_s << "-" << params[:receipt][:"purchase_date(3i)"].to_s),
+      :total => params[:receipt][:total],
+      :store_id => Store.find_or_create_by_name(params[:receipt][:store]).id)
 
     respond_to do |format|
       if @receipt.save

@@ -61,7 +61,6 @@ class StoreTest < ActiveSupport::TestCase
   
   test "should not create store when one exists" do
     store = Store.create(:name => 'Red Lobster')
-   # store.save!
     Store.find_or_create_by_name('Red Lobster')
     stores_count = Store.find_all_by_name('Red Lobster').count
     
@@ -74,5 +73,12 @@ class StoreTest < ActiveSupport::TestCase
     stores_count = Store.find_all_by_name("Banana Republic").count
     
     assert_equal(1, stores_count)
+   end
+   
+   test "should search and find store by partial name case insensitive" do
+     store = Store.create(:name => "Turtle Bay Furniture")
+     found_store = Store.search_by_name("tur").first
+     
+     assert_equal(store, found_store)
    end
 end
