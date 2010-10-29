@@ -4,7 +4,13 @@ class Receipt < ActiveRecord::Base
                     :numericality => {:greater_than_or_equal_to => 0.01}
   validate :purchase_date_is_not_in_the_future,
            :store_existence
+           
+  attr_reader :store_name
   
+  
+  def store_name
+    self.store.name unless self.store.nil? 
+  end
   
   private
     def purchase_date_is_not_in_the_future

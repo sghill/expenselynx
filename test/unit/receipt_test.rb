@@ -81,4 +81,11 @@ class ReceiptTest < ActiveSupport::TestCase
     assert receipt.invalid?
     assert receipt.errors[:store_id].any?
   end
+  
+  test "should give the store name easily" do
+    receipt = Receipt.create(:total => 5.54,
+                             :purchase_date => DateTime.now,
+                             :store_id => @store.id)
+    assert_equal(@store.name, receipt.store_name)
+  end
 end

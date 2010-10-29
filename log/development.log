@@ -6994,3 +6994,802 @@ Started GET "/receipts/10" for 127.0.0.1 at 2010-10-28 22:35:28 -0700
   [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 10) LIMIT 1[0m
 Rendered receipts/show.html.erb within layouts/application (8.1ms)
 Completed 200 OK in 22ms (Views: 11.4ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/receipts/10" for 127.0.0.1 at 2010-10-28 22:37:25 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 10) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (27.5ms)
+Completed 200 OK in 43ms (Views: 30.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/10" for 127.0.0.1 at 2010-10-28 22:37:44 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mReceipt Load (0.1ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 10) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (258.6ms)
+Completed   in 318ms
+
+ActionView::Template::Error (undefined method `name' for "#<Store:0x00000100c831f0>":String):
+    2: 
+    3: <p>
+    4:   <b>Store:</b>
+    5:   <%= @receipt.store.name.name %>
+    6: </p>
+    7: 
+    8: <p>
+  app/views/receipts/show.html.erb:5:in `_app_views_receipts_show_html_erb__4193337380235394299_2157920740_2789674388677180661'
+  app/controllers/receipts_controller.rb:18:in `show'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (7.1ms)
+
+
+Started GET "/receipts/10" for 127.0.0.1 at 2010-10-28 22:37:57 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 10) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (52.5ms)
+Completed 200 OK in 69ms (Views: 56.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/receipts/10" for 127.0.0.1 at 2010-10-28 22:38:44 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[35mReceipt Load (0.1ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 10) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (55.8ms)
+Completed 200 OK in 71ms (Views: 58.7ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-28 22:38:49 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (0.5ms)[0m  SELECT "receipts".* FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 14) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1
+Rendered receipts/_receipt.html.erb (60.5ms)
+Rendered receipts/index.html.erb within layouts/application (68.9ms)
+Completed 200 OK in 80ms (Views: 70.9ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/receipts/1" for 127.0.0.1 at 2010-10-28 22:39:04 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/show.html.erb within layouts/application (29.3ms)
+Completed 200 OK in 71ms (Views: 32.5ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-28 22:39:15 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.5ms)[0m  [1mSELECT "receipts".* FROM "receipts"[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 14) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (68.4ms)
+Rendered receipts/index.html.erb within layouts/application (70.4ms)
+Completed 200 OK in 82ms (Views: 72.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/receipts/1/edit" for 127.0.0.1 at 2010-10-28 22:39:20 -0700
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered receipts/_form.html.erb (62.0ms)
+Rendered receipts/edit.html.erb within layouts/application (105.1ms)
+Completed 200 OK in 120ms (Views: 108.0ms | ActiveRecord: 0.4ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (45.8ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.2ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (3.7ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (9.1ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (11.0ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (12.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (26.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (14.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (14.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.6ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (11.4ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (12.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (15.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (9.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.6ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.5ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+
+
+Started GET "/receipts/1/edit" for 127.0.0.1 at 2010-10-28 23:43:20 -0700
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (36.8ms)
+Rendered receipts/edit.html.erb within layouts/application (38.0ms)
+Completed   in 54ms
+
+ActionView::Template::Error (Model Receipt does not respond to store[name]):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :'store[name]' %><br />
+    16:     <%= f.text_field :'store[name]', :id => :autocomplete %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :purchase_date %><br />
+  app/views/receipts/_form.html.erb:16:in `block in _app_views_receipts__form_html_erb___3044684414927744006_2152254440_1371957607689165546'
+  app/views/receipts/_form.html.erb:1:in `_app_views_receipts__form_html_erb___3044684414927744006_2152254440_1371957607689165546'
+  app/views/receipts/edit.html.erb:3:in `_app_views_receipts_edit_html_erb___562082922329388209_2152301080_2789674388677180661'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.7ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.0ms)
+
+
+Started GET "/receipts/1/edit" for 127.0.0.1 at 2010-10-28 23:44:17 -0700
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (60.3ms)
+Rendered receipts/edit.html.erb within layouts/application (62.9ms)
+Completed 200 OK in 78ms (Views: 65.9ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-28 23:44:22 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.5ms)[0m  [1mSELECT "receipts".* FROM "receipts"[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 14) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (66.1ms)
+Rendered receipts/index.html.erb within layouts/application (68.2ms)
+Completed 200 OK in 80ms (Views: 69.9ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/receipts/1/edit" for 127.0.0.1 at 2010-10-28 23:44:24 -0700
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.1ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered receipts/_form.html.erb (58.3ms)
+Rendered receipts/edit.html.erb within layouts/application (61.0ms)
+Completed 200 OK in 74ms (Views: 63.6ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/1/edit" for 127.0.0.1 at 2010-10-28 23:48:09 -0700
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (9.9ms)
+Rendered receipts/edit.html.erb within layouts/application (11.1ms)
+Completed   in 26ms
+
+ActionView::Template::Error (Model Receipt does not respond to store.name):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :store %><br />
+    16:     <%= f.text_field :'store.name', :id => :autocomplete %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :purchase_date %><br />
+  app/views/receipts/_form.html.erb:16:in `block in _app_views_receipts__form_html_erb___3044684414927744006_2157907400_1371957607689165546'
+  app/views/receipts/_form.html.erb:1:in `_app_views_receipts__form_html_erb___3044684414927744006_2157907400_1371957607689165546'
+  app/views/receipts/edit.html.erb:3:in `_app_views_receipts_edit_html_erb___562082922329388209_2157951380_2789674388677180661'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.7ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (8.1ms)
+
+
+Started GET "/receipts/1/edit" for 127.0.0.1 at 2010-10-28 23:48:33 -0700
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (61.7ms)
+Rendered receipts/edit.html.erb within layouts/application (63.1ms)
+Completed   in 77ms
+
+ActionView::Template::Error (Model Receipt does not respond to Target):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :store %><br />
+    16:     <%= f.text_field @receipt.store.name, :id => :autocomplete %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :purchase_date %><br />
+  app/views/receipts/_form.html.erb:16:in `block in _app_views_receipts__form_html_erb___3044684414927744006_2159226220_1371957607689165546'
+  app/views/receipts/_form.html.erb:1:in `_app_views_receipts__form_html_erb___3044684414927744006_2159226220_1371957607689165546'
+  app/views/receipts/edit.html.erb:3:in `_app_views_receipts_edit_html_erb___562082922329388209_2159238360_2789674388677180661'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (31.8ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (37.1ms)
+
+
+Started GET "/receipts/1/edit" for 127.0.0.1 at 2010-10-28 23:49:22 -0700
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (58.2ms)
+Rendered receipts/edit.html.erb within layouts/application (60.8ms)
+Completed 200 OK in 74ms (Views: 63.5ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/receipts/1/edit" for 127.0.0.1 at 2010-10-28 23:49:37 -0700
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+Rendered receipts/_form.html.erb (9.7ms)
+Rendered receipts/edit.html.erb within layouts/application (12.1ms)
+Completed 200 OK in 26ms (Views: 15.1ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/receipts/1/edit" for 127.0.0.1 at 2010-10-28 23:49:46 -0700
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (38.4ms)
+Rendered receipts/edit.html.erb within layouts/application (39.7ms)
+Completed   in 55ms
+
+ActionView::Template::Error (Model Receipt does not respond to store_name):
+    13: 
+    14:   <div class="field">
+    15:     <%= f.label :store %><br />
+    16:     <%= f.text_field :store_name, :id => :autocomplete %>
+    17:   </div>
+    18:   <div class="field">
+    19:     <%= f.label :purchase_date %><br />
+  app/views/receipts/_form.html.erb:16:in `block in _app_views_receipts__form_html_erb___3044684414927744006_2152202220_1371957607689165546'
+  app/views/receipts/_form.html.erb:1:in `_app_views_receipts__form_html_erb___3044684414927744006_2152202220_1371957607689165546'
+  app/views/receipts/edit.html.erb:3:in `_app_views_receipts_edit_html_erb___562082922329388209_2152254280_2789674388677180661'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.8ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (6.8ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.1ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.8ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (2.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (2.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (2.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.6ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.4ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (4.5ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (5.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (19.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.5ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.0ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (12.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.2ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (15.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (3.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (16.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.4ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (12.2ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (21.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (12.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (18.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (20.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.7ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (27.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.6ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.2ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (14.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (7.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (20.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (11.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (19.2ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.9ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (27.0ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (19.9ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (14.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (29.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (19.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (18.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+
+
+Started GET "/receipts/1/edit" for 127.0.0.1 at 2010-10-29 00:06:47 -0700
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (59.1ms)
+Rendered receipts/edit.html.erb within layouts/application (61.7ms)
+Completed 200 OK in 76ms (Views: 64.6ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-29 00:06:51 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.5ms)[0m  [1mSELECT "receipts".* FROM "receipts"[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 14) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (67.3ms)
+Rendered receipts/index.html.erb within layouts/application (69.5ms)
+Completed 200 OK in 81ms (Views: 71.3ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/receipts/6" for 127.0.0.1 at 2010-10-29 00:06:53 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[35mReceipt Load (0.1ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 6) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (55.6ms)
+Completed 200 OK in 71ms (Views: 58.3ms | ActiveRecord: 0.3ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-29 00:06:56 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (0.6ms)[0m  SELECT "receipts".* FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 14) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1
+Rendered receipts/_receipt.html.erb (71.0ms)
+Rendered receipts/index.html.erb within layouts/application (73.5ms)
+Completed 200 OK in 88ms (Views: 76.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:06:59 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (7.1ms)
+Rendered receipts/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 22ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=nowher" for 127.0.0.1 at 2010-10-29 00:07:04 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"nowher"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'nowher%')[0m
+Rendered stores/search.html.erb (1.0ms)
+Completed 200 OK in 40ms (Views: 30.8ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=nowhere" for 127.0.0.1 at 2010-10-29 00:07:04 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"nowhere"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'nowhere%')
+Rendered stores/search.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-29 00:07:10 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store_name"=>"nowhere", "purchase_date"=>"10/27/2010", "total"=>"65.3"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'nowhere') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('nowhere')) LIMIT 1
+  [1m[36mSQL (232.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-29 07:07:10.859107', 'nowhere', '2010-10-29 07:07:10.859107')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 17) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-10-29 07:07:11.186571', '2010-10-27 07:00:00.000000', 17, 65.3, '2010-10-29 07:07:11.186571')[0m
+Redirected to http://localhost:3000/receipts/11
+Completed 302 Found in 395ms
+
+
+Started GET "/receipts/11" for 127.0.0.1 at 2010-10-29 00:07:11 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"11"}
+  [1m[35mReceipt Load (0.1ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 11) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 17) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (57.9ms)
+Completed 200 OK in 72ms (Views: 61.2ms | ActiveRecord: 234.0ms)
+
+
+Started GET "/stores" for 127.0.0.1 at 2010-10-29 00:07:19 -0700
+  Processing by StoresController#index as HTML
+  [1m[35mStore Load (0.6ms)[0m  SELECT "stores".* FROM "stores"
+Rendered stores/index.html.erb within layouts/application (20.8ms)
+Completed 200 OK in 34ms (Views: 24.0ms | ActiveRecord: 0.6ms)
