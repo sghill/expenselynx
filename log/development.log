@@ -7793,3 +7793,79 @@ Started GET "/stores" for 127.0.0.1 at 2010-10-29 00:07:19 -0700
   [1m[35mStore Load (0.6ms)[0m  SELECT "stores".* FROM "stores"
 Rendered stores/index.html.erb within layouts/application (20.8ms)
 Completed 200 OK in 34ms (Views: 24.0ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/stores/1" for 127.0.0.1 at 2010-10-29 00:10:00 -0700
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered stores/show.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 88ms (Views: 76.2ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-29 00:12:16 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (0.5ms)[0m  SELECT "receipts".* FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 14) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 17) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (74.8ms)
+Rendered receipts/index.html.erb within layouts/application (77.2ms)
+Completed 200 OK in 95ms (Views: 84.4ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:12:18 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (7.4ms)
+Rendered receipts/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 22ms (Views: 13.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:12:39 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (35.4ms)
+Rendered receipts/new.html.erb within layouts/application (37.4ms)
+Completed 200 OK in 50ms (Views: 40.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:13:07 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (5.9ms)
+Rendered receipts/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 19ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:13:37 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (7.0ms)
+Rendered receipts/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 22ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:13:39 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (6.2ms)
+Rendered receipts/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 20ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:14:04 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (6.3ms)
+Rendered receipts/new.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 19ms (Views: 11.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:14:08 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (6.0ms)
+Rendered receipts/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 51ms (Views: 10.7ms | ActiveRecord: 0.0ms)

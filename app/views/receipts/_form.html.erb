@@ -13,15 +13,15 @@
 
   <div class="field">
     <%= f.label :store_name %><br />
-    <%= f.text_field :store_name, :id => :autocomplete %>
+    <%= f.text_field :store_name, :id => :autocomplete, :placeholder => 'Store Name' %>
   </div>
   <div class="field">
     <%= f.label :purchase_date %><br />
-    <%= f.text_field :purchase_date %>
+    <%= f.text_field :purchase_date, :placeholder => 'Purchased On' %>
   </div>
   <div class="field">
     <%= f.label :total %><br />
-    <%= f.text_field :total %>
+    <%= f.number_field :total, :placeholder => 'Total', :size => 10 %>
   </div>
   <div class="actions">
     <%= f.submit %>
