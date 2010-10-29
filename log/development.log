@@ -6105,3 +6105,892 @@ Completed 200 OK in 28ms (Views: 18.1ms | ActiveRecord: 0.4ms)
   [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
   [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
   [1m[35mSQL (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-27 23:55:59 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (0.4ms)[0m  SELECT "receipts".* FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (61.6ms)
+Rendered receipts/index.html.erb within layouts/application (63.7ms)
+Completed 200 OK in 75ms (Views: 66.3ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:56:02 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (7.0ms)
+Rendered receipts/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 21ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:56:28 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (5.9ms)
+Rendered receipts/new.html.erb within layouts/application (7.7ms)
+Completed 200 OK in 50ms (Views: 10.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-10-27 23:56:40 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[35mStore Load (0.8ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')
+Rendered stores/search.html.erb (7.1ms)
+Completed 200 OK in 37ms (Views: 21.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:56:47 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"tESt", "purchase_date"=>"10/11/2010", "total"=>"5.55"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_form.html.erb (7.2ms)
+Rendered receipts/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 71ms (Views: 12.5ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:58:06 -0700
+
+SyntaxError (/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:46: syntax error, unexpected tSYMBEG, expecting ')'
+      :total => params[:receipt][:total],
+       ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:47: syntax error, unexpected tASSOC, expecting tCOLON2 or '[' or '.'
+      :store_id => Store.find_or_create_by_name...
+                  ^
+/Users/ThoughtWorks/sgdev/expenselynx/app/controllers/receipts_controller.rb:47: syntax error, unexpected ')', expecting keyword_end):
+  
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (1.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (5.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-27 23:58:22 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (7.6ms)
+Rendered receipts/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 24ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=the" for 127.0.0.1 at 2010-10-27 23:58:26 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"the"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'the%')
+Rendered stores/search.html.erb (5.0ms)
+Completed 200 OK in 15ms (Views: 6.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-27 23:58:34 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"The Gap", "purchase_date"=>"10/26/2010", "total"=>"3.21"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'the gap') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+Rendered receipts/_form.html.erb (8.8ms)
+Rendered receipts/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 84ms (Views: 14.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-28 12:53:46 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (43.2ms)[0m  SELECT "receipts".* FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (68.5ms)
+Rendered receipts/index.html.erb within layouts/application (72.8ms)
+Completed 200 OK in 138ms (Views: 85.7ms | ActiveRecord: 43.9ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 12:53:49 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (6.5ms)
+Rendered receipts/new.html.erb within layouts/application (8.7ms)
+Completed 200 OK in 21ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=The+Stand" for 127.0.0.1 at 2010-10-28 12:53:59 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"The Stand"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'the stand%')
+Rendered stores/search.html.erb (0.6ms)
+Completed 200 OK in 34ms (Views: 23.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 12:54:04 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"The Stand", "purchase_date"=>"10/23/2010", "total"=>"3.42"}, "commit"=>"Create Receipt"}
+Completed   in 43ms
+
+ArgumentError (invalid date):
+  app/controllers/receipts_controller.rb:45:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (4.7ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (9.4ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-28 12:58:02 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.5ms)[0m  [1mSELECT "receipts".* FROM "receipts"[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1
+Rendered receipts/_receipt.html.erb (94.4ms)
+Rendered receipts/index.html.erb within layouts/application (96.9ms)
+Completed 200 OK in 110ms (Views: 99.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 12:58:04 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (7.1ms)
+Rendered receipts/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 21ms (Views: 12.0ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 12:58:10 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"the stand", "purchase_date"=>"10/28/2010", "total"=>"12.31"}, "commit"=>"Create Receipt"}
+Completed   in 8ms
+
+ArgumentError (invalid date):
+  app/controllers/receipts_controller.rb:45:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (6.8ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 12:59:26 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (6.1ms)
+Rendered receipts/new.html.erb within layouts/application (8.0ms)
+Completed 200 OK in 52ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 13:02:27 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.4ms)
+Rendered receipts/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 74ms (Views: 62.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-28 13:02:38 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'm%')[0m
+Rendered stores/search.html.erb (39.6ms)
+Completed 200 OK in 75ms (Views: 64.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=ma" for 127.0.0.1 at 2010-10-28 13:02:39 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ma"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'ma%')
+Rendered stores/search.html.erb (4.8ms)
+Completed 200 OK in 15ms (Views: 6.1ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 13:02:41 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"maybelline", "purchase_date"=>"10/19/2010", "total"=>"2.12"}, "commit"=>"Create Receipt"}
+Completed   in 6ms
+
+ArgumentError (invalid date):
+  app/controllers/receipts_controller.rb:45:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (2.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.6ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 19:16:51 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.4ms)
+Rendered receipts/new.html.erb within layouts/application (11.3ms)
+Completed 200 OK in 70ms (Views: 60.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=m" for 127.0.0.1 at 2010-10-28 19:16:55 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"m"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'm%')[0m
+Rendered stores/search.html.erb (7.5ms)
+Completed 200 OK in 43ms (Views: 33.6ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 19:18:12 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Microcenter", "purchase_date"=>"10/25/2010", "total"=>"3.30"}, "commit"=>"Create Receipt"}
+Completed   in 7ms
+
+ArgumentError (invalid date):
+  app/controllers/receipts_controller.rb:45:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (32.8ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (37.8ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 20:36:20 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (6.9ms)
+Rendered receipts/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 54ms (Views: 42.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=mic" for 127.0.0.1 at 2010-10-28 20:36:23 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mic"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'mic%')
+Rendered stores/search.html.erb (35.2ms)
+Completed 200 OK in 70ms (Views: 59.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 20:36:31 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Microcenter", "purchase_date"=>"10/27/2010", "total"=>"3.34"}, "commit"=>"Create Receipt"}
+Completed   in 0ms
+
+NoMethodError (undefined method `-' for "2010":String):
+  app/controllers/receipts_controller.rb:44:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.3ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (8.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 20:39:18 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (6.0ms)
+Rendered receipts/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 21ms (Views: 10.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=mi" for 127.0.0.1 at 2010-10-28 20:39:21 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mi"}
+  [1m[36mStore Load (0.6ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'mi%')[0m
+Rendered stores/search.html.erb (7.5ms)
+Completed 200 OK in 57ms (Views: 9.6ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 20:40:31 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Microcenter", "purchase_date"=>"10/12/2010", "total"=>"1.22"}, "commit"=>"Create Receipt"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'microcenter') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1
+Rendered receipts/_form.html.erb (137.3ms)
+Rendered receipts/new.html.erb within layouts/application (139.5ms)
+Completed 200 OK in 172ms (Views: 142.3ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=mic" for 127.0.0.1 at 2010-10-28 20:42:00 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mic"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'mic%')[0m
+Rendered stores/search.html.erb (4.9ms)
+Completed 200 OK in 18ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 20:42:11 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Microcenter", "purchase_date"=>"10/26/2010", "total"=>"1.22"}, "commit"=>"Create Receipt"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'microcenter') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-10-29 03:42:11.819199', '2010-10-26 07:00:00.000000', 2, 1.22, '2010-10-29 03:42:11.819199')
+Redirected to http://localhost:3000/receipts/6
+Completed 302 Found in 79ms
+
+
+Started GET "/receipts/6" for 127.0.0.1 at 2010-10-28 20:42:11 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 6) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 55ms (Views: 41.3ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 20:52:17 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.1ms)
+Rendered receipts/new.html.erb within layouts/application (12.0ms)
+Completed 200 OK in 28ms (Views: 15.2ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=mic" for 127.0.0.1 at 2010-10-28 20:52:20 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mic"}
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'mic%')
+Rendered stores/search.html.erb (6.0ms)
+Completed 200 OK in 51ms (Views: 8.1ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 20:52:29 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Microcenter", "purchase_date"=>"10/26/2010", "total"=>"3.32"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'microcenter') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+Rendered receipts/_form.html.erb (35.1ms)
+Rendered receipts/new.html.erb within layouts/application (37.2ms)
+Completed 200 OK in 80ms (Views: 40.2ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 20:52:55 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"#<Store:0x000001040e2310>", "purchase_date"=>"10/28/2010", "total"=>"3.32"}, "commit"=>"Create Receipt"}
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = '#<store:0x000001040e2310>') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('#<Store:0x000001040e2310>')) LIMIT 1[0m
+  [1m[35mSQL (216.6ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-29 03:52:55.877741', '#<Store:0x000001040e2310>', '2010-10-29 03:52:55.877741')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 11) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 11) LIMIT 1
+Rendered receipts/_form.html.erb (7.1ms)
+Rendered receipts/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 378ms (Views: 11.9ms | ActiveRecord: 217.3ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 20:53:59 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"#<Store:0x00000101751168>", "purchase_date"=>"10/28/2010", "total"=>"3.32"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = '#<store:0x00000101751168>') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('#<Store:0x00000101751168>')) LIMIT 1
+  [1m[36mSQL (65.8ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-29 03:53:59.324667', '#<Store:0x00000101751168>', '2010-10-29 03:53:59.324667')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 12) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 12) LIMIT 1[0m
+Rendered receipts/_form.html.erb (7.1ms)
+Rendered receipts/new.html.erb within layouts/application (9.1ms)
+Completed 200 OK in 175ms (Views: 11.9ms | ActiveRecord: 66.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 20:54:13 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (34.2ms)
+Rendered receipts/new.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 50ms (Views: 39.0ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=mic" for 127.0.0.1 at 2010-10-28 20:54:15 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mic"}
+  [1m[35mStore Load (0.6ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'mic%')
+Rendered stores/search.html.erb (4.8ms)
+Completed 200 OK in 17ms (Views: 6.8ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 20:54:21 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Microcenter", "purchase_date"=>"10/27/2010", "total"=>"3.32"}, "commit"=>"Create Receipt"}
+Completed   in 7ms
+
+NoMethodError (undefined method `to_date' for nil:NilClass):
+  app/controllers/receipts_controller.rb:47:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (3.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (7.3ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 20:54:45 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (32.6ms)
+Rendered receipts/new.html.erb within layouts/application (36.1ms)
+Completed 200 OK in 75ms (Views: 65.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=mic" for 127.0.0.1 at 2010-10-28 20:54:48 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mic"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'mic%')[0m
+Rendered stores/search.html.erb (7.0ms)
+Completed 200 OK in 40ms (Views: 30.4ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=micr" for 127.0.0.1 at 2010-10-28 20:54:54 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"micr"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'micr%')
+Rendered stores/search.html.erb (4.7ms)
+Completed 200 OK in 16ms (Views: 6.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 20:55:00 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Microcenter", "purchase_date"=>"10/28/2010", "total"=>"3.32"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'microcenter') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+Rendered receipts/_form.html.erb (37.8ms)
+Rendered receipts/new.html.erb within layouts/application (39.9ms)
+Completed 200 OK in 74ms (Views: 42.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 20:57:26 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (9.0ms)
+Rendered receipts/new.html.erb within layouts/application (11.1ms)
+Completed 200 OK in 26ms (Views: 13.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=mic" for 127.0.0.1 at 2010-10-28 20:57:29 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mic"}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'mic%')
+Rendered stores/search.html.erb (5.3ms)
+Completed 200 OK in 50ms (Views: 6.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 20:57:37 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Microcenter", "purchase_date"=>"10/27/2010", "total"=>"5.43"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'microcenter') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+Rendered receipts/_form.html.erb (32.0ms)
+Rendered receipts/new.html.erb within layouts/application (33.9ms)
+Completed 200 OK in 95ms (Views: 36.7ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 20:58:51 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (8.6ms)
+Rendered receipts/new.html.erb within layouts/application (10.7ms)
+Completed 200 OK in 26ms (Views: 13.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=mic" for 127.0.0.1 at 2010-10-28 20:58:55 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"mic"}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'mic%')
+Rendered stores/search.html.erb (5.3ms)
+Completed 200 OK in 47ms (Views: 6.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 20:59:00 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Microcenter", "purchase_date"=>"10/27/2010", "total"=>"3.32"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'microcenter') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+Rendered receipts/_form.html.erb (33.7ms)
+Rendered receipts/new.html.erb within layouts/application (35.7ms)
+Completed 200 OK in 81ms (Views: 38.5ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 21:03:10 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"#<Store:0x000001029b9ff8>", "purchase_date"=>"10/27/2010", "total"=>"3.32"}, "commit"=>"Create Receipt"}
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = '#<store:0x000001029b9ff8>') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('#<Store:0x000001029b9ff8>')) LIMIT 1[0m
+  [1m[35mSQL (24.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-29 04:03:11.426578', '#<Store:0x000001029b9ff8>', '2010-10-29 04:03:11.426578')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 13) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 13) LIMIT 1
+Rendered receipts/_form.html.erb (10.4ms)
+Rendered receipts/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 221ms (Views: 44.6ms | ActiveRecord: 25.3ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 21:05:56 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"#<Store:0x00000100ae7f30>", "purchase_date"=>"10/28/2010", "total"=>"3.32"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = '#<store:0x00000100ae7f30>') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('#<Store:0x00000100ae7f30>')) LIMIT 1
+  [1m[36mSQL (194.9ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-29 04:05:57.127240', '#<Store:0x00000100ae7f30>', '2010-10-29 04:05:57.127240')[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 14) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-10-29 04:05:57.478537', '2010-10-28 07:00:00.000000', 14, 3.32, '2010-10-29 04:05:57.478537')[0m
+Redirected to http://localhost:3000/receipts/7
+Completed 302 Found in 402ms
+
+
+Started GET "/receipts/7" for 127.0.0.1 at 2010-10-28 21:05:58 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"7"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 7) LIMIT 1
+Rendered receipts/show.html.erb within layouts/application (9.9ms)
+Completed 200 OK in 51ms (Views: 39.8ms | ActiveRecord: 196.5ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (22.1ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.5ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.4ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (3.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (3.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (20.5ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (26.3ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (6.2ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (25.4ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (12.6ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.2ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 22:14:04 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Target", "purchase_date"=>"10/27/2010", "total"=>"3.33"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (40.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (149.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-10-29 05:14:04.769182', '2010-10-27 07:00:00.000000', 1, 3.33, '2010-10-29 05:14:04.769182')[0m
+Redirected to http://localhost:3000/receipts/8
+Completed 302 Found in 323ms
+
+
+Started GET "/receipts/8" for 127.0.0.1 at 2010-10-28 22:14:04 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"8"}
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 8) LIMIT 1
+Rendered receipts/show.html.erb within layouts/application (14.7ms)
+Completed 200 OK in 35ms (Views: 19.6ms | ActiveRecord: 190.0ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-10-28 22:14:16 -0700
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.5ms)[0m  [1mSELECT "receipts".* FROM "receipts"[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 10) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 14) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (30.2ms)
+Rendered receipts/index.html.erb within layouts/application (38.5ms)
+Completed 200 OK in 50ms (Views: 40.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 22:14:17 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (7.3ms)
+Rendered receipts/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 23ms (Views: 12.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=tar" for 127.0.0.1 at 2010-10-28 22:14:21 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tar"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tar%')
+Rendered stores/search.html.erb (7.4ms)
+Completed 200 OK in 68ms (Views: 59.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=targ" for 127.0.0.1 at 2010-10-28 22:14:21 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"targ"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'targ%')[0m
+Rendered stores/search.html.erb (5.2ms)
+Completed 200 OK in 44ms (Views: 35.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 22:14:28 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"Target", "purchase_date"=>"10/28/2010", "total"=>"3.45"}, "commit"=>"Create Receipt"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-10-29 05:14:28.378530', '2010-10-28 07:00:00.000000', 1, 3.45, '2010-10-29 05:14:28.378530')
+Redirected to http://localhost:3000/receipts/9
+Completed 302 Found in 80ms
+
+
+Started GET "/receipts/9" for 127.0.0.1 at 2010-10-28 22:14:28 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"9"}
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 9) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 23ms (Views: 12.3ms | ActiveRecord: 1.1ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.0ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.6ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (18.7ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (18.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (21.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (5.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (16.2ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (31.9ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (43.6ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (12.3ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-28 22:28:19 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (10.0ms)
+Rendered receipts/new.html.erb within layouts/application (12.3ms)
+Completed 200 OK in 29ms (Views: 15.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 22:28:29 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"target", "purchase_date"=>"10/28/2010", "total"=>"21"}, "commit"=>"Create Receipt"}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (8.0ms)
+Rendered receipts/new.html.erb within layouts/application (10.3ms)
+Completed 200 OK in 119ms (Views: 13.2ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 22:30:14 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"#<Store:0x00000100fb43b0>", "purchase_date"=>"10/26/2010", "total"=>"21.0"}, "commit"=>"Create Receipt"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = '#<store:0x00000100fb43b0>') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('#<Store:0x00000100fb43b0>')) LIMIT 1
+  [1m[36mSQL (45.8ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-29 05:30:14.473737', '#<Store:0x00000100fb43b0>', '2010-10-29 05:30:14.473737')[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 15) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 15) LIMIT 1[0m
+Rendered receipts/_form.html.erb (8.8ms)
+Rendered receipts/new.html.erb within layouts/application (11.2ms)
+Completed 200 OK in 257ms (Views: 15.7ms | ActiveRecord: 46.6ms)
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.8ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.7ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (3.6ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (3.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" datetime, "total" decimal(9,2), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (10.9ms)[0m  CREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("schema_migrations")[0m
+  [1m[35mSQL (9.4ms)[0m  CREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT version FROM "schema_migrations"
+  [1m[36mSQL (5.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024215028')[0m
+  [1m[35mSQL (15.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024205015')
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-10-28 22:35:27 -0700
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"JtfFNVz16t9fh5FtUtjOrPE8PTBtxjqIrmZP8Zm/Ph8=", "receipt"=>{"store"=>"#<Store:0x00000100c831f0>", "purchase_date"=>"10/28/2010", "total"=>"21.0"}, "commit"=>"Create Receipt"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = '#<store:0x00000100c831f0>') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('#<Store:0x00000100c831f0>')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-10-29 05:35:27.970591', '#<Store:0x00000100c831f0>', '2010-10-29 05:35:27.970591')
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 16) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-10-29 05:35:27.988125', '2010-10-28 07:00:00.000000', 16, 21.0, '2010-10-29 05:35:27.988125')
+Redirected to http://localhost:3000/receipts/10
+Completed 302 Found in 83ms
+
+
+Started GET "/receipts/10" for 127.0.0.1 at 2010-10-28 22:35:28 -0700
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"10"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 10) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (8.1ms)
+Completed 200 OK in 22ms (Views: 11.4ms | ActiveRecord: 1.5ms)

@@ -18,7 +18,10 @@ class ReceiptsControllerTest < ActionController::TestCase
 
   test "should create receipt" do
     assert_difference('Receipt.count') do
-      post :create, :receipt => @receipt.attributes
+      post :create, :receipt => #@receipt.attributes
+      { :store => "Target",
+        :purchase_date => "10/26/2010",
+        :total => @receipt.total }
     end
 
     assert_redirected_to receipt_path(assigns(:receipt))
