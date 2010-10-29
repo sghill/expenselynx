@@ -7,7 +7,7 @@
   <%= csrf_meta_tag %>
   
   <script type="text/javascript">$(document).ready(function() {
-    $("input#autocomplete").autocomplete({
+    $("#receipt_store_name").autocomplete({
       minLength: 0,
       source: function(request, response) {
         $.ajax({

@@ -7869,3 +7869,40 @@ Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:14:08 -0700
 Rendered receipts/_form.html.erb (6.0ms)
 Rendered receipts/new.html.erb within layouts/application (7.8ms)
 Completed 200 OK in 51ms (Views: 10.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:15:51 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (6.4ms)
+Rendered receipts/new.html.erb within layouts/application (8.6ms)
+Completed 200 OK in 21ms (Views: 11.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:16:13 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (6.2ms)
+Rendered receipts/new.html.erb within layouts/application (8.2ms)
+Completed 200 OK in 52ms (Views: 11.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-10-29 00:16:17 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 't%')
+Rendered stores/search.html.erb (4.7ms)
+Completed 200 OK in 15ms (Views: 6.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-10-29 00:16:45 -0700
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (6.5ms)
+Rendered receipts/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 22ms (Views: 11.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-10-29 00:16:48 -0700
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')[0m
+Rendered stores/search.html.erb (5.0ms)
+Completed 200 OK in 16ms (Views: 6.4ms | ActiveRecord: 0.4ms)
