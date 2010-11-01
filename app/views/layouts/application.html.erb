@@ -2,11 +2,12 @@
 <html>
 <head>
   <title>ExpenseLynx</title>
-  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/black-tie/jquery-ui.css" %>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/black-tie/jquery-ui.css", "default" %>
   <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js" %>
   <%= csrf_meta_tag %>
   
-  <script type="text/javascript">$(document).ready(function() {
+  <script type="text/javascript">
+  $(document).ready(function() {
     $("#receipt_store_name").autocomplete({
       minLength: 0,
       source: function(request, response) {
@@ -44,12 +45,17 @@
         }, "json");
         return false;
     });
-  });</script>
-  
+  });
+  </script>
 </head>
 <body>
-
-<%= yield %>
-
+<div id="outer_container">
+  <div id="user_bar">
+    <h1 id="logo">ExpenseLynx</h1>
+  </div>
+  <div id="content_container">
+    <%= yield %>
+  </div>
+</div>
 </body>
 </html>

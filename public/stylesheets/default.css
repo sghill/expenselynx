@@ -1,3 +1,25 @@
-.list_line_odd {
-	background-color:#eee;
+body, p, a, ul, ol, li, table, tr, td, h1, h2, h3, h4, h5 {
+	margin:0;
+	padding:0;
+}
+
+body {
+	background:#999;
+}
+
+#outer_container {
+	margin:0 auto;
+	width:1024px;
+}
+
+#user_bar {
+	background:white;
+	height:36px;
+	width:inherit;
+}
+
+#content_container {
+	background:#666;
+	margin:0 auto;
+	width:888px;
 }
