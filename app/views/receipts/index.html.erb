@@ -15,4 +15,8 @@
 
 <br />
 
-<%= link_to 'New Receipt', new_receipt_path %>
+<%= link_to 'New Receipt', new_receipt_path, :id => 'create_receipt_link' %>
+
+<div id="receipt_form" style="display:none">
+  <%= render 'form' %>
+</div>

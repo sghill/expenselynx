@@ -22,6 +22,28 @@
     })
     
     $("#receipt_purchase_date").datepicker({autoSize:true});
+    
+    $("#create_receipt_link").click(function() {
+      $("#receipt_form").slideToggle("slow");
+    })
+    
+    $("#create_receipt_link")[0].href = "#";
+    
+    $("#new_receipt").submit(function() {
+      $.post(
+        $(this).attr('action'),
+        $("#new_receipt").serialize(),
+        function(data, textStatus) {
+          var html = "<tr><td>" + data.receipt.store_name +
+            "</td><td>" + data.receipt.purchase_date + "</td><td>" +
+            data.receipt.total + "</td><td><a href='/receipts/" + data.receipt.id +
+            "'>show</a></td><td><a href='/receipts/" + data.receipt.id + 
+            "/edit'>edit</a></td><td></tr>";
+          
+          $(html).appendTo($("table")).effect("highlight", {}, 3000);
+        }, "json");
+        return false;
+    });
   });</script>
   
 </head>

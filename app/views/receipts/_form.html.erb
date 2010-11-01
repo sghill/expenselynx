@@ -1,16 +1,15 @@
+<% if @receipt.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@receipt.errors.count, "error") %> prohibited this receipt from being saved:</h2>
+
+    <ul>
+    <% @receipt.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 <%= form_for(@receipt) do |f| %>
-  <% if @receipt.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@receipt.errors.count, "error") %> prohibited this receipt from being saved:</h2>
-
-      <ul>
-      <% @receipt.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
-
   <div class="field">
     <%= f.label :store_name %><br />
     <%= f.text_field :store_name, :placeholder => 'Store Name' %>
@@ -24,6 +23,7 @@
     <%= f.number_field :total, :placeholder => 'Total', :size => 10 %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+   <%= f.submit %>
+   <!-- <%= button_to 'Create Receipt', receipts_path(@receipt), :remote => true %> -->
   </div>
 <% end %>

@@ -2,6 +2,7 @@ class ReceiptsController < ApplicationController
   # GET /receipts
   # GET /receipts.xml
   def index
+    @receipt = Receipt.new
     @receipts = Receipt.all
 
     respond_to do |format|
@@ -47,6 +48,8 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       if @receipt.save
+        # ugly hack; for whatever reason adding store_name makes it work...
+        format.js  { @receipt['store_name'] = nil; render :json => @receipt }
         format.html { redirect_to(@receipt, :notice => 'Receipt was successfully created.') }
         format.xml  { render :xml => @receipt, :status => :created, :location => @receipt }
       else
