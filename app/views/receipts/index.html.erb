@@ -1,22 +1,18 @@
-<h1>Listing receipts</h1>
+<div id="add_receipt">
+  <%= link_to 'New Receipt', new_receipt_path, :id => 'create_receipt_link' %>
 
-<table>
+  <div id="receipt_form" style="display:none">
+    <%= render 'form' %>
+  </div>
+</div>
+
+<table id="recent_receipts">
   <tr>
-    <th>Store</th>
     <th>Purchase date</th>
+    <th>Store</th>
     <th>Total</th>
-    <th></th>
-    <th></th>
     <th></th>
   </tr>
 
 <%= render(@receipts) %>
 </table>
-
-<br />
-
-<%= link_to 'New Receipt', new_receipt_path, :id => 'create_receipt_link' %>
-
-<div id="receipt_form" style="display:none">
-  <%= render 'form' %>
-</div>

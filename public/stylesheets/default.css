@@ -4,7 +4,7 @@ body, p, a, ul, ol, li, table, tr, td, h1, h2, h3, h4, h5 {
 }
 
 body {
-	background:#999;
+	background:white;
 }
 
 #outer_container {
@@ -13,13 +13,23 @@ body {
 }
 
 #user_bar {
-	background:white;
+	border-bottom:solid gray 1px;
 	height:36px;
 	width:inherit;
 }
 
 #content_container {
-	background:#666;
+	border-bottom:solid gray 1px;
+	border-left:solid gray 1px;
+	border-right:solid gray 1px;
 	margin:0 auto;
 	width:888px;
+}
+
+#recent_receipts {
+	margin:0 auto;
+}
+
+#add_receipt {
+	text-align:center;
 }
