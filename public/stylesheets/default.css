@@ -23,13 +23,26 @@ body {
 	border-left:solid gray 1px;
 	border-right:solid gray 1px;
 	margin:0 auto;
+	padding:2em;
 	width:888px;
 }
 
+#add_receipt {
+	padding-bottom:2em;
+	padding-top:1em;
+	text-align:center;
+}
+
+/* RECEIPTS TABLE */
 #recent_receipts {
 	margin:0 auto;
 }
 
-#add_receipt {
-	text-align:center;
+#recent_receipts tr th {
+	border-bottom:dotted gray 1px;
+}
+
+#recent_receipts td,th {
+	padding-left:1em;
+	padding-right:1em;
 }
