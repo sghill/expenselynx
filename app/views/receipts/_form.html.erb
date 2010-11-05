@@ -22,6 +22,10 @@
     <%= f.label :total %><br />
     <%= f.number_field :total, :placeholder => 'Total', :size => 10 %>
   </div>
+  <div class="field">
+    <%= f.label :expensable %>
+    <%= f.check_box :expensable %>
+  </div>
   <div class="actions">
    <%= f.submit %>
   </div>

@@ -88,4 +88,22 @@ class ReceiptTest < ActiveSupport::TestCase
                              :store_id => @store.id)
     assert_equal(@store.name, receipt.store_name)
   end
+  
+  #
+  # expense flags
+  #
+  test "should have flag that indicates if the receipt is expensable" do
+    receipt = Receipt.create(:total => 5.54,
+                             :purchase_date => DateTime.now,
+                             :store_id => @store.id,
+                             :expensable => true)
+    assert receipt.expensable?
+  end
+  
+  test "should return false for expensable when not set" do
+    receipt = Receipt.create(:total => 5.54,
+                             :purchase_date => DateTime.now,
+                             :store_id => @store.id)
+    assert !receipt.expensable?
+  end
 end

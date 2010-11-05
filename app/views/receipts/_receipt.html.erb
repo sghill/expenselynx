@@ -2,4 +2,5 @@
   <td><%= receipt.purchase_date.to_date.to_s(:short) %></td>
   <td><%= link_to receipt.store.name, store_path(receipt.store_id) %></td>
   <td><%= link_to receipt.total, receipt %></td>
+  <td><%= receipt.expensable? ? 'Y' : 'N' %>
 </tr>

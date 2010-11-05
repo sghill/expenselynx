@@ -44,7 +44,8 @@ class ReceiptsController < ApplicationController
     @receipt = Receipt.new(
       :purchase_date => (Date.strptime(params[:receipt][:purchase_date], '%m/%d/%Y')),
       :total => params[:receipt][:total],
-      :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id)
+      :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
+      :expensable => params[:receipt][:expensable])
 
     respond_to do |format|
       if @receipt.save

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101024215028) do
+ActiveRecord::Schema.define(:version => 20101105091615) do
 
   create_table "receipts", :force => true do |t|
     t.integer  "store_id"
@@ -18,6 +18,7 @@ ActiveRecord::Schema.define(:version => 20101024215028) do
     t.decimal  "total",         :precision => 9, :scale => 2
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "expensable"
   end
 
   create_table "stores", :force => true do |t|
