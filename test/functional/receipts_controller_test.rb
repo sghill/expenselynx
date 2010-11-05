@@ -49,4 +49,15 @@ class ReceiptsControllerTest < ActionController::TestCase
 
     assert_redirected_to receipts_path
   end
+  
+  test "should show 5 receipts on the home page" do
+    Factory(:chipotle_burrito)
+    Factory(:starbucks)
+    Factory(:best_buy_tv)
+    Factory(:oil_filter)
+    Factory(:baja_tacos)
+    
+    get :index
+    assert_equal 5, assigns(:receipts).count
+  end
 end

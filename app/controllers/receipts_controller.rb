@@ -3,7 +3,7 @@ class ReceiptsController < ApplicationController
   # GET /receipts.xml
   def index
     @receipt = Receipt.new
-    @receipts = Receipt.all
+    @receipts = Receipt.find(:all, :limit => 5)
 
     respond_to do |format|
       format.html # index.html.erb
