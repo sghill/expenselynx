@@ -11892,3 +11892,1687 @@ Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.5ms)
   [1m[36mSQL (0.1ms)[0m  [1mUPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-11-05 08:52:38.015896' WHERE ("stores"."id" = 1)[0m
 Redirected to http://test.host/stores/1
 Completed 302 Found in 4ms
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:53:59.877458', 'Target', '2010-11-05 08:53:59.877458')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:53:59.919272', '2010-11-05 08:53:59.000000', 1, 12.31, '2010-11-05 08:53:59.919272')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"receipt"=>{"store_name"=>"Target", "purchase_date"=>"10/26/2010", "total"=>#<BigDecimal:1020c87a0,'0.1231E2',18(18)>}}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:53:59.951251', '2010-10-26 07:00:00.000000', 1, 12.31, '2010-11-05 08:53:59.951251')[0m
+Redirected to http://test.host/receipts/2
+Completed 302 Found in 5ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:53:59.959493', 'Target', '2010-11-05 08:53:59.959493')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:53:59.961925', '2010-11-05 08:53:59.000000', 1, 12.31, '2010-11-05 08:53:59.961925')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "receipts"[0m
+  Processing by ReceiptsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "receipts" WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:53:59.983488', 'Target', '2010-11-05 08:53:59.983488')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:53:59.986461', '2010-11-05 08:53:59.000000', 1, 12.31, '2010-11-05 08:53:59.986461')
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (12.0ms)
+Completed 200 OK in 19ms (Views: 17.4ms | ActiveRecord: 4.2ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.022304', 'Target', '2010-11-05 08:54:00.022304')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:54:00.055338', '2010-11-05 08:53:59.000000', 1, 12.31, '2010-11-05 08:54:00.055338')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (3.4ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_receipt.html.erb (2.6ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 1.2ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.082251', 'Target', '2010-11-05 08:54:00.082251')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:54:00.084316', '2010-11-05 08:53:59.000000', 1, 12.31, '2010-11-05 08:54:00.084316')
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (2.3ms)
+Completed 200 OK in 5ms (Views: 4.4ms | ActiveRecord: 0.6ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.097976', 'Target', '2010-11-05 08:54:00.097976')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:54:00.099769', '2010-11-05 08:53:59.000000', 1, 12.31, '2010-11-05 08:54:00.099769')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.101249', 'Chipotle', '2010-11-05 08:54:00.101249')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:54:00.102438', '2010-11-05 08:53:59.000000', 2, 27.91, '2010-11-05 08:54:00.102438')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.103647', 'Starbucks', '2010-11-05 08:54:00.103647')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.104696', 'Best Buy', '2010-11-05 08:54:00.104696')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:54:00.105767', '2010-11-05 08:53:59.000000', 4, 1000.77, '2010-11-05 08:54:00.105767')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.107346', 'Murrays Auto Parts', '2010-11-05 08:54:00.107346')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:54:00.109015', '2010-11-05 08:53:59.000000', 5, 7.91, '2010-11-05 08:54:00.109015')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.2ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (4.5ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 1.9ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.128684', 'Target', '2010-11-05 08:54:00.128684')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:54:00.130486', '2010-11-05 08:53:59.000000', 1, 12.31, '2010-11-05 08:54:00.130486')[0m
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.8ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.148703', 'Target', '2010-11-05 08:54:00.148703')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:54:00.150360', '2010-11-05 08:53:59.000000', 1, 12.31, '2010-11-05 08:54:00.150360')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.155600', 'Target', '2010-11-05 08:54:00.155600')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:54:00.157041', '2010-11-05 08:53:59.000000', 1, 12.31, '2010-11-05 08:54:00.157041')[0m
+  Processing by ReceiptsController#update as HTML
+  Parameters: {"receipt"=>{"created_at"=>2010-11-05 08:54:00 UTC, "id"=>1, "purchase_date"=>Fri, 05 Nov 2010 08:53:59 UTC +00:00, "store_id"=>1, "total"=>#<BigDecimal:1040d4ee0,'0.1231E2',18(18)>, "updated_at"=>2010-11-05 08:54:00 UTC}, "id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+WARNING: Can't mass-assign protected attributes: id
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "receipts" SET "purchase_date" = '2010-11-05 08:53:59.000000', "updated_at" = '2010-11-05 08:54:00.163611' WHERE ("receipts"."id" = 1)
+Redirected to http://test.host/receipts/1
+Completed 302 Found in 4ms
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.177261', 'Chipotle', '2010-11-05 08:54:00.177261')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  Processing by StoresController#create as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.182175', 'Panera Bread', '2010-11-05 08:54:00.182175')[0m
+Redirected to http://test.host/stores/2
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.191630', 'Chipotle', '2010-11-05 08:54:00.191630')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  Processing by StoresController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "stores" WHERE ("stores"."id" = 1)[0m
+Redirected to http://test.host/stores
+Completed 302 Found in 1ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.206589', 'Chipotle', '2010-11-05 08:54:00.206589')
+  Processing by StoresController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered stores/_form.html.erb (2.6ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 3.0ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.227348', 'Chipotle', '2010-11-05 08:54:00.227348')[0m
+  Processing by StoresController#index as HTML
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.5ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.238500', 'Chipotle', '2010-11-05 08:54:00.238500')
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (1.4ms)
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.4ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.250328', 'Chipotle', '2010-11-05 08:54:00.250328')
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.5ms)
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:54:00.300946', 'Chipotle', '2010-11-05 08:54:00.300946')[0m
+  Processing by StoresController#update as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}, "id"=>"1"}
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) AND ("stores".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-11-05 08:54:00.308707' WHERE ("stores"."id" = 1)
+Redirected to http://test.host/stores/1
+Completed 302 Found in 5ms
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.717506', 'Target', '2010-11-05 08:55:33.717506')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.757592', '2010-11-05 08:55:33.000000', 1, 12.31, '2010-11-05 08:55:33.757592')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"receipt"=>{"store_name"=>"Target", "purchase_date"=>"10/26/2010", "total"=>#<BigDecimal:10292fb28,'0.1231E2',18(18)>}}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.781176', '2010-10-26 07:00:00.000000', 1, 12.31, '2010-11-05 08:55:33.781176')[0m
+Redirected to http://test.host/receipts/2
+Completed 302 Found in 5ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.796693', 'Target', '2010-11-05 08:55:33.796693')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.798188', '2010-11-05 08:55:33.000000', 1, 12.31, '2010-11-05 08:55:33.798188')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "receipts"[0m
+  Processing by ReceiptsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "receipts" WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.812717', 'Target', '2010-11-05 08:55:33.812717')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.814386', '2010-11-05 08:55:33.000000', 1, 12.31, '2010-11-05 08:55:33.814386')
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (35.7ms)
+Completed 200 OK in 43ms (Views: 42.2ms | ActiveRecord: 3.2ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.877423', 'Target', '2010-11-05 08:55:33.877423')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.879953', '2010-11-05 08:55:33.000000', 1, 12.31, '2010-11-05 08:55:33.879953')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.3ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_receipt.html.erb (1.9ms)
+Completed 200 OK in 9ms (Views: 7.7ms | ActiveRecord: 1.0ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.904688', 'Target', '2010-11-05 08:55:33.904688')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.906730', '2010-11-05 08:55:33.000000', 1, 12.31, '2010-11-05 08:55:33.906730')
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (2.4ms)
+Completed 200 OK in 5ms (Views: 4.8ms | ActiveRecord: 0.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.921473', 'Target', '2010-11-05 08:55:33.921473')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.923219', '2010-11-05 08:55:33.000000', 1, 12.31, '2010-11-05 08:55:33.923219')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.924593', 'Chipotle', '2010-11-05 08:55:33.924593')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.925826', '2010-11-05 08:55:33.000000', 2, 27.91, '2010-11-05 08:55:33.925826')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.927272', 'Starbucks', '2010-11-05 08:55:33.927272')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.928246', 'Best Buy', '2010-11-05 08:55:33.928246')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.929311', '2010-11-05 08:55:33.000000', 4, 1000.77, '2010-11-05 08:55:33.929311')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.930606', 'Murrays Auto Parts', '2010-11-05 08:55:33.930606')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.931730', '2010-11-05 08:55:33.000000', 5, 7.91, '2010-11-05 08:55:33.931730')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.932943', 'Baja Fresh', '2010-11-05 08:55:33.932943')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.934155', '2010-11-05 08:55:33.000000', 6, 7.54, '2010-11-05 08:55:33.934155')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.0ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.1ms)
+Completed 200 OK in 9ms (Views: 7.9ms | ActiveRecord: 2.0ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.953078', 'Target', '2010-11-05 08:55:33.953078')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.954989', '2010-11-05 08:55:33.000000', 1, 12.31, '2010-11-05 08:55:33.954989')
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.7ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.967103', 'Target', '2010-11-05 08:55:33.967103')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.968761', '2010-11-05 08:55:33.000000', 1, 12.31, '2010-11-05 08:55:33.968761')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:33.970100', 'Chipotle', '2010-11-05 08:55:33.970100')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:33.971381', '2010-11-05 08:55:33.000000', 2, 27.91, '2010-11-05 08:55:33.971381')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:34.974051', 'Starbucks', '2010-11-05 08:55:34.974051')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:35.976626', 'Best Buy', '2010-11-05 08:55:35.976626')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:35.978930', '2010-11-05 08:55:33.000000', 4, 1000.77, '2010-11-05 08:55:35.978930')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:36.981447', 'Murrays Auto Parts', '2010-11-05 08:55:36.981447')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:36.983164', '2010-11-05 08:55:33.000000', 5, 7.91, '2010-11-05 08:55:36.983164')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:37.985685', 'Baja Fresh', '2010-11-05 08:55:37.985685')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:37.987465', '2010-11-05 08:55:33.000000', 6, 7.54, '2010-11-05 08:55:37.987465')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.0ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.4ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 2.8ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:38.003239', 'Target', '2010-11-05 08:55:38.003239')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:55:38.004754', '2010-11-05 08:55:33.000000', 1, 12.31, '2010-11-05 08:55:38.004754')
+  Processing by ReceiptsController#update as HTML
+  Parameters: {"receipt"=>{"created_at"=>2010-11-05 08:55:38 UTC, "id"=>1, "purchase_date"=>Fri, 05 Nov 2010 08:55:33 UTC +00:00, "store_id"=>1, "total"=>#<BigDecimal:100de2550,'0.1231E2',18(18)>, "updated_at"=>2010-11-05 08:55:38 UTC}, "id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "receipts" SET "purchase_date" = '2010-11-05 08:55:33.000000', "updated_at" = '2010-11-05 08:55:38.009745' WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts/1
+Completed 302 Found in 4ms
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:38.025732', 'Chipotle', '2010-11-05 08:55:38.025732')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#create as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:38.034861', 'Panera Bread', '2010-11-05 08:55:38.034861')
+Redirected to http://test.host/stores/2
+Completed 302 Found in 6ms
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:38.043307', 'Chipotle', '2010-11-05 08:55:38.043307')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "stores" WHERE ("stores"."id" = 1)
+Redirected to http://test.host/stores
+Completed 302 Found in 2ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:38.057250', 'Chipotle', '2010-11-05 08:55:38.057250')[0m
+  Processing by StoresController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered stores/_form.html.erb (3.6ms)
+Completed 200 OK in 51ms (Views: 50.3ms | ActiveRecord: 3.1ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:38.116043', 'Chipotle', '2010-11-05 08:55:38.116043')
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 6ms (Views: 5.2ms | ActiveRecord: 0.7ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:38.130903', 'Chipotle', '2010-11-05 08:55:38.130903')[0m
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (2.3ms)
+Completed 200 OK in 6ms (Views: 5.8ms | ActiveRecord: 0.5ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:38.145036', 'Chipotle', '2010-11-05 08:55:38.145036')[0m
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.6ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:55:38.164726', 'Chipotle', '2010-11-05 08:55:38.164726')
+  Processing by StoresController#update as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}, "id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) AND ("stores".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-11-05 08:55:38.172051' WHERE ("stores"."id" = 1)[0m
+Redirected to http://test.host/stores/1
+Completed 302 Found in 4ms
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.055764', 'Target', '2010-11-05 08:56:34.055764')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.070804', '2010-11-05 08:56:33.000000', 1, 12.31, '2010-11-05 08:56:34.070804')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"receipt"=>{"store_name"=>"Target", "purchase_date"=>"10/26/2010", "total"=>#<BigDecimal:102a34348,'0.1231E2',18(18)>}}
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.127854', '2010-10-26 07:00:00.000000', 1, 12.31, '2010-11-05 08:56:34.127854')[0m
+Redirected to http://test.host/receipts/2
+Completed 302 Found in 8ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.136608', 'Target', '2010-11-05 08:56:34.136608')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.138205', '2010-11-05 08:56:33.000000', 1, 12.31, '2010-11-05 08:56:34.138205')
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "receipts"[0m
+  Processing by ReceiptsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "receipts" WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.174436', 'Target', '2010-11-05 08:56:34.174436')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.176596', '2010-11-05 08:56:33.000000', 1, 12.31, '2010-11-05 08:56:34.176596')
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (8.1ms)
+Completed 200 OK in 14ms (Views: 13.3ms | ActiveRecord: 3.3ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.197088', 'Target', '2010-11-05 08:56:34.197088')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.198846', '2010-11-05 08:56:33.000000', 1, 12.31, '2010-11-05 08:56:34.198846')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.5ms)
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_receipt.html.erb (3.6ms)
+Completed 200 OK in 11ms (Views: 9.9ms | ActiveRecord: 0.8ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.216268', 'Target', '2010-11-05 08:56:34.216268')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.218439', '2010-11-05 08:56:33.000000', 1, 12.31, '2010-11-05 08:56:34.218439')
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (4.1ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.240018', 'Target', '2010-11-05 08:56:34.240018')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.241786', '2010-11-05 08:56:33.000000', 1, 12.31, '2010-11-05 08:56:34.241786')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.243483', 'Chipotle', '2010-11-05 08:56:34.243483')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.244709', '2010-11-05 08:56:33.000000', 2, 27.91, '2010-11-05 08:56:34.244709')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.245967', 'Starbucks', '2010-11-05 08:56:34.245967')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.247045', 'Best Buy', '2010-11-05 08:56:34.247045')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.248172', '2010-11-05 08:56:33.000000', 4, 1000.77, '2010-11-05 08:56:34.248172')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.249459', 'Murrays Auto Parts', '2010-11-05 08:56:34.249459')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.250595', '2010-11-05 08:56:33.000000', 5, 7.91, '2010-11-05 08:56:34.250595')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.251840', 'Baja Fresh', '2010-11-05 08:56:34.251840')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.252909', '2010-11-05 08:56:33.000000', 6, 7.54, '2010-11-05 08:56:34.252909')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.0ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (8.3ms)
+Completed 200 OK in 13ms (Views: 11.3ms | ActiveRecord: 2.3ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.271327', 'Target', '2010-11-05 08:56:34.271327')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.273247', '2010-11-05 08:56:33.000000', 1, 12.31, '2010-11-05 08:56:34.273247')
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.7ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.293468', 'Target', '2010-11-05 08:56:34.293468')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.295289', '2010-11-05 08:56:33.000000', 1, 12.31, '2010-11-05 08:56:34.295289')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:34.296741', 'Chipotle', '2010-11-05 08:56:34.296741')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:34.297931', '2010-11-05 08:56:33.000000', 2, 27.91, '2010-11-05 08:56:34.297931')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:35.799951', 'Starbucks', '2010-11-05 08:56:35.799951')
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:37.302984', 'Best Buy', '2010-11-05 08:56:37.302984')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:37.305951', '2010-11-05 08:56:33.000000', 4, 1000.77, '2010-11-05 08:56:37.305951')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:38.808805', 'Murrays Auto Parts', '2010-11-05 08:56:38.808805')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:38.810988', '2010-11-05 08:56:33.000000', 5, 7.91, '2010-11-05 08:56:38.810988')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:40.313814', 'Baja Fresh', '2010-11-05 08:56:40.313814')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:40.315407', '2010-11-05 08:56:33.000000', 6, 7.54, '2010-11-05 08:56:40.315407')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (3.7ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (6.6ms)
+Completed 200 OK in 14ms (Views: 11.8ms | ActiveRecord: 3.3ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:40.335395', 'Target', '2010-11-05 08:56:40.335395')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:56:40.338146', '2010-11-05 08:56:33.000000', 1, 12.31, '2010-11-05 08:56:40.338146')
+  Processing by ReceiptsController#update as HTML
+  Parameters: {"receipt"=>{"created_at"=>2010-11-05 08:56:40 UTC, "id"=>1, "purchase_date"=>Fri, 05 Nov 2010 08:56:33 UTC +00:00, "store_id"=>1, "total"=>#<BigDecimal:1023ec1c0,'0.1231E2',18(18)>, "updated_at"=>2010-11-05 08:56:40 UTC}, "id"=>"1"}
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "receipts" SET "purchase_date" = '2010-11-05 08:56:33.000000', "updated_at" = '2010-11-05 08:56:40.348696' WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts/1
+Completed 302 Found in 7ms
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:40.355636', 'Chipotle', '2010-11-05 08:56:40.355636')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#create as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:40.366401', 'Panera Bread', '2010-11-05 08:56:40.366401')
+Redirected to http://test.host/stores/2
+Completed 302 Found in 6ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:40.373317', 'Chipotle', '2010-11-05 08:56:40.373317')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "stores" WHERE ("stores"."id" = 1)
+Redirected to http://test.host/stores
+Completed 302 Found in 2ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:40.411770', 'Chipotle', '2010-11-05 08:56:40.411770')[0m
+  Processing by StoresController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered stores/_form.html.erb (2.9ms)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 3.7ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:40.431645', 'Chipotle', '2010-11-05 08:56:40.431645')
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 0.7ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:40.449862', 'Chipotle', '2010-11-05 08:56:40.449862')[0m
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (1.8ms)
+Completed 200 OK in 5ms (Views: 4.6ms | ActiveRecord: 0.4ms)
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:40.490341', 'Chipotle', '2010-11-05 08:56:40.490341')[0m
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 5ms (Views: 3.6ms | ActiveRecord: 0.9ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:56:40.504921', 'Chipotle', '2010-11-05 08:56:40.504921')
+  Processing by StoresController#update as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}, "id"=>"1"}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) AND ("stores".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-11-05 08:56:40.547532' WHERE ("stores"."id" = 1)[0m
+Redirected to http://test.host/stores/1
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.178435', 'Target', '2010-11-05 08:57:18.178435')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.246203', '2010-11-05 08:57:17.000000', 1, 12.31, '2010-11-05 08:57:18.246203')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"receipt"=>{"store_name"=>"Target", "purchase_date"=>"10/26/2010", "total"=>#<BigDecimal:1028dec28,'0.1231E2',18(18)>}}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.279006', '2010-10-26 07:00:00.000000', 1, 12.31, '2010-11-05 08:57:18.279006')[0m
+Redirected to http://test.host/receipts/2
+Completed 302 Found in 6ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.287205', 'Target', '2010-11-05 08:57:18.287205')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.322738', '2010-11-05 08:57:17.000000', 1, 12.31, '2010-11-05 08:57:18.322738')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "receipts"[0m
+  Processing by ReceiptsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "receipts" WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.347185', 'Target', '2010-11-05 08:57:18.347185')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.348844', '2010-11-05 08:57:17.000000', 1, 12.31, '2010-11-05 08:57:18.348844')
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (8.4ms)
+Completed 200 OK in 15ms (Views: 13.8ms | ActiveRecord: 3.8ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.370166', 'Target', '2010-11-05 08:57:18.370166')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.372053', '2010-11-05 08:57:17.000000', 1, 12.31, '2010-11-05 08:57:18.372053')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.6ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_receipt.html.erb (2.3ms)
+Completed 200 OK in 9ms (Views: 8.4ms | ActiveRecord: 0.8ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.392082', 'Target', '2010-11-05 08:57:18.392082')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.393829', '2010-11-05 08:57:17.000000', 1, 12.31, '2010-11-05 08:57:18.393829')
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (2.5ms)
+Completed 200 OK in 5ms (Views: 5.0ms | ActiveRecord: 0.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.406148', 'Target', '2010-11-05 08:57:18.406148')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.408004', '2010-11-05 08:57:17.000000', 1, 12.31, '2010-11-05 08:57:18.408004')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.409547', 'Chipotle', '2010-11-05 08:57:18.409547')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.410747', '2010-11-05 08:57:17.000000', 2, 27.91, '2010-11-05 08:57:18.410747')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.412046', 'Starbucks', '2010-11-05 08:57:18.412046')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.413077', 'Best Buy', '2010-11-05 08:57:18.413077')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.414491', '2010-11-05 08:57:17.000000', 4, 1000.77, '2010-11-05 08:57:18.414491')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.416314', 'Murrays Auto Parts', '2010-11-05 08:57:18.416314')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.417436', '2010-11-05 08:57:17.000000', 5, 7.91, '2010-11-05 08:57:18.417436')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.418668', 'Baja Fresh', '2010-11-05 08:57:18.418668')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.419764', '2010-11-05 08:57:17.000000', 6, 7.54, '2010-11-05 08:57:18.419764')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.6ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (6.2ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 2.2ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.436399', 'Target', '2010-11-05 08:57:18.436399')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.438002', '2010-11-05 08:57:17.000000', 1, 12.31, '2010-11-05 08:57:18.438002')
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.8ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.456724', 'Target', '2010-11-05 08:57:18.456724')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.458898', '2010-11-05 08:57:17.000000', 1, 12.31, '2010-11-05 08:57:18.458898')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:18.460598', 'Chipotle', '2010-11-05 08:57:18.460598')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:18.462071', '2010-11-05 08:57:17.000000', 2, 27.91, '2010-11-05 08:57:18.462071')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:19.964710', 'Starbucks', '2010-11-05 08:57:19.964710')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:21.467371', 'Best Buy', '2010-11-05 08:57:21.467371')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:21.469531', '2010-11-05 08:57:17.000000', 4, 1000.77, '2010-11-05 08:57:21.469531')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:22.972450', 'Murrays Auto Parts', '2010-11-05 08:57:22.972450')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:22.973989', '2010-11-05 08:57:17.000000', 5, 7.91, '2010-11-05 08:57:22.973989')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:24.476752', 'Baja Fresh', '2010-11-05 08:57:24.476752')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:24.478981', '2010-11-05 08:57:17.000000', 6, 7.54, '2010-11-05 08:57:24.478981')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.6ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.2ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 3.1ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:24.495266', 'Target', '2010-11-05 08:57:24.495266')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:57:24.496758', '2010-11-05 08:57:17.000000', 1, 12.31, '2010-11-05 08:57:24.496758')
+  Processing by ReceiptsController#update as HTML
+  Parameters: {"receipt"=>{"created_at"=>2010-11-05 08:57:24 UTC, "id"=>1, "purchase_date"=>Fri, 05 Nov 2010 08:57:17 UTC +00:00, "store_id"=>1, "total"=>#<BigDecimal:104814890,'0.1231E2',18(18)>, "updated_at"=>2010-11-05 08:57:24 UTC}, "id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "receipts" SET "purchase_date" = '2010-11-05 08:57:17.000000', "updated_at" = '2010-11-05 08:57:24.501493' WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts/1
+Completed 302 Found in 4ms
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:24.514957', 'Chipotle', '2010-11-05 08:57:24.514957')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#create as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:24.520041', 'Panera Bread', '2010-11-05 08:57:24.520041')
+Redirected to http://test.host/stores/2
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:24.528478', 'Chipotle', '2010-11-05 08:57:24.528478')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "stores" WHERE ("stores"."id" = 1)
+Redirected to http://test.host/stores
+Completed 302 Found in 2ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:24.542129', 'Chipotle', '2010-11-05 08:57:24.542129')[0m
+  Processing by StoresController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered stores/_form.html.erb (2.3ms)
+Completed 200 OK in 7ms (Views: 6.0ms | ActiveRecord: 2.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:24.555061', 'Chipotle', '2010-11-05 08:57:24.555061')
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.6ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:24.568421', 'Chipotle', '2010-11-05 08:57:24.568421')[0m
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (36.0ms)
+Completed 200 OK in 39ms (Views: 38.2ms | ActiveRecord: 0.3ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:24.619430', 'Chipotle', '2010-11-05 08:57:24.619430')[0m
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.4ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:57:24.634819', 'Chipotle', '2010-11-05 08:57:24.634819')
+  Processing by StoresController#update as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}, "id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) AND ("stores".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-11-05 08:57:24.639698' WHERE ("stores"."id" = 1)[0m
+Redirected to http://test.host/stores/1
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.603511', 'Target', '2010-11-05 08:58:05.603511')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.650121', '2010-11-05 08:58:05.000000', 1, 12.31, '2010-11-05 08:58:05.650121')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"receipt"=>{"store_name"=>"Target", "purchase_date"=>"10/26/2010", "total"=>#<BigDecimal:1026f2e00,'0.1231E2',18(18)>}}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.705210', '2010-10-26 07:00:00.000000', 1, 12.31, '2010-11-05 08:58:05.705210')[0m
+Redirected to http://test.host/receipts/2
+Completed 302 Found in 31ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.713398', 'Target', '2010-11-05 08:58:05.713398')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.715282', '2010-11-05 08:58:05.000000', 1, 12.31, '2010-11-05 08:58:05.715282')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "receipts"[0m
+  Processing by ReceiptsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "receipts" WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.726183', 'Target', '2010-11-05 08:58:05.726183')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.728874', '2010-11-05 08:58:05.000000', 1, 12.31, '2010-11-05 08:58:05.728874')
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (10.2ms)
+Completed 200 OK in 17ms (Views: 15.7ms | ActiveRecord: 4.0ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.755829', 'Target', '2010-11-05 08:58:05.755829')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.758849', '2010-11-05 08:58:05.000000', 1, 12.31, '2010-11-05 08:58:05.758849')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (3.0ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_receipt.html.erb (2.3ms)
+Completed 200 OK in 10ms (Views: 8.8ms | ActiveRecord: 1.1ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.782185', 'Target', '2010-11-05 08:58:05.782185')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.783897', '2010-11-05 08:58:05.000000', 1, 12.31, '2010-11-05 08:58:05.783897')
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (2.4ms)
+Completed 200 OK in 5ms (Views: 4.7ms | ActiveRecord: 0.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.795286', 'Target', '2010-11-05 08:58:05.795286')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.797000', '2010-11-05 08:58:05.000000', 1, 12.31, '2010-11-05 08:58:05.797000')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.798539', 'Chipotle', '2010-11-05 08:58:05.798539')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.799745', '2010-11-05 08:58:05.000000', 2, 27.91, '2010-11-05 08:58:05.799745')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.801314', 'Starbucks', '2010-11-05 08:58:05.801314')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.802444', 'Best Buy', '2010-11-05 08:58:05.802444')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.803869', '2010-11-05 08:58:05.000000', 4, 1000.77, '2010-11-05 08:58:05.803869')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.805474', 'Murrays Auto Parts', '2010-11-05 08:58:05.805474')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.806754', '2010-11-05 08:58:05.000000', 5, 7.91, '2010-11-05 08:58:05.806754')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.808090', 'Baja Fresh', '2010-11-05 08:58:05.808090')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.809440', '2010-11-05 08:58:05.000000', 6, 7.54, '2010-11-05 08:58:05.809440')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (1.9ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.3ms)
+Completed 200 OK in 9ms (Views: 8.2ms | ActiveRecord: 2.2ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.828406', 'Target', '2010-11-05 08:58:05.828406')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.830232', '2010-11-05 08:58:05.000000', 1, 12.31, '2010-11-05 08:58:05.830232')
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.8ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.849755', 'Target', '2010-11-05 08:58:05.849755')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.851501', '2010-11-05 08:58:05.000000', 1, 12.31, '2010-11-05 08:58:05.851501')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:05.852986', 'Chipotle', '2010-11-05 08:58:05.852986')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:05.854401', '2010-11-05 08:58:05.000000', 2, 27.91, '2010-11-05 08:58:05.854401')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:06.356774', 'Starbucks', '2010-11-05 08:58:06.356774')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:06.859248', 'Best Buy', '2010-11-05 08:58:06.859248')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:06.861230', '2010-11-05 08:58:05.000000', 4, 1000.77, '2010-11-05 08:58:06.861230')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:07.364146', 'Murrays Auto Parts', '2010-11-05 08:58:07.364146')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:07.366273', '2010-11-05 08:58:05.000000', 5, 7.91, '2010-11-05 08:58:07.366273')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:07.869037', 'Baja Fresh', '2010-11-05 08:58:07.869037')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:07.870749', '2010-11-05 08:58:05.000000', 6, 7.54, '2010-11-05 08:58:07.870749')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.3ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.5ms)
+Completed 200 OK in 10ms (Views: 8.7ms | ActiveRecord: 2.9ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:07.886738', 'Target', '2010-11-05 08:58:07.886738')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 08:58:07.888358', '2010-11-05 08:58:05.000000', 1, 12.31, '2010-11-05 08:58:07.888358')
+  Processing by ReceiptsController#update as HTML
+  Parameters: {"receipt"=>{"created_at"=>2010-11-05 08:58:07 UTC, "id"=>1, "purchase_date"=>Fri, 05 Nov 2010 08:58:05 UTC +00:00, "store_id"=>1, "total"=>#<BigDecimal:10480be70,'0.1231E2',18(18)>, "updated_at"=>2010-11-05 08:58:07 UTC}, "id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "receipts" SET "purchase_date" = '2010-11-05 08:58:05.000000', "updated_at" = '2010-11-05 08:58:07.893462' WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts/1
+Completed 302 Found in 4ms
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:07.899299', 'Chipotle', '2010-11-05 08:58:07.899299')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#create as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:07.905206', 'Panera Bread', '2010-11-05 08:58:07.905206')
+Redirected to http://test.host/stores/2
+Completed 302 Found in 4ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:07.911012', 'Chipotle', '2010-11-05 08:58:07.911012')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "stores" WHERE ("stores"."id" = 1)
+Redirected to http://test.host/stores
+Completed 302 Found in 2ms
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:07.919806', 'Chipotle', '2010-11-05 08:58:07.919806')[0m
+  Processing by StoresController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered stores/_form.html.erb (2.4ms)
+Completed 200 OK in 7ms (Views: 6.1ms | ActiveRecord: 2.7ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:07.947767', 'Chipotle', '2010-11-05 08:58:07.947767')
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 5ms (Views: 4.0ms | ActiveRecord: 0.6ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:07.962155', 'Chipotle', '2010-11-05 08:58:07.962155')[0m
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (1.8ms)
+Completed 200 OK in 41ms (Views: 41.0ms | ActiveRecord: 0.4ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:08.010143', 'Chipotle', '2010-11-05 08:58:08.010143')[0m
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 3ms (Views: 2.2ms | ActiveRecord: 0.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 08:58:08.026759', 'Chipotle', '2010-11-05 08:58:08.026759')
+  Processing by StoresController#update as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}, "id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) AND ("stores".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-11-05 08:58:08.031394' WHERE ("stores"."id" = 1)[0m
+Redirected to http://test.host/stores/1
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.6ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.753398', 'Target', '2010-11-05 09:00:57.753398')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.769092', '2010-11-05 09:00:57.000000', 1, 12.31, '2010-11-05 09:00:57.769092')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"receipt"=>{"store_name"=>"Target", "purchase_date"=>"10/26/2010", "total"=>#<BigDecimal:1012a6348,'0.1231E2',18(18)>}}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.800556', '2010-10-26 07:00:00.000000', 1, 12.31, '2010-11-05 09:00:57.800556')[0m
+Redirected to http://test.host/receipts/2
+Completed 302 Found in 5ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.817319', 'Target', '2010-11-05 09:00:57.817319')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.819537', '2010-11-05 09:00:57.000000', 1, 12.31, '2010-11-05 09:00:57.819537')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "receipts"[0m
+  Processing by ReceiptsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at, desc LIMIT 1
+SQLite3::SQLException: no such column: desc: SELECT     "receipts".* FROM       "receipts"  WHERE     ("receipts"."id" = 1) ORDER BY  created_at, desc LIMIT 1
+Completed   in 1ms
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.833336', 'Target', '2010-11-05 09:00:57.833336')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.835707', '2010-11-05 09:00:57.000000', 1, 12.31, '2010-11-05 09:00:57.835707')
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at, desc LIMIT 1[0m
+SQLite3::SQLException: no such column: desc: SELECT     "receipts".* FROM       "receipts"  WHERE     ("receipts"."id" = 1) ORDER BY  created_at, desc LIMIT 1
+Completed   in 1ms
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.848851', 'Target', '2010-11-05 09:00:57.848851')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.851854', '2010-11-05 09:00:57.000000', 1, 12.31, '2010-11-05 09:00:57.851854')[0m
+  Processing by ReceiptsController#index as HTML
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" ORDER BY created_at, desc LIMIT 5
+SQLite3::SQLException: no such column: desc: SELECT     "receipts".* FROM       "receipts"  ORDER BY  created_at, desc LIMIT 5
+Completed   in 1ms
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.861155', 'Target', '2010-11-05 09:00:57.861155')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.863365', '2010-11-05 09:00:57.000000', 1, 12.31, '2010-11-05 09:00:57.863365')
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (5.9ms)
+Completed 200 OK in 13ms (Views: 12.2ms | ActiveRecord: 5.7ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.896821', 'Target', '2010-11-05 09:00:57.896821')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.899573', '2010-11-05 09:00:57.000000', 1, 12.31, '2010-11-05 09:00:57.899573')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.902165', 'Chipotle', '2010-11-05 09:00:57.902165')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.905839', '2010-11-05 09:00:57.000000', 2, 27.91, '2010-11-05 09:00:57.905839')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.907816', 'Starbucks', '2010-11-05 09:00:57.907816')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.909122', 'Best Buy', '2010-11-05 09:00:57.909122')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.911005', '2010-11-05 09:00:57.000000', 4, 1000.77, '2010-11-05 09:00:57.911005')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.913571', 'Murrays Auto Parts', '2010-11-05 09:00:57.913571')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.915238', '2010-11-05 09:00:57.000000', 5, 7.91, '2010-11-05 09:00:57.915238')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.916967', 'Baja Fresh', '2010-11-05 09:00:57.916967')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.918265', '2010-11-05 09:00:57.000000', 6, 7.54, '2010-11-05 09:00:57.918265')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at, desc LIMIT 5[0m
+SQLite3::SQLException: no such column: desc: SELECT     "receipts".* FROM       "receipts"  ORDER BY  created_at, desc LIMIT 5
+Completed   in 1ms
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.935943', 'Target', '2010-11-05 09:00:57.935943')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.937581', '2010-11-05 09:00:57.000000', 1, 12.31, '2010-11-05 09:00:57.937581')[0m
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at, desc LIMIT 1
+SQLite3::SQLException: no such column: desc: SELECT     "receipts".* FROM       "receipts"  WHERE     ("receipts"."id" = 1) ORDER BY  created_at, desc LIMIT 1
+Completed   in 1ms
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.948906', 'Target', '2010-11-05 09:00:57.948906')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.950643', '2010-11-05 09:00:57.000000', 1, 12.31, '2010-11-05 09:00:57.950643')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:57.952029', 'Chipotle', '2010-11-05 09:00:57.952029')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:57.953264', '2010-11-05 09:00:57.000000', 2, 27.91, '2010-11-05 09:00:57.953264')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:58.455558', 'Starbucks', '2010-11-05 09:00:58.455558')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:58.958195', 'Best Buy', '2010-11-05 09:00:58.958195')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:58.960307', '2010-11-05 09:00:57.000000', 4, 1000.77, '2010-11-05 09:00:58.960307')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:59.463442', 'Murrays Auto Parts', '2010-11-05 09:00:59.463442')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:59.465673', '2010-11-05 09:00:57.000000', 5, 7.91, '2010-11-05 09:00:59.465673')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:59.968356', 'Baja Fresh', '2010-11-05 09:00:59.968356')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:59.969829', '2010-11-05 09:00:57.000000', 6, 7.54, '2010-11-05 09:00:59.969829')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at, desc LIMIT 5[0m
+SQLite3::SQLException: no such column: desc: SELECT     "receipts".* FROM       "receipts"  ORDER BY  created_at, desc LIMIT 5
+Completed   in 1ms
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:59.975323', 'Target', '2010-11-05 09:00:59.975323')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:00:59.976976', '2010-11-05 09:00:57.000000', 1, 12.31, '2010-11-05 09:00:59.976976')[0m
+  Processing by ReceiptsController#update as HTML
+  Parameters: {"receipt"=>{"created_at"=>2010-11-05 09:00:59 UTC, "id"=>1, "purchase_date"=>Fri, 05 Nov 2010 09:00:57 UTC +00:00, "store_id"=>1, "total"=>#<BigDecimal:101699e78,'0.1231E2',18(18)>, "updated_at"=>2010-11-05 09:00:59 UTC}, "id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at, desc LIMIT 1
+SQLite3::SQLException: no such column: desc: SELECT     "receipts".* FROM       "receipts"  WHERE     ("receipts"."id" = 1) ORDER BY  created_at, desc LIMIT 1
+Completed   in 1ms
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:59.984751', 'Chipotle', '2010-11-05 09:00:59.984751')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  Processing by StoresController#create as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:59.989931', 'Panera Bread', '2010-11-05 09:00:59.989931')[0m
+Redirected to http://test.host/stores/2
+Completed 302 Found in 3ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:00:59.995422', 'Chipotle', '2010-11-05 09:00:59.995422')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  Processing by StoresController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "stores" WHERE ("stores"."id" = 1)[0m
+Redirected to http://test.host/stores
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:00.010973', 'Chipotle', '2010-11-05 09:01:00.010973')
+  Processing by StoresController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered stores/_form.html.erb (2.6ms)
+Completed 200 OK in 39ms (Views: 38.5ms | ActiveRecord: 8.0ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:00.057499', 'Chipotle', '2010-11-05 09:01:00.057499')[0m
+  Processing by StoresController#index as HTML
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores"
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:00.069468', 'Chipotle', '2010-11-05 09:01:00.069468')
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (1.5ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.4ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:00.092559', 'Chipotle', '2010-11-05 09:01:00.092559')
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Completed 200 OK in 3ms (Views: 2.1ms | ActiveRecord: 0.5ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:00.111375', 'Chipotle', '2010-11-05 09:01:00.111375')[0m
+  Processing by StoresController#update as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}, "id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) AND ("stores".id <> 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  UPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-11-05 09:01:00.115979' WHERE ("stores"."id" = 1)
+Redirected to http://test.host/stores/1
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.045885', 'Target', '2010-11-05 09:01:14.045885')[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.060248', '2010-11-05 09:01:13.000000', 1, 12.31, '2010-11-05 09:01:14.060248')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"receipt"=>{"store_name"=>"Target", "purchase_date"=>"10/26/2010", "total"=>#<BigDecimal:100cdf6f8,'0.1231E2',18(18)>}}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.091101', '2010-10-26 07:00:00.000000', 1, 12.31, '2010-11-05 09:01:14.091101')[0m
+Redirected to http://test.host/receipts/2
+Completed 302 Found in 7ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.097736', 'Target', '2010-11-05 09:01:14.097736')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.099765', '2010-11-05 09:01:13.000000', 1, 12.31, '2010-11-05 09:01:14.099765')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "receipts"[0m
+  Processing by ReceiptsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "receipts" WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.115466', 'Target', '2010-11-05 09:01:14.115466')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.117816', '2010-11-05 09:01:13.000000', 1, 12.31, '2010-11-05 09:01:14.117816')
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (11.5ms)
+Completed 200 OK in 19ms (Views: 17.6ms | ActiveRecord: 4.1ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.147781', 'Target', '2010-11-05 09:01:14.147781')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.150096', '2010-11-05 09:01:13.000000', 1, 12.31, '2010-11-05 09:01:14.150096')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.9ms)
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_receipt.html.erb (2.7ms)
+Completed 200 OK in 11ms (Views: 9.0ms | ActiveRecord: 1.1ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.179238', 'Target', '2010-11-05 09:01:14.179238')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.182082', '2010-11-05 09:01:13.000000', 1, 12.31, '2010-11-05 09:01:14.182082')
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (3.7ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.7ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.198699', 'Target', '2010-11-05 09:01:14.198699')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.201032', '2010-11-05 09:01:13.000000', 1, 12.31, '2010-11-05 09:01:14.201032')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.202985', 'Chipotle', '2010-11-05 09:01:14.202985')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.204561', '2010-11-05 09:01:13.000000', 2, 27.91, '2010-11-05 09:01:14.204561')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.206123', 'Starbucks', '2010-11-05 09:01:14.206123')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.207838', 'Best Buy', '2010-11-05 09:01:14.207838')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.209320', '2010-11-05 09:01:13.000000', 4, 1000.77, '2010-11-05 09:01:14.209320')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.211014', 'Murrays Auto Parts', '2010-11-05 09:01:14.211014')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.212733', '2010-11-05 09:01:13.000000', 5, 7.91, '2010-11-05 09:01:14.212733')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.214381', 'Baja Fresh', '2010-11-05 09:01:14.214381')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.215869', '2010-11-05 09:01:13.000000', 6, 7.54, '2010-11-05 09:01:14.215869')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.8ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.6ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 2.8ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.239236', 'Target', '2010-11-05 09:01:14.239236')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.241322', '2010-11-05 09:01:13.000000', 1, 12.31, '2010-11-05 09:01:14.241322')
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.8ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.250898', 'Target', '2010-11-05 09:01:14.250898')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.252762', '2010-11-05 09:01:13.000000', 1, 12.31, '2010-11-05 09:01:14.252762')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.254308', 'Chipotle', '2010-11-05 09:01:14.254308')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:14.255588', '2010-11-05 09:01:13.000000', 2, 27.91, '2010-11-05 09:01:14.255588')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:14.758417', 'Starbucks', '2010-11-05 09:01:14.758417')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:15.261037', 'Best Buy', '2010-11-05 09:01:15.261037')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:15.262803', '2010-11-05 09:01:13.000000', 4, 1000.77, '2010-11-05 09:01:15.262803')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:15.765665', 'Murrays Auto Parts', '2010-11-05 09:01:15.765665')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:15.767738', '2010-11-05 09:01:13.000000', 5, 7.91, '2010-11-05 09:01:15.767738')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:16.270458', 'Baja Fresh', '2010-11-05 09:01:16.270458')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:16.272073', '2010-11-05 09:01:13.000000', 6, 7.54, '2010-11-05 09:01:16.272073')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at LIMIT 5[0m
+Rendered receipts/_form.html.erb (34.2ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.6ms)
+Completed 200 OK in 42ms (Views: 40.8ms | ActiveRecord: 3.1ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:16.319826', 'Target', '2010-11-05 09:01:16.319826')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:01:16.321514', '2010-11-05 09:01:13.000000', 1, 12.31, '2010-11-05 09:01:16.321514')
+  Processing by ReceiptsController#update as HTML
+  Parameters: {"receipt"=>{"created_at"=>2010-11-05 09:01:16 UTC, "id"=>1, "purchase_date"=>Fri, 05 Nov 2010 09:01:13 UTC +00:00, "store_id"=>1, "total"=>#<BigDecimal:102e34678,'0.1231E2',18(18)>, "updated_at"=>2010-11-05 09:01:16 UTC}, "id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "receipts" SET "purchase_date" = '2010-11-05 09:01:13.000000', "updated_at" = '2010-11-05 09:01:16.326571' WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts/1
+Completed 302 Found in 4ms
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:16.332293', 'Chipotle', '2010-11-05 09:01:16.332293')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#create as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:16.337440', 'Panera Bread', '2010-11-05 09:01:16.337440')
+Redirected to http://test.host/stores/2
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:16.344615', 'Chipotle', '2010-11-05 09:01:16.344615')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  DELETE FROM "stores" WHERE ("stores"."id" = 1)
+Redirected to http://test.host/stores
+Completed 302 Found in 1ms
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:16.356459', 'Chipotle', '2010-11-05 09:01:16.356459')[0m
+  Processing by StoresController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered stores/_form.html.erb (2.5ms)
+Completed 200 OK in 7ms (Views: 6.2ms | ActiveRecord: 2.4ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:16.370720', 'Chipotle', '2010-11-05 09:01:16.370720')
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 4ms (Views: 3.3ms | ActiveRecord: 0.5ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:16.380884', 'Chipotle', '2010-11-05 09:01:16.380884')[0m
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (1.5ms)
+Completed 200 OK in 4ms (Views: 3.5ms | ActiveRecord: 0.4ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:16.391227', 'Chipotle', '2010-11-05 09:01:16.391227')[0m
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:01:16.403512', 'Chipotle', '2010-11-05 09:01:16.403512')
+  Processing by StoresController#update as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}, "id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) AND ("stores".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-11-05 09:01:16.408414' WHERE ("stores"."id" = 1)[0m
+Redirected to http://test.host/stores/1
+Completed 302 Found in 4ms
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.109952', 'Target', '2010-11-05 09:04:47.109952')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.152804', '2010-11-05 09:04:46.000000', 1, 12.31, '2010-11-05 09:04:47.152804')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"receipt"=>{"store_name"=>"Target", "purchase_date"=>"10/26/2010", "total"=>#<BigDecimal:1013309d0,'0.1231E2',18(18)>}}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.177210', '2010-10-26 07:00:00.000000', 1, 12.31, '2010-11-05 09:04:47.177210')[0m
+Redirected to http://test.host/receipts/2
+Completed 302 Found in 5ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.184024', 'Target', '2010-11-05 09:04:47.184024')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.185612', '2010-11-05 09:04:46.000000', 1, 12.31, '2010-11-05 09:04:47.185612')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "receipts"[0m
+  Processing by ReceiptsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "receipts" WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.202641', 'Target', '2010-11-05 09:04:47.202641')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.204474', '2010-11-05 09:04:46.000000', 1, 12.31, '2010-11-05 09:04:47.204474')
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (8.9ms)
+Completed 200 OK in 16ms (Views: 14.5ms | ActiveRecord: 3.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.230445', 'Target', '2010-11-05 09:04:47.230445')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.270620', '2010-11-05 09:04:46.000000', 1, 12.31, '2010-11-05 09:04:47.270620')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.1ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_receipt.html.erb (2.3ms)
+Completed 200 OK in 9ms (Views: 7.8ms | ActiveRecord: 1.0ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.295719', 'Target', '2010-11-05 09:04:47.295719')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.297570', '2010-11-05 09:04:46.000000', 1, 12.31, '2010-11-05 09:04:47.297570')
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (2.2ms)
+Completed 200 OK in 5ms (Views: 4.3ms | ActiveRecord: 0.6ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.311307', 'Target', '2010-11-05 09:04:47.311307')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.313337', '2010-11-05 09:04:46.000000', 1, 12.31, '2010-11-05 09:04:47.313337')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.315291', 'Chipotle', '2010-11-05 09:04:47.315291')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.316584', '2010-11-05 09:04:46.000000', 2, 27.91, '2010-11-05 09:04:47.316584')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.317856', 'Starbucks', '2010-11-05 09:04:47.317856')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.318840', 'Best Buy', '2010-11-05 09:04:47.318840')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.319993', '2010-11-05 09:04:46.000000', 4, 1000.77, '2010-11-05 09:04:47.319993')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.321328', 'Murrays Auto Parts', '2010-11-05 09:04:47.321328')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.322472', '2010-11-05 09:04:46.000000', 5, 7.91, '2010-11-05 09:04:47.322472')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.323862', 'Baja Fresh', '2010-11-05 09:04:47.323862')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.325066', '2010-11-05 09:04:46.000000', 6, 7.54, '2010-11-05 09:04:47.325066')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.2ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.8ms)
+Completed 200 OK in 11ms (Views: 9.3ms | ActiveRecord: 2.4ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.351385', 'Target', '2010-11-05 09:04:47.351385')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.352993', '2010-11-05 09:04:46.000000', 1, 12.31, '2010-11-05 09:04:47.352993')
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.7ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.364192', 'Target', '2010-11-05 09:04:47.364192')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.365893', '2010-11-05 09:04:46.000000', 1, 12.31, '2010-11-05 09:04:47.365893')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.367313', 'Chipotle', '2010-11-05 09:04:47.367313')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:47.368480', '2010-11-05 09:04:46.000000', 2, 27.91, '2010-11-05 09:04:47.368480')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:47.870767', 'Starbucks', '2010-11-05 09:04:47.870767')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:48.372844', 'Best Buy', '2010-11-05 09:04:48.372844')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:48.374291', '2010-11-05 09:04:46.000000', 4, 1000.77, '2010-11-05 09:04:48.374291')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:48.876961', 'Murrays Auto Parts', '2010-11-05 09:04:48.876961')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:48.879162', '2010-11-05 09:04:46.000000', 5, 7.91, '2010-11-05 09:04:48.879162')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:49.381935', 'Baja Fresh', '2010-11-05 09:04:49.381935')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:49.383592', '2010-11-05 09:04:46.000000', 6, 7.54, '2010-11-05 09:04:49.383592')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.2ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.3ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 2.9ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:49.398972', 'Target', '2010-11-05 09:04:49.398972')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:04:49.400496', '2010-11-05 09:04:46.000000', 1, 12.31, '2010-11-05 09:04:49.400496')
+  Processing by ReceiptsController#update as HTML
+  Parameters: {"receipt"=>{"created_at"=>2010-11-05 09:04:49 UTC, "id"=>1, "purchase_date"=>Fri, 05 Nov 2010 09:04:46 UTC +00:00, "store_id"=>1, "total"=>#<BigDecimal:1048b0218,'0.1231E2',18(18)>, "updated_at"=>2010-11-05 09:04:49 UTC}, "id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "receipts" SET "purchase_date" = '2010-11-05 09:04:46.000000', "updated_at" = '2010-11-05 09:04:49.438931' WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts/1
+Completed 302 Found in 38ms
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:49.450012', 'Chipotle', '2010-11-05 09:04:49.450012')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#create as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:49.454976', 'Panera Bread', '2010-11-05 09:04:49.454976')
+Redirected to http://test.host/stores/2
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:49.459831', 'Chipotle', '2010-11-05 09:04:49.459831')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "stores" WHERE ("stores"."id" = 1)
+Redirected to http://test.host/stores
+Completed 302 Found in 1ms
+  [1m[36mSQL (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:49.469271', 'Chipotle', '2010-11-05 09:04:49.469271')[0m
+  Processing by StoresController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered stores/_form.html.erb (2.1ms)
+Completed 200 OK in 7ms (Views: 6.4ms | ActiveRecord: 2.4ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:49.487591', 'Chipotle', '2010-11-05 09:04:49.487591')
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.4ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:49.503377', 'Chipotle', '2010-11-05 09:04:49.503377')[0m
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (1.3ms)
+Completed 200 OK in 4ms (Views: 3.4ms | ActiveRecord: 0.3ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:49.514644', 'Chipotle', '2010-11-05 09:04:49.514644')[0m
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 3ms (Views: 2.4ms | ActiveRecord: 0.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:04:49.527054', 'Chipotle', '2010-11-05 09:04:49.527054')
+  Processing by StoresController#update as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}, "id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) AND ("stores".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-11-05 09:04:49.531952' WHERE ("stores"."id" = 1)[0m
+Redirected to http://test.host/stores/1
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.668010', 'Target', '2010-11-05 09:05:07.668010')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.684087', '2010-11-05 09:05:07.000000', 1, 12.31, '2010-11-05 09:05:07.684087')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"receipt"=>{"store_name"=>"Target", "purchase_date"=>"10/26/2010", "total"=>#<BigDecimal:1018aa078,'0.1231E2',18(18)>}}
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.715430', '2010-10-26 07:00:00.000000', 1, 12.31, '2010-11-05 09:05:07.715430')[0m
+Redirected to http://test.host/receipts/2
+Completed 302 Found in 5ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.732511', 'Target', '2010-11-05 09:05:07.732511')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.734238', '2010-11-05 09:05:07.000000', 1, 12.31, '2010-11-05 09:05:07.734238')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "receipts"[0m
+  Processing by ReceiptsController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at DESC LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mDELETE FROM "receipts" WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts
+Completed 302 Found in 2ms
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "receipts"
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.756508', 'Target', '2010-11-05 09:05:07.756508')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.759377', '2010-11-05 09:05:07.000000', 1, 12.31, '2010-11-05 09:05:07.759377')
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at DESC LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (13.4ms)
+Completed 200 OK in 23ms (Views: 21.6ms | ActiveRecord: 4.2ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.791162', 'Target', '2010-11-05 09:05:07.791162')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.793668', '2010-11-05 09:05:07.000000', 1, 12.31, '2010-11-05 09:05:07.793668')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at DESC LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.8ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_receipt.html.erb (3.1ms)
+Completed 200 OK in 11ms (Views: 9.8ms | ActiveRecord: 1.1ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.814952', 'Target', '2010-11-05 09:05:07.814952')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.817039', '2010-11-05 09:05:07.000000', 1, 12.31, '2010-11-05 09:05:07.817039')
+  Processing by ReceiptsController#new as HTML
+Rendered receipts/_form.html.erb (3.9ms)
+Completed 200 OK in 8ms (Views: 7.2ms | ActiveRecord: 0.6ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.832532', 'Target', '2010-11-05 09:05:07.832532')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.835218', '2010-11-05 09:05:07.000000', 1, 12.31, '2010-11-05 09:05:07.835218')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.837772', 'Chipotle', '2010-11-05 09:05:07.837772')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.839822', '2010-11-05 09:05:07.000000', 2, 27.91, '2010-11-05 09:05:07.839822')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.842521', 'Starbucks', '2010-11-05 09:05:07.842521')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.844439', 'Best Buy', '2010-11-05 09:05:07.844439')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.846507', '2010-11-05 09:05:07.000000', 4, 1000.77, '2010-11-05 09:05:07.846507')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.848857', 'Murrays Auto Parts', '2010-11-05 09:05:07.848857')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.850677', '2010-11-05 09:05:07.000000', 5, 7.91, '2010-11-05 09:05:07.850677')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.852970', 'Baja Fresh', '2010-11-05 09:05:07.852970')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.854576', '2010-11-05 09:05:07.000000', 6, 7.54, '2010-11-05 09:05:07.854576')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at DESC LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.2ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_receipt.html.erb (6.2ms)
+Completed 200 OK in 11ms (Views: 9.4ms | ActiveRecord: 3.1ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.872355', 'Target', '2010-11-05 09:05:07.872355')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.874158', '2010-11-05 09:05:07.000000', 1, 12.31, '2010-11-05 09:05:07.874158')
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at DESC LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 4ms (Views: 3.0ms | ActiveRecord: 0.7ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.890271', 'Target', '2010-11-05 09:05:07.890271')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.892236', '2010-11-05 09:05:07.000000', 1, 12.31, '2010-11-05 09:05:07.892236')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:07.893850', 'Chipotle', '2010-11-05 09:05:07.893850')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:07.895228', '2010-11-05 09:05:07.000000', 2, 27.91, '2010-11-05 09:05:07.895228')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Starbucks')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:08.397387', 'Starbucks', '2010-11-05 09:05:08.397387')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Best Buy')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:08.899911', 'Best Buy', '2010-11-05 09:05:08.899911')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:08.902198', '2010-11-05 09:05:07.000000', 4, 1000.77, '2010-11-05 09:05:08.902198')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Murrays Auto Parts')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:09.405396', 'Murrays Auto Parts', '2010-11-05 09:05:09.405396')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:09.407697', '2010-11-05 09:05:07.000000', 5, 7.91, '2010-11-05 09:05:09.407697')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Baja Fresh')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:09.910652', 'Baja Fresh', '2010-11-05 09:05:09.910652')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:09.912650', '2010-11-05 09:05:07.000000', 6, 7.54, '2010-11-05 09:05:09.912650')
+  Processing by ReceiptsController#index as HTML
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" ORDER BY created_at DESC LIMIT 5[0m
+Rendered receipts/_form.html.erb (2.1ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 2) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.2ms)
+Completed 200 OK in 10ms (Views: 8.4ms | ActiveRecord: 3.1ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:09.928302', 'Target', '2010-11-05 09:05:09.928302')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "receipts" ("created_at", "purchase_date", "store_id", "total", "updated_at") VALUES ('2010-11-05 09:05:09.929892', '2010-11-05 09:05:07.000000', 1, 12.31, '2010-11-05 09:05:09.929892')
+  Processing by ReceiptsController#update as HTML
+  Parameters: {"receipt"=>{"created_at"=>2010-11-05 09:05:09 UTC, "id"=>1, "purchase_date"=>Fri, 05 Nov 2010 09:05:07 UTC +00:00, "store_id"=>1, "total"=>#<BigDecimal:10259d6b8,'0.1231E2',18(18)>, "updated_at"=>2010-11-05 09:05:09 UTC}, "id"=>"1"}
+  [1m[36mReceipt Load (0.1ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts"."id" = 1) ORDER BY created_at DESC LIMIT 1[0m
+WARNING: Can't mass-assign protected attributes: id
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "receipts" SET "purchase_date" = '2010-11-05 09:05:07.000000', "updated_at" = '2010-11-05 09:05:09.967382' WHERE ("receipts"."id" = 1)[0m
+Redirected to http://test.host/receipts/1
+Completed 302 Found in 37ms
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:09.981922', 'Chipotle', '2010-11-05 09:05:09.981922')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#create as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:09.988618', 'Panera Bread', '2010-11-05 09:05:09.988618')
+Redirected to http://test.host/stores/2
+Completed 302 Found in 3ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:09.994574', 'Chipotle', '2010-11-05 09:05:09.994574')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT COUNT(*) AS count_id FROM "stores"
+  Processing by StoresController#destroy as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.0ms)[0m  DELETE FROM "stores" WHERE ("stores"."id" = 1)
+Redirected to http://test.host/stores
+Completed 302 Found in 1ms
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM "stores"[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:10.008670', 'Chipotle', '2010-11-05 09:05:10.008670')[0m
+  Processing by StoresController#edit as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Rendered stores/_form.html.erb (2.3ms)
+Completed 200 OK in 8ms (Views: 6.4ms | ActiveRecord: 2.7ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:10.032342', 'Chipotle', '2010-11-05 09:05:10.032342')
+  Processing by StoresController#index as HTML
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores"[0m
+Completed 200 OK in 4ms (Views: 3.1ms | ActiveRecord: 0.5ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:10.048069', 'Chipotle', '2010-11-05 09:05:10.048069')[0m
+  Processing by StoresController#new as HTML
+Rendered stores/_form.html.erb (1.3ms)
+Completed 200 OK in 4ms (Views: 3.2ms | ActiveRecord: 0.3ms)
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:10.058086', 'Chipotle', '2010-11-05 09:05:10.058086')[0m
+  Processing by StoresController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+Completed 200 OK in 4ms (Views: 2.6ms | ActiveRecord: 0.5ms)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Chipotle')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-05 09:05:10.076357', 'Chipotle', '2010-11-05 09:05:10.076357')
+  Processing by StoresController#update as HTML
+  Parameters: {"store"=>{"name"=>"Panera Bread"}, "id"=>"1"}
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Panera Bread')) AND ("stores".id <> 1) LIMIT 1
+  [1m[36mSQL (0.1ms)[0m  [1mUPDATE "stores" SET "name" = 'Panera Bread', "updated_at" = '2010-11-05 09:05:10.081240' WHERE ("stores"."id" = 1)[0m
+Redirected to http://test.host/stores/1
+Completed 302 Found in 3ms

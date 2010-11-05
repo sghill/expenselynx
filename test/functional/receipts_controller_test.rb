@@ -50,7 +50,7 @@ class ReceiptsControllerTest < ActionController::TestCase
     assert_redirected_to receipts_path
   end
   
-  test "should show 5 receipts on the home page" do
+  test "should show 5 receipts on index" do
     Factory(:chipotle_burrito)
     Factory(:starbucks)
     Factory(:best_buy_tv)
@@ -59,5 +59,21 @@ class ReceiptsControllerTest < ActionController::TestCase
     
     get :index
     assert_equal 5, assigns(:receipts).count
+  end
+  
+  test "should show the 5 most recently added receipts on index" do
+    Factory(:chipotle_burrito)
+    sleep(0.5)
+    Factory(:starbucks)
+    sleep(0.5)
+    Factory(:best_buy_tv)
+    sleep(0.5)
+    Factory(:oil_filter)
+    sleep(0.5)
+    last = Factory(:baja_tacos)
+    
+    get :index
+    assert_equal last, assigns(:receipts).first
+    assert_equal @receipt, assigns(:receipts).last
   end
 end
