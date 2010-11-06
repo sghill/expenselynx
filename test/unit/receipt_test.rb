@@ -106,4 +106,14 @@ class ReceiptTest < ActiveSupport::TestCase
                              :store_id => @store.id)
     assert !receipt.expensable?
   end
+  
+  #
+  # relationships
+  #
+  test "should belong to user" do
+    receipt = Receipt.create(:total => 5.54,
+                             :purchase_date => DateTime.now,
+                             :store_id => @store.id)
+    assert_nil receipt.user
+  end
 end
