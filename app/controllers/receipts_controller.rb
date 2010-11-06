@@ -1,29 +1,23 @@
 class ReceiptsController < ApplicationController
-  # GET /receipts
-  # GET /receipts.xml
   def index
     @receipt = Receipt.new
     @receipts = Receipt.find(:all, :limit => 5)
 
     respond_to do |format|
-      format.html # index.html.erb
+      format.html
       format.xml  { render :xml => @receipts }
     end
   end
 
-  # GET /receipts/1
-  # GET /receipts/1.xml
   def show
     @receipt = Receipt.find(params[:id])
 
     respond_to do |format|
-      format.html # show.html.erb
+      format.html
       format.xml  { render :xml => @receipt }
     end
   end
 
-  # GET /receipts/new
-  # GET /receipts/new.xml
   def new
     @receipt = Receipt.new
 
@@ -33,13 +27,10 @@ class ReceiptsController < ApplicationController
     end
   end
 
-  # GET /receipts/1/edit
   def edit
     @receipt = Receipt.find(params[:id])
   end
 
-  # POST /receipts
-  # POST /receipts.xml
   def create
     @receipt = Receipt.new(
       :purchase_date => (Date.strptime(params[:receipt][:purchase_date], '%m/%d/%Y')),
@@ -60,8 +51,6 @@ class ReceiptsController < ApplicationController
     end
   end
 
-  # PUT /receipts/1
-  # PUT /receipts/1.xml
   def update
     @receipt = Receipt.find(params[:id])
 
@@ -76,8 +65,6 @@ class ReceiptsController < ApplicationController
     end
   end
 
-  # DELETE /receipts/1
-  # DELETE /receipts/1.xml
   def destroy
     @receipt = Receipt.find(params[:id])
     @receipt.destroy

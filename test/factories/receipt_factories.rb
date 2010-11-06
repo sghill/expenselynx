@@ -1,5 +1,5 @@
 Factory.define :receipt do |r|
-  r.store_id {|s| s.association(:target).id}
+  r.store { |s| s.association(:target) }
   r.purchase_date DateTime.now
   r.total 12.31
 end
