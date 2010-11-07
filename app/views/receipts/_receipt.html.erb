@@ -1,6 +1,8 @@
+<% receipts.each do |receipt| %>
 <tr>
   <td><%= receipt.purchase_date.to_date.to_s(:short) %></td>
   <td><%= receipt.store.name %></td>
   <td><%= link_to receipt.total, receipt %></td>
   <td><%= receipt.expensable? ? 'Y' : 'N' %>
 </tr>
+<% end %>

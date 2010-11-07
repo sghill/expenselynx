@@ -14,5 +14,5 @@
     <th>Expensable?</th>
   </tr>
 
-<%= render(@receipts) %>
+<%= render :partial => 'receipt', :locals => {:receipts => @receipts} %>
 </table>

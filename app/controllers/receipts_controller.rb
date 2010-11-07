@@ -4,7 +4,7 @@ class ReceiptsController < ApplicationController
     
   def index
     @receipt = Receipt.new
-    @receipts = current_user.receipts.find(:all, :limit => 5)
+    @receipts = current_user.receipts.find(:all)
 
     respond_to do |format|
       format.html

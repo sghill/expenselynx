@@ -2,7 +2,7 @@ class Receipt < ActiveRecord::Base
   belongs_to :store
   belongs_to :user
   
-  default_scope :order => 'created_at DESC'
+  default_scope :order => 'purchase_date DESC'
   
   validates :total, :presence => true,
                     :numericality => {:greater_than_or_equal_to => 0.01}

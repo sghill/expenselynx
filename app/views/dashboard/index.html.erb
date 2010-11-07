@@ -1,0 +1,18 @@
+<div id="add_receipt">
+  <%= link_to 'New Receipt', new_receipt_path, :id => 'create_receipt_link' %>
+
+  <div id="receipt_form" style="display:none">
+    <%= render 'receipts/form' %>
+  </div>
+</div>
+
+<table id="recent_receipts">
+  <tr>
+    <th>Purchase date</th>
+    <th>Store</th>
+    <th>Total</th>
+    <th>Expensable?</th>
+  </tr>
+
+<%= render :partial => 'receipts/receipt', :locals => {:receipts => @receipts} %>
+</table>

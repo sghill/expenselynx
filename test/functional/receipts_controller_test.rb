@@ -5,7 +5,7 @@ class ReceiptsControllerTest < ActionController::TestCase
     @chipotle = Factory(:chipotle)
     @john = Factory(:user)
     @sara = Factory(:sara)
-    @receipt = Receipt.create(:store => @chipotle, :user => @john, :purchase_date => Time.now, :total => 13.34)
+    @receipt = Receipt.create(:store => @chipotle, :user => @john, :purchase_date => 2.days.ago, :total => 13.34)
   end
 
   #
@@ -113,7 +113,7 @@ class ReceiptsControllerTest < ActionController::TestCase
   #
   #
   #
-  test "should show 5 receipts on index" do
+  test "should show all receipts on index" do
     sign_in @john
     post :create, :receipt => {:store_name => "Target",:purchase_date => "10/26/2010",:total => 14}
     post :create, :receipt => {:store_name => "Baja Fresh",:purchase_date => "10/29/2010",:total => 15}
@@ -123,24 +123,21 @@ class ReceiptsControllerTest < ActionController::TestCase
     post :create, :receipt => {:store_name => "Chipotle",:purchase_date => "11/3/2010",:total => 17.00}
     
     get :index
-    assert_equal 5, assigns(:receipts).count
+    #because there is data in the setup...yikes 
+    assert_equal 7, assigns(:receipts).count
   end
   
-  test "should show the 5 most recently added receipts on index" do
+  test "should show the 5 most recently purchased receipts on index" do
     sign_in @john
-    first = Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 14,:user => @john)
-    sleep(0.25)
-    Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 13,:user => @john)
-    sleep(0.25)
-    Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 120,:user => @john)
-    sleep(0.25)
-    Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 10,:user => @john)
-    sleep(0.25)
-    last = Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 14,:user => @john)
+    oldest = Receipt.create(:store => @chipotle,:purchase_date => 61.days.ago,:total => 14,:user => @john)
+    Receipt.create(:store => @chipotle,:purchase_date => 50.days.ago,:total => 13,:user => @john)
+    newest = Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 120,:user => @john)
+    Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @john)
+    Receipt.create(:store => @chipotle,:purchase_date => 19.days.ago,:total => 14,:user => @john)
     
     get :index
-    assert_equal last, assigns(:receipts).first
-    assert_equal first, assigns(:receipts).last
+    assert_equal newest, assigns(:receipts).first
+    assert_equal oldest, assigns(:receipts).last
   end
   
   #
