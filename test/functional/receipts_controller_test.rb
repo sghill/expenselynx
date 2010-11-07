@@ -180,4 +180,26 @@ class ReceiptsControllerTest < ActionController::TestCase
       get :edit, :id => johns_receipt.id
     end
   end
+  
+  test "should not put an update for receipt belonging to another user" do
+    johns_receipt = Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 14,:user => @john)
+    
+    sign_in @sara
+    
+    johns_receipt[:purchase_date] = 1.day.ago
+    
+    assert_raise ActiveRecord::RecordNotFound do
+      put :update, :id => johns_receipt.id, :receipt => johns_receipt
+    end
+  end
+  
+  test "should not be able to destroy another users receipt" do
+    johns_receipt = Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 14,:user => @john)
+    
+    sign_in @sara
+    
+    assert_raise ActiveRecord::RecordNotFound do
+      delete :destroy, :id => johns_receipt.id
+    end
+  end
 end

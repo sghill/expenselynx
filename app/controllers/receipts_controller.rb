@@ -56,7 +56,7 @@ class ReceiptsController < ApplicationController
   end
 
   def update
-    @receipt = Receipt.find(params[:id])
+    @receipt = current_user.receipts.find(params[:id])
 
     respond_to do |format|
       if @receipt.update_attributes(params[:receipt])
@@ -70,7 +70,7 @@ class ReceiptsController < ApplicationController
   end
 
   def destroy
-    @receipt = Receipt.find(params[:id])
+    @receipt = current_user.receipts.find(params[:id])
     @receipt.destroy
 
     respond_to do |format|
