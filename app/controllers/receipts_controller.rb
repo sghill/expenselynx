@@ -31,7 +31,7 @@ class ReceiptsController < ApplicationController
   end
 
   def edit
-    @receipt = Receipt.find(params[:id])
+    @receipt = current_user.receipts.find(params[:id])
   end
 
   def create

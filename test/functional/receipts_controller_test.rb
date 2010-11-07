@@ -3,9 +3,9 @@ require 'test_helper'
 class ReceiptsControllerTest < ActionController::TestCase
   setup do
     @chipotle = Factory(:chipotle)
-    @receipt = Factory(:receipt)
     @john = Factory(:user)
     @sara = Factory(:sara)
+    @receipt = Receipt.create(:store => @chipotle, :user => @john, :purchase_date => Time.now, :total => 13.34)
   end
 
   #
@@ -160,14 +160,24 @@ class ReceiptsControllerTest < ActionController::TestCase
   end
   
   test "should not show receipts created by other users" do
-    sign_in @sara
+    sign_in @john
     post :create, :receipt => { :store_name => "Target",
                                 :purchase_date => "10/26/2010",
                                 :total => @receipt.total }
-    sign_out @sara
-    sign_in @john
+    sign_out @john
+    sign_in @sara
     
     get :index
     assert assigns(:receipts).empty?
+  end
+  
+  test "should not load a receipt for editing that belongs to another user" do
+    johns_receipt = Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 14,:user => @john)
+    
+    sign_in @sara
+    
+    assert_raise ActiveRecord::RecordNotFound do
+      get :edit, :id => johns_receipt.id
+    end
   end
 end
