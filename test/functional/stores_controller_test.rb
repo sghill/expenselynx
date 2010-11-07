@@ -41,12 +41,4 @@ class StoresControllerTest < ActionController::TestCase
     put :update, :id => @store.to_param, :store => @update
     assert_redirected_to store_path(assigns(:store))
   end
-
-  test "should destroy store" do
-    assert_difference('Store.count', -1) do
-      delete :destroy, :id => @store.to_param
-    end
-
-    assert_redirected_to stores_path
-  end
 end

@@ -68,18 +68,6 @@ class StoresController < ApplicationController
       end
     end
   end
-
-  # DELETE /stores/1
-  # DELETE /stores/1.xml
-  def destroy
-    @store = Store.find(params[:id])
-    @store.destroy
-
-    respond_to do |format|
-      format.html { redirect_to(stores_url) }
-      format.xml  { head :ok }
-    end
-  end
   
   # GET /stores/search
   def search

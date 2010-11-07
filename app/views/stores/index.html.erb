@@ -5,16 +5,12 @@
   <tr>
     <th>Name</th>
     <th></th>
-    <th></th>
-    <th></th>
   </tr>
 
 <% @stores.each do |store| %>
   <tr class="<%= cycle('list_line_odd', 'list_line_even') %>">
-    <td><%= store.name %></td>
-    <td><%= link_to 'Show', store %></td>
-    <td><%= link_to 'Edit', edit_store_path(store) %></td>
-    <td><%= link_to 'Destroy', store, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to store.name, store %></td>
+    <td><%= link_to 'edit', edit_store_path(store) %></td>
   </tr>
 <% end %>
 </table>
