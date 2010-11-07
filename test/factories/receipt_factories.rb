@@ -33,3 +33,10 @@ Factory.define :baja_tacos, :class => Receipt do |r|
   r.purchase_date DateTime.now
   r.total 7.54
 end
+
+Factory.define :sara_nachos, :class => Receipt do |r|
+  r.store_name "Baja Fresh"
+  r.user {|u| u.association(:sara)}
+  r.purchase_date "11/06/2010"
+  r.total 7.54
+end

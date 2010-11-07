@@ -13,7 +13,7 @@ class ReceiptsController < ApplicationController
   end
 
   def show
-    @receipt = Receipt.find(params[:id])
+    @receipt = current_user.receipts.find(params[:id])
 
     respond_to do |format|
       format.html
@@ -39,7 +39,8 @@ class ReceiptsController < ApplicationController
       :purchase_date => (Date.strptime(params[:receipt][:purchase_date], '%m/%d/%Y')),
       :total => params[:receipt][:total],
       :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
-      :expensable => params[:receipt][:expensable])
+      :expensable => params[:receipt][:expensable],
+      :user => current_user)
 
     respond_to do |format|
       if @receipt.save
