@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>ExpenseLynx</title>
+  <%= stylesheet_link_tag "http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/themes/black-tie/jquery-ui.css", "default" %>
+  <%= javascript_include_tag "https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js", "https://ajax.googleapis.com/ajax/libs/jqueryui/1.8.5/jquery-ui.min.js" %>
+  <%= csrf_meta_tag %>
+  
+  <script type="text/javascript">
+  $(document).ready(function() {
+    $("#receipt_store_name").autocomplete({
+      minLength: 0,
+      source: function(request, response) {
+        $.ajax({
+          url: "/stores/search",
+          dataType: "json",
+          data: {term: request.term},
+          success: function( data ) {
+            response( data );
+          }
+        });
+      }
+    })
+    
+    $("#receipt_purchase_date").datepicker({autoSize:true});
+    
+    $("#create_receipt_link").click(function() {
+      $("#receipt_form").slideToggle("slow");
+    })
+    
+    $("#create_receipt_link")[0].href = "#";
+    
+    $("#new_receipt").submit(function() {
+      $.post(
+        $(this).attr('action'),
+        $("#new_receipt").serialize(),
+        function(data, textStatus) {
+          var html = "<tr><td>" + data.receipt.purchase_date +
+            "</td><td>" + data.receipt.store_name + "</td><td><a href='/receipts/" +
+            data.receipt.id + "'>" + data.receipt.total + "</a></td><td>" + 
+            data.receipt.expensable + "</td></tr>";
+          
+          $(html).appendTo($("table")).effect("highlight", {}, 3000);
+        }, "json");
+        return false;
+    });
+  });
+  </script>
+</head>
+<body>
+<div id="outer_container">
+  <div id="user_bar">
+    <h1 id="logo">ExpenseLynx</h1>
+    <p id="links"><%= link_to 'Sign Out', destroy_user_session_path %></p>
+  </div>
+  <div id="content_container">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+    
+    <%= yield %>
+  </div>
+</div>
+</body>
+</html>

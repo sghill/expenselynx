@@ -1,0 +1,64 @@
+body, p, a, ul, ol, li, table, tr, th, td, h1, h2, h3, h4, h5 {
+	margin:0;
+	padding:0;
+}
+
+body {
+	background:white;
+	font-family:Tahoma,Arial,Sans-Serif;
+	font-size:small;
+}
+
+a {
+	font-weight:bold;
+	text-decoration:none;
+}
+
+#outer_container {
+	margin:0 auto;
+	width:1024px;
+}
+
+#user_bar {
+	border-bottom:solid gray 1px;
+	height:36px;
+	width:inherit;
+}
+
+#user_bar #logo {
+	float:left;
+	width:300px;
+}
+
+#user_bar #links {
+	float:right;
+}
+
+#content_container {
+	border-bottom:solid gray 1px;
+	border-left:solid gray 1px;
+	border-right:solid gray 1px;
+	margin:0 auto;
+	padding:2em;
+	width:888px;
+}
+
+#add_receipt {
+	padding-bottom:2em;
+	padding-top:1em;
+	text-align:center;
+}
+
+/* RECEIPTS TABLE */
+#recent_receipts {
+	margin:0 auto;
+}
+
+#recent_receipts tr th {
+	border-bottom:dotted gray 1px;
+}
+
+#recent_receipts td,th {
+	padding-left:1em;
+	padding-right:1em;
+}

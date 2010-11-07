@@ -1,0 +1,22 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Store:</b>
+  <%= @receipt.store.name %>
+</p>
+
+<p>
+  <b>Purchase date:</b>
+  <%= @receipt.purchase_date %>
+</p>
+
+<p>
+  <b>Total:</b>
+  <%= @receipt.total %>
+</p>
+
+<p>Expensable? <%= @receipt.expensable? ? 'Y' : 'N' %></p>
+
+
+<%= link_to 'Edit', edit_receipt_path(@receipt) %> |
+<%= link_to 'Back', receipts_path %>
