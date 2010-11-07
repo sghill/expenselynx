@@ -25,6 +25,16 @@ a {
 	width:inherit;
 }
 
+#user_bar #logo {
+	float:left;
+	width:300px;
+}
+
+#user_bar #links {
+	float:right;
+	position:bottom;
+}
+
 #content_container {
 	border-bottom:solid gray 1px;
 	border-left:solid gray 1px;

@@ -35,11 +35,10 @@
         $(this).attr('action'),
         $("#new_receipt").serialize(),
         function(data, textStatus) {
-          var html = "<tr><td>" + data.receipt.store_name +
-            "</td><td>" + data.receipt.purchase_date + "</td><td>" +
-            data.receipt.total + "</td><td><a href='/receipts/" + data.receipt.id +
-            "'>show</a></td><td><a href='/receipts/" + data.receipt.id + 
-            "/edit'>edit</a></td><td></tr>";
+          var html = "<tr><td>" + data.receipt.purchase_date +
+            "</td><td>" + data.receipt.store_name + "</td><td><a href='/receipts/" +
+            data.receipt.id + "'>" + data.receipt.total + "</a></td><td>" + 
+            data.receipt.expensable + "</td></tr>";
           
           $(html).appendTo($("table")).effect("highlight", {}, 3000);
         }, "json");
@@ -52,6 +51,7 @@
 <div id="outer_container">
   <div id="user_bar">
     <h1 id="logo">ExpenseLynx</h1>
+    <p id="links"><%= link_to 'Sign Out', destroy_user_session_path %></p>
   </div>
   <div id="content_container">
     <p class="notice"><%= notice %></p>

@@ -20139,3 +20139,430 @@ Completed 200 OK in 100ms (Views: 61.8ms | ActiveRecord: 26.8ms)
   [1m[35mSQL (23.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
   [1m[36mSQL (16.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
   [1m[35mSQL (20.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 01:21:05 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY created_at DESC LIMIT 5[0m
+Rendered receipts/_form.html.erb (8.3ms)
+Rendered collection (0.0ms)
+Rendered receipts/index.html.erb within layouts/application (11.4ms)
+Completed 200 OK in 84ms (Views: 15.4ms | ActiveRecord: 0.9ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-11-07 01:21:19 -0600
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')
+Rendered stores/search.html.erb (5.2ms)
+Completed 200 OK in 17ms (Views: 6.9ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-07 01:22:41 -0600
+  Processing by ReceiptsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ajebag1odhDI/WBqR5ei0GxCeoiFe2v24rk3D4Zbd0s=", "receipt"=>{"store_name"=>"testing", "purchase_date"=>"11/07/2010", "total"=>"3.31", "expensable"=>"0"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'testing') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+  [1m[35mSQL (44.3ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-07 07:22:41.639567', 'f', '2010-11-07 05:00:00.000000', 18, 3.31, '2010-11-07 07:22:41.639567', 1)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+Completed 200 OK in 225ms (Views: 6.4ms | ActiveRecord: 45.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-07 01:24:20 -0600
+  Processing by ReceiptsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ajebag1odhDI/WBqR5ei0GxCeoiFe2v24rk3D4Zbd0s=", "receipt"=>{"store_name"=>"testing", "purchase_date"=>"11/07/2010", "total"=>"3.31", "expensable"=>"0"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'testing') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+  [1m[36mSQL (43.7ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-07 07:24:20.841496', 'f', '2010-11-07 05:00:00.000000', 18, 3.31, '2010-11-07 07:24:20.841496', 1)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+Completed 200 OK in 225ms (Views: 5.6ms | ActiveRecord: 44.8ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 01:24:23 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY created_at DESC LIMIT 5
+Rendered receipts/_form.html.erb (10.3ms)
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+Rendered receipts/_receipt.html.erb (3.6ms)
+Rendered receipts/index.html.erb within layouts/application (17.5ms)
+Completed 200 OK in 93ms (Views: 20.7ms | ActiveRecord: 1.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-07 01:24:24 -0600
+  Processing by ReceiptsController#new as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered receipts/_form.html.erb (10.1ms)
+Rendered receipts/new.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 115ms (Views: 45.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-07 01:25:30 -0600
+  Processing by ReceiptsController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (39.3ms)
+Rendered receipts/new.html.erb within layouts/application (41.7ms)
+Completed 200 OK in 83ms (Views: 45.1ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 01:25:35 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[36mUser Load (0.7ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY created_at DESC LIMIT 5
+Rendered receipts/_form.html.erb (8.9ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+Rendered receipts/_receipt.html.erb (22.4ms)
+Rendered receipts/index.html.erb within layouts/application (34.7ms)
+Completed 200 OK in 109ms (Views: 37.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-07 01:25:40 -0600
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')[0m
+Rendered stores/search.html.erb (36.7ms)
+Completed 200 OK in 49ms (Views: 38.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-07 01:25:42 -0600
+  Processing by ReceiptsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ajebag1odhDI/WBqR5ei0GxCeoiFe2v24rk3D4Zbd0s=", "receipt"=>{"store_name"=>"testing", "purchase_date"=>"11/07/2010", "total"=>"3.31", "expensable"=>"0"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'testing') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+  [1m[36mSQL (86.3ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-07 07:25:43.088259', 'f', '2010-11-07 05:00:00.000000', 18, 3.31, '2010-11-07 07:25:43.088259', 1)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+Completed 200 OK in 204ms (Views: 6.3ms | ActiveRecord: 87.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 01:27:37 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY created_at DESC LIMIT 5
+Rendered receipts/_form.html.erb (7.8ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (54.2ms)
+Rendered receipts/index.html.erb within layouts/application (65.7ms)
+Completed 200 OK in 144ms (Views: 69.0ms | ActiveRecord: 1.1ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-07 01:27:44 -0600
+  Processing by ReceiptsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ajebag1odhDI/WBqR5ei0GxCeoiFe2v24rk3D4Zbd0s=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"11/07/2010", "total"=>"3.31", "expensable"=>"1"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (183.9ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-07 07:27:44.536337', 't', '2010-11-07 05:00:00.000000', 6, 3.31, '2010-11-07 07:27:44.536337', 1)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Completed 200 OK in 351ms (Views: 6.1ms | ActiveRecord: 185.0ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-07 01:27:58 -0600
+  Processing by ReceiptsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ajebag1odhDI/WBqR5ei0GxCeoiFe2v24rk3D4Zbd0s=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"11/07/2010", "total"=>"3.31", "expensable"=>"1"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-07 07:27:58.703445', 't', '2010-11-07 05:00:00.000000', 6, 3.31, '2010-11-07 07:27:58.703445', 1)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Completed 200 OK in 113ms (Views: 6.7ms | ActiveRecord: 1.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-07 01:28:15 -0600
+  Processing by ReceiptsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ajebag1odhDI/WBqR5ei0GxCeoiFe2v24rk3D4Zbd0s=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"11/01/2010", "total"=>"3.313", "expensable"=>"1"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (0.7ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-07 07:28:15.610880', 't', '2010-11-01 05:00:00.000000', 6, 3.313, '2010-11-07 07:28:15.610880', 1)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Completed 200 OK in 117ms (Views: 5.7ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 01:28:20 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[36mUser Load (0.8ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.4ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY created_at DESC LIMIT 5
+Rendered receipts/_form.html.erb (10.9ms)
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (6.1ms)
+Rendered receipts/index.html.erb within layouts/application (21.2ms)
+Completed 200 OK in 114ms (Views: 24.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-07 01:28:25 -0600
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')
+Rendered stores/search.html.erb (4.6ms)
+Completed 200 OK in 15ms (Views: 6.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-07 01:28:32 -0600
+  Processing by ReceiptsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ajebag1odhDI/WBqR5ei0GxCeoiFe2v24rk3D4Zbd0s=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"11/02/2010", "total"=>"3.36", "expensable"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-07 07:28:32.462415', 'f', '2010-11-02 05:00:00.000000', 6, 3.36, '2010-11-07 07:28:32.462415', 1)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Completed 200 OK in 160ms (Views: 5.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 01:28:46 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY created_at DESC LIMIT 5[0m
+Rendered receipts/_form.html.erb (10.5ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.3ms)
+Rendered receipts/index.html.erb within layouts/application (19.2ms)
+Completed 200 OK in 94ms (Views: 22.2ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-07 01:28:50 -0600
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')[0m
+Rendered stores/search.html.erb (5.8ms)
+Completed 200 OK in 17ms (Views: 7.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-07 01:28:51 -0600
+  Processing by ReceiptsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"ajebag1odhDI/WBqR5ei0GxCeoiFe2v24rk3D4Zbd0s=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"11/02/2010", "total"=>"3.36", "expensable"=>"0"}}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-07 07:28:51.458940', 'f', '2010-11-02 05:00:00.000000', 6, 3.36, '2010-11-07 07:28:51.458940', 1)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Completed 200 OK in 162ms (Views: 5.5ms | ActiveRecord: 1.6ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 12:24:16 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.4ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY created_at DESC LIMIT 5
+Rendered receipts/_form.html.erb (8.1ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (52.9ms)
+Rendered receipts/index.html.erb within layouts/application (305.3ms)
+Completed   in 385ms
+
+ActionView::Template::Error (undefined local variable or method `destroy_user_session' for #<#<Class:0x0000010310f938>:0x0000010310d520>):
+    51: <div id="outer_container">
+    52:   <div id="user_bar">
+    53:     <h1 id="logo">ExpenseLynx</h1>
+    54:     <p id="links"><%= link_to 'Sign Out', destroy_user_session %></p>
+    55:   </div>
+    56:   <div id="content_container">
+    57:     <p class="notice"><%= notice %></p>
+  app/views/layouts/application.html.erb:54:in `_app_views_layouts_application_html_erb___3210678934363202469_2173185640_4507357309013485971'
+  app/controllers/receipts_controller.rb:9:in `index'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (35.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (40.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 12:24:40 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY created_at DESC LIMIT 5[0m
+Rendered receipts/_form.html.erb (9.4ms)
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (7.6ms)
+Rendered receipts/index.html.erb within layouts/application (21.8ms)
+Completed 200 OK in 96ms (Views: 25.0ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at 2010-11-07 12:24:46 -0600
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 61ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 12:24:47 -0600
+  Processing by ReceiptsController#index as HTML
+Completed   in 9ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 12:24:47 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (48.3ms)
+Completed 200 OK in 134ms (Views: 80.8ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 12:29:29 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.2ms)
+Completed 200 OK in 63ms (Views: 42.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 12:29:54 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (8.4ms)
+Completed 200 OK in 59ms (Views: 38.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 12:30:39 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (5.9ms)
+Completed 200 OK in 63ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 12:31:05 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 61ms (Views: 9.8ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 12:31:26 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 29ms (Views: 9.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 12:31:47 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 29ms (Views: 9.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 12:32:43 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 67ms (Views: 11.3ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 12:33:18 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 66ms (Views: 12.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 12:33:33 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 34ms (Views: 11.7ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 13:09:13 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.3ms)
+Rendered devise/sessions/new.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 265ms (Views: 242.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 13:09:33 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 31ms (Views: 9.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 13:12:46 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (3.4ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.2ms)
+Completed 200 OK in 73ms (Views: 12.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 13:13:39 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 30ms (Views: 9.4ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 15:30:12 -0600
+  Processing by ReceiptsController#index as HTML
+Completed   in 9ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 15:30:12 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.2ms)
+Rendered devise/sessions/new.html.erb within layouts/application (20.5ms)
+Completed 200 OK in 92ms (Views: 38.9ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2010-11-07 15:31:06 -0600
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.2ms)
+Rendered devise/registrations/new.html.erb within layouts/application (13.5ms)
+Completed 200 OK in 85ms (Views: 41.4ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2010-11-07 15:31:23 -0600
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "user"=>{"email"=>"sg@sghill.net", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('sg@sghill.net')) LIMIT 1
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/registrations/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 555ms (Views: 9.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 15:31:39 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (6.2ms)
+Completed 200 OK in 61ms (Views: 10.1ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2010-11-07 15:31:39 -0600
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.4ms)
+Rendered devise/registrations/new.html.erb within layouts/application (13.1ms)
+Completed 200 OK in 33ms (Views: 16.7ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2010-11-07 15:31:40 -0600
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "user"=>{"email"=>"sg@sghill.net", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('sg@sghill.net')) LIMIT 1[0m
+Rendered devise/shared/_links.erb (1.2ms)
+Rendered devise/registrations/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 111ms (Views: 9.8ms | ActiveRecord: 0.2ms)
