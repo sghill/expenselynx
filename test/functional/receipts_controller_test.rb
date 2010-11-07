@@ -2,6 +2,7 @@ require 'test_helper'
 
 class ReceiptsControllerTest < ActionController::TestCase
   setup do
+    @chipotle = Factory(:chipotle)
     @receipt = Factory(:receipt)
     @john = Factory(:user)
     @sara = Factory(:sara)
@@ -114,11 +115,12 @@ class ReceiptsControllerTest < ActionController::TestCase
   #
   test "should show 5 receipts on index" do
     sign_in @john
-    Factory(:chipotle_burrito)
-    Factory(:starbucks)
-    Factory(:best_buy_tv)
-    Factory(:oil_filter)
-    Factory(:baja_tacos)
+    post :create, :receipt => {:store_name => "Target",:purchase_date => "10/26/2010",:total => 14}
+    post :create, :receipt => {:store_name => "Baja Fresh",:purchase_date => "10/29/2010",:total => 15}
+    post :create, :receipt => {:store_name => "Chipotle",:purchase_date => "10/30/2010",:total => 11.05}
+    post :create, :receipt => {:store_name => "Target",:purchase_date => "10/31/2010",:total => 13.50}
+    post :create, :receipt => {:store_name => "Target",:purchase_date => "11/2/2010",:total => 14.00}
+    post :create, :receipt => {:store_name => "Chipotle",:purchase_date => "11/3/2010",:total => 17.00}
     
     get :index
     assert_equal 5, assigns(:receipts).count
@@ -126,21 +128,24 @@ class ReceiptsControllerTest < ActionController::TestCase
   
   test "should show the 5 most recently added receipts on index" do
     sign_in @john
-    Factory(:chipotle_burrito)
-    sleep(0.5)
-    Factory(:starbucks)
-    sleep(0.5)
-    Factory(:best_buy_tv)
-    sleep(0.5)
-    Factory(:oil_filter)
-    sleep(0.5)
-    last = Factory(:baja_tacos)
+    first = Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 14,:user => @john)
+    sleep(0.25)
+    Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 13,:user => @john)
+    sleep(0.25)
+    Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 120,:user => @john)
+    sleep(0.25)
+    Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 10,:user => @john)
+    sleep(0.25)
+    last = Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 14,:user => @john)
     
     get :index
     assert_equal last, assigns(:receipts).first
-    assert_equal @receipt, assigns(:receipts).last
+    assert_equal first, assigns(:receipts).last
   end
   
+  #
+  # authorization
+  #
   test "should not show a receipt created by another user" do
     sign_in @sara
     post :create, :receipt => { :store_name => "Target",
@@ -152,5 +157,17 @@ class ReceiptsControllerTest < ActionController::TestCase
     assert_raise ActiveRecord::RecordNotFound do
       get :show, :id => assigns(:receipt).id
     end
+  end
+  
+  test "should not show receipts created by other users" do
+    sign_in @sara
+    post :create, :receipt => { :store_name => "Target",
+                                :purchase_date => "10/26/2010",
+                                :total => @receipt.total }
+    sign_out @sara
+    sign_in @john
+    
+    get :index
+    assert assigns(:receipts).empty?
   end
 end
