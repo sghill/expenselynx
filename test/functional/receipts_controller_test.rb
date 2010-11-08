@@ -97,7 +97,9 @@ class ReceiptsControllerTest < ActionController::TestCase
 
   test "should update receipt when signed in" do
     sign_in @john
-    put :update, :id => @receipt.to_param, :receipt => @receipt.attributes
+    put :update, :id => @receipt.to_param, :receipt => {:store_name => @receipt.store.name,
+                                                        :purchase_date => 1.day.ago,
+                                                        :total => 8.32}
     assert_redirected_to receipt_path(assigns(:receipt))
   end
   

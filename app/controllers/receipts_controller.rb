@@ -40,6 +40,7 @@ class ReceiptsController < ApplicationController
       :total => params[:receipt][:total],
       :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
       :expensable => params[:receipt][:expensable],
+      :expensed => params[:receipt][:expensed],
       :user => current_user)
 
     respond_to do |format|
@@ -59,7 +60,12 @@ class ReceiptsController < ApplicationController
     @receipt = current_user.receipts.find(params[:id])
 
     respond_to do |format|
-      if @receipt.update_attributes(params[:receipt])
+      if @receipt.update_attributes(:purchase_date => params[:receipt][:purchase_date],
+          :total => params[:receipt][:total],
+          :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
+          :expensable => params[:receipt][:expensable],
+          :expensed => params[:receipt][:expensed],
+          :user => current_user)
         format.html { redirect_to(@receipt, :notice => 'Receipt was successfully updated.') }
         format.xml  { head :ok }
       else
