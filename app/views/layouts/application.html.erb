@@ -22,7 +22,7 @@
       }
     })
     
-    $("#receipt_purchase_date").datepicker({autoSize:true});
+    $("#receipt_purchase_date").datepicker({autoSize:true, dateFormat:"yy-mm-dd", inline:true});
     
     $("#create_receipt_link").click(function() {
       $("#receipt_form").slideToggle("slow");
@@ -50,7 +50,7 @@
 <body>
 <div id="outer_container">
   <div id="user_bar">
-    <h1 id="logo">ExpenseLynx</h1>
+    <h1 id="logo"><%= link_to 'ExpenseLynx', root_path %></h1>
     <p id="links"><%= link_to 'Sign Out', destroy_user_session_path %></p>
   </div>
   <div id="content_container">

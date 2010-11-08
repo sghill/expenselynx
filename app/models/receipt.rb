@@ -7,7 +7,8 @@ class Receipt < ActiveRecord::Base
   validates :total, :presence => true,
                     :numericality => {:greater_than_or_equal_to => 0.01}
   validate :purchase_date_is_not_in_the_future,
-           :store_existence
+           :store_existence,
+           :nonexpensable_receipt_is_not_expensed
            
   attr_reader :store_name
   
@@ -24,5 +25,10 @@ class Receipt < ActiveRecord::Base
     
     def store_existence
       errors.add(:store_id, "does not exist") if Store.find_by_id(store_id).nil?
+    end
+    
+    def nonexpensable_receipt_is_not_expensed
+      errors.add(:expensed, "receipt isn't possible unless receipt is marked expensable") if
+        expensed? && !expensable?
     end
 end

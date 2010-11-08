@@ -1,3 +1,20 @@
+<div id="expense_stats">
+  <div id="receipt_total" class="stat_box">
+    <p>Total</p>
+    <p id="spending_total" class="sum"><%= number_to_currency @stats[:total] %></p>
+  </div>
+  <div id="unexpensed_receipt_total" class="stat_box">
+      <p><%= link_to 'Unexpensed', dashboard_unexpensed_path %></p>
+      <p id="unexpensed_total" class="sum"><%= number_to_currency @stats[:unexpensed_total] %></p>
+  </div>
+  <div id="unexpensed_receipt_total" class="stat_box">
+    <p>Expensed</p>
+    <p id="expensed_total" class="sum"><%= number_to_currency @stats[:expensed_total] %></p>
+  </div>
+</div>
+
+<div class="clearer"></div>
+
 <div id="add_receipt">
   <%= link_to 'New Receipt', new_receipt_path, :id => 'create_receipt_link' %>
 
@@ -12,7 +29,8 @@
     <th>Store</th>
     <th>Total</th>
     <th>Expensable?</th>
+    <th>Expensed?</th>
   </tr>
 
-<%= render :partial => 'receipts/receipt', :locals => {:receipts => @receipts} %>
+<%= render :partial => 'receipts/receipt', :collection => @receipts %>
 </table>

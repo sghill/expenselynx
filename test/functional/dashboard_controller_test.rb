@@ -3,7 +3,9 @@ require 'test_helper'
 class DashboardControllerTest < ActionController::TestCase
   setup do
     @sara = Factory(:sara)
+    @john = Factory(:user)
     @chipotle = Factory(:chipotle)
+    Receipt.delete(:all)
   end
   
   test "should GET index if signed in" do
@@ -49,5 +51,59 @@ class DashboardControllerTest < ActionController::TestCase
     get :index
     assert_equal newest, assigns(:receipts).first
     assert_equal oldest, assigns(:receipts).last
+  end
+  
+  test "index should show total of all receipts" do
+    Receipt.create(:store => @chipotle,:purchase_date => 1.day.ago,:total => 9.90,:user => @sara)
+    Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @sara)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @sara)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @john)
+    
+    sign_in @sara
+    get :index
+    assert assigns(:stats)[:total].is_a?(Float)
+    assert_equal 30.90, assigns(:stats)[:total]
+  end
+  
+  test "index should show total of all unexpensed receipts" do
+    Receipt.create(:store => @chipotle,:purchase_date => 1.day.ago,:total => 9.90,:user => @sara, :expensable => true, :expensed => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @sara)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @sara, :expensable => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @john)
+    
+    sign_in @sara
+    get :index
+    assert assigns(:stats)[:unexpensed_total].is_a?(Float)
+    assert_equal 11, assigns(:stats)[:unexpensed_total]
+  end
+  
+  test "index should show total of all expensed receipts" do
+    Receipt.create(:store => @chipotle,:purchase_date => 1.day.ago,:total => 9.90,:user => @sara, :expensable => true, :expensed => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @sara)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @sara, :expensable => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @john)
+    
+    sign_in @sara
+    get :index
+    assert assigns(:stats)[:expensed_total].is_a?(Float)
+    assert_equal 9.90, assigns(:stats)[:expensed_total]
+  end
+  
+  test "form in index should have todays date preloaded" do
+    sign_in @sara
+    get :index
+    assert_equal Time.now.to_date, assigns(:receipt).purchase_date
+  end
+  
+  test "GET unexpensed should show all of the receipts waiting to be expensed" do
+    Receipt.create(:store => @chipotle,:purchase_date => 1.day.ago,:total => 9.90,:user => @sara, :expensable => true, :expensed => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @sara)
+    expensable = Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @sara, :expensable => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @john)
+    
+    sign_in @sara
+    get :unexpensed
+    assert_equal 1, assigns(:receipts).count
+    assert_equal expensable, assigns(:receipts).first
   end
 end
