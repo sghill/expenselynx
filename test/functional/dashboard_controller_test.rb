@@ -3,6 +3,7 @@ require 'test_helper'
 class DashboardControllerTest < ActionController::TestCase
   setup do
     @sara = Factory(:sara)
+    @john = Factory(:user)
     @chipotle = Factory(:chipotle)
   end
   
@@ -49,5 +50,27 @@ class DashboardControllerTest < ActionController::TestCase
     get :index
     assert_equal newest, assigns(:receipts).first
     assert_equal oldest, assigns(:receipts).last
+  end
+  
+  test "index should show total of all receipts" do
+    Receipt.create(:store => @chipotle,:purchase_date => 1.day.ago,:total => 9.90,:user => @sara)
+    Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @sara)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @sara)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @john)
+    
+    sign_in @sara
+    get :index
+    assert_equal 30.90, assigns(:stats)['total']
+  end
+  
+  test "index should show total of all unexpensed receipts" do
+    Receipt.create(:store => @chipotle,:purchase_date => 1.day.ago,:total => 9.90,:user => @sara, :expensable => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @sara)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @sara, :expensable => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @john)
+    
+    sign_in @sara
+    get :index
+    assert_equal 20.90, assigns(:stats)['unexpensed_total']
   end
 end

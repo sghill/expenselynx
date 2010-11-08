@@ -39,7 +39,7 @@ class ReceiptsControllerTest < ActionController::TestCase
   test "should not post create if not logged in" do
     post :create, :receipt => { :store_name => "Target",
                                 :purchase_date => "10/26/2010",
-                                :total => @receipt.total }
+                                :total => 17.54 }
     assert_response :redirect
     assert_redirected_to new_user_session_path
   end
@@ -50,7 +50,7 @@ class ReceiptsControllerTest < ActionController::TestCase
       post :create, :receipt =>
       { :store_name => "Target",
         :purchase_date => "10/26/2010",
-        :total => @receipt.total }
+        :total => 18.46 }
     end
 
     assert_redirected_to receipt_path(assigns(:receipt))
@@ -66,7 +66,7 @@ class ReceiptsControllerTest < ActionController::TestCase
     sign_in @john
     post :create, :receipt => { :store_name => "Target",
                                 :purchase_date => "10/26/2010",
-                                :total => @receipt.total }
+                                :total => 19.43 }
     get :show, :id => assigns(:receipt).id
     assert_response :success
   end
