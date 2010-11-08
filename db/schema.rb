@@ -10,12 +10,12 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101106233509) do
+ActiveRecord::Schema.define(:version => 20101108034151) do
 
   create_table "receipts", :force => true do |t|
     t.integer  "store_id"
-    t.datetime "purchase_date"
-    t.decimal  "total",         :precision => 9, :scale => 2
+    t.date     "purchase_date"
+    t.decimal  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "expensable"
