@@ -3,7 +3,7 @@ class ReceiptsController < ApplicationController
     :only => [:index, :new, :create, :show, :edit, :update, :destroy]
     
   def index
-    @receipt = Receipt.new
+    @receipt = Receipt.new(:purchase_date => Time.now.to_date)
     @receipts = current_user.receipts.find(:all)
 
     respond_to do |format|
@@ -22,7 +22,7 @@ class ReceiptsController < ApplicationController
   end
 
   def new
-    @receipt = Receipt.new
+    @receipt = Receipt.new(:purchase_date => Time.now.to_date)
 
     respond_to do |format|
       format.html # new.html.erb
@@ -36,7 +36,7 @@ class ReceiptsController < ApplicationController
 
   def create
     @receipt = Receipt.new(
-      :purchase_date => (Date.strptime(params[:receipt][:purchase_date], '%m/%d/%Y')),
+      :purchase_date => params[:receipt][:purchase_date],
       :total => params[:receipt][:total],
       :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
       :expensable => params[:receipt][:expensable],

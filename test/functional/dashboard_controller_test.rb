@@ -75,4 +75,10 @@ class DashboardControllerTest < ActionController::TestCase
     assert assigns(:stats)[:unexpensed_total].is_a?(Float)
     assert_equal 20.90, assigns(:stats)[:unexpensed_total]
   end
+  
+  test "form in index should have todays date preloaded" do
+    sign_in @sara
+    get :index
+    assert_equal Time.now.to_date, assigns(:receipt).purchase_date
+  end
 end

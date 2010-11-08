@@ -6,11 +6,9 @@ class ReceiptsControllerTest < ActionController::TestCase
     @john = Factory(:user)
     @sara = Factory(:sara)
     @receipt = Receipt.create(:store => @chipotle, :user => @john, :purchase_date => 2.days.ago, :total => 13.34)
+    @today = Time.now.to_date
   end
 
-  #
-  # authorization
-  #
   test "should not get index if not logged in" do
     get :index
     assert_response :redirect
@@ -23,6 +21,12 @@ class ReceiptsControllerTest < ActionController::TestCase
     assert_response :success
     assert_not_nil assigns(:receipts)
   end
+  
+  test "form in index should have todays date preloaded" do
+    sign_in @john
+    get :index
+    assert_equal @today, assigns(:receipt).purchase_date
+  end
 
   test "should not get new if not logged in" do
     get :new
@@ -34,23 +38,25 @@ class ReceiptsControllerTest < ActionController::TestCase
     sign_in @john
     get :new
     assert_response :success
+    assert_not_nil assigns(:receipt)
   end
   
-  test "should not post create if not logged in" do
-    post :create, :receipt => { :store_name => "Target",
-                                :purchase_date => "10/26/2010",
-                                :total => 17.54 }
+  test "GET new should already have todays date for purchase date" do
+    sign_in @john
+    get :new
+    assert_equal Time.now.to_date, assigns(:receipt).purchase_date
+  end
+  
+  test "should not POST create if not logged in" do
+    post :create, :receipt => { :store_name => "Target", :purchase_date => @today, :total => 17.54 }
     assert_response :redirect
     assert_redirected_to new_user_session_path
   end
 
-  test "should post create receipt with US date when logged in" do
+  test "should POST create receipt with US date when logged in" do
     sign_in @john
     assert_difference('Receipt.count') do
-      post :create, :receipt =>
-      { :store_name => "Target",
-        :purchase_date => "10/26/2010",
-        :total => 18.46 }
+      post :create, :receipt => { :store_name => "Target", :purchase_date => @today, :total => 18.46 }
     end
 
     assert_redirected_to receipt_path(assigns(:receipt))
@@ -65,7 +71,7 @@ class ReceiptsControllerTest < ActionController::TestCase
   test "should get show receipt when logged in" do
     sign_in @john
     post :create, :receipt => { :store_name => "Target",
-                                :purchase_date => "10/26/2010",
+                                :purchase_date => @today,
                                 :total => 19.43 }
     get :show, :id => assigns(:receipt).id
     assert_response :success
@@ -115,12 +121,12 @@ class ReceiptsControllerTest < ActionController::TestCase
   #
   test "should show all receipts on index" do
     sign_in @john
-    post :create, :receipt => {:store_name => "Target",:purchase_date => "10/26/2010",:total => 14}
-    post :create, :receipt => {:store_name => "Baja Fresh",:purchase_date => "10/29/2010",:total => 15}
-    post :create, :receipt => {:store_name => "Chipotle",:purchase_date => "10/30/2010",:total => 11.05}
-    post :create, :receipt => {:store_name => "Target",:purchase_date => "10/31/2010",:total => 13.50}
-    post :create, :receipt => {:store_name => "Target",:purchase_date => "11/2/2010",:total => 14.00}
-    post :create, :receipt => {:store_name => "Chipotle",:purchase_date => "11/3/2010",:total => 17.00}
+    post :create, :receipt => {:store_name => "Target",:purchase_date => @today,:total => 14}
+    post :create, :receipt => {:store_name => "Baja Fresh",:purchase_date => 1.day.ago,:total => 15}
+    post :create, :receipt => {:store_name => "Chipotle",:purchase_date => 2.days.ago,:total => 11.05}
+    post :create, :receipt => {:store_name => "Target",:purchase_date => 3.days.ago,:total => 13.50}
+    post :create, :receipt => {:store_name => "Target",:purchase_date => 4.days.ago,:total => 14.00}
+    post :create, :receipt => {:store_name => "Chipotle",:purchase_date => 2.days.ago,:total => 17.00}
     
     get :index
     #because there is data in the setup...yikes 
@@ -129,11 +135,11 @@ class ReceiptsControllerTest < ActionController::TestCase
   
   test "should show the 5 most recently purchased receipts on index" do
     sign_in @john
-    oldest = Receipt.create(:store => @chipotle,:purchase_date => 61.days.ago,:total => 14,:user => @john)
-    Receipt.create(:store => @chipotle,:purchase_date => 50.days.ago,:total => 13,:user => @john)
-    newest = Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 120,:user => @john)
-    Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @john)
-    Receipt.create(:store => @chipotle,:purchase_date => 19.days.ago,:total => 14,:user => @john)
+    oldest = Receipt.create(:store => @chipotle,:purchase_date => 61.days.ago,:total => 14, :user => @john)
+             Receipt.create(:store => @chipotle,:purchase_date => 50.days.ago,:total => 13, :user => @john)
+    newest = Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago, :total => 120,:user => @john)
+             Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago, :total => 10, :user => @john)
+             Receipt.create(:store => @chipotle,:purchase_date => 19.days.ago,:total => 14, :user => @john)
     
     get :index
     assert_equal newest, assigns(:receipts).first
@@ -145,9 +151,7 @@ class ReceiptsControllerTest < ActionController::TestCase
   #
   test "should not show a receipt created by another user" do
     sign_in @sara
-    post :create, :receipt => { :store_name => "Target",
-                                :purchase_date => "10/26/2010",
-                                :total => @receipt.total }
+    post :create, :receipt => { :store_name => "Target", :purchase_date => @today, :total => 17.34 }
     sign_out @sara
     sign_in @john
     
@@ -158,9 +162,7 @@ class ReceiptsControllerTest < ActionController::TestCase
   
   test "should not show receipts created by other users" do
     sign_in @john
-    post :create, :receipt => { :store_name => "Target",
-                                :purchase_date => "10/26/2010",
-                                :total => @receipt.total }
+    post :create, :receipt => { :store_name => "Target", :purchase_date => @today, :total => 6.50 }
     sign_out @john
     sign_in @sara
     
@@ -169,7 +171,7 @@ class ReceiptsControllerTest < ActionController::TestCase
   end
   
   test "should not load a receipt for editing that belongs to another user" do
-    johns_receipt = Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 14,:user => @john)
+    johns_receipt = Receipt.create(:store => @chipotle,:purchase_date => @today,:total => 14,:user => @john)
     
     sign_in @sara
     
@@ -179,7 +181,7 @@ class ReceiptsControllerTest < ActionController::TestCase
   end
   
   test "should not put an update for receipt belonging to another user" do
-    johns_receipt = Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 14,:user => @john)
+    johns_receipt = Receipt.create(:store => @chipotle,:purchase_date => @today,:total => 14,:user => @john)
     
     sign_in @sara
     
@@ -191,7 +193,7 @@ class ReceiptsControllerTest < ActionController::TestCase
   end
   
   test "should not be able to destroy another users receipt" do
-    johns_receipt = Receipt.create(:store => @chipotle,:purchase_date => Time.now,:total => 14,:user => @john)
+    johns_receipt = Receipt.create(:store => @chipotle,:purchase_date => @today,:total => 14,:user => @john)
     
     sign_in @sara
     
