@@ -66,6 +66,7 @@ class ReceiptsController < ApplicationController
           :expensable => params[:receipt][:expensable],
           :expensed => params[:receipt][:expensed],
           :user => current_user)
+          
         format.html { redirect_to(@receipt, :notice => 'Receipt was successfully updated.') }
         format.xml  { head :ok }
       else
