@@ -106,6 +106,12 @@ class ReceiptTest < ActiveSupport::TestCase
     assert !receipt.expensable?
   end
   
+  test "should have flag indicating receipts expensed status" do
+    receipt = Receipt.create(:total => 5.21, :purchase_date => Time.now.to_date, :store => @store, :expensable => true)
+    
+    assert !receipt.expensed?
+  end
+  
   #
   # relationships
   #
