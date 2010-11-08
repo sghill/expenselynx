@@ -5,6 +5,7 @@ class DashboardControllerTest < ActionController::TestCase
     @sara = Factory(:sara)
     @john = Factory(:user)
     @chipotle = Factory(:chipotle)
+    Receipt.delete(:all)
   end
   
   test "should GET index if signed in" do
@@ -92,5 +93,17 @@ class DashboardControllerTest < ActionController::TestCase
     sign_in @sara
     get :index
     assert_equal Time.now.to_date, assigns(:receipt).purchase_date
+  end
+  
+  test "GET unexpensed should show all of the receipts waiting to be expensed" do
+    Receipt.create(:store => @chipotle,:purchase_date => 1.day.ago,:total => 9.90,:user => @sara, :expensable => true, :expensed => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @sara)
+    expensable = Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @sara, :expensable => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @john)
+    
+    sign_in @sara
+    get :unexpensed
+    assert_equal 1, assigns(:receipts).count
+    assert_equal expensable, assigns(:receipts).first
   end
 end

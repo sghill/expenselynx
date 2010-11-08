@@ -27021,3 +27021,1283 @@ Migrating to AddDefaultToExpensedOnReceipts (20101108053110)
   [1m[36mSQL (5.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
   [1m[35mSQL (6.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
   [1m[36mSQL (6.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 23:38:54 -0600
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Completed   in 49ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-07 23:38:54 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 29ms (Views: 10.4ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2010-11-07 23:39:00 -0600
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'test@test.com') LIMIT 1[0m
+Completed   in 48ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (5.7ms)
+Completed 200 OK in 91ms (Views: 9.2ms | ActiveRecord: 0.1ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2010-11-07 23:39:04 -0600
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'test@test.com') LIMIT 1
+Completed   in 47ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (6.0ms)
+Completed 200 OK in 92ms (Views: 9.7ms | ActiveRecord: 0.2ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2010-11-07 23:39:06 -0600
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (33.6ms)
+Rendered devise/registrations/new.html.erb within layouts/application (45.9ms)
+Completed 200 OK in 62ms (Views: 49.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2010-11-07 23:39:12 -0600
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[36mUser Load (0.2ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('test@test.com')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "password_salt", "remember_created_at", "remember_token", "reset_password_token", "sign_in_count", "updated_at") VALUES ('2010-11-08 05:39:12.994708', NULL, NULL, 'test@test.com', '$2a$10$3306zvNT3XTLUEtnjvr1bek9lbXYxWBc6B5zl5kwoyDo8aAHedA6W', NULL, NULL, '$2a$10$3306zvNT3XTLUEtnjvr1be', NULL, NULL, NULL, 0, '2010-11-08 05:39:12.994708')
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-11-08 05:39:13.100818', "current_sign_in_ip" = '127.0.0.1', "last_sign_in_at" = '2010-11-08 05:39:13.100818', "last_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2010-11-08 05:39:13.101162' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 209ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 23:39:13 -0600
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensable = 't' AND expensed = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (3.5ms)
+Rendered receipts/_receipt.html.erb (0.0ms)
+Rendered dashboard/index.html.erb within layouts/application (7.3ms)
+Completed 200 OK in 66ms (Views: 10.8ms | ActiveRecord: 2.2ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-07 23:39:20 -0600
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')[0m
+Rendered stores/search.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 2.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-07 23:39:24 -0600
+  Processing by ReceiptsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-07", "total"=>"3.32", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('test')) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 05:39:24.800645', 'test', '2010-11-08 05:39:24.800645')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 05:39:24.819899', 't', 'f', '2010-11-07', 5, 3.32, '2010-11-08 05:39:24.819899', 1)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1
+Completed 200 OK in 134ms (Views: 9.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 23:39:27 -0600
+  Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensable = 't' AND expensed = 'f')
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')[0m
+Rendered receipts/_form.html.erb (3.7ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1
+Rendered receipts/_receipt.html.erb (54.3ms)
+Rendered dashboard/index.html.erb within layouts/application (62.1ms)
+Completed 200 OK in 150ms (Views: 65.6ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/receipts/4" for 127.0.0.1 at 2010-11-07 23:39:40 -0600
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 4) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (3.1ms)
+Completed 200 OK in 79ms (Views: 6.3ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/receipts/4/edit" for 127.0.0.1 at 2010-11-07 23:39:42 -0600
+  Processing by ReceiptsController#edit as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 4) ORDER BY purchase_date DESC LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1
+Rendered receipts/_form.html.erb (5.1ms)
+Rendered receipts/edit.html.erb within layouts/application (8.5ms)
+Completed 200 OK in 100ms (Views: 62.4ms | ActiveRecord: 0.9ms)
+
+
+Started POST "/receipts/4" for 127.0.0.1 at 2010-11-07 23:39:44 -0600
+  Processing by ReceiptsController#update as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-07", "total"=>"3.32", "expensable"=>"1", "expensed"=>"1"}, "commit"=>"Update Receipt", "id"=>"4"}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 4) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "receipts" SET "expensed" = 't', "updated_at" = '2010-11-08 05:39:44.802242' WHERE ("receipts"."id" = 4)[0m
+Redirected to http://localhost:3000/receipts/4
+Completed 302 Found in 74ms
+
+
+Started GET "/receipts/4" for 127.0.0.1 at 2010-11-07 23:39:44 -0600
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 4) ORDER BY purchase_date DESC LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1
+Rendered receipts/show.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 63ms (Views: 10.6ms | ActiveRecord: 2.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 23:39:47 -0600
+  Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensable = 't' AND expensed = 'f')
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')[0m
+Rendered receipts/_form.html.erb (3.6ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1
+Rendered receipts/_receipt.html.erb (2.1ms)
+Rendered dashboard/index.html.erb within layouts/application (9.8ms)
+Completed 200 OK in 96ms (Views: 13.5ms | ActiveRecord: 1.4ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (12.6ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean, "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.2ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (15.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (4.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (3.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (4.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (4.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (10.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (21.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.4ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean, "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.2ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (4.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (4.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (15.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (11.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (6.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (6.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (28.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (14.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (6.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (7.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (30.7ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean, "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (21.6ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (5.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (9.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (11.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (11.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (12.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (11.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (14.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (7.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (6.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (35.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (15.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('test@haha.com')) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "password_salt", "remember_created_at", "remember_token", "reset_password_token", "sign_in_count", "updated_at") VALUES ('2010-11-08 05:52:33.772876', NULL, NULL, 'test@haha.com', '$2a$10$hLN/vziYFsGvQRHTiiTBKuDIlLmYladFF.z61dPXQgxT6ZLXOMm6y', NULL, NULL, '$2a$10$hLN/vziYFsGvQRHTiiTBKu', NULL, NULL, NULL, 0, '2010-11-08 05:52:33.772876')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('chipotle')) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 05:53:02.168135', 'chipotle', '2010-11-08 05:53:02.168135')[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 05:53:13.315589', 't', 't', '2010-11-07 05:53:13.248910', 6, 9.9, '2010-11-08 05:53:13.315589', 2)[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 05:53:36.058842', NULL, 'f', '2010-11-05 05:53:36.055896', 6, 10.0, '2010-11-08 05:53:36.058842', 2)[0m
+  [1m[35mReceipt Load (1.5ms)[0m  SELECT "receipts".* FROM "receipts" ORDER BY purchase_date DESC
+  [1m[36mSQL (0.3ms)[0m  [1mDELETE FROM "receipts" WHERE ("receipts"."id" = 'all')[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (11.5ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean, "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.4ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (4.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (4.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (4.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (14.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (14.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (5.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (15.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mStore Load (31.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (39.9ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 05:56:13.711887', NULL, 'f', '2010-11-05 05:56:13.677954', 6, 10.0, '2010-11-08 05:56:13.711887', 2)[0m
+  [1m[36mSQL (92.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateStores (20101024205015)
+Migrating to CreateReceipts (20101024215028)
+Migrating to AddExpensableToReceipts (20101105091615)
+Migrating to DeviseCreateUsers (20101106040246)
+Migrating to AddUserIdToReceipt (20101106233509)
+Migrating to ChangePurchaseDateToDateOnReceipts (20101108034151)
+Migrating to AddExpensedBooleanToReceipts (20101108044336)
+Migrating to AddDefaultToExpensedOnReceipts (20101108053110)
+Migrating to AddDefaultToExpensableInReceipts (20101108055646)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (277.8ms)[0m  [1mCREATE TEMPORARY TABLE "altered_receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean, "user_id" integer, "expensed" boolean DEFAULT 'f') [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("receipts")
+  [1m[36mSQL (0.4ms)[0m  [1mDROP TABLE "receipts"[0m
+  [1m[35mSQL (0.2ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("altered_receipts")[0m
+  [1m[35mSQL (0.4ms)[0m  DROP TABLE "altered_receipts"
+  [1m[36mSQL (0.1ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101108055646')[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("receipts")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("stores")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (3.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (8.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (3.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (4.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (11.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (5.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (5.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (10.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (8.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (10.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (5.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (27.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (14.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (121.3ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.7ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (5.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (11.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (4.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (16.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (29.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (5.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (14.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[35mStore Load (0.7ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 06:00:12.738174', NULL, 'f', '2010-11-05 06:00:12.735195', 6, 10.0, '2010-11-08 06:00:12.738174', 2)[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (9.4ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (3.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (3.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (26.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (21.4ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (5.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (5.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (5.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (5.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (4.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (6.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 06:00:41.063358', 'Target', '2010-11-08 06:00:41.063358')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Microcenter')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 06:00:41.086754', 'Microcenter', '2010-11-08 06:00:41.086754')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Jewel-Osco')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 06:00:41.091550', 'Jewel-Osco', '2010-11-08 06:00:41.091550')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('The Gap')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 06:00:41.096125', 'The Gap', '2010-11-08 06:00:41.096125')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 06:00:41.113342', 'f', 'f', '2010-11-08 06:00:41', 1, 3.74, '2010-11-08 06:00:41.113342', NULL)[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 06:00:41.151865', 'f', 'f', '2010-11-05 06:00:41', 1, 21.37, '2010-11-08 06:00:41.151865', NULL)[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 06:00:41.158777', 'f', 'f', '2010-11-06 06:00:41', 4, 13.31, '2010-11-08 06:00:41.158777', NULL)[0m
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (12.7ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (7.8ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (9.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (19.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (5.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (3.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (4.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (10.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (19.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (6.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (13.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (4.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (17.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Target')) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 06:00:51.616461', 'Target', '2010-11-08 06:00:51.616461')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Microcenter')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 06:00:51.629874', 'Microcenter', '2010-11-08 06:00:51.629874')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('Jewel-Osco')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 06:00:51.635930', 'Jewel-Osco', '2010-11-08 06:00:51.635930')
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('The Gap')) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 06:00:51.651723', 'The Gap', '2010-11-08 06:00:51.651723')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 06:00:51.686458', 'f', 'f', '2010-11-08 06:00:51', 1, 3.74, '2010-11-08 06:00:51.686458', NULL)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 06:00:51.714953', 'f', 'f', '2010-11-05 06:00:51', 1, 21.37, '2010-11-08 06:00:51.714953', NULL)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 4) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 06:00:51.723606', 'f', 'f', '2010-11-06 06:00:51', 4, 13.31, '2010-11-08 06:00:51.723606', NULL)[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (9.1ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (10.2ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (14.8ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (17.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (13.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (8.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (5.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (13.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (12.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (6.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (10.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (5.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (5.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (13.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (14.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 06:01:13.650059', NULL, 'f', '2010-11-05 06:01:13.647509', 6, 10.0, '2010-11-08 06:01:13.650059', 2)[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.1ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('test')) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('chipotle')) LIMIT 1[0m
+  [1m[35mSQL (198.3ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 06:02:02.853739', 'chipotle', '2010-11-08 06:02:02.853739')
+  [1m[36mStore Load (40.9ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 5) LIMIT 1[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.3ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.8ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (15.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (4.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (3.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (4.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (3.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (4.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (6.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.4ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (2.4ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (4.3ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (4.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (3.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (4.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (3.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (25.8ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (22.9ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (34.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (18.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (6.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (14.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (11.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (18.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (4.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (29.9ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.2ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (36.9ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (20.1ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (9.8ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (4.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (6.1ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (4.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (5.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (4.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (11.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (1.0ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.8ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.6ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (2.6ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (2.7ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (2.7ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (2.7ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (3.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (3.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (8.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (9.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (3.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (3.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (3.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.3ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (44.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (3.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (4.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (6.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (5.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (6.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.7ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.1ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.9ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (27.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (14.6ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.5ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (5.9ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (9.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (5.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (16.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (6.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (6.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (12.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (6.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.8ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.6ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (10.6ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (3.7ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (5.2ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (3.6ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (3.6ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (4.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (48.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (6.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (4.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (4.8ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (4.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (12.9ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.0ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (11.0ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (16.3ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (4.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (4.1ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (33.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (25.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (12.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (25.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (14.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (27.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (22.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (16.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (5.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (22.3ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.7ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.7ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (10.5ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (4.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (3.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (5.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (17.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (22.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (6.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (5.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (12.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (5.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (22.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (16.1ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (5.2ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.0ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (3.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (10.5ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (5.0ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (18.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (6.2ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (6.3ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (5.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (5.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (5.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (5.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (5.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (5.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (5.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f') 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (8.7ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (4.1ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (3.8ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (3.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (11.3ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (10.9ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108055646')
+  [1m[36mSQL (5.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (5.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (4.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (4.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
