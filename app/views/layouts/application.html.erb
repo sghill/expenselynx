@@ -22,7 +22,7 @@
       }
     })
     
-    $("#receipt_purchase_date").datepicker({autoSize:true});
+    $("#receipt_purchase_date").datepicker({autoSize:true, dateFormat:"yy-mm-dd", inline:true});
     
     $("#create_receipt_link").click(function() {
       $("#receipt_form").slideToggle("slow");
