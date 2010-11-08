@@ -1,3 +1,16 @@
+<div id="expense_stats">
+  <div id="receipt_total" class="stat_box">
+    <p>Total</p>
+    <p id="spending_total" class="sum"><%= number_to_currency @stats[:total] %></p>
+  </div>
+  <div id="unexpensed_receipt_total" class="stat_box">
+    <p>Unexpensed</p>
+    <p id="unexpensed_total" class="sum"><%= number_to_currency @stats[:unexpensed_total] %></p>
+  </div>
+</div>
+
+<div class="clearer"></div>
+
 <div id="add_receipt">
   <%= link_to 'New Receipt', new_receipt_path, :id => 'create_receipt_link' %>
 

@@ -62,3 +62,37 @@ a {
 	padding-left:1em;
 	padding-right:1em;
 }
+
+/** STAT BOX **/
+#expense_stats {
+	margin-bottom:7em;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top:1em;
+	text-align:center;
+	width:260px; /* needs a better way than roughly 2.5* .stat_box */
+}
+
+.stat_box {
+	border:1px solid green;
+	float:left;
+	padding:1em;
+	width:100px;
+}
+
+#spending_total {
+	color:red;
+}
+
+#unexpensed_total {
+	color:green;
+}
+
+.sum {
+	font-weight:bold;
+}
+
+/** UTILITIES **/
+.clearer {
+	clear:both;
+}

@@ -60,7 +60,8 @@ class DashboardControllerTest < ActionController::TestCase
     
     sign_in @sara
     get :index
-    assert_equal 30.90, assigns(:stats)['total']
+    assert assigns(:stats)[:total].is_a?(Float)
+    assert_equal 30.90, assigns(:stats)[:total]
   end
   
   test "index should show total of all unexpensed receipts" do
@@ -71,6 +72,7 @@ class DashboardControllerTest < ActionController::TestCase
     
     sign_in @sara
     get :index
-    assert_equal 20.90, assigns(:stats)['unexpensed_total']
+    assert assigns(:stats)[:unexpensed_total].is_a?(Float)
+    assert_equal 20.90, assigns(:stats)[:unexpensed_total]
   end
 end
