@@ -22804,3 +22804,129 @@ Rendered receipts/_form.html.erb (8.1ms)
 Rendered receipts/_receipt.html.erb (59.5ms)
 Rendered dashboard/index.html.erb within layouts/application (93.5ms)
 Completed 200 OK in 168ms (Views: 96.7ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-11-07 20:52:36 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[35mUser Load (0.8ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.5ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC[0m
+Rendered receipts/_form.html.erb (7.8ms)
+Rendered receipts/_receipt.html.erb (136.4ms)
+Rendered receipts/index.html.erb within layouts/application (146.6ms)
+Completed   in 226ms
+
+ActionView::Template::Error (undefined local variable or method `receipts' for #<#<Class:0x0000010492f3b0>:0x0000010492cac0>):
+    1: # <% receipts.each do |receipt| %>
+    2: <tr>
+    3:   <td><%= receipt.purchase_date.to_date.to_s(:short) %></td>
+    4:   <td><%= receipt.store.name %></td>
+  app/views/receipts/_receipt.html.erb:1:in `_app_views_receipts__receipt_html_erb__2265586427992650078_2185448220_192891800085505896'
+  app/views/receipts/index.html.erb:17:in `_app_views_receipts_index_html_erb___1330220970379273420_2185839920__4484179309441613503'
+  app/controllers/receipts_controller.rb:9:in `index'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.5ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (36.7ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (43.0ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-11-07 20:52:52 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.5ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC[0m
+Rendered receipts/_form.html.erb (39.7ms)
+Rendered receipts/_receipt.html.erb (98.8ms)
+Rendered receipts/index.html.erb within layouts/application (141.0ms)
+Completed   in 190ms
+
+ActionView::Template::Error (undefined local variable or method `receipts' for #<#<Class:0x0000010123efb8>:0x00000101238118>):
+    1: # <% receipts.each do |receipt| %>
+    2: <tr>
+    3:   <td><%= receipt.purchase_date.to_date.to_s(:short) %></td>
+    4:   <td><%= receipt.store.name %></td>
+  app/views/receipts/_receipt.html.erb:1:in `_app_views_receipts__receipt_html_erb__2265586427992650078_2185989560__4458587132986321360'
+  app/views/receipts/index.html.erb:17:in `_app_views_receipts_index_html_erb___1330220970379273420_2157023560__4484179309441613503'
+  app/controllers/receipts_controller.rb:9:in `index'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (64.8ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (69.1ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-11-07 20:52:55 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC[0m
+Rendered receipts/_form.html.erb (9.1ms)
+Rendered receipts/_receipt.html.erb (133.7ms)
+Rendered receipts/index.html.erb within layouts/application (145.8ms)
+Completed   in 217ms
+
+ActionView::Template::Error (undefined local variable or method `receipts' for #<#<Class:0x00000101782a60>:0x000001016e61b0>):
+    1: # <% receipts.each do |receipt| %>
+    2: <tr>
+    3:   <td><%= receipt.purchase_date.to_date.to_s(:short) %></td>
+    4:   <td><%= receipt.store.name %></td>
+  app/views/receipts/_receipt.html.erb:1:in `_app_views_receipts__receipt_html_erb__2265586427992650078_2158439320__4458587132986321360'
+  app/views/receipts/index.html.erb:17:in `_app_views_receipts_index_html_erb___1330220970379273420_2159485980__4484179309441613503'
+  app/controllers/receipts_controller.rb:9:in `index'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (69.8ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (74.3ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-11-07 20:53:19 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.5ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC[0m
+Rendered receipts/_form.html.erb (7.7ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (59.1ms)
+Rendered receipts/index.html.erb within layouts/application (70.3ms)
+Completed 200 OK in 152ms (Views: 73.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-11-07 20:53:47 -0600
+  Processing by ReceiptsController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC[0m
+Rendered receipts/_form.html.erb (8.7ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (9.0ms)
+Rendered receipts/index.html.erb within layouts/application (21.6ms)
+Completed 200 OK in 66ms (Views: 24.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-07 20:53:51 -0600
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensable = 't')[0m
+Rendered receipts/_form.html.erb (7.9ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 18) LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (37.5ms)
+Rendered dashboard/index.html.erb within layouts/application (49.0ms)
+Completed 200 OK in 101ms (Views: 52.2ms | ActiveRecord: 1.5ms)
