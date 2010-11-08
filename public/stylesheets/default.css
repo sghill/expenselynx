@@ -70,7 +70,7 @@ a {
 	margin-right: auto;
 	margin-top:1em;
 	text-align:center;
-	width:260px; /* needs a better way than roughly 2.5* .stat_box */
+	width:400px; /* needs a better way than roughly 2.5* .stat_box */
 }
 
 .stat_box {

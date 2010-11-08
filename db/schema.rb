@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101108044336) do
+ActiveRecord::Schema.define(:version => 20101108053110) do
 
   create_table "receipts", :force => true do |t|
     t.integer  "store_id"
@@ -20,7 +20,7 @@ ActiveRecord::Schema.define(:version => 20101108044336) do
     t.datetime "updated_at"
     t.boolean  "expensable"
     t.integer  "user_id"
-    t.boolean  "expensed"
+    t.boolean  "expensed",      :default => false
   end
 
   create_table "stores", :force => true do |t|

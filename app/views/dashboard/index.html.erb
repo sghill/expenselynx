@@ -4,8 +4,12 @@
     <p id="spending_total" class="sum"><%= number_to_currency @stats[:total] %></p>
   </div>
   <div id="unexpensed_receipt_total" class="stat_box">
-    <p>Unexpensed</p>
-    <p id="unexpensed_total" class="sum"><%= number_to_currency @stats[:unexpensed_total] %></p>
+      <p>Unexpensed</p>
+      <p id="unexpensed_total" class="sum"><%= number_to_currency @stats[:unexpensed_total] %></p>
+  </div>
+  <div id="unexpensed_receipt_total" class="stat_box">
+    <p>Expensed</p>
+    <p id="expensed_total" class="sum"><%= number_to_currency @stats[:expensed_total] %></p>
   </div>
 </div>
 
