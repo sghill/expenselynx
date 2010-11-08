@@ -112,6 +112,12 @@ class ReceiptTest < ActiveSupport::TestCase
     assert !receipt.expensed?
   end
   
+  test "should not allow nonexpensable receipt to be expensed" do
+    receipt = Receipt.new(:total => 12.21, :purchase_date => Time.now.to_date, :store => @store, :expensable => false, :expensed => true)
+    assert receipt.invalid?
+    assert receipt.errors[:expensed].any?
+  end
+  
   #
   # relationships
   #
