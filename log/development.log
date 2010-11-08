@@ -28301,3 +28301,221 @@ Migrating to AddDefaultToExpensableInReceipts (20101108055646)
   [1m[35mSQL (4.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
   [1m[36mSQL (4.5ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
   [1m[35mSQL (4.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (1.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-08 00:18:28 -0600
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Completed   in 55ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-08 00:18:28 -0600
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.6ms)
+Rendered devise/sessions/new.html.erb within layouts/application (9.0ms)
+Completed 200 OK in 70ms (Views: 48.0ms | ActiveRecord: 0.2ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2010-11-08 00:18:37 -0600
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[36mUser Load (0.1ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'test@test.com') LIMIT 1[0m
+Completed   in 15ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+Rendered devise/shared/_links.erb (1.1ms)
+Rendered devise/sessions/new.html.erb within layouts/application (6.4ms)
+Completed 200 OK in 133ms (Views: 10.3ms | ActiveRecord: 0.1ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at 2010-11-08 00:18:40 -0600
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/registrations/new.html.erb within layouts/application (15.7ms)
+Completed 200 OK in 35ms (Views: 19.8ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at 2010-11-08 00:18:47 -0600
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "password_confirmation"=>"[FILTERED]"}, "commit"=>"Sign up"}
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('test@test.com')) LIMIT 1
+  [1m[36mSQL (75.2ms)[0m  [1mINSERT INTO "users" ("created_at", "current_sign_in_at", "current_sign_in_ip", "email", "encrypted_password", "last_sign_in_at", "last_sign_in_ip", "password_salt", "remember_created_at", "remember_token", "reset_password_token", "sign_in_count", "updated_at") VALUES ('2010-11-08 06:18:48.070540', NULL, NULL, 'test@test.com', '$2a$10$AHjkNBDqoxkn.GMmlShZQ.CGnn2KA39F4mIeHfucB/l7N38WQUSAi', NULL, NULL, '$2a$10$AHjkNBDqoxkn.GMmlShZQ.', NULL, NULL, NULL, 0, '2010-11-08 06:18:48.070540')[0m
+  [1m[35mSQL (0.5ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2010-11-08 06:18:48.161228', "current_sign_in_ip" = '127.0.0.1', "last_sign_in_at" = '2010-11-08 06:18:48.161228', "last_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "updated_at" = '2010-11-08 06:18:48.161647' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 269ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-08 00:18:48 -0600
+  Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.4ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')[0m
+Rendered receipts/_form.html.erb (3.5ms)
+Rendered receipts/_receipt.html.erb (0.0ms)
+Rendered dashboard/index.html.erb within layouts/application (7.6ms)
+Completed 200 OK in 95ms (Views: 10.9ms | ActiveRecord: 77.5ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-08 00:18:52 -0600
+  Processing by DashboardController#unexpensed as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered dashboard/unexpensed.html.erb within layouts/application (2.1ms)
+Completed 200 OK in 99ms (Views: 32.2ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-08 00:18:56 -0600
+  Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.2ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')[0m
+Rendered receipts/_form.html.erb (3.7ms)
+Rendered receipts/_receipt.html.erb (0.0ms)
+Rendered dashboard/index.html.erb within layouts/application (8.3ms)
+Completed 200 OK in 91ms (Views: 11.7ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-08 00:19:00 -0600
+  Processing by DashboardController#unexpensed as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered dashboard/unexpensed.html.erb within layouts/application (2.3ms)
+Completed 200 OK in 84ms (Views: 6.6ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-08 00:21:12 -0600
+  Processing by DashboardController#unexpensed as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery[0m
+Rendered receipts/_receipt_table.html.erb (0.4ms)
+Rendered dashboard/unexpensed.html.erb within layouts/application (40.8ms)
+Completed 200 OK in 114ms (Views: 44.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-08 00:21:15 -0600
+  Processing by DashboardController#unexpensed as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery
+Rendered receipts/_receipt_table.html.erb (0.3ms)
+Rendered dashboard/unexpensed.html.erb within layouts/application (37.3ms)
+Completed 200 OK in 82ms (Views: 40.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-08 00:22:21 -0600
+  Processing by DashboardController#unexpensed as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery[0m
+Rendered receipts/_receipt_table.html.erb (0.3ms)
+Rendered dashboard/unexpensed.html.erb within layouts/application (6.7ms)
+Completed 200 OK in 82ms (Views: 10.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-08 00:22:23 -0600
+  Processing by DashboardController#unexpensed as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery
+Rendered receipts/_receipt_table.html.erb (0.3ms)
+Rendered dashboard/unexpensed.html.erb within layouts/application (7.0ms)
+Completed 200 OK in 76ms (Views: 10.2ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-08 00:23:37 -0600
+  Processing by DashboardController#unexpensed as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery[0m
+Rendered receipts/_receipt_table.html.erb (0.3ms)
+Rendered dashboard/unexpensed.html.erb within layouts/application (6.9ms)
+Completed 200 OK in 78ms (Views: 10.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-08 00:23:40 -0600
+  Processing by DashboardController#unexpensed as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery
+Rendered receipts/_receipt_table.html.erb (0.3ms)
+Rendered dashboard/unexpensed.html.erb within layouts/application (35.4ms)
+Completed 200 OK in 76ms (Views: 38.5ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-08 00:24:31 -0600
+  Processing by DashboardController#unexpensed as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery[0m
+Rendered receipts/_receipt.html.erb (0.4ms)
+Rendered dashboard/unexpensed.html.erb within layouts/application (74.4ms)
+Completed 200 OK in 147ms (Views: 77.9ms | ActiveRecord: 0.6ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-08 00:25:20 -0600
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (6.7ms)
+Rendered receipts/_receipt.html.erb (0.0ms)
+Rendered dashboard/index.html.erb within layouts/application (75.3ms)
+Completed 200 OK in 157ms (Views: 78.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-11-08 00:25:25 -0600
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tes%')[0m
+Rendered stores/search.html.erb (0.9ms)
+Completed 200 OK in 79ms (Views: 36.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-08 00:25:27 -0600
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')
+Rendered stores/search.html.erb (0.5ms)
+Completed 200 OK in 11ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-08 00:25:34 -0600
+  Processing by ReceiptsController#create as JSON
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"lOb7gNgfQ3Yj9Sn+4/LYDO/MzGUuTHgPkpOYZ5hpuuA=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-08", "total"=>"3.89", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('test')) LIMIT 1[0m
+  [1m[35mSQL (31.5ms)[0m  INSERT INTO "stores" ("created_at", "name", "updated_at") VALUES ('2010-11-08 06:25:34.216358', 'test', '2010-11-08 06:25:34.216358')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-08 06:25:34.292756', 't', 'f', '2010-11-08', 6, 3.89, '2010-11-08 06:25:34.292756', 1)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Completed 200 OK in 211ms (Views: 8.8ms | ActiveRecord: 33.1ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-08 00:25:41 -0600
+  Processing by DashboardController#unexpensed as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')) AS subquery
+  [1m[36mReceipt Load (0.2ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f') ORDER BY purchase_date DESC[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (25.1ms)
+Rendered dashboard/unexpensed.html.erb within layouts/application (32.1ms)
+Completed 200 OK in 103ms (Views: 34.8ms | ActiveRecord: 1.0ms)

@@ -4,7 +4,7 @@
     <p id="spending_total" class="sum"><%= number_to_currency @stats[:total] %></p>
   </div>
   <div id="unexpensed_receipt_total" class="stat_box">
-      <p>Unexpensed</p>
+      <p><%= link_to 'Unexpensed', dashboard_unexpensed_path %></p>
       <p id="unexpensed_total" class="sum"><%= number_to_currency @stats[:unexpensed_total] %></p>
   </div>
   <div id="unexpensed_receipt_total" class="stat_box">
