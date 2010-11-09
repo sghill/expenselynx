@@ -44,6 +44,12 @@
         }, "json");
         return false;
     });
+    
+    var input = $('#receipt_total')
+    input.change(function() {
+      var text = input.val()
+      input.val(text.substring(0, text.length-2) + '.' + text.substring(text.length-2));
+    });
   });
   </script>
 </head>
