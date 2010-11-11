@@ -28703,3 +28703,773 @@ Rendered receipts/_form.html.erb (5.5ms)
 Rendered receipts/_receipt.html.erb (50.6ms)
 Rendered dashboard/index.html.erb within layouts/application (73.6ms)
 Completed 200 OK in 219ms (Views: 102.8ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 22:55:55 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (5.0ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (21.1ms)
+Rendered dashboard/index.html.erb within layouts/application (32.4ms)
+Completed 200 OK in 224ms (Views: 67.8ms | ActiveRecord: 1.3ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-11-10 22:56:12 -0800
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')[0m
+Completed 406 Not Acceptable in 9ms
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-11-10 22:56:14 -0800
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tes%')
+Completed 406 Not Acceptable in 9ms
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-10 22:56:15 -0800
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')[0m
+Completed 406 Not Acceptable in 9ms
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 22:56:29 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"4.45", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (164.5ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 06:56:29.437108', 't', 'f', '2010-11-10', 6, 4.45, '2010-11-11 06:56:29.437108', 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+Rendered receipts/create.js.erb (4.7ms)
+Completed   in 770ms
+
+ActionView::Template::Error (undefined method `gsub' for #<Hash:0x00000104335e50>):
+    1: $("#unexpensed_total").html("<%= current_user.receipts.sum(:total).to_f %>")
+    2: $("#recent_receipts").append("<%= escape_javascript(:partial => @receipt) %>")
+    3: $("#new_receipt")[0].reset();
+  app/views/receipts/create.js.erb:2:in `_app_views_receipts_create_js_erb__3267387053184896484_2182892840__4548582505196645368'
+  app/controllers/receipts_controller.rb:46:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.7ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (68.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (87.8ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 22:56:39 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"4.45", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 06:56:39.385393', 't', 'f', '2010-11-10', 6, 4.45, '2010-11-11 06:56:39.385393', 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+Rendered receipts/create.js.erb (5.1ms)
+Completed   in 138ms
+
+ActionView::Template::Error (undefined method `gsub' for #<Hash:0x000001043610f0>):
+    1: $("#unexpensed_total").html("<%= current_user.receipts.sum(:total).to_f %>")
+    2: $("#recent_receipts").append("<%= escape_javascript(:partial => @receipt) %>")
+    3: $("#new_receipt")[0].reset();
+  app/views/receipts/create.js.erb:2:in `_app_views_receipts_create_js_erb__3267387053184896484_2182908260__4548582505196645368'
+  app/controllers/receipts_controller.rb:46:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (63.2ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (67.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 22:57:14 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (3.3ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (86.0ms)
+Rendered dashboard/index.html.erb within layouts/application (93.4ms)
+Completed 200 OK in 174ms (Views: 96.5ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-11-10 22:57:35 -0800
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"t"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 't%')[0m
+Completed 406 Not Acceptable in 9ms
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-11-10 22:57:36 -0800
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')
+Completed 406 Not Acceptable in 9ms
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-11-10 22:57:40 -0800
+  Processing by StoresController#search as JS
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tes%')[0m
+Completed 406 Not Acceptable in 11ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 22:58:24 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (5.7ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (21.9ms)
+Rendered dashboard/index.html.erb within layouts/application (94.6ms)
+Completed 200 OK in 301ms (Views: 118.7ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-11-10 22:58:29 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 't%')[0m
+Rendered stores/search.html.erb (37.4ms)
+Completed 200 OK in 77ms (Views: 65.9ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-11-10 22:58:30 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')
+Rendered stores/search.html.erb (4.9ms)
+Completed 200 OK in 16ms (Views: 6.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 22:58:38 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"6.50", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (51.5ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 06:58:38.289306', 't', 'f', '2010-11-10', 6, 6.5, '2010-11-11 06:58:38.289306', 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+Rendered receipts/create.js.erb (5.9ms)
+Completed   in 284ms
+
+ActionView::Template::Error (undefined method `gsub' for #<Hash:0x000001043d3588>):
+    1: $("#unexpensed_total").html("<%= current_user.receipts.sum(:total).to_f %>")
+    2: $("#recent_receipts").append("<%= escape_javascript(:partial => @receipt) %>")
+    3: $("#new_receipt")[0].reset();
+  app/views/receipts/create.js.erb:2:in `_app_views_receipts_create_js_erb__3267387053184896484_2183145820__4548582505196645368'
+  app/controllers/receipts_controller.rb:46:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (63.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (68.0ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 23:00:13 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (3.3ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (52.6ms)
+Rendered dashboard/index.html.erb within layouts/application (60.3ms)
+Completed 200 OK in 143ms (Views: 63.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-10 23:00:19 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')
+Rendered stores/search.html.erb (4.4ms)
+Completed 200 OK in 15ms (Views: 5.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:00:25 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"6.50", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (25.9ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:00:26.099885', 't', 'f', '2010-11-10', 6, 6.5, '2010-11-11 07:00:26.099885', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+Rendered receipts/create.js.erb (5.7ms)
+Completed   in 191ms
+
+ActionView::Template::Error (undefined method `gsub' for #<Hash:0x000001043e0c88>):
+    1: $("#unexpensed_total").html("<%= current_user.receipts.sum(:total).to_f %>")
+    2: // $("#recent_receipts").append("<%= escape_javascript(:partial => @receipt) %>")
+    3: $("#new_receipt")[0].reset();
+  app/views/receipts/create.js.erb:2:in `_app_views_receipts_create_js_erb__3267387053184896484_2183169980__4548582505196645368'
+  app/controllers/receipts_controller.rb:46:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (65.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (69.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:06:36 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"6.50", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (29.5ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:06:36.908669', 't', 'f', '2010-11-10', 6, 6.5, '2010-11-11 07:06:36.908669', 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+Rendered receipts/create.js.erb (5.6ms)
+Completed   in 299ms
+
+ActionView::Template::Error (undefined method `gsub' for #<Hash:0x00000104425f40>):
+    1: $("#unexpensed_total").html("<%= current_user.receipts.sum(:total) %>")
+    2: $("#recent_receipts").append("<%= escape_javascript(:partial => @receipt) %>")
+    3: $("#new_receipt")[0].reset();
+  app/views/receipts/create.js.erb:2:in `_app_views_receipts_create_js_erb__3267387053184896484_2159787440__4548582505196645368'
+  app/controllers/receipts_controller.rb:46:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (67.7ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (72.7ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:07:09 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"6.50", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (46.7ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:07:09.633768', 't', 'f', '2010-11-10', 6, 6.5, '2010-11-11 07:07:09.633768', 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+Rendered receipts/create.js.erb (4.9ms)
+Completed   in 200ms
+
+ActionView::Template::Error (undefined method `gsub' for #<Hash:0x00000102192938>):
+    1: $("#unexpensed_total").html("<%= current_user.receipts.sum(:total).to_s %>")
+    2: $("#recent_receipts").append("<%= escape_javascript(:partial => @receipt) %>")
+    3: $("#new_receipt")[0].reset();
+  app/views/receipts/create.js.erb:2:in `_app_views_receipts_create_js_erb__3267387053184896484_2181119500__4548582505196645368'
+  app/controllers/receipts_controller.rb:46:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (65.6ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (70.2ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:07:44 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"6.50", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (27.0ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:07:45.150544', 't', 'f', '2010-11-10', 6, 6.5, '2010-11-11 07:07:45.150544', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+Rendered receipts/create.js.erb (7.0ms)
+Completed   in 157ms
+
+ActionView::Template::Error (undefined method `gsub' for #<Hash:0x000001042a8618>):
+    1: $("#unexpensed_total").html("<%= current_user.receipts.sum(:total).to_s %>")
+    2: // $("#recent_receipts").append("<%= escape_javascript(:partial => @receipt) %>")
+    3: $("#new_receipt")[0].reset();
+  app/views/receipts/create.js.erb:2:in `_app_views_receipts_create_js_erb__3267387053184896484_2182518220__4548582505196645368'
+  app/controllers/receipts_controller.rb:46:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (93.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (98.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:08:10 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"6.50", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:08:10.529248', 't', 'f', '2010-11-10', 6, 6.5, '2010-11-11 07:08:10.529248', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+Rendered receipts/create.js.erb (7.4ms)
+Completed 200 OK in 178ms (Views: 14.3ms | ActiveRecord: 1.9ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-11-10 23:08:23 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')
+Rendered stores/search.html.erb (6.8ms)
+Completed 200 OK in 75ms (Views: 53.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:08:31 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"300.21", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:08:32.026777', 'f', 'f', '2010-11-10', 6, 300.21, '2010-11-11 07:08:32.026777', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+Rendered receipts/create.js.erb (4.4ms)
+Completed 200 OK in 149ms (Views: 9.9ms | ActiveRecord: 1.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:13:38 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"3.25", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (25.1ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:13:38.651758', 'f', 'f', '2010-11-10', 6, 3.25, '2010-11-11 07:13:38.651758', 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (4.7ms)
+Rendered receipts/create.js.erb (10.2ms)
+Completed 200 OK in 328ms (Views: 19.5ms | ActiveRecord: 26.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 23:14:15 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (5.7ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (56.3ms)
+Rendered dashboard/index.html.erb within layouts/application (104.7ms)
+Completed 200 OK in 261ms (Views: 145.0ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-10 23:14:27 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')
+Rendered stores/search.html.erb (6.0ms)
+Completed 200 OK in 82ms (Views: 35.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:14:30 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"3.25", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (59.0ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:14:30.413865', 'f', 'f', '2010-11-10', 6, 3.25, '2010-11-11 07:14:30.413865', 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (4.7ms)
+Rendered receipts/create.js.erb (10.4ms)
+Completed 200 OK in 212ms (Views: 19.1ms | ActiveRecord: 60.2ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:20:04 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"3.25", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (28.0ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:20:05.064239', 'f', 'f', '2010-11-10', 6, 3.25, '2010-11-11 07:20:05.064239', 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (4.4ms)
+Rendered receipts/create.js.erb (9.6ms)
+Completed 200 OK in 197ms (Views: 16.3ms | ActiveRecord: 29.2ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:20:07 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"3.25", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:20:07.413785', 'f', 'f', '2010-11-10', 6, 3.25, '2010-11-11 07:20:07.413785', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (4.7ms)
+Rendered receipts/create.js.erb (10.0ms)
+Completed 200 OK in 152ms (Views: 15.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:20:19 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"3.25", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:20:20.005935', 'f', 'f', '2010-11-10', 6, 3.25, '2010-11-11 07:20:20.005935', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (4.9ms)
+Rendered receipts/create.js.erb (10.1ms)
+Completed 200 OK in 127ms (Views: 15.4ms | ActiveRecord: 1.6ms)
+
+
+Started GET "/stores/search?term=ta" for 127.0.0.1 at 2010-11-10 23:20:28 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"ta"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'ta%')[0m
+Rendered stores/search.html.erb (6.7ms)
+Completed 200 OK in 142ms (Views: 49.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:20:37 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"Target", "purchase_date"=>"2010-11-10", "total"=>"300", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:20:37.369162', 'f', 'f', '2010-11-10', 1, 300.0, '2010-11-11 07:20:37.369162', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (4.8ms)
+Rendered receipts/create.js.erb (40.6ms)
+Completed 200 OK in 151ms (Views: 46.7ms | ActiveRecord: 1.6ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:21:27 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"Target", "purchase_date"=>"2010-11-10", "total"=>"300", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (172.2ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:21:27.349085', 'f', 'f', '2010-11-10', 1, 300.0, '2010-11-11 07:21:27.349085', 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (4.4ms)
+Rendered receipts/create.js.erb (9.9ms)
+Completed 200 OK in 322ms (Views: 18.1ms | ActiveRecord: 173.4ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 23:21:40 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (5.8ms)
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (34.7ms)
+Rendered dashboard/index.html.erb within layouts/application (99.4ms)
+Completed 200 OK in 298ms (Views: 128.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-11-10 23:21:47 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tes%')
+Rendered stores/search.html.erb (4.9ms)
+Completed 200 OK in 15ms (Views: 6.3ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:21:52 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"3.21", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.6ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:21:52.581464', 'f', 'f', '2010-11-10', 6, 3.21, '2010-11-11 07:21:52.581464', 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (4.7ms)
+Rendered receipts/create.js.erb (10.0ms)
+Completed 200 OK in 155ms (Views: 16.0ms | ActiveRecord: 1.8ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:24:15 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"3.21", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (33.3ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:24:16.209588', 'f', 'f', '2010-11-10', 6, 3.21, '2010-11-11 07:24:16.209588', 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.0ms)
+Rendered receipts/create.js.erb (10.5ms)
+Completed 200 OK in 237ms (Views: 18.4ms | ActiveRecord: 34.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:24:25 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"3.99", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:24:25.284407', 'f', 'f', '2010-11-10', 6, 3.99, '2010-11-11 07:24:25.284407', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (4.8ms)
+Rendered receipts/create.js.erb (10.5ms)
+Completed 200 OK in 157ms (Views: 16.2ms | ActiveRecord: 1.9ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:25:03 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"9.99", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.4ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:25:04.056481', 'f', 'f', '2010-11-10', 6, 9.99, '2010-11-11 07:25:04.056481', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (4.9ms)
+Rendered receipts/create.js.erb (10.8ms)
+Completed 200 OK in 168ms (Views: 19.3ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 23:28:49 -0800
+  Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.4ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')[0m
+Rendered receipts/_form.html.erb (4.6ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (23.6ms)
+Rendered dashboard/index.html.erb within layouts/application (34.1ms)
+Completed 200 OK in 227ms (Views: 65.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/stores/search?term=tar" for 127.0.0.1 at 2010-11-10 23:28:55 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tar"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tar%')[0m
+Rendered stores/search.html.erb (7.3ms)
+Completed 200 OK in 43ms (Views: 34.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:29:03 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"Target", "purchase_date"=>"2010-11-10", "total"=>"9.65", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:29:03.364967', 'f', 'f', '2010-11-10', 1, 9.65, '2010-11-11 07:29:03.364967', 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (4.9ms)
+Rendered receipts/create.js.erb (10.2ms)
+Completed 200 OK in 125ms (Views: 17.5ms | ActiveRecord: 1.7ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:29:34 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"Target", "purchase_date"=>"2010-11-10", "total"=>"9.65", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (29.6ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:29:34.464293', 'f', 'f', '2010-11-10', 1, 9.65, '2010-11-11 07:29:34.464293', 1)[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (6.0ms)
+Rendered receipts/create.js.erb (11.8ms)
+Completed 200 OK in 173ms (Views: 20.4ms | ActiveRecord: 30.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 23:30:46 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.5ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (3.7ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (58.1ms)
+Rendered dashboard/index.html.erb within layouts/application (66.8ms)
+Completed 200 OK in 156ms (Views: 70.2ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-10 23:30:54 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')
+Rendered stores/search.html.erb (4.5ms)
+Completed 200 OK in 15ms (Views: 5.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:31:00 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"9.65", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (27.6ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:31:00.581543', 'f', 'f', '2010-11-10', 6, 9.65, '2010-11-11 07:31:00.581543', 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (4.9ms)
+Rendered receipts/create.js.erb (10.4ms)
+Completed 200 OK in 195ms (Views: 18.3ms | ActiveRecord: 28.9ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:32:44 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"9.65", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (22.3ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:32:44.542953', 'f', 'f', '2010-11-10', 6, 9.65, '2010-11-11 07:32:44.542953', 1)
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (5.8ms)
+Rendered receipts/create.js.erb (12.4ms)
+Completed 200 OK in 313ms (Views: 22.6ms | ActiveRecord: 23.7ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 23:40:36 -0800
+  Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.4ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')[0m
+Rendered receipts/_form.html.erb (4.6ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (22.6ms)
+Rendered dashboard/index.html.erb within layouts/application (33.2ms)
+Completed 200 OK in 186ms (Views: 73.7ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/stores/search?term=tes" for 127.0.0.1 at 2010-11-10 23:40:41 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tes"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tes%')[0m
+Rendered stores/search.html.erb (6.8ms)
+Completed 200 OK in 70ms (Views: 29.8ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:40:47 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"99", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (63.7ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:40:47.389570', 'f', 'f', '2010-11-10', 6, 99.0, '2010-11-11 07:40:47.389570', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mStore Load (0.1ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (4.6ms)
+Rendered receipts/create.js.erb (10.1ms)
+Completed 200 OK in 222ms (Views: 19.1ms | ActiveRecord: 64.9ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 23:41:07 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (3.5ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (5.2ms)
+Rendered dashboard/index.html.erb within layouts/application (12.8ms)
+Completed 200 OK in 127ms (Views: 15.9ms | ActiveRecord: 1.7ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-10 23:41:11 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')
+Rendered stores/search.html.erb (5.6ms)
+Completed 200 OK in 17ms (Views: 7.1ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:41:14 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-10", "total"=>"99", "expensable"=>"0", "expensed"=>"0"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (25.2ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:41:14.331133', 'f', 'f', '2010-11-10', 6, 99.0, '2010-11-11 07:41:14.331133', 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (4.7ms)
+Rendered receipts/create.js.erb (10.3ms)
+Completed 200 OK in 230ms (Views: 18.4ms | ActiveRecord: 26.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-10 23:44:16 -0800
+  Processing by DashboardController#index as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.5ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')[0m
+Rendered receipts/_form.html.erb (4.0ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (23.9ms)
+Rendered dashboard/index.html.erb within layouts/application (33.0ms)
+Completed 200 OK in 164ms (Views: 44.2ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/stores/search?term=tar" for 127.0.0.1 at 2010-11-10 23:44:20 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tar"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tar%')[0m
+Rendered stores/search.html.erb (6.2ms)
+Completed 200 OK in 99ms (Views: 58.2ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-10 23:44:36 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"dZi+W0tQVnr4YLkONTTXgBNImaGOauEm1yUHfLTPzto=", "receipt"=>{"store_name"=>"Target", "purchase_date"=>"2010-11-10", "total"=>"98.99", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'target') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mSQL (40.0ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-11 07:44:36.920346', 't', 'f', '2010-11-10', 1, 98.99, '2010-11-11 07:44:36.920346', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensed" = 't')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (5.4ms)
+Rendered receipts/create.js.erb (13.2ms)
+Completed 200 OK in 173ms (Views: 23.6ms | ActiveRecord: 41.7ms)

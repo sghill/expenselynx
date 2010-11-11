@@ -1,0 +1,13 @@
+$("#spending_total").html("<%= current_user.receipts.sum(:total) %>");
+$("#spending_total").effect('highlight', {}, 'slow');
+
+$("#unexpensed_total").html("<%= current_user.receipts.where(:expensable => true, :expensed => false).sum(:total) %>");
+$("#unexpensed_total").effect('highlight', {}, 'slow');
+
+$("#expensed_total").html("<%= current_user.receipts.where(:expensed => true).sum(:total) %>");
+$("#expensed_total").effect('highlight', {}, 'slow');
+
+$("<%= escape_javascript(render :partial => 'receipts/receipt', :locals => {:receipt => @receipt}) %>")
+  .appendTo("#recent_receipts > tbody:last").effect('highlight', {}, 'slow');
+  
+$("#new_receipt")[0].reset();
