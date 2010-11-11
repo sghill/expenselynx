@@ -16,7 +16,7 @@ a {
 
 #outer_container {
 	margin:0 auto;
-	width:1024px;
+	max-width:1024px;
 }
 
 #user_bar {
@@ -85,6 +85,7 @@ a {
 }
 
 #unexpensed_total {
+	font-size:large;
 	color:green;
 }
 
