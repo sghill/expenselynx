@@ -97,3 +97,11 @@ a {
 .clearer {
 	clear:both;
 }
+
+.center {
+  text-align:center;
+}
+
+.right {
+  text-align:right;
+}
