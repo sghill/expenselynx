@@ -29633,3 +29633,37 @@ Rendered receipts/_form.html.erb (4.4ms)
 Rendered receipts/_receipt.html.erb (53.1ms)
 Rendered dashboard/index.html.erb within layouts/application (63.3ms)
 Completed 200 OK in 233ms (Views: 93.1ms | ActiveRecord: 1.5ms)
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-11 08:41:47 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (4.1ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (57.2ms)
+Rendered dashboard/index.html.erb within layouts/application (66.4ms)
+Completed 200 OK in 185ms (Views: 70.4ms | ActiveRecord: 1.4ms)
+
+
+Started GET "/stores/search?term=t" for 127.0.0.1 at 2010-11-11 08:41:52 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"t"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 't%')
+Rendered stores/search.html.erb (4.7ms)
+Completed 200 OK in 16ms (Views: 6.2ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-11-11 08:41:53 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.4ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')[0m
+Rendered stores/search.html.erb (4.6ms)
+Completed 200 OK in 15ms (Views: 6.0ms | ActiveRecord: 0.4ms)
