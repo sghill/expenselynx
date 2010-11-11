@@ -1,7 +1,7 @@
 <tr>
   <td><%= receipt.purchase_date.to_date.to_s(:short) %></td>
   <td><%= receipt.store.name %></td>
-  <td><%= link_to receipt.total, receipt %></td>
-  <td><%= receipt.expensable? ? 'Y' : 'N' %></td>
-  <td><%= receipt.expensed? ? 'Y' : 'N' %></td>
+  <td class="right"><%= link_to number_to_currency(receipt.total), receipt %></td>
+  <td class="center"><%= receipt.expensable? ? "&#10003".html_safe : "&mdash;".html_safe %></td>
+  <td class="center"><%= receipt.expensed? ? "&#10003".html_safe : "&mdash;".html_safe %></td>
 </tr>
