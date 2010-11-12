@@ -23,14 +23,7 @@
   </div>
 </div>
 
-<table id="recent_receipts">
-  <tr>
-    <th>Date</th>
-    <th>Store</th>
-    <th>Total</th>
-    <th>Expensable?</th>
-    <th>Expensed?</th>
-  </tr>
-
-<%= render :partial => 'receipts/receipt', :collection => @receipts %>
-</table>
+<%= render :partial => 'receipts/receipt_table', 
+           :locals => { :receipts => @receipts,
+                        :expensable => false,
+                        :expensed => false } %>
