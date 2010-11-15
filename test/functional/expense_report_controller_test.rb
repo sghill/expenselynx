@@ -8,6 +8,9 @@ class ExpenseReportControllerTest < ActionController::TestCase
     @report = ExpenseReport.create(:user => @sara)
   end
   
+  #
+  # show
+  #
   test "should GET show when logged in" do
     sign_in @sara
     get :show, :id => @report.to_param
@@ -51,5 +54,15 @@ class ExpenseReportControllerTest < ActionController::TestCase
     assert_raise ActiveRecord::RecordNotFound do
       get :show, :id => report.to_param
     end
+  end
+
+  #
+  # create
+  #
+  test "should be logged in to access POST create" do
+    post :create, :expense_report => @report
+    
+    assert_response :redirect
+    assert_redirected_to new_user_session_path
   end
 end
