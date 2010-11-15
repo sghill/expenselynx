@@ -1,6 +1,7 @@
 class Receipt < ActiveRecord::Base
   belongs_to :store
   belongs_to :user
+  belongs_to :expense_report
   
   default_scope :order => 'purchase_date DESC'
   

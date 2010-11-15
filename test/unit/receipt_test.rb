@@ -2,12 +2,13 @@ require 'test_helper'
 
 class ReceiptTest < ActiveSupport::TestCase
   def setup
+    @today = DateTime.now.to_date
     @store = Store.create(:name => 'My Test Store')
   end
   
   test "should save valid receipt" do
     receipt = Receipt.new(:total => 10.23, 
-                          :purchase_date => DateTime.now, 
+                          :purchase_date => @today, 
                           :store => @store)
     assert receipt.valid?
   end
@@ -16,7 +17,7 @@ class ReceiptTest < ActiveSupport::TestCase
   # total tests
   #
   test "should not save receipt without total" do
-    receipt = Receipt.new(:purchase_date => DateTime.now,
+    receipt = Receipt.new(:purchase_date => @today,
                           :store => @store)
     assert receipt.invalid?
     assert receipt.errors[:total].any?
@@ -24,7 +25,7 @@ class ReceiptTest < ActiveSupport::TestCase
   
   test "should not save receipt with negative total" do
     receipt = Receipt.new(:total => -0.10, 
-                          :purchase_date => DateTime.now,
+                          :purchase_date => @today,
                           :store => @store)
     assert receipt.invalid?
     assert receipt.errors[:total].any?
@@ -32,7 +33,7 @@ class ReceiptTest < ActiveSupport::TestCase
   
   test "should not save receipt with funky string total" do
     receipt = Receipt.new(:total => 'lots', 
-                          :purchase_date => DateTime.now,
+                          :purchase_date => @today,
                           :store => @store)
     assert receipt.invalid?
     assert receipt.errors[:total].any?
@@ -68,14 +69,14 @@ class ReceiptTest < ActiveSupport::TestCase
   # store tests
   #
   test "should not save receipt without an associated store" do
-    receipt = Receipt.new(:total => 11.32, :purchase_date => DateTime.now)
+    receipt = Receipt.new(:total => 11.32, :purchase_date => @today)
     assert receipt.invalid?
     assert receipt.errors[:store_id].any?
   end
   
   test "should not save receipt without an existing store" do
     receipt = Receipt.new(:total => 3.24,
-                          :purchase_date => DateTime.now,
+                          :purchase_date => @today,
                           :store_id => @store.id + 1000)
     assert receipt.invalid?
     assert receipt.errors[:store_id].any?
@@ -83,7 +84,7 @@ class ReceiptTest < ActiveSupport::TestCase
   
   test "should give the store name easily" do
     receipt = Receipt.create(:total => 5.54,
-                             :purchase_date => DateTime.now,
+                             :purchase_date => @today,
                              :store => @store)
     assert_equal(@store.name, receipt.store_name)
   end
@@ -93,7 +94,7 @@ class ReceiptTest < ActiveSupport::TestCase
   #
   test "should have flag that indicates if the receipt is expensable" do
     receipt = Receipt.create(:total => 5.54,
-                             :purchase_date => DateTime.now,
+                             :purchase_date => @today,
                              :store => @store,
                              :expensable => true)
     assert receipt.expensable?
@@ -101,7 +102,7 @@ class ReceiptTest < ActiveSupport::TestCase
   
   test "should return false for expensable when not set" do
     receipt = Receipt.create(:total => 5.54,
-                             :purchase_date => DateTime.now,
+                             :purchase_date => @today,
                              :store => @store)
     assert !receipt.expensable?
   end
@@ -123,8 +124,18 @@ class ReceiptTest < ActiveSupport::TestCase
   #
   test "should belong to user" do
     receipt = Receipt.create(:total => 5.54,
-                             :purchase_date => DateTime.now,
+                             :purchase_date => @today,
                              :store => @store)
     assert_nil receipt.user
+  end
+  
+  test "should have ability to belong to expense report" do
+    report = ExpenseReport.new
+    receipt = Receipt.create(:total => 6.68,
+                             :purchase_date => @today,
+                             :store => @store,
+                             :expensable => true, 
+                             :expensed => true)
+    assert_nil receipt.expense_report
   end
 end
