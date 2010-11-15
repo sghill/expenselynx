@@ -156,7 +156,7 @@ class ReceiptTest < ActiveSupport::TestCase
                           :expensable => false, 
                           :expensed => false,
                           :expense_report => report)
-    assert !receipt.valid?
+    assert receipt.invalid?
     assert receipt.errors[:expense_report_id].any?
   end
 end

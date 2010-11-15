@@ -5,5 +5,7 @@
     <th>Total</th>
   </tr>
 
-<%= render :partial => 'receipts/receipt', :collection => @receipts %>
+<%= render :partial => 'receipts/receipt', 
+           :collection => @receipts, 
+           :locals => {:expensed => false, :expensable => false} %>
 </table>

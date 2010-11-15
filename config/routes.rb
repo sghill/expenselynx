@@ -1,4 +1,6 @@
 Expenselynx::Application.routes.draw do
+  get "expense_report/show"
+
   devise_for :users
 
   match 'stores/search' => 'stores#search'
