@@ -12,4 +12,10 @@ class ExpenseReportTest < ActiveSupport::TestCase
     
     assert report.valid?
   end
+  
+  test "should have receipts" do
+    report = ExpenseReport.new
+    
+    assert report.receipts.is_a?(Array)
+  end
 end
