@@ -7,6 +7,7 @@ class Receipt < ActiveRecord::Base
   
   validates :total, :presence => true,
                     :numericality => {:greater_than_or_equal_to => 0.01}
+  validates :user, :presence => true
   validate :purchase_date_is_not_in_the_future,
            :store_existence,
            :nonexpensable_receipt_is_not_expensed,

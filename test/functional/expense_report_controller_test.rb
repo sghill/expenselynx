@@ -13,20 +13,23 @@ class ExpenseReportControllerTest < ActionController::TestCase
     assert_response :success
   end
   
-  test "show should have a collection of expensable receipts belonging to the report" do
+  test "show should have only expensable receipts belonging to the report" do
     Receipt.create(:total => 1, 
                    :store => @store, 
                    :purchase_date => @today, 
                    :expensable => true, 
-                   :expense_report => @report)
+                   :expense_report => @report,
+                   :user => @sara)
     Receipt.create(:total => 11, 
                    :store => @store, 
                    :purchase_date => @today, 
-                   :expensable => false)
+                   :expensable => false,
+                   :user => @sara)
     Receipt.create(:total => 111,
                    :store => @store, 
                    :purchase_date => @today, 
-                   :expensable => true)
+                   :expensable => true,
+                   :user => @sara)
     
     get :show, :id => @report.to_param
     assert_equal 1, assigns(:report).receipts.count
