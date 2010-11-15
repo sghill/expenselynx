@@ -84,8 +84,8 @@ class ReceiptTest < ActiveSupport::TestCase
   
   test "should give the store name easily" do
     receipt = Receipt.new(:total => 5.54,
-                             :purchase_date => @today,
-                             :store => @store)
+                          :purchase_date => @today,
+                          :store => @store)
     assert_equal(@store.name, receipt.store_name)
   end
   
@@ -94,47 +94,69 @@ class ReceiptTest < ActiveSupport::TestCase
   #
   test "should have flag that indicates if the receipt is expensable" do
     receipt = Receipt.new(:total => 5.54,
-                             :purchase_date => @today,
-                             :store => @store,
-                             :expensable => true)
+                          :purchase_date => @today,
+                          :store => @store,
+                          :expensable => true)
     assert receipt.expensable?
   end
   
   test "should return false for expensable when not set" do
     receipt = Receipt.new(:total => 5.54,
-                             :purchase_date => @today,
-                             :store => @store)
+                          :purchase_date => @today,
+                          :store => @store)
     assert !receipt.expensable?
   end
   
   test "should have flag indicating receipts expensed status" do
-    receipt = Receipt.new(:total => 5.21, :purchase_date => Time.now.to_date, :store => @store, :expensable => true)
+    receipt = Receipt.new(:total => 5.21, 
+                          :purchase_date => @today, 
+                          :store => @store, 
+                          :expensable => true)
     
     assert !receipt.expensed?
   end
   
   test "should not allow nonexpensable receipt to be expensed" do
-    receipt = Receipt.new(:total => 12.21, :purchase_date => Time.now.to_date, :store => @store, :expensable => false, :expensed => true)
+    receipt = Receipt.new(:total => 12.21, 
+                          :purchase_date => @today, 
+                          :store => @store, 
+                          :expensable => false, 
+                          :expensed => true)
     assert receipt.invalid?
     assert receipt.errors[:expensed].any?
   end
   
   #
-  # relationships
+  # user
   #
   test "should belong to user" do
     receipt = Receipt.new(:total => 5.54,
-                             :purchase_date => @today,
-                             :store => @store)
+                          :purchase_date => @today,
+                          :store => @store)
     assert_nil receipt.user
   end
   
+  #
+  # expense report
+  #
   test "should have ability to belong to expense report" do
     receipt = Receipt.new(:total => 6.68,
-                             :purchase_date => @today,
-                             :store => @store,
-                             :expensable => true, 
-                             :expensed => false)
+                          :purchase_date => @today,
+                          :store => @store,
+                          :expensable => true, 
+                          :expensed => false)
     assert_nil receipt.expense_report
+  end
+  
+  test "should not be in an expense report if not expensable" do
+    report = ExpenseReport.new
+    receipt = Receipt.new(:total => 3.68,
+                          :purchase_date => @today,
+                          :store => @store,
+                          :expensable => false, 
+                          :expensed => false,
+                          :expense_report => report)
+    assert !receipt.valid?
+    assert receipt.errors[:expense_report_id].any?
   end
 end
