@@ -40470,3 +40470,246 @@ WARNING: Can't mass-assign protected attributes: id
   [1m[35mSQL (4.5ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101115030955')
   [1m[36mSQL (6.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101115040615')[0m
   [1m[35mSQL (6.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101115040742')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-16 01:04:34 -0800
+  Processing by DashboardController#index as HTML
+Completed   in 1ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-16 01:04:35 -0800
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (2.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (47.5ms)
+Completed 200 OK in 121ms (Views: 95.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2010-11-16 01:04:49 -0800
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pnF4huhv65xs5m0kt3brXHtXDplNhyvt0Jr20wVIsUk=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'test@test.com') LIMIT 1
+  [1m[36mSQL (19.7ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-11-16 09:04:49.801469', "last_sign_in_at" = '2010-11-12 08:00:46.503183', "sign_in_count" = 5, "updated_at" = '2010-11-16 09:04:49.802317' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 270ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-16 01:04:49 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (1.0ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+Rendered receipts/_form.html.erb (4.2ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (26.2ms)
+Rendered receipts/_receipt_table.html.erb (27.5ms)
+Rendered dashboard/index.html.erb within layouts/application (73.9ms)
+Completed 200 OK in 208ms (Views: 116.3ms | ActiveRecord: 22.5ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-16 01:04:53 -0800
+  Processing by DashboardController#unexpensed as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (1.9ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f') ORDER BY purchase_date DESC[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered dashboard/unexpensed.html.erb within layouts/application (280.2ms)
+Completed   in 356ms
+
+ActionView::Template::Error (undefined local variable or method `expensable' for #<#<Class:0x00000103861790>:0x0000010385f1c0>):
+    12:       <td><%= receipt.purchase_date.to_date.to_s(:short) %></td>
+    13:       <td><%= receipt.store.name %></td>
+    14:       <td class="right"><%= link_to number_to_currency(receipt.total), receipt %></td>
+    15:       <% if expensable %>
+    16:         <td class="center"><%= boolean_to_check receipt.expensable? %></td>
+    17:       <% end %>
+    18:       <% if expensed %>
+  app/views/dashboard/unexpensed.html.erb:15:in `block (2 levels) in _app_views_dashboard_unexpensed_html_erb___329920618430783679_2177035400__3005175434798482837'
+  app/views/dashboard/unexpensed.html.erb:9:in `block in _app_views_dashboard_unexpensed_html_erb___329920618430783679_2177035400__3005175434798482837'
+  app/views/dashboard/unexpensed.html.erb:1:in `_app_views_dashboard_unexpensed_html_erb___329920618430783679_2177035400__3005175434798482837'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (70.0ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/template_error.erb within rescues/layout (120.9ms)
+
+
+Started GET "/dashboard/unexpensed" for 127.0.0.1 at 2010-11-16 01:05:35 -0800
+  Processing by DashboardController#unexpensed as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (1.9ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f') ORDER BY purchase_date DESC
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+DEPRECATION WARNING: <% %> style block helpers are deprecated. Please use <%= %>. (called from _app_views_dashboard_unexpensed_html_erb___329920618430783679_2159777240__3005175434798482837 at /Users/ThoughtWorks/sgdev/expenselynx/app/views/dashboard/unexpensed.html.erb:1)
+Rendered dashboard/unexpensed.html.erb within layouts/application (74.9ms)
+Completed 200 OK in 151ms (Views: 76.6ms | ActiveRecord: 2.7ms)
+
+
+Started POST "/expense_report/create" for 127.0.0.1 at 2010-11-16 01:05:43 -0800
+  Processing by ExpenseReportController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pnF4huhv65xs5m0kt3brXHtXDplNhyvt0Jr20wVIsUk=", "receipt_ids"=>["6", "7", "8"], "commit"=>"Create Expense Report"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Completed   in 130ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/expense_report_controller.rb:11:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (65.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (71.4ms)
+
+
+Started POST "/expense_report/create" for 127.0.0.1 at 2010-11-16 01:06:44 -0800
+  Processing by ExpenseReportController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pnF4huhv65xs5m0kt3brXHtXDplNhyvt0Jr20wVIsUk=", "receipt_ids"=>["6", "7", "8"], "commit"=>"Create Expense Report"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed   in 67ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/expense_report_controller.rb:11:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (69.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (98.6ms)
+
+
+Started GET "/expense_report/create" for 127.0.0.1 at 2010-11-16 01:08:30 -0800
+  Processing by ExpenseReportController#show as HTML
+  Parameters: {"id"=>"create"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mExpenseReport Load (0.2ms)[0m  [1mSELECT "expense_reports".* FROM "expense_reports" WHERE ("expense_reports".user_id = 1) AND ("expense_reports"."id" = 0) LIMIT 1[0m
+Completed   in 74ms
+
+ActiveRecord::RecordNotFound (Couldn't find ExpenseReport with ID=create [WHERE ("expense_reports".user_id = 1)]):
+  app/controllers/expense_report_controller.rb:5:in `show'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (60.5ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (64.9ms)
+
+
+Started POST "/expense_report/create" for 127.0.0.1 at 2010-11-16 01:08:38 -0800
+  Processing by ExpenseReportController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pnF4huhv65xs5m0kt3brXHtXDplNhyvt0Jr20wVIsUk=", "receipt_ids"=>["6", "7", "8"], "commit"=>"Create Expense Report"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Completed   in 70ms
+
+NoMethodError (You have a nil object when you didn't expect it!
+You might have expected an instance of ActiveRecord::Base.
+The error occurred while evaluating nil.[]):
+  app/controllers/expense_report_controller.rb:11:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.4ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (67.5ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.0/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (72.2ms)
+
+
+Started POST "/expense_report/create" for 127.0.0.1 at 2010-11-16 01:08:59 -0800
+  Processing by ExpenseReportController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"pnF4huhv65xs5m0kt3brXHtXDplNhyvt0Jr20wVIsUk=", "receipt_ids"=>["6", "7", "8"], "commit"=>"Create Expense Report"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 6) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (26.5ms)[0m  [1mUPDATE "receipts" SET "expensed" = 't', "updated_at" = '2010-11-16 09:09:00.141934' WHERE ("receipts"."id" = 6)[0m
+  [1m[35mReceipt Load (0.5ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 7) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mUser Load (0.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (0.3ms)[0m  [1mUPDATE "receipts" SET "expensed" = 't', "updated_at" = '2010-11-16 09:09:00.200415' WHERE ("receipts"."id" = 7)[0m
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 8) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.1ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (0.2ms)[0m  [1mUPDATE "receipts" SET "expensed" = 't', "updated_at" = '2010-11-16 09:09:00.213202' WHERE ("receipts"."id" = 8)[0m
+  [1m[35mSQL (0.5ms)[0m  INSERT INTO "expense_reports" ("created_at", "external_report_id", "updated_at", "user_id") VALUES ('2010-11-16 09:09:00.241854', NULL, '2010-11-16 09:09:00.241854', 1)
+Redirected to http://localhost:3000/expense_report/1
+Completed 302 Found in 515ms
+
+
+Started GET "/expense_report/1" for 127.0.0.1 at 2010-11-16 01:09:00 -0800
+  Processing by ExpenseReportController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mExpenseReport Load (0.3ms)[0m  SELECT "expense_reports".* FROM "expense_reports" WHERE ("expense_reports".user_id = 1) AND ("expense_reports"."id" = 1) LIMIT 1
+Rendered expense_report/show.html.erb within layouts/application (2.7ms)
+Completed 200 OK in 104ms (Views: 31.9ms | ActiveRecord: 32.1ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.9ms)[0m  CREATE TABLE "expense_reports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "external_report_id" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (13.6ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f', "expense_report_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.7ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (17.2ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "expense_report_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (4.4ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (5.1ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (18.4ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (4.5ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (6.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101115042533')
+  [1m[36mSQL (17.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (6.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (17.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (12.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (6.6ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (6.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (6.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (5.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (10.4ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108055646')[0m
+  [1m[35mSQL (39.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101115030955')
+  [1m[36mSQL (17.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101115040615')[0m
+  [1m[35mSQL (44.0ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101115040742')

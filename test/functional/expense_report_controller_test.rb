@@ -60,7 +60,7 @@ class ExpenseReportControllerTest < ActionController::TestCase
   # create
   #
   test "should be logged in to access POST create" do
-    post :create, :expense_report => @report
+    post :create, :receipt_ids => nil
     
     assert_response :redirect
     assert_redirected_to new_user_session_path
@@ -68,7 +68,7 @@ class ExpenseReportControllerTest < ActionController::TestCase
   
   test "should POST create when logged in" do
     sign_in @sara
-    post :create, :expense_report => { :receipt_ids => nil }
+    post :create, :receipt_ids => nil
     get :show, :id => assigns(:report).id
     assert_response :success
   end
@@ -85,7 +85,7 @@ class ExpenseReportControllerTest < ActionController::TestCase
                                  :expensable => true,
                                  :user => @sara)
       sign_in @sara
-      post :create, :expense_report => {:user => @sara, :receipt_ids => [@receipt1.id, @receipt2.id] }
+      post :create, :receipt_ids => [@receipt1.id, @receipt2.id]
       after_post_receipt1 = Receipt.find(@receipt1.id)
       after_post_receipt2 = Receipt.find(@receipt2.id)
       assert after_post_receipt1.expensed?

@@ -1,11 +1,20 @@
-<table id="recent_receipts">
-  <tr>
-    <th>Purchase date</th>
-    <th>Store</th>
-    <th>Total</th>
-  </tr>
+<% form_tag expense_report_create_path do %>
+  <table id="recent_receipts">
+    <tr>
+      <th>Purchase date</th>
+      <th>Store</th>
+      <th>Total</th>
+    </tr>
 
-<%= render :partial => 'receipts/receipt', 
-           :collection => @receipts, 
-           :locals => {:expensed => false, :expensable => false} %>
-</table>
+  <% @receipts.each do |receipt| %>
+    <tr>
+      <td><%= check_box_tag "receipt_ids[]", receipt.id %></td>
+      <td><%= receipt.purchase_date.to_date.to_s(:short) %></td>
+      <td><%= receipt.store.name %></td>
+      <td class="right"><%= link_to number_to_currency(receipt.total), receipt %></td>
+    </tr>
+  <% end %>
+  </table>
+
+  <%= submit_tag "Create Expense Report" %>
+<% end %>

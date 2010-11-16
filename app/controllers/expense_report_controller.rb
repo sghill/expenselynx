@@ -8,8 +8,8 @@ class ExpenseReportController < ApplicationController
   def create
     @report = ExpenseReport.new(params[:expense_report])
     @report.user = current_user
-    if params[:expense_report][:receipt_ids]
-      params[:expense_report][:receipt_ids].each do |receipt_id|
+    unless params[:receipt_ids].nil?
+      params[:receipt_ids].each do |receipt_id|
         receipt = current_user.receipts.find(receipt_id)
         receipt.expensed = true
         receipt.save
