@@ -68,13 +68,13 @@ class ExpenseReportControllerTest < ActionController::TestCase
   
   test "should POST create when logged in" do
     sign_in @sara
-    post :create, :expense_report => {:user => @sara}
+    post :create, :expense_report => { :receipt_ids => nil }
     get :show, :id => assigns(:report).id
     assert_response :success
   end
   
-  test "POST create when logged in should also mark included receipts expensed" do
-      @receipt1 = Receipt.create!(:total => 1, 
+  test "POST create when logged in should mark included receipts expensed" do
+      @receipt1 = Receipt.create(:total => 1, 
                                  :store => @store, 
                                  :purchase_date => @today, 
                                  :expensable => true, 
@@ -90,5 +90,24 @@ class ExpenseReportControllerTest < ActionController::TestCase
       after_post_receipt2 = Receipt.find(@receipt2.id)
       assert after_post_receipt1.expensed?
       assert after_post_receipt2.expensed?
+  end
+  
+  test "POST create when logged in should associate included receipts to new expense report" do
+      @receipt1 = Receipt.create(:total => 1, 
+                                 :store => @store, 
+                                 :purchase_date => @today, 
+                                 :expensable => true, 
+                                 :user => @sara)
+      @receipt2 = Receipt.create(:total => 11, 
+                                 :store => @store, 
+                                 :purchase_date => @today, 
+                                 :expensable => true,
+                                 :user => @sara)
+      sign_in @sara
+      post :create, :expense_report => {:user => @sara, :receipt_ids => [@receipt1.id, @receipt2.id] }
+      after_post_receipt1 = Receipt.find(@receipt1.id)
+      after_post_receipt2 = Receipt.find(@receipt2.id)
+      assert_equal assigns(:report), after_post_receipt1.expense_report
+      assert_equal assigns(:report), after_post_receipt2.expense_report
   end
 end
