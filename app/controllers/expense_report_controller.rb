@@ -6,7 +6,10 @@ class ExpenseReportController < ApplicationController
   end
   
   def create
+    @report = ExpenseReport.new(params[:expense_report])
     
+    if @report.save
+      redirect_to @report
+    end
   end
-
 end

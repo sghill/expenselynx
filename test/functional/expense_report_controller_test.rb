@@ -65,4 +65,11 @@ class ExpenseReportControllerTest < ActionController::TestCase
     assert_response :redirect
     assert_redirected_to new_user_session_path
   end
+  
+  test "should POST create when logged in" do
+    sign_in @sara
+    post :create, :expense_report => {:user => @sara}
+    get :show, :id => assigns(:report).id
+    assert_response :success
+  end
 end
