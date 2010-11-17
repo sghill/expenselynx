@@ -50,11 +50,14 @@ a {
 }
 
 /* RECEIPTS TABLE */
+.summary_table {
+  margin:0 auto;
+}
 #recent_receipts {
-	margin:0 auto;
+/*  margin:0 auto;*/
 }
 
-#recent_receipts tr th {
+.summary_table tr th {
 	border-bottom:dotted gray 1px;
 }
 
