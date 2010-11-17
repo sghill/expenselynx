@@ -89,6 +89,32 @@ class DashboardControllerTest < ActionController::TestCase
     assert_equal 9.90, assigns(:stats)[:expensed_total]
   end
   
+  #
+  # index / expense reports
+  #
+  test "index should show 5 most recent expense reports" do
+    ExpenseReport.create(:user => @sara, :external_report_id => "report 1")
+    ExpenseReport.create(:user => @sara, :external_report_id => "report 10")
+    ExpenseReport.create(:user => @sara, :external_report_id => "report 100")
+    ExpenseReport.create(:user => @sara, :external_report_id => "report 1000")
+    ExpenseReport.create(:user => @sara, :external_report_id => "report 10000")
+    ExpenseReport.create(:user => @sara, :external_report_id => "report 100000")
+    
+    sign_in @sara
+    get :index
+    assert assigns(:reports).is_a?(Array)
+    assert_equal 5, assigns(:reports).count
+  end
+  
+  test "index should show only current users expense reports" do
+    ExpenseReport.create(:user => @sara, :external_report_id => "report 1")
+    ExpenseReport.create(:user => @john, :external_report_id => "report 10")
+    
+    sign_in @sara
+    get :index
+    assert_equal 1, assigns(:reports).count
+  end
+  
   test "form in index should have todays date preloaded" do
     sign_in @sara
     get :index

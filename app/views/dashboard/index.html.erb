@@ -22,8 +22,19 @@
     <%= render 'receipts/form' %>
   </div>
 </div>
-
+<h3 class="center">Recent Receipts</h3>
+<br />
 <%= render :partial => 'receipts/receipt_table', 
            :locals => { :receipts => @receipts,
                         :expensable => true,
                         :expensed => true } %>
+
+<br /><br />
+<h3 class="center">Recent Expense Reports</h3><br /><br />                        
+<table id="recent_expense_reports" class="summary_table">
+    <th>Date</th>
+    <th>Identifier</th>
+    <th>Receipts</th>
+    <th>Total</th>
+    <%= render :partial => 'expense_report/report', :collection => @reports %>
+</table>
