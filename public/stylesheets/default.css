@@ -65,12 +65,19 @@ a {
 
 /** STAT BOX **/
 #expense_stats {
+  width:400px;/* needs a better way than roughly 2.5* .stat_box */
+}
+
+#expense_report_stats {
+  width:260px;
+}
+
+.stat_container {
 	margin-bottom:7em;
 	margin-left: auto;
 	margin-right: auto;
 	margin-top:1em;
 	text-align:center;
-	width:400px; /* needs a better way than roughly 2.5* .stat_box */
 }
 
 .stat_box {
@@ -89,7 +96,7 @@ a {
 	color:green;
 }
 
-.sum {
+.sum, .count {
 	font-weight:bold;
 }
 

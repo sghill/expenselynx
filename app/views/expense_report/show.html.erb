@@ -1,4 +1,14 @@
 <h2>Expense Report <em><%= @report.external_report_id %></em></h2>
+<div id="expense_report_stats" class="stat_container">
+  <div id="receipt_count_box" class="stat_box">
+    <p>Receipts</p>
+    <p id="receipt_count" class="count"><%= @report.receipt_count %></p>
+  </div>
+  <div id="receipt_total_box" class="stat_box">
+    <p>Total</p>
+    <p id="receipt_total" class="sum"><%= number_to_currency @report.receipt_sum %></p>
+  </div>
+</div>
 
 <%= render :partial => 'receipts/receipt_table', 
            :locals => { :receipts => @report.receipts,
