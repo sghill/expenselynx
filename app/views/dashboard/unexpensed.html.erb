@@ -1,4 +1,4 @@
-<% form_tag expense_report_create_path do %>
+<%= form_tag expense_report_create_path do %>
   <table id="recent_receipts">
     <tr>
       <th></th>
@@ -15,7 +15,11 @@
       <td class="right"><%= link_to number_to_currency(receipt.total), receipt %></td>
     </tr>
   <% end %>
+  <tfoot>
+    <tr>
+      <td colspan="3"><%= text_field_tag "external_report_id", nil, :placeholder => "Expense Report ID" %></td>
+      <td><%= submit_tag "Create Expense Report" %></td>
+    </tr>
+  </tfoot>
   </table>
-
-  <%= submit_tag "Create Expense Report" %>
 <% end %>

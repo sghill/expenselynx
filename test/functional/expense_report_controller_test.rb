@@ -95,6 +95,14 @@ class ExpenseReportControllerTest < ActionController::TestCase
     assert_response :success
   end
   
+  test "should POST create with external expense report id when logged in" do
+    external_id = "4R32L"
+    sign_in @sara
+    post :create, :receipt_ids => nil, :external_report_id => external_id
+    get :show, :id => assigns(:report).id
+    assert_equal external_id, assigns(:report).external_report_id
+  end
+  
   test "POST create when logged in should mark included receipts expensed" do
       @receipt1 = Receipt.create(:total => 1, 
                                  :store => @store, 

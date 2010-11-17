@@ -1,4 +1,4 @@
-<h2>Expense Report <%= @report.external_report_id %></h2>
+<h2>Expense Report <em><%= @report.external_report_id %></em></h2>
 
 <%= render :partial => 'receipts/receipt_table', 
            :locals => { :receipts => @report.receipts,
