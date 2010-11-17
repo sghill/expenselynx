@@ -98,12 +98,12 @@ class DashboardControllerTest < ActionController::TestCase
   test "GET unexpensed should show all of the receipts waiting to be expensed" do
     Receipt.create(:store => @chipotle,:purchase_date => 1.day.ago,:total => 9.90,:user => @sara, :expensable => true, :expensed => true)
     Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @sara)
-    expensable = Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @sara, :expensable => true)
+    only_expensable = Receipt.create!(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @sara, :expensable => true)
     Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @john)
     
     sign_in @sara
     get :unexpensed
     assert_equal 1, assigns(:receipts).count
-    assert_equal expensable, assigns(:receipts).first
+    assert_equal only_expensable, assigns(:receipts).first
   end
 end

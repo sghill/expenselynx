@@ -10,7 +10,14 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101108055646) do
+ActiveRecord::Schema.define(:version => 20101115042533) do
+
+  create_table "expense_reports", :force => true do |t|
+    t.string   "external_report_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
 
   create_table "receipts", :force => true do |t|
     t.integer  "store_id"
@@ -18,9 +25,10 @@ ActiveRecord::Schema.define(:version => 20101108055646) do
     t.decimal  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "expensable",    :default => false
+    t.boolean  "expensable",        :default => false
     t.integer  "user_id"
-    t.boolean  "expensed",      :default => false
+    t.boolean  "expensed",          :default => false
+    t.integer  "expense_report_id"
   end
 
   create_table "stores", :force => true do |t|
@@ -43,6 +51,7 @@ ActiveRecord::Schema.define(:version => 20101108055646) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "expense_report_id"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
