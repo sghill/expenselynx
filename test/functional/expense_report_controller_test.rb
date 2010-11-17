@@ -58,7 +58,7 @@ class ExpenseReportControllerTest < ActionController::TestCase
                    :user => @sara)
     sign_in @sara
     get :show, :id => @report.to_param
-    assert_equal receipt, assigns(:receipts).first
+    assert_equal receipt, assigns(:report).receipts.first
   end
   
   test "must be logged in to GET show" do
