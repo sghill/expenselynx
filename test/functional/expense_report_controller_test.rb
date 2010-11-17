@@ -17,7 +17,7 @@ class ExpenseReportControllerTest < ActionController::TestCase
     assert_response :success
   end
   
-  test "should have only expensable receipts belonging to the report on GET show" do
+  test "should have report on GET show" do
     Receipt.create(:total => 1, 
                    :store => @store, 
                    :purchase_date => @today, 
@@ -36,7 +36,29 @@ class ExpenseReportControllerTest < ActionController::TestCase
                    :user => @sara)
     sign_in @sara
     get :show, :id => @report.to_param
-    assert_equal 1, assigns(:report).receipts.count
+    assert_equal @report, assigns(:report)
+  end
+  
+  test "should have receipts available in GET show" do
+    receipt = Receipt.create(:total => 1, 
+                              :store => @store, 
+                              :purchase_date => @today, 
+                              :expensable => true, 
+                              :expense_report => @report,
+                              :user => @sara)
+    Receipt.create(:total => 11, 
+                   :store => @store, 
+                   :purchase_date => @today, 
+                   :expensable => false,
+                   :user => @sara)
+    Receipt.create(:total => 111,
+                   :store => @store, 
+                   :purchase_date => @today, 
+                   :expensable => true,
+                   :user => @sara)
+    sign_in @sara
+    get :show, :id => @report.to_param
+    assert_equal receipt, assigns(:receipts).first
   end
   
   test "must be logged in to GET show" do
@@ -104,10 +126,10 @@ class ExpenseReportControllerTest < ActionController::TestCase
                                  :expensable => true,
                                  :user => @sara)
       sign_in @sara
-      post :create, :expense_report => {:user => @sara, :receipt_ids => [@receipt1.id, @receipt2.id] }
+      post :create, :receipt_ids => [@receipt1.id, @receipt2.id]
       after_post_receipt1 = Receipt.find(@receipt1.id)
       after_post_receipt2 = Receipt.find(@receipt2.id)
-      assert_equal assigns(:report), after_post_receipt1.expense_report
-      assert_equal assigns(:report), after_post_receipt2.expense_report
+      assert_equal assigns(:report).id, after_post_receipt1.expense_report.id
+      assert_equal assigns(:report).id, after_post_receipt2.expense_report.id
   end
 end

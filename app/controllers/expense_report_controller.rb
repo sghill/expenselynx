@@ -3,6 +3,7 @@ class ExpenseReportController < ApplicationController
   
   def show
     @report = current_user.expense_reports.find(params[:id])
+    # @receipts = Receipt.find_all_by_expense_report_id(params[:id])
   end
   
   def create
@@ -12,6 +13,7 @@ class ExpenseReportController < ApplicationController
       params[:receipt_ids].each do |receipt_id|
         receipt = current_user.receipts.find(receipt_id)
         receipt.expensed = true
+        receipt.expense_report = @report
         receipt.save
       end
     end
