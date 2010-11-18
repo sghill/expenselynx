@@ -7,6 +7,11 @@ gem 'cloudfiles', '1.4.8'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 
 group :development, :test do
+  gem 'autotest'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '>= 2.1'
+  gem 'rspec', '>= 2.1'
+  gem 'rspec-core', '>= 2.1'
+  gem 'rspec-expectations', '>= 2.1'
+  gem 'rspec-mocks', '>= 2.1'
 end
