@@ -1,9 +1,15 @@
+require 'carrierwave/orm/activerecord'
+
 class Receipt < ActiveRecord::Base
   belongs_to :store
   belongs_to :user
   belongs_to :expense_report
   
   default_scope :order => 'purchase_date DESC'
+  
+  # spike
+  mount_uploader :receipt_image, ReceiptImageUploader
+  #
   
   validates :total, :presence => true,
                     :numericality => {:greater_than_or_equal_to => 0.01}

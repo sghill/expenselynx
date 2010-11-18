@@ -42,7 +42,12 @@ class ReceiptsController < ApplicationController
       :expensable => params[:receipt][:expensable],
       :expensed => params[:receipt][:expensed],
       :user => current_user)
-
+      
+      #spike
+      uploader = ReceiptImageUploader.new
+      uploader.store!(params[:receipt][:receipt_image])
+      #spike
+      
     respond_to do |format|
       if @receipt.save
         format.js

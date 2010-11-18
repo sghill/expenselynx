@@ -44476,3 +44476,679 @@ Completed 200 OK in 224ms (Views: 106.1ms | ActiveRecord: 5.1ms)
   [1m[35mSQL (7.3ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101115030955')
   [1m[36mSQL (47.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101115040615')[0m
   [1m[35mSQL (5.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101115040742')
+  [1m[36mSQL (0.6ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.2ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE TABLE "expense_reports" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "external_report_id" varchar(255), "created_at" datetime, "updated_at" datetime, "user_id" integer) 
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (6.2ms)[0m  CREATE TABLE "receipts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "store_id" integer, "purchase_date" date, "total" decimal, "created_at" datetime, "updated_at" datetime, "expensable" boolean DEFAULT 'f', "user_id" integer, "expensed" boolean DEFAULT 'f', "expense_report_id" integer) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (3.8ms)[0m  CREATE TABLE "stores" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "name" varchar(255), "created_at" datetime, "updated_at" datetime) 
+  [1m[36mSQL (0.1ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (4.4ms)[0m  CREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime, "expense_report_id" integer) 
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (3.9ms)[0m  CREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_email')
+  [1m[36mSQL (3.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (3.9ms)[0m  [1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("schema_migrations")
+  [1m[36mSQL (4.0ms)[0m  [1mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [1m[35mSQL (0.1ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT version FROM "schema_migrations"[0m
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101115042533')
+  [1m[36mSQL (4.7ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101024205015')[0m
+  [1m[35mSQL (4.6ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101024215028')
+  [1m[36mSQL (9.0ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101105091615')[0m
+  [1m[35mSQL (5.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101106040246')
+  [1m[36mSQL (6.1ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101106233509')[0m
+  [1m[35mSQL (6.7ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108034151')
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108044336')[0m
+  [1m[35mSQL (6.8ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101108053110')
+  [1m[36mSQL (6.2ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101108055646')[0m
+  [1m[35mSQL (6.4ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101115030955')
+  [1m[36mSQL (4.9ms)[0m  [1mINSERT INTO "schema_migrations" (version) VALUES ('20101115040615')[0m
+  [1m[35mSQL (6.1ms)[0m  INSERT INTO "schema_migrations" (version) VALUES ('20101115040742')
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-17 21:32:59 -0800
+  Processing by DashboardController#index as HTML
+Completed   in 0ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at 2010-11-17 21:32:59 -0800
+  Processing by Devise::SessionsController#new as HTML
+Rendered devise/shared/_links.erb (1.5ms)
+Rendered devise/sessions/new.html.erb within layouts/application (8.9ms)
+Completed 200 OK in 84ms (Views: 58.3ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at 2010-11-17 21:33:07 -0800
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "user"=>{"email"=>"test@test.com", "password"=>"[FILTERED]", "remember_me"=>"0"}, "commit"=>"Sign in"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."email" = 'test@test.com') LIMIT 1
+  [1m[36mSQL (0.5ms)[0m  [1mUPDATE "users" SET "current_sign_in_at" = '2010-11-18 05:33:07.865537', "last_sign_in_at" = '2010-11-17 08:57:47.048797', "sign_in_count" = 8, "updated_at" = '2010-11-18 05:33:07.866044' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 318ms
+
+
+Started GET "/" for 127.0.0.1 at 2010-11-17 21:33:07 -0800
+  Processing by DashboardController#index as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.7ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC LIMIT 5[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND (expensed = 't')
+  [1m[36mExpenseReport Load (0.7ms)[0m  [1mSELECT "expense_reports".* FROM "expense_reports" WHERE ("expense_reports".user_id = 1) LIMIT 5[0m
+Rendered receipts/_form.html.erb (5.3ms)
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/_receipt.html.erb (57.6ms)
+Rendered receipts/_receipt_table.html.erb (58.8ms)
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".expense_report_id = 1)) AS subquery[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".expense_report_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".expense_report_id = 2)) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".expense_report_id = 2)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".expense_report_id = 3)) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".expense_report_id = 3)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".expense_report_id = 4)) AS subquery[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".expense_report_id = 4)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT COUNT(*) AS count_id FROM (SELECT 1 FROM "receipts" WHERE ("receipts".expense_report_id = 5)) AS subquery[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".expense_report_id = 5)
+Rendered expense_report/_report.html.erb (22.0ms)
+Rendered dashboard/index.html.erb within layouts/application (173.8ms)
+Completed 200 OK in 310ms (Views: 197.3ms | ActiveRecord: 5.2ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-17 21:33:15 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')[0m
+Rendered stores/search.html.erb (47.2ms)
+Completed 200 OK in 90ms (Views: 80.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 21:33:31 -0800
+  Processing by ReceiptsController#create as JS
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-17", "total"=>"8.65", "expensable"=>"1", "expensed"=>"0"}}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (0.4ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expense_report_id", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-18 05:33:31.317141', 't', NULL, 'f', '2010-11-17', 6, 8.65, '2010-11-18 05:33:31.317141', 1)[0m
+  [1m[35mSQL (0.3ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1)
+  [1m[36mSQL (0.1ms)[0m  [1mSELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensable" = 't') AND ("receipts"."expensed" = 'f')[0m
+  [1m[35mSQL (0.1ms)[0m  SELECT SUM("receipts"."total") AS sum_id FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."expensed" = 't')
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (5.1ms)
+Rendered receipts/create.js.erb (12.5ms)
+Completed 200 OK in 193ms (Views: 33.3ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 21:35:58 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (5.7ms)
+Rendered receipts/new.html.erb within layouts/application (9.4ms)
+Completed 200 OK in 228ms (Views: 45.0ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-17 21:36:02 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')[0m
+Rendered stores/search.html.erb (40.6ms)
+Completed 200 OK in 74ms (Views: 64.4ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 21:36:14 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-17", "total"=>"3.32", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8916-5dp8d5>}, "commit"=>"Create Receipt"}
+  [1m[35mUser Load (0.3ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (24.7ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expense_report_id", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-18 05:36:14.650891', 'f', NULL, 'f', '2010-11-17', 6, 3.32, '2010-11-18 05:36:14.650891', 1)[0m
+Redirected to http://localhost:3000/receipts/45
+Completed 302 Found in 208ms
+
+
+Started GET "/receipts/45" for 127.0.0.1 at 2010-11-17 21:36:14 -0800
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"45"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.3ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 45) ORDER BY purchase_date DESC LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/show.html.erb within layouts/application (52.9ms)
+Completed 200 OK in 152ms (Views: 56.6ms | ActiveRecord: 26.4ms)
+
+
+Started GET "/receipts" for 127.0.0.1 at 2010-11-17 21:38:43 -0800
+  Processing by ReceiptsController#index as HTML
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (4.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) ORDER BY purchase_date DESC
+Rendered receipts/_form.html.erb (4.0ms)
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 1) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mCACHE (0.0ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mCACHE (0.0ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/_receipt.html.erb (89.9ms)
+Rendered receipts/_receipt_table.html.erb (91.2ms)
+Rendered receipts/index.html.erb within layouts/application (99.0ms)
+Completed 200 OK in 199ms (Views: 102.1ms | ActiveRecord: 5.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 21:38:49 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (3.9ms)
+Rendered receipts/new.html.erb within layouts/application (6.3ms)
+Completed 200 OK in 102ms (Views: 9.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 21:39:00 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-17", "total"=>"3.32", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8916-d8wnl7>}, "commit"=>"Create Receipt"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (41.9ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expense_report_id", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-18 05:39:00.426146', 'f', NULL, 'f', '2010-11-17', 6, 3.32, '2010-11-18 05:39:00.426146', 1)
+Redirected to http://localhost:3000/receipts/46
+Completed 302 Found in 193ms
+
+
+Started GET "/receipts/46" for 127.0.0.1 at 2010-11-17 21:39:00 -0800
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"46"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.3ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 46) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (3.3ms)
+Completed 200 OK in 94ms (Views: 6.5ms | ActiveRecord: 43.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 21:43:22 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (4.4ms)
+Rendered receipts/new.html.erb within layouts/application (7.5ms)
+Completed 200 OK in 211ms (Views: 50.0ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 21:43:33 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-17", "total"=>"3.32", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8916-1tgq5mk>}, "commit"=>"Create Receipt"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (0.3ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expense_report_id", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-18 05:43:33.554200', 'f', NULL, 'f', '2010-11-17', 6, 3.32, '2010-11-18 05:43:33.554200', 1)
+Redirected to http://localhost:3000/receipts/47
+Completed 302 Found in 169ms
+
+
+Started GET "/receipts/47" for 127.0.0.1 at 2010-11-17 21:43:33 -0800
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"47"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.4ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 47) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 117ms (Views: 23.4ms | ActiveRecord: 2.1ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 21:45:12 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (4.2ms)
+Rendered receipts/new.html.erb within layouts/application (7.4ms)
+Completed 200 OK in 136ms (Views: 10.9ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 21:45:28 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-17", "total"=>"45", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8916-3r6no4>}, "commit"=>"Create Receipt"}
+  [1m[36mUser Load (36.6ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (127.4ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expense_report_id", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-18 05:45:28.858854', 'f', NULL, 'f', '2010-11-17', 6, 45.0, '2010-11-18 05:45:28.858854', 1)
+Redirected to http://localhost:3000/receipts/48
+Completed 302 Found in 308ms
+
+
+Started GET "/receipts/48" for 127.0.0.1 at 2010-11-17 21:45:29 -0800
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"48"}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.4ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 48) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (58.2ms)
+Completed 200 OK in 208ms (Views: 61.9ms | ActiveRecord: 165.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 21:48:35 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (6.0ms)
+Rendered receipts/new.html.erb within layouts/application (9.7ms)
+Completed 200 OK in 171ms (Views: 35.0ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 21:48:52 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-17", "total"=>"432", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8916-1rlfzhk>}, "commit"=>"Create Receipt"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (27.1ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expense_report_id", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-18 05:48:52.350130', 'f', NULL, 'f', '2010-11-17', 6, 432.0, '2010-11-18 05:48:52.350130', 1)
+Redirected to http://localhost:3000/receipts/49
+Completed 302 Found in 175ms
+
+
+Started GET "/receipts/49" for 127.0.0.1 at 2010-11-17 21:48:52 -0800
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"49"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.4ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 49) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (21.1ms)
+Completed 200 OK in 113ms (Views: 25.3ms | ActiveRecord: 28.8ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 21:57:44 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (5.9ms)
+Rendered receipts/new.html.erb within layouts/application (10.0ms)
+Completed 200 OK in 150ms (Views: 46.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 21:57:57 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-17", "total"=>"9.00", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8955-1d6pgs>}, "commit"=>"Create Receipt"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+  [1m[35mSQL (40.7ms)[0m  INSERT INTO "receipts" ("created_at", "expensable", "expense_report_id", "expensed", "purchase_date", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-18 05:57:57.840858', 'f', NULL, 'f', '2010-11-17', 6, 9.0, '2010-11-18 05:57:57.840858', 1)
+Redirected to http://localhost:3000/receipts/50
+Completed 302 Found in 213ms
+
+
+Started GET "/receipts/50" for 127.0.0.1 at 2010-11-17 21:57:57 -0800
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"50"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.5ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 50) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (21.5ms)
+Completed 200 OK in 126ms (Views: 27.1ms | ActiveRecord: 42.6ms)
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.2ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateStores (20101024205015)
+Migrating to CreateReceipts (20101024215028)
+Migrating to AddExpensableToReceipts (20101105091615)
+Migrating to DeviseCreateUsers (20101106040246)
+Migrating to AddUserIdToReceipt (20101106233509)
+Migrating to ChangePurchaseDateToDateOnReceipts (20101108034151)
+Migrating to AddExpensedBooleanToReceipts (20101108044336)
+Migrating to AddDefaultToExpensedOnReceipts (20101108053110)
+Migrating to AddDefaultToExpensableInReceipts (20101108055646)
+Migrating to CreateExpenseReports (20101115030955)
+Migrating to AddExpenseReportsToUsers (20101115040615)
+Migrating to AddUsersToExpenseReports (20101115040742)
+Migrating to AddExpenseReportIdToReceipts (20101115042533)
+Migrating to AddReceiptImagesToReceipts (20101118052323)
+  [1m[35mSQL (0.0ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (0.5ms)[0m  [1mALTER TABLE "receipts" ADD "receipt_image" varchar(255)[0m
+  [1m[35mSQL (0.1ms)[0m  INSERT INTO "schema_migrations" ("version") VALUES ('20101118052323')
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.2ms)[0m  SELECT "schema_migrations"."version" FROM "schema_migrations"
+  [1m[36mSQL (0.2ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("expense_reports")
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_list("receipts")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("stores")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("users")[0m
+  [1m[35mSQL (0.0ms)[0m  PRAGMA index_info('index_users_on_reset_password_token')
+  [1m[36mSQL (0.0ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 22:03:29 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (5.8ms)
+Rendered receipts/new.html.erb within layouts/application (9.3ms)
+Completed 200 OK in 162ms (Views: 72.3ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-17 22:03:32 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')[0m
+Rendered stores/search.html.erb (7.4ms)
+Completed 200 OK in 127ms (Views: 42.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 22:03:39 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-17", "total"=>"90", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8955-1usu4d5>}, "commit"=>"Create Receipt"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mSQL (28.0ms)[0m  [1mINSERT INTO "receipts" ("created_at", "expensable", "expense_report_id", "expensed", "purchase_date", "receipt_image", "store_id", "total", "updated_at", "user_id") VALUES ('2010-11-18 06:03:40.336970', 'f', NULL, 'f', '2010-11-17', NULL, 6, 90.0, '2010-11-18 06:03:40.336970', 1)[0m
+Redirected to http://localhost:3000/receipts/51
+Completed 302 Found in 469ms
+
+
+Started GET "/receipts/51" for 127.0.0.1 at 2010-11-17 22:03:40 -0800
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"51"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 51) ORDER BY purchase_date DESC LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/show.html.erb within layouts/application (19.8ms)
+Completed 200 OK in 132ms (Views: 23.2ms | ActiveRecord: 29.7ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 22:12:16 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (4.7ms)
+Rendered receipts/new.html.erb within layouts/application (7.8ms)
+Completed 200 OK in 47ms (Views: 11.9ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stores/search?term=te" for 127.0.0.1 at 2010-11-17 22:12:18 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"te"}
+  [1m[36mStore Load (0.5ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'te%')[0m
+Rendered stores/search.html.erb (7.8ms)
+Completed 200 OK in 61ms (Views: 51.7ms | ActiveRecord: 0.5ms)
+
+
+Started GET "/stores/search?term=tet" for 127.0.0.1 at 2010-11-17 22:12:19 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"tet"}
+  [1m[35mStore Load (0.4ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'tet%')
+Rendered stores/search.html.erb (0.5ms)
+Completed 200 OK in 10ms (Views: 1.7ms | ActiveRecord: 0.4ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-17 22:12:20 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[36mStore Load (0.6ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')[0m
+Rendered stores/search.html.erb (38.5ms)
+Completed 200 OK in 48ms (Views: 40.0ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 22:12:28 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-17", "total"=>"98", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<ActionDispatch::Http::UploadedFile:0x000001042b83b0 @original_filename="20101106_confirmation_amex.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"receipt[receipt_image]\"; filename=\"20101106_confirmation_amex.pdf\"\r\nContent-Type: application/pdf\r\n", @tempfile=#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8985-wwliqk>>}, "commit"=>"Create Receipt"}
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.3ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+  [1m[36mAREL (0.4ms)[0m  [1mINSERT INTO "receipts" ("store_id", "purchase_date", "total", "created_at", "updated_at", "expensable", "user_id", "expensed", "expense_report_id", "receipt_image") VALUES (6, '2010-11-17', 98.0, '2010-11-18 06:12:28.740124', '2010-11-18 06:12:28.740124', 'f', 1, 'f', NULL, NULL)[0m
+Redirected to http://localhost:3000/receipts/52
+Completed 302 Found in 165ms
+
+
+Started GET "/receipts/52" for 127.0.0.1 at 2010-11-17 22:12:28 -0800
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"52"}
+  [1m[35mUser Load (0.6ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mReceipt Load (0.4ms)[0m  [1mSELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 52) ORDER BY purchase_date DESC LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE ("stores"."id" = 6) LIMIT 1
+Rendered receipts/show.html.erb within layouts/application (62.6ms)
+Completed 200 OK in 163ms (Views: 66.1ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 22:21:56 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered receipts/_form.html.erb (5.2ms)
+Rendered receipts/new.html.erb within layouts/application (8.8ms)
+Completed 200 OK in 170ms (Views: 35.4ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 22:22:10 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-16", "total"=>" 999", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<ActionDispatch::Http::UploadedFile:0x0000010437a9d8 @original_filename="20101106_confirmation_amex.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"receipt[receipt_image]\"; filename=\"20101106_confirmation_amex.pdf\"\r\nContent-Type: application/pdf\r\n", @tempfile=#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8985-11qxpy4>>}, "commit"=>"Create Receipt"}
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test') LIMIT 1[0m
+Completed   in 282ms
+
+URI::InvalidURIError (bad URI(is not URI?): ):
+  app/controllers/receipts_controller.rb:48:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (122.5ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (127.4ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 22:24:16 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (5.9ms)
+Rendered receipts/new.html.erb within layouts/application (9.6ms)
+Completed 200 OK in 103ms (Views: 38.5ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 22:24:28 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test1", "purchase_date"=>"2010-11-17", "total"=>"43", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<ActionDispatch::Http::UploadedFile:0x00000102018120 @original_filename="20101106_confirmation_citi.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"receipt[receipt_image]\"; filename=\"20101106_confirmation_citi.pdf\"\r\nContent-Type: application/pdf\r\n", @tempfile=#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8995-1u23tf3>>}, "commit"=>"Create Receipt"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.2ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test1') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores"."id" FROM "stores" WHERE (LOWER("stores"."name") = LOWER('test1')) LIMIT 1[0m
+  [1m[35mAREL (22.5ms)[0m  INSERT INTO "stores" ("name", "created_at", "updated_at") VALUES ('test1', '2010-11-18 06:24:28.635336', '2010-11-18 06:24:28.635336')
+Completed   in 202ms
+
+URI::InvalidURIError (bad URI(is not URI?): ):
+  app/controllers/receipts_controller.rb:48:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.6ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (110.5ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (117.2ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 22:25:50 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test", "purchase_date"=>"2010-11-17", "total"=>"43", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<ActionDispatch::Http::UploadedFile:0x00000102a1e5e8 @original_filename="20101106_confirmation_citi.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"receipt[receipt_image]\"; filename=\"20101106_confirmation_citi.pdf\"\r\nContent-Type: application/pdf\r\n", @tempfile=#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8995-1r5baii>>}, "commit"=>"Create Receipt"}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Completed   in 117ms
+
+SyntaxError (/Users/ThoughtWorks/sgdev/expenselynx/app/uploaders/receipt_image_uploader.rb:8: syntax error, unexpected keyword_end):
+  app/models/receipt.rb:11:in `<class:Receipt>'
+  app/models/receipt.rb:3:in `<top (required)>'
+  app/controllers/receipts_controller.rb:38:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (1.1ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (79.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (85.3ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 22:26:08 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[35mUser Load (0.4ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Completed   in 74ms
+
+SyntaxError (/Users/ThoughtWorks/sgdev/expenselynx/app/uploaders/receipt_image_uploader.rb:8: syntax error, unexpected keyword_end):
+  app/models/receipt.rb:11:in `<class:Receipt>'
+  app/models/receipt.rb:3:in `<top (required)>'
+  app/controllers/receipts_controller.rb:25:in `new'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (69.8ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (74.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 22:26:31 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+Rendered receipts/_form.html.erb (40.0ms)
+Rendered receipts/new.html.erb within layouts/application (43.7ms)
+Completed 200 OK in 233ms (Views: 147.7ms | ActiveRecord: 1.2ms)
+
+
+Started GET "/stores/search?term=test" for 127.0.0.1 at 2010-11-17 22:26:33 -0800
+  Processing by StoresController#search as JSON
+  Parameters: {"term"=>"test"}
+  [1m[35mStore Load (0.5ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) LIKE 'test%')
+Rendered stores/search.html.erb (5.4ms)
+Completed 200 OK in 55ms (Views: 45.7ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 22:27:25 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test1", "purchase_date"=>"2010-11-17", "total"=>"90", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<ActionDispatch::Http::UploadedFile:0x00000100fafdb0 @original_filename="20101106_confirmation_amex.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"receipt[receipt_image]\"; filename=\"20101106_confirmation_amex.pdf\"\r\nContent-Type: application/pdf\r\n", @tempfile=#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-8995-foa5ef>>}, "commit"=>"Create Receipt"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test1') LIMIT 1
+Completed   in 136ms
+
+URI::InvalidURIError (bad URI(is not URI?): ):
+  app/controllers/receipts_controller.rb:48:in `create'
+
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_trace.erb (0.9ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/_request_and_response.erb (77.5ms)
+Rendered /Users/ThoughtWorks/.rvm/gems/ruby-1.9.2-p0/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/diagnostics.erb within rescues/layout (82.0ms)
+
+
+Started GET "/receipts/new" for 127.0.0.1 at 2010-11-17 22:32:33 -0800
+  Processing by ReceiptsController#new as HTML
+  [1m[36mSQL (0.7ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered receipts/_form.html.erb (4.1ms)
+Rendered receipts/new.html.erb within layouts/application (6.8ms)
+Completed 200 OK in 72ms (Views: 10.7ms | ActiveRecord: 1.2ms)
+
+
+Started POST "/receipts" for 127.0.0.1 at 2010-11-17 22:32:47 -0800
+  Processing by ReceiptsController#create as HTML
+  Parameters: {"utf8"=>"✓", "authenticity_token"=>"9vVHYOU2Xhr+NayOfg0ERzKfqDQu15OixzM9yKNHxKE=", "receipt"=>{"store_name"=>"test1", "purchase_date"=>"2010-11-17", "total"=>"98", "expensable"=>"0", "expensed"=>"0", "receipt_image"=>#<ActionDispatch::Http::UploadedFile:0x000001012c1e90 @original_filename="20101024_att-wireless_sghill.pdf", @content_type="application/pdf", @headers="Content-Disposition: form-data; name=\"receipt[receipt_image]\"; filename=\"20101024_att-wireless_sghill.pdf\"\r\nContent-Type: application/pdf\r\n", @tempfile=#<File:/var/folders/IS/IShC2rX8ETCiulv3hXoG5k+++TI/-Tmp-/RackMultipart20101117-9008-tsdbvi>>}, "commit"=>"Create Receipt"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mStore Load (0.3ms)[0m  SELECT "stores".* FROM "stores" WHERE (LOWER(name) = 'test1') LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 8) LIMIT 1[0m
+  [1m[35mAREL (0.5ms)[0m  INSERT INTO "receipts" ("store_id", "purchase_date", "total", "created_at", "updated_at", "expensable", "user_id", "expensed", "expense_report_id", "receipt_image") VALUES (8, '2010-11-17', 98.0, '2010-11-18 06:33:02.159836', '2010-11-18 06:33:02.159836', 'f', 1, 'f', NULL, NULL)
+Redirected to http://localhost:3000/receipts/53
+Completed 302 Found in 14960ms
+
+
+Started GET "/receipts/53" for 127.0.0.1 at 2010-11-17 22:33:02 -0800
+  Processing by ReceiptsController#show as HTML
+  Parameters: {"id"=>"53"}
+  [1m[36mUser Load (0.4ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1[0m
+  [1m[35mReceipt Load (0.5ms)[0m  SELECT "receipts".* FROM "receipts" WHERE ("receipts".user_id = 1) AND ("receipts"."id" = 53) ORDER BY purchase_date DESC LIMIT 1
+  [1m[36mStore Load (0.2ms)[0m  [1mSELECT "stores".* FROM "stores" WHERE ("stores"."id" = 8) LIMIT 1[0m
+Rendered receipts/show.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 112ms (Views: 31.2ms | ActiveRecord: 2.4ms)

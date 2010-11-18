@@ -9,7 +9,7 @@
     </ul>
   </div>
 <% end %>
-<%= form_for(@receipt) do |f| %>
+<%= form_for(@receipt, :html => {:multipart => true}) do |f| %>
   <div class="field">
     <%= f.label :store_name %><br />
     <%= f.text_field :store_name, :placeholder => 'Store Name' %>
@@ -29,6 +29,10 @@
   <div class="field">
     <%= f.label :expensed, 'Expensed?' %>
     <%= f.check_box :expensed %>
+  </div>
+  <div class="field">
+    <%= f.label :receipt_image %>
+    <%= f.file_field :receipt_image %>
   </div>
   <div class="actions">
    <%= f.submit %>
