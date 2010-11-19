@@ -249,4 +249,13 @@ class ReceiptsControllerTest < ActionController::TestCase
     assert_equal "test.pdf", assigns(:receipt).receipt_image
   end
   
+  test "should not save receipt with bmp image attachment" do
+    sign_in @john
+    assert_raises CarrierWave::IntegrityError do
+      post :create, :receipt => { :store_name => "Target", 
+                                  :purchase_date => 1.day.ago, 
+                                  :total => 6.50,
+                                  :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.bmp") }
+    end
+  end
 end
