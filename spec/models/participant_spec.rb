@@ -6,28 +6,28 @@ describe Participant do
   end
   
   it "should require a name" do
-    @participant = Participant.new
+    @participant = Participant.new(:user => @sara)
     @participant.should_not be_valid
   end
   
   it "should have a name of type string" do
-    @participant = Participant.new(:name => "turtle")
+    @participant = Participant.new(:name => "turtle", :user => @sara)
     @participant.name.should be_a_kind_of(String)
   end
   
   it "should belong to many receipts" do
-    @participant = Participant.new(:name => "frank")
+    @participant = Participant.new(:name => "frank", :user => @sara)
     @participant.receipts.should be_an_instance_of(Array)
   end
   
-  it "should belong to a user" do
-    @participant = Participant.new(:name => "alf", :user => @sara)
-    @participant.user.should eql(@sara)
+  it "must belong to a user" do
+    @participant = Participant.new(:name => "alf")
+    @participant.should_not be_valid
   end
   
   it "should not be saved with the same user and name" do
-    Participant.create(:name => "frank")
-    @participant2 = Participant.new(:name => "frank")
+    Participant.create(:name => "frank", :user => @sara)
+    @participant2 = Participant.new(:name => "frank", :user => @sara)
     @participant2.should_not be_valid
   end
 end

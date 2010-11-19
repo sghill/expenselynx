@@ -4,4 +4,5 @@ class Participant < ActiveRecord::Base
   
   validates :name, :presence => true
   validates_uniqueness_of :name
+  validates :user, :presence => true
 end
