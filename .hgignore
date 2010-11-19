@@ -5,3 +5,4 @@ syntax: glob
 .git/*
 public/uploads/*
 public/receipts/*
+*.lock
