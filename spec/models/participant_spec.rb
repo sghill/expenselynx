@@ -1,6 +1,10 @@
 require 'spec_helper'
 
 describe Participant do
+  before do
+    @sara = Factory(:sara)
+  end
+  
   it "should require a name" do
     @participant = Participant.new
     @participant.should_not be_valid
@@ -17,8 +21,13 @@ describe Participant do
   end
   
   it "should belong to a user" do
-    @sara = Factory(:sara)
     @participant = Participant.new(:name => "alf", :user => @sara)
     @participant.user.should eql(@sara)
+  end
+  
+  it "should not be saved with the same user and name" do
+    Participant.create(:name => "frank")
+    @participant2 = Participant.new(:name => "frank")
+    @participant2.should_not be_valid
   end
 end
