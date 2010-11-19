@@ -209,7 +209,7 @@ class ReceiptsControllerTest < ActionController::TestCase
   #
   HORRIBLE_STATIC_FILE_LOCATION = "/Users/ThoughtWorks/sgdev/expenselynx/spec"
   
-  test "should save receipt with image attachment" do
+  test "should save receipt with png image attachment" do
     sign_in @john
     post :create, :receipt => { :store_name => "Target", 
                                 :purchase_date => 1.day.ago, 
@@ -218,4 +218,35 @@ class ReceiptsControllerTest < ActionController::TestCase
     get :show, :id => assigns(:receipt).id
     assert_equal "test.png", assigns(:receipt).receipt_image
   end
+  
+  test "should save receipt with jpg image attachment" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", 
+                                :purchase_date => 1.day.ago, 
+                                :total => 6.50,
+                                :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.jpg") }
+    get :show, :id => assigns(:receipt).id
+    assert_equal "test.jpg", assigns(:receipt).receipt_image
+  end
+  
+  test "should save receipt with jpeg image attachment" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", 
+                                :purchase_date => 1.day.ago, 
+                                :total => 6.50,
+                                :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.jpeg") }
+    get :show, :id => assigns(:receipt).id
+    assert_equal "test.jpeg", assigns(:receipt).receipt_image
+  end
+  
+  test "should save receipt with pdf image attachment" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", 
+                                :purchase_date => 1.day.ago, 
+                                :total => 6.50,
+                                :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.pdf") }
+    get :show, :id => assigns(:receipt).id
+    assert_equal "test.pdf", assigns(:receipt).receipt_image
+  end
+  
 end
