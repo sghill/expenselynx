@@ -6,7 +6,7 @@ class ReceiptImageUploader < CarrierWave::Uploader::Base
   end
   
   def extension_white_list
-    %(png jpg jpeg)
+    %(png jpg jpeg pdf)
   end
 
   def store_dir
