@@ -203,4 +203,19 @@ class ReceiptsControllerTest < ActionController::TestCase
       delete :destroy, :id => johns_receipt.id
     end
   end
+  
+  #
+  # image uploading
+  #
+  HORRIBLE_STATIC_FILE_LOCATION = "/Users/ThoughtWorks/sgdev/expenselynx/spec"
+  
+  test "should save receipt with image attachment" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", 
+                                :purchase_date => 1.day.ago, 
+                                :total => 6.50,
+                                :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.png") }
+    get :show, :id => assigns(:receipt).id
+    assert_equal "test.png", assigns(:receipt).receipt_image
+  end
 end

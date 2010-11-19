@@ -43,10 +43,11 @@ class ReceiptsController < ApplicationController
       :expensed => params[:receipt][:expensed],
       :user => current_user)
       
-      #spike
-      uploader = ReceiptImageUploader.new
-      uploader.store!(params[:receipt][:receipt_image])
-      #spike
+      unless params[:receipt][:receipt_image].nil?
+        uploader = ReceiptImageUploader.new(current_user)
+        uploader.store!(params[:receipt][:receipt_image])
+        @receipt.receipt_image = File.basename(params[:receipt][:receipt_image])
+      end
       
     respond_to do |format|
       if @receipt.save
