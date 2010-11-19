@@ -40,5 +40,10 @@ describe ReceiptImageUploader do
     it "should allow pdf" do
       @uploader.store!(File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.pdf"))            
     end
+    
+    it "should be read only" do
+      @uploader.store!(File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.png"))
+      @uploader.should have_permissions(0444)
+    end
   end
 end
