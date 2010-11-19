@@ -4,6 +4,7 @@ class Receipt < ActiveRecord::Base
   belongs_to :store
   belongs_to :user
   belongs_to :expense_report
+  has_and_belongs_to_many :participants
   
   default_scope :order => 'purchase_date DESC'
   

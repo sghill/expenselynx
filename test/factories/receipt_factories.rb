@@ -5,6 +5,7 @@ Factory.define :receipt do |r|
 end
 
 Factory.define :chipotle_burrito, :class => Receipt do |r|
+  r.user {|u| u.association(:sara)}
   r.store {|s| s.association(:chipotle)}
   r.purchase_date DateTime.now
   r.total 27.91
