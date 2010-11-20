@@ -30,4 +30,10 @@ describe Participant do
     @participant2 = Participant.new(:name => "frank", :user => @sara)
     @participant2.should_not be_valid
   end
+  
+  it "should not be saved with the same user and name case insensitive" do
+    Participant.create(:name => "frank", :user => @sara)
+    @participant2 = Participant.new(:name => "fRaNk", :user => @sara)
+    @participant2.should_not be_valid
+  end
 end

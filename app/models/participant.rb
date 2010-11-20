@@ -3,6 +3,6 @@ class Participant < ActiveRecord::Base
   belongs_to :user
   
   validates :name, :presence => true
-  validates_uniqueness_of :name
+  validates_uniqueness_of :name, :case_sensitive => false
   validates :user, :presence => true
 end
