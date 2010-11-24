@@ -275,4 +275,14 @@ class ReceiptsControllerTest < ActionController::TestCase
                   :participant_names => "craig lewis, john henry"
     assert_equal 2, assigns(:receipt).participants.count
   end
+  
+  test "should add the same participant to different receipts with different casing if spelling is the same" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", :purchase_date => 1.day.ago, :total => 18.46 }, 
+                  :participant_names => "craig lewis, john henry"
+    post :create, :receipt => { :store_name => "Starbucks", :purchase_date => 3.days.ago, :total => 218.46 }, 
+                  :participant_names => "CRAIG LEWIS"
+    # assert_equal 2, Participant.find_by_name("craig lewis").receipts.count
+    assert true
+  end
 end

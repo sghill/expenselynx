@@ -36,4 +36,12 @@ describe Participant do
     @participant2 = Participant.new(:name => "fRaNk", :user => @sara)
     @participant2.should_not be_valid
   end
+  
+  context "searching" do
+    it "should find or create by regardless of case" do
+      original_tom = Participant.create(:name => "tom", :user => @sara)
+      participant2 = Participant.find_or_create_by_name("TOM")
+      participant2.should == original_tom
+    end
+  end
 end
