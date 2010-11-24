@@ -35,13 +35,22 @@ class ReceiptsController < ApplicationController
   end
 
   def create
+    participants = []
+    unless params[:participant_names].nil?
+      params[:participant_names].split(",").each do |name|
+        guy = Participant.find_or_create_by_name(name)
+        guy.update_attributes(:user => current_user)
+        participants << guy
+      end
+    end
     @receipt = Receipt.new(
       :purchase_date => params[:receipt][:purchase_date],
       :total => params[:receipt][:total],
       :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
       :expensable => params[:receipt][:expensable],
       :expensed => params[:receipt][:expensed],
-      :user => current_user)
+      :user => current_user,
+      :participants => participants)
       
       unless params[:receipt][:receipt_image].nil?
         uploader = ReceiptImageUploader.new(current_user)

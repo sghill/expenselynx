@@ -53,7 +53,7 @@ class ReceiptsControllerTest < ActionController::TestCase
     assert_redirected_to new_user_session_path
   end
 
-  test "should POST create receipt with US date when logged in" do
+  test "should POST create receipt with date when logged in" do
     sign_in @john
     assert_difference('Receipt.count') do
       post :create, :receipt => { :store_name => "Target", :purchase_date => @today, :total => 18.46 }
@@ -257,5 +257,22 @@ class ReceiptsControllerTest < ActionController::TestCase
                                   :total => 6.50,
                                   :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.bmp") }
     end
+  end
+  
+  #
+  # participants
+  #
+  test "should add a participant name to a receipt" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", :purchase_date => 1.day.ago, :total => 18.46 }, 
+                  :participant_names => "craig lewis"
+    assert_not_nil assigns(:receipt).participants.first
+  end
+  
+  test "should add a comma separated list of participants to a receipt" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", :purchase_date => 1.day.ago, :total => 18.46 }, 
+                  :participant_names => "craig lewis, john henry"
+    assert_equal 2, assigns(:receipt).participants.count
   end
 end

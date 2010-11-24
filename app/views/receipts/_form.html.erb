@@ -31,6 +31,10 @@
     <%= f.check_box :expensed %>
   </div>
   <div class="field">
+    <%= f.label :participant_names %>
+    <%= text_field_tag :participant_names %>
+  </div>
+  <div class="field">
     <%= f.label :receipt_image %>
     <%= f.file_field :receipt_image %>
   </div>

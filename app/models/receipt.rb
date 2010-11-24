@@ -16,9 +16,6 @@ class Receipt < ActiveRecord::Base
            :nonexpensable_receipt_is_not_expensed,
            :nonexpensable_receipt_is_not_member_of_expense_report
            
-  attr_reader :store_name
-  
-  
   def store_name
     self.store.name unless self.store.nil? 
   end
