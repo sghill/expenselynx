@@ -10,35 +10,39 @@
   </div>
 <% end %>
 <%= form_for(@receipt, :html => {:multipart => true}) do |f| %>
-  <div class="field">
-    <%= f.label :store_name %><br />
-    <%= f.text_field :store_name, :placeholder => 'Store Name' %>
-  </div>
-  <div class="field">
-    <%= f.label :purchase_date %><br />
-    <%= f.text_field :purchase_date, :placeholder => 'Purchased On' %>
-  </div>
-  <div class="field">
-    <%= f.label :total %><br />
-    <%= f.number_field :total, :placeholder => 'Total', :size => 10 %>
-  </div>
-  <div class="field">
-      <%= f.label :expensable, 'Expensable?' %>
-      <%= f.check_box :expensable %>
-  </div>
-  <div class="field">
-    <%= f.label :expensed, 'Expensed?' %>
-    <%= f.check_box :expensed %>
-  </div>
-  <div class="field">
-    <%= f.label :participant_names %>
-    <%= text_field_tag :participant_names %>
-  </div>
-  <div class="field">
-    <%= f.label :receipt_image %>
-    <%= f.file_field :receipt_image %>
-  </div>
-  <div class="actions">
-   <%= f.submit %>
+  <div id="receipt_fields">
+    <div id="receipt_fields_core">
+      <div class="field">
+        <%= f.label :store_name %><br />
+        <%= f.text_field :store_name, :placeholder => 'Store Name' %>
+      </div>
+      <div class="field">
+        <%= f.label :purchase_date %><br />
+        <%= f.text_field :purchase_date, :placeholder => 'Purchased On' %>
+      </div>
+      <div class="field">
+        <%= f.label :total %><br />
+        <%= f.number_field :total, :placeholder => 'Total', :size => 10 %>
+      </div>
+    </div>
+    <div id="receipt_fields_metadata">
+      <div class="field">
+        <%= f.label :expensable, 'Expensable?' %>
+        <%= f.check_box :expensable %>
+        <%= f.label :expensed, 'Expensed?' %>
+        <%= f.check_box :expensed %>
+      </div>
+      <div class="field">
+        <%= f.label :participant_names %>
+        <%= text_field_tag :participant_names %>
+      </div>
+      <div class="field">
+        <%= f.label :receipt_image %>
+        <%= f.file_field :receipt_image %>
+      </div>
+    </div>
+    <div class="actions clearer">
+     <%= f.submit %>
+    </div>
   </div>
 <% end %>

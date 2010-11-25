@@ -49,12 +49,26 @@ a {
 	text-align:center;
 }
 
+/* RECEIPTS */
+#receipt_fields {
+  margin-left:auto;
+  margin-right:auto;
+  width:545px;
+}
+
+#receipt_fields_core {
+  width:230px;
+  float:left;
+}
+
+#receipt_fields_metadata {
+  width:310px;
+  float:left;
+}
+
 /* RECEIPTS TABLE */
 .summary_table {
   margin:0 auto;
-}
-#recent_receipts {
-/*  margin:0 auto;*/
 }
 
 .summary_table tr th {
