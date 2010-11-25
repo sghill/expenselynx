@@ -43,5 +43,20 @@ describe Participant do
       participant2 = Participant.find_or_create_by_name("TOM")
       participant2.should == original_tom
     end
+    
+    it "should find things starting with the term when searching" do
+      tom = Participant.create(:name => "tom", :user => @sara)
+      mitch = Participant.create(:name => "mitchell", :user => @sara)
+      results = Participant.search_by_name("t")
+      results.count.should == 1
+    end
+    
+    it "should find things starting with the term when searching in a different case" do
+      tom = Participant.create(:name => "thomas", :user => @sara)
+      mitch = Participant.create(:name => "mitchell", :user => @sara)
+      results = Participant.search_by_name("TH")
+
+      results.first.should == tom
+    end
   end
 end
