@@ -5,7 +5,7 @@ class ParticipantController < ApplicationController
     @participants = @participants.search_by_name(params[:term]) unless params[:term].nil?
     
     respond_to do |format|
-      format.html { :render layout => false }
+      format.html { render :layout => false }
     end
   end
 
