@@ -53,7 +53,7 @@ class ReceiptsControllerTest < ActionController::TestCase
     assert_redirected_to new_user_session_path
   end
 
-  test "should POST create receipt with US date when logged in" do
+  test "should POST create receipt with date when logged in" do
     sign_in @john
     assert_difference('Receipt.count') do
       post :create, :receipt => { :store_name => "Target", :purchase_date => @today, :total => 18.46 }
@@ -202,5 +202,95 @@ class ReceiptsControllerTest < ActionController::TestCase
     assert_raise ActiveRecord::RecordNotFound do
       delete :destroy, :id => johns_receipt.id
     end
+  end
+  
+  #
+  # image uploading
+  #
+  HORRIBLE_STATIC_FILE_LOCATION = "/Users/ThoughtWorks/sgdev/expenselynx/spec"
+  
+  test "should save receipt with png image attachment" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", 
+                                :purchase_date => 1.day.ago, 
+                                :total => 6.50,
+                                :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.png") }
+    get :show, :id => assigns(:receipt).id
+    assert_equal "test.png", assigns(:receipt).receipt_image
+  end
+  
+  test "should save receipt with jpg image attachment" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", 
+                                :purchase_date => 1.day.ago, 
+                                :total => 6.50,
+                                :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.jpg") }
+    get :show, :id => assigns(:receipt).id
+    assert_equal "test.jpg", assigns(:receipt).receipt_image
+  end
+  
+  test "should save receipt with jpeg image attachment" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", 
+                                :purchase_date => 1.day.ago, 
+                                :total => 6.50,
+                                :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.jpeg") }
+    get :show, :id => assigns(:receipt).id
+    assert_equal "test.jpeg", assigns(:receipt).receipt_image
+  end
+  
+  test "should save receipt with pdf image attachment" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", 
+                                :purchase_date => 1.day.ago, 
+                                :total => 6.50,
+                                :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.pdf") }
+    get :show, :id => assigns(:receipt).id
+    assert_equal "test.pdf", assigns(:receipt).receipt_image
+  end
+  
+  test "should not save receipt with bmp image attachment" do
+    sign_in @john
+    assert_raises CarrierWave::IntegrityError do
+      post :create, :receipt => { :store_name => "Target", 
+                                  :purchase_date => 1.day.ago, 
+                                  :total => 6.50,
+                                  :receipt_image => File.open("#{HORRIBLE_STATIC_FILE_LOCATION}/tmp/test.bmp") }
+    end
+  end
+  
+  #
+  # participants
+  #
+  test "should add a participant name to a receipt" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", :purchase_date => 1.day.ago, :total => 18.46 }, 
+                  :participant_names => "craig lewis"
+    assert_not_nil assigns(:receipt).participants.first
+  end
+  
+  test "should add a comma separated list of participants to a receipt" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", :purchase_date => 1.day.ago, :total => 18.46 }, 
+                  :participant_names => "craig lewis, john henry"
+    assert_equal 2, assigns(:receipt).participants.count
+  end
+  
+  test "should add the same participant to different receipts with different casing if spelling is the same" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", :purchase_date => 1.day.ago, :total => 18.46 }, 
+                  :participant_names => "craig lewis, john henry"
+    post :create, :receipt => { :store_name => "Starbucks", :purchase_date => 3.days.ago, :total => 218.46 }, 
+                  :participant_names => "CRAIG LEWIS"
+    assert_equal 2, Participant.find_by_name("craig lewis").receipts.count
+  end
+  
+  test "should update receipt to include participant name" do
+    sign_in @john
+    put :update, :id => @receipt.to_param, :receipt => {:store_name => @receipt.store.name,
+                                                        :purchase_date => 1.day.ago,
+                                                        :total => 8.32},
+                                           :participant_names => "wilfred bremly, zacarias"
+    assert_equal 2, assigns(:receipt).participants.count
   end
 end

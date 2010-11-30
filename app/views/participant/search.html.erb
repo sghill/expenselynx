@@ -1,0 +1,5 @@
+<% data = [] %>
+<% @participants.each do |p| %>
+  <% data << {:label => "#{(p.name)}"} %>
+<% end %>
+<%= data.to_json.html_safe %>

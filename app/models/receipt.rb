@@ -1,7 +1,10 @@
+require 'carrierwave/orm/activerecord'
+
 class Receipt < ActiveRecord::Base
   belongs_to :store
   belongs_to :user
   belongs_to :expense_report
+  has_and_belongs_to_many :participants
   
   default_scope :order => 'purchase_date DESC'
   
@@ -13,9 +16,6 @@ class Receipt < ActiveRecord::Base
            :nonexpensable_receipt_is_not_expensed,
            :nonexpensable_receipt_is_not_member_of_expense_report
            
-  attr_reader :store_name
-  
-  
   def store_name
     self.store.name unless self.store.nil? 
   end

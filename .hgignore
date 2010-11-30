@@ -3,3 +3,6 @@ syntax: glob
 .DS_Store
 .git
 .git/*
+public/uploads/*
+public/receipts/*
+*.lock

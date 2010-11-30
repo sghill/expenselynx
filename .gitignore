@@ -4,3 +4,6 @@ log/*.log
 tmp/**/*
 .hg/*
 .DS_Store
+public/receipts/*
+public/uploads/*
+*.lock

@@ -35,14 +35,29 @@ class ReceiptsController < ApplicationController
   end
 
   def create
+    participants = []
+    unless params[:participant_names].nil?
+      params[:participant_names].split(",").each do |name|
+        guy = Participant.find_or_create_by_name(name)
+        guy.update_attributes(:user => current_user)
+        participants << guy
+      end
+    end
     @receipt = Receipt.new(
       :purchase_date => params[:receipt][:purchase_date],
       :total => params[:receipt][:total],
       :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
       :expensable => params[:receipt][:expensable],
       :expensed => params[:receipt][:expensed],
-      :user => current_user)
-
+      :user => current_user,
+      :participants => participants)
+      
+      unless params[:receipt][:receipt_image].nil?
+        uploader = ReceiptImageUploader.new(current_user)
+        uploader.store!(params[:receipt][:receipt_image])
+        @receipt.receipt_image = File.basename(params[:receipt][:receipt_image])
+      end
+      
     respond_to do |format|
       if @receipt.save
         format.js
@@ -57,6 +72,14 @@ class ReceiptsController < ApplicationController
 
   def update
     @receipt = current_user.receipts.find(params[:id])
+     participants = []
+      unless params[:participant_names].nil?
+        params[:participant_names].split(",").each do |name|
+          guy = Participant.find_or_create_by_name(name)
+          guy.update_attributes(:user => current_user)
+          participants << guy
+        end
+      end
 
     respond_to do |format|
       if @receipt.update_attributes(:purchase_date => params[:receipt][:purchase_date],
@@ -64,7 +87,8 @@ class ReceiptsController < ApplicationController
           :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
           :expensable => params[:receipt][:expensable],
           :expensed => params[:receipt][:expensed],
-          :user => current_user)
+          :user => current_user,
+          :participants => participants)
           
         format.html { redirect_to(@receipt, :notice => 'Receipt was successfully updated.') }
         format.xml  { head :ok }

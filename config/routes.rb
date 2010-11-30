@@ -1,4 +1,6 @@
 Expenselynx::Application.routes.draw do
+  match "participants/search" => 'participant#search'
+
   get "expense_report/:id" => "expense_report#show", :as => "expense_report"
   post "expense_report/create"
   devise_for :users
