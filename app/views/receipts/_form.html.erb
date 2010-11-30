@@ -18,7 +18,7 @@
       </div>
       <div class="field">
         <%= f.label :purchase_date %><br />
-        <%= f.text_field :purchase_date, :placeholder => 'Purchased On' %>
+        <%= f.text_field :purchase_date, :placeholder => 'Purchased On', :size => 11 %>
       </div>
       <div class="field">
         <%= f.label :total %><br />
@@ -35,6 +35,10 @@
       <div class="field">
         <%= f.label :participant_names %><br />
         <%= text_field_tag :participant_names, nil, :placeholder => 'Art Vandelay, SG Hill' %>
+      </div>
+      <div class="field">
+        <%= f.label :note %><br />
+        <%= f.text_field :note, :placeholder => 'breakfast, cell phone' %>
       </div>
     </div>
     <div class="actions clearer">

@@ -293,4 +293,21 @@ class ReceiptsControllerTest < ActionController::TestCase
                                            :participant_names => "wilfred bremly, zacarias"
     assert_equal 2, assigns(:receipt).participants.count
   end
+  
+  #
+  # note
+  #
+  test "should create receipt with note" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", :purchase_date => 1.day.ago, :total => 18.46, :note => "breakfast" }
+    assert_not_nil assigns(:receipt).note
+  end
+  
+  test "should update receipt with note" do
+    sign_in @john
+    put :update, :id => @receipt.to_param, :receipt => {:store_name => @receipt.store.name,
+                                                        :purchase_date => 1.day.ago,
+                                                        :total => 8.32, :note => "team lunch"}
+    assert_not_nil assigns(:receipt).note
+  end
 end
