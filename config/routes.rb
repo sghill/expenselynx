@@ -1,5 +1,5 @@
 Expenselynx::Application.routes.draw do
-  get "participant/search"
+  match "participants/search" => 'participant#search'
 
   get "expense_report/:id" => "expense_report#show", :as => "expense_report"
   post "expense_report/create"
