@@ -49,6 +49,7 @@ class ReceiptsController < ApplicationController
       :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
       :expensable => params[:receipt][:expensable],
       :expensed => params[:receipt][:expensed],
+      :note => params[:receipt][:note],
       :user => current_user,
       :participants => participants)
       
@@ -87,6 +88,7 @@ class ReceiptsController < ApplicationController
           :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
           :expensable => params[:receipt][:expensable],
           :expensed => params[:receipt][:expensed],
+          :note => params[:receipt][:note],
           :user => current_user,
           :participants => participants)
           
