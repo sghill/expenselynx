@@ -1,6 +1,6 @@
 class ReceiptsController < ApplicationController
   before_filter :authenticate_user!, 
-    :only => [:index, :new, :create, :show, :edit, :update, :destroy]
+    :only => [:index, :new, :create, :show, :edit, :update, :destroy, :upload]
     
   def index
     @receipt = Receipt.new(:purchase_date => Time.now.to_date)

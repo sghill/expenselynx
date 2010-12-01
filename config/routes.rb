@@ -9,5 +9,6 @@ Expenselynx::Application.routes.draw do
   match 'dashboard/unexpensed' => 'dashboard#unexpensed'
   resources :dashboard
   resources :receipts
+  post "receipts/upload"
   root :to => "dashboard#index"
 end

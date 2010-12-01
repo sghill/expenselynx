@@ -77,6 +77,18 @@ class DashboardControllerTest < ActionController::TestCase
     assert_equal 11, assigns(:stats)[:unexpensed_total]
   end
   
+  test "index should show total number of unexpensed receipts" do
+    Receipt.create(:store => @chipotle,:purchase_date => 1.day.ago,:total => 9.90,:user => @sara, :expensable => true, :expensed => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @sara)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @sara, :expensable => true)
+    Receipt.create(:store => @chipotle,:purchase_date => 2.days.ago,:total => 11,:user => @john)
+    
+    sign_in @sara
+    get :index
+    assert assigns(:stats)[:unexpensed_receipts_count].is_a?(Integer)
+    assert_equal 1, assigns(:stats)[:unexpensed_receipts_count]
+  end
+  
   test "index should show total of all expensed receipts" do
     Receipt.create(:store => @chipotle,:purchase_date => 1.day.ago,:total => 9.90,:user => @sara, :expensable => true, :expensed => true)
     Receipt.create(:store => @chipotle,:purchase_date => 3.days.ago,:total => 10,:user => @sara)
