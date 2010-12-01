@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_filter :authenticate_user!, :only => :index
+  before_filter :authenticate_user!, :only => [:index, :unexpensed]
   def index
     @receipt = Receipt.new(:purchase_date => Time.now.to_date)
     @receipts = current_user.receipts.find(:all, :limit => 5)
