@@ -1,0 +1,11 @@
+= form_for(@store) do |f|
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name, :disabled => true
+  .field
+    = f.label :expense_category
+    %br/
+    = select :store, :expense_category, ExpenseCategory::CATEGORIES, {:include_blank => true}
+  .actions.clearer
+    = f.submit

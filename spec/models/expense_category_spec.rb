@@ -6,6 +6,10 @@ describe ExpenseCategory do
     category.stores.should be_instance_of(Array)
   end
   
+  it "should have a static list of tw categories" do
+    ExpenseCategory::CATEGORIES.should be_instance_of(Array)
+  end
+  
   context "validation" do
     it "must have a name" do
       category = ExpenseCategory.new
