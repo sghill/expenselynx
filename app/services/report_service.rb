@@ -21,6 +21,7 @@ class ReportService
     return flat_receipt
   end
   
+  # UNTESTED SPIKE
   def export_expense_report_as_csv( receipt_ids )
     file_name = "public/expense_report.csv"
     File.open(file_name, "w") do |file|    
@@ -30,4 +31,5 @@ class ReportService
     end
     return file_name
   end
+  #END UNTESTED SPIKE
 end
