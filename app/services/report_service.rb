@@ -1,3 +1,5 @@
+require 'tempfile'
+
 class ReportService
   def flatten_receipt( receipt_id )
     receipt = Receipt.find(receipt_id)
@@ -6,16 +8,26 @@ class ReportService
     participant_names = receipt.participants.collect{ |p| p.name }
     participant_names << "me"
     
-    flat_receipt = []
-    flat_receipt << expense_category.name
-    flat_receipt << receipt.purchase_date
-    flat_receipt << receipt.total
-    flat_receipt << "USD"
-    flat_receipt << (receipt.note.nil? ? "" : receipt.note)
-    flat_receipt << store.name
-    flat_receipt << "Personal Card"
-    flat_receipt << participant_names.join("; ")
-    flat_receipt << false
+    flat_receipt = Array.new(9)
+    flat_receipt[0] = expense_category.name
+    flat_receipt[1] = receipt.purchase_date
+    flat_receipt[2] = receipt.total
+    flat_receipt[3] = "USD"
+    flat_receipt[4] = receipt.note.nil? ? "" : receipt.note
+    flat_receipt[5] = store.name
+    flat_receipt[6] = "Personal Card"
+    flat_receipt[7] = participant_names.join("; ")
+    flat_receipt[8] = false
     return flat_receipt
+  end
+  
+  def export_expense_report_as_csv( receipt_ids )
+    file_name = "public/expense_report.csv"
+    File.open(file_name, "w") do |file|    
+      receipt_ids.each do |receipt|
+        file.puts flatten_receipt(receipt).join(",")
+      end
+    end
+    return file_name
   end
 end

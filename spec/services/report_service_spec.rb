@@ -7,41 +7,15 @@ describe ReportService do
     @sara = Factory(:sara)
     @participants = [Participant.create(:name => "tim", :user => @sara), 
                      Participant.create(:name => "alice", :user => @sara)]
+    @full_receipt = Receipt.create(:purchase_date => 1.day.ago,
+                                   :total => 12.45,
+                                   :user => @sara,
+                                   :store => @store,
+                                   :note => "breakfast",
+                                   :participants => @participants)
   end
-  
-  context "minimally filled receipt" do
-    before do
-      @minimum_receipt = Receipt.create(:purchase_date => 1.day.ago,
-                                        :total => 1.98,
-                                        :user => @sara,
-                                        :store => @store)
-    end
     
-    it "should contain an empty string in the 4th position if no description" do
-      service = ReportService.new
-      flat_receipt = service.flatten_receipt @minimum_receipt.id
-      
-      flat_receipt[4].should == ""
-    end
-    
-    it "should contain me as a participant always" do
-      service = ReportService.new
-      flat_receipt = service.flatten_receipt @minimum_receipt.id
-      
-      flat_receipt[7].should == "me"
-    end
-  end
-  
   context "completely filled out receipt" do
-    before do
-      @full_receipt = Receipt.create(:purchase_date => 1.day.ago,
-                                     :total => 12.45,
-                                     :user => @sara,
-                                     :store => @store,
-                                     :note => "breakfast",
-                                     :participants => @participants)
-    end
-    
     it "should generate an array when given a receipt id" do
       service = ReportService.new
       service.flatten_receipt(@full_receipt.id).should be_instance_of(Array)
@@ -107,6 +81,7 @@ describe ReportService do
       service = ReportService.new
       flat_receipt = service.flatten_receipt(@full_receipt.id)
     
+      assert flat_receipt[7].include? "me"
       assert flat_receipt[7].include? "tim"
       assert flat_receipt[7].include? ";"
       assert flat_receipt[7].include? "alice"
@@ -118,6 +93,37 @@ describe ReportService do
       flat_receipt = service.flatten_receipt(@full_receipt.id)
     
       flat_receipt[8].should == false
+    end
+  end
+  
+  context "minimally filled receipt" do
+    before do
+      @minimum_receipt = Receipt.create(:purchase_date => 1.day.ago,
+                                        :total => 1.98,
+                                        :user => @sara,
+                                        :store => @store)
+    end
+    
+    it "should contain an empty string in the 4th position if no description" do
+      service = ReportService.new
+      flat_receipt = service.flatten_receipt @minimum_receipt.id
+      
+      flat_receipt[4].should == ""
+    end
+    
+    it "should contain me as a participant always" do
+      service = ReportService.new
+      flat_receipt = service.flatten_receipt @minimum_receipt.id
+      
+      flat_receipt[7].should == "me"
+    end
+  end
+  
+  context "file creation" do
+    it "should create a csv file" do
+      service = ReportService.new
+      service.export_expense_report_as_csv
+      pending "test the file?"
     end
   end
 end
