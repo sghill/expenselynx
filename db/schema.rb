@@ -10,7 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101130072258) do
+ActiveRecord::Schema.define(:version => 20101203095809) do
+
+  create_table "expense_categories", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "expense_reports", :force => true do |t|
     t.string   "external_report_id"
@@ -49,6 +55,7 @@ ActiveRecord::Schema.define(:version => 20101130072258) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "expense_category_id"
   end
 
   create_table "users", :force => true do |t|

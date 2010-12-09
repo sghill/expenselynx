@@ -1,5 +1,6 @@
 class Store < ActiveRecord::Base
   has_many :receipts
+  belongs_to :expense_category
   
   validates :name, :presence => true
   validates_uniqueness_of :name, :case_sensitive => false

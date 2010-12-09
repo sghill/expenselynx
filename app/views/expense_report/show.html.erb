@@ -14,3 +14,5 @@
            :locals => { :receipts => @report.receipts,
                         :expensable => false,
                         :expensed => false } %>
+                        
+<%= button_to "Download as CSV", "download_csv/#{@report.id}" %>

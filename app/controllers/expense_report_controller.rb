@@ -1,3 +1,5 @@
+require 'report_service'
+
 class ExpenseReportController < ApplicationController
   before_filter :authenticate_user!, :only => [:show, :create]
   
@@ -20,5 +22,16 @@ class ExpenseReportController < ApplicationController
     if @report.save
       redirect_to @report
     end
+  end
+  
+  # UNTESTED SPIKE
+  def download_csv
+    service = ReportService.new
+    report = current_user.expense_reports.find(params[:id])
+    receipt_ids = report.receipts.collect { |r| r.id }
+    file_name = service.export_expense_report_as_csv(receipt_ids)
+    file = File.open(file_name, "r")
+    send_file file
+    file.close
   end
 end
