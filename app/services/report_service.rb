@@ -21,7 +21,6 @@ class ReportService
     return flat_receipt
   end
   
-  # UNTESTED SPIKE
   def export_expense_report_as_csv( receipt_ids )
     receipt = Receipt.find(receipt_ids.first)
     email = sanitize_email(receipt.user.email)
@@ -33,5 +32,4 @@ class ReportService
     end
     return file_name
   end
-  #END UNTESTED SPIKE
 end
