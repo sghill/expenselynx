@@ -1,6 +1,8 @@
 require 'spec_helper'
 
 describe ReportService do
+  include ReportServiceHelper
+  
   before do
     @category = ExpenseCategory.create(:name => "Hotel")
     @store = Store.create(:name => 'Chipotle', :expense_category => @category)
@@ -122,8 +124,28 @@ describe ReportService do
   context "file creation" do
     it "should create a csv file" do
       service = ReportService.new
-      # service.export_expense_report_as_csv
-      pending "test the file?"
+      filename = service.export_expense_report_as_csv( [@full_receipt.id] )
+      assert filename.include?(".csv")
+    end
+    
+    it "should include the words expense report" do
+      service = ReportService.new
+      filename = service.export_expense_report_as_csv( [@full_receipt.id] )
+      assert filename.include?("expense_report")
+    end
+    
+    it "should include date of generation" do
+      current_date = DateTime.now.to_s
+      service = ReportService.new
+      filename = service.export_expense_report_as_csv( [@full_receipt.id] )
+      assert filename.include?(current_date)
+    end
+    
+    it "should include the current users email" do
+      service = ReportService.new
+      filename = service.export_expense_report_as_csv( [@full_receipt.id] )
+      
+      assert filename.include?(sanitize_email(@sara.email))
     end
   end
 end

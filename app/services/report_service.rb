@@ -1,6 +1,6 @@
-require 'tempfile'
-
 class ReportService
+  include ReportServiceHelper
+  
   def flatten_receipt( receipt_id )
     receipt = Receipt.find(receipt_id)
     store = Store.find_by_name(receipt.store.name)
@@ -23,7 +23,9 @@ class ReportService
   
   # UNTESTED SPIKE
   def export_expense_report_as_csv( receipt_ids )
-    file_name = "public/expense_report.csv"
+    receipt = Receipt.find(receipt_ids.first)
+    email = sanitize_email(receipt.user.email)
+    file_name = "public/expense_report_on_#{DateTime.now.to_date}_for_#{email}.csv"
     File.open(file_name, "w") do |file|    
       receipt_ids.each do |receipt|
         file.puts flatten_receipt(receipt).join(",")
