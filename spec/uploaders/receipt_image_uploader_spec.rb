@@ -11,9 +11,6 @@ describe ReceiptImageUploader do
     @uploader = ReceiptImageUploader.new(@user)
   end
 
-  after do
-  end
-
   context "When saving to a directory" do
     it "should save to receipt folder" do
       @uploader.store_dir.should include("receipts/")

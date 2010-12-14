@@ -1,4 +1,4 @@
-require 'report_service'
+require 'csv'
 
 class ExpenseReportController < ApplicationController
   before_filter :authenticate_user!, :only => [:show, :create]
@@ -26,12 +26,28 @@ class ExpenseReportController < ApplicationController
   
   # UNTESTED SPIKE
   def download_csv
-    service = ReportService.new
-    report = current_user.expense_reports.find(params[:id])
-    receipt_ids = report.receipts.collect { |r| r.id }
-    file_name = service.export_expense_report_as_csv(receipt_ids)
-    file = File.open(file_name, "r")
-    send_file file
-    file.close
+    @receipts = current_user.expense_reports.find(params[:id]).receipts
+    csv_string = CSV::generate do |csv|
+      @receipts.each do |receipt|
+        store = Store.find_by_name(receipt.store.name)
+        expense_category = ExpenseCategory.find_by_name(store.expense_category.name)
+        participant_names = receipt.participants.collect{ |p| p.name }
+        participant_names << "me"
+        
+        csv << [expense_category.name,
+          receipt.purchase_date,
+          receipt.total,
+          "USD",
+          receipt.note.nil? ? "" : receipt.note,
+          store.name,
+          "Personal Card",
+          participant_names.join("; "),
+          false]
+      end
+    end
+
+    send_data csv_string,
+                :type => 'text/csv; charset=utf-8; header=present',
+                :disposition => "attachment; filename=myreceipts.csv"
   end
 end
