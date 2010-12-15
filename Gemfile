@@ -6,6 +6,7 @@ gem 'carrierwave', '>= 0.5.0'
 gem 'cloudfiles', '1.4.8'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'haml', '>= 3.0.24'
+gem 'fastercsv'
 
 group :development, :test do
   gem 'autotest'

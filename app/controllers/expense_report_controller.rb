@@ -1,4 +1,4 @@
-require 'csv'
+require 'fastercsv'
 
 class ExpenseReportController < ApplicationController
   before_filter :authenticate_user!, :only => [:show, :create]
