@@ -34,7 +34,7 @@ class ExpenseReportController < ApplicationController
         participant_names = receipt.participants.collect{ |p| p.name }
         participant_names << "me"
         
-        csv << [expense_category.name,
+        csv << [expense_category.nil? ? "" : expense_category.name,
           receipt.purchase_date,
           receipt.total,
           "USD",
