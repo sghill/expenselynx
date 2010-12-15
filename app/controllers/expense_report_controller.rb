@@ -27,7 +27,7 @@ class ExpenseReportController < ApplicationController
   # UNTESTED SPIKE
   def download_csv
     @receipts = current_user.expense_reports.find(params[:id]).receipts
-    csv_string = CSV::generate do |csv|
+    csv_string = CSV.generate do |csv|
       @receipts.each do |receipt|
         store = Store.find_by_name(receipt.store.name)
         expense_category = ExpenseCategory.find_by_name(store.expense_category.name)
