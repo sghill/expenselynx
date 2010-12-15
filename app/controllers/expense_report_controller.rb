@@ -30,7 +30,7 @@ class ExpenseReportController < ApplicationController
     csv_string = CSV.generate do |csv|
       @receipts.each do |receipt|
         store = Store.find_by_name(receipt.store.name)
-        expense_category = ExpenseCategory.find_by_name(store.expense_category.name)
+        expense_category = ExpenseCategory.find_by_name(store.expense_category.name) unless store.expense_category.nil?
         participant_names = receipt.participants.collect{ |p| p.name }
         participant_names << "me"
         
