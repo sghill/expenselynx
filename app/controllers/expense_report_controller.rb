@@ -29,7 +29,7 @@ class ExpenseReportController < ApplicationController
     @receipts = current_user.expense_reports.find(params[:id]).receipts
     respond_to do |format|
       format.csv do
-        render_csv("my-csv-receipts")
+        render_csv("my-csv-receipts") 
       end
     end
   end
