@@ -1,4 +1,4 @@
-require 'fastercsv'
+require 'csv'
 
 class ExpenseReportController < ApplicationController
   before_filter :authenticate_user!, :only => [:show, :create]
@@ -50,6 +50,23 @@ class ExpenseReportController < ApplicationController
         headers["Content-Disposition"] = "attachment; filename=\"#{filename}\"" 
       end
 
-      render :layout => false
+      @csv_string = CSV.generate do |csv|
+        @receipts.each do |receipt|
+          store = Store.find_by_name(receipt.store.name)
+          expense_category = ExpenseCategory.find_by_name(store.expense_category.name) unless store.expense_category.nil?
+          participant_names = receipt.participants.collect{ |p| p.name }
+          participant_names << "me"
+          csv << [expense_category.nil? ? "" : expense_category.name,
+            receipt.purchase_date,
+            receipt.total,
+            "USD",
+            receipt.note.nil? ? "" : receipt.note,
+            store.name,
+            "Personal Card",
+            participant_names.join("; "),
+            false]
+        end
+      end
+        render :layout => false
     end
 end
