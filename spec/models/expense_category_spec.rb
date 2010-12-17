@@ -10,6 +10,11 @@ describe ExpenseCategory do
     ExpenseCategory::CATEGORIES.should be_instance_of(Array)
   end
   
+  it "should have many UserStoreExpenseCategories" do
+    category = ExpenseCategory.new
+    category.expense_categories.should be_an_instance_of(Array)
+  end
+  
   context "validation" do
     it "must have a name" do
       category = ExpenseCategory.new

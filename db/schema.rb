@@ -10,12 +10,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101203095809) do
+ActiveRecord::Schema.define(:version => 20101217083306) do
 
   create_table "expense_categories", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "user_id"
   end
 
   create_table "expense_reports", :force => true do |t|
@@ -55,7 +56,14 @@ ActiveRecord::Schema.define(:version => 20101203095809) do
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "user_store_expense_categories", :id => false, :force => true do |t|
+    t.integer  "user_id"
+    t.integer  "store_id"
     t.integer  "expense_category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "users", :force => true do |t|

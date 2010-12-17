@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_filter :authenticate_user!, :only => :edit
+  before_filter :authenticate_user!, :only => [:edit, :update]
   
   def edit
     @store = Store.find(params[:id])
@@ -7,7 +7,10 @@ class StoresController < ApplicationController
   
   def update
     @store = Store.find(params[:id])
-    @store.update_attributes(:expense_category => ExpenseCategory.find_or_create_by_name(params[:store][:expense_category]))
+    unless params[:expense_categories].nil?
+      expense_categories = ExpenseCategory.find_or_create_by_name(params[:expense_categories])
+      @store.update_attributes!(:expense_categories => [expense_categories])
+    end
     redirect_to dashboard_index_path
   end
   
