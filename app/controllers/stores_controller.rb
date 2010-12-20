@@ -7,8 +7,8 @@ class StoresController < ApplicationController
   
   def update
     @store = Store.find(params[:id])
-    unless params[:expense_categories].nil?
-      expense_categories = ExpenseCategory.find_or_create_by_name(params[:expense_categories])
+    unless params[:store][:expense_categories].nil?
+      expense_categories = ExpenseCategory.find_or_create_by_name(params[:store][:expense_categories])
       @store.update_attributes!(:expense_categories => [expense_categories])
     end
     redirect_to dashboard_index_path

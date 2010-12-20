@@ -5,6 +5,7 @@ describe StoresController do
   
   before do
     @sara = Factory(:sara)
+    @john = Factory(:user)
     @store = Store.create(:name => 'Moose Jaw')
   end
   
@@ -30,9 +31,26 @@ describe StoresController do
     
     it "should allow the user to assign an expense category" do
       sign_in @sara
-      put :update, :id => @store.id, :store => Store.new(:name => 'Abc'), :expense_categories => "airfare"
+      put :update, :id => @store.id, :store => {:name => 'Abc', :expense_categories => "airfare"}
       assigns(:store).expense_categories.length.should == 1
       assigns(:store).expense_categories.first.name.should == "airfare"
+    end
+    
+    it "should have different expense categories per store per user" do
+      sign_in @sara
+      put :update, :id => @store.id, :store => {:name => 'Abc', :expense_categories => "airfare"}
+      sign_out @sara
+      sign_in @john
+      put :update, :id => @store.id, :store => {:name => 'Abc', :expense_categories => "business meals"}
+      assigns(:store).expense_categories.length.should == 1
+      assigns(:store).expense_categories.first.name.should == "business meals"
+    end
+  end
+  
+  context "GET show" do
+    it "should contain the specified store" do
+      get :edit, :id => @store.to_param
+      assigns(:store).name.should == @store.name
     end
   end
 end

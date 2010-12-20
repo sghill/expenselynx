@@ -6,6 +6,6 @@
   .field
     = f.label :expense_category
     %br/
-    = select :store, :expense_category, ExpenseCategory::CATEGORIES, {:include_blank => true}
+    = select :store, :expense_categories, ExpenseCategory::CATEGORIES, {:include_blank => true, :multiple => true}
   .actions.clearer
     = f.submit
