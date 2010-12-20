@@ -2,6 +2,7 @@ class Store < ActiveRecord::Base
   has_many :receipts
   has_many :user_store_expense_categories
   has_many :expense_categories, :through => :user_store_expense_categories
+  has_many :users, :through => :user_store_expense_categories
   
   validates :name, :presence => true
   validates_uniqueness_of :name, :case_sensitive => false

@@ -6,6 +6,12 @@
   .field
     = f.label :expense_category
     %br/
-    = select :store, :expense_categories, ExpenseCategory::CATEGORIES, {:include_blank => true, :multiple => true}
+    - unless @store.expense_categories.where(:user == current_user).empty?
+      - @store.expense_categories.where(:user == current_user).each do |category|
+        %ul
+          %li= category.name
+    = "Add another expense category"
+    %br/
+    = select :store, :expense_categories, ExpenseCategory::CATEGORIES, {:include_blank => true}
   .actions.clearer
     = f.submit

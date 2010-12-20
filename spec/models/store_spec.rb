@@ -10,4 +10,9 @@ describe Store do
     store = Store.new(:name => 'Meijer')
     store.user_store_expense_categories.should be_an_instance_of(Array)
   end
+  
+  it "should have many users" do
+    store = Store.new(:name => 'Starbox')
+    store.users.should be_an_instance_of(Array)
+  end
 end

@@ -10,9 +10,9 @@ describe ExpenseCategory do
     ExpenseCategory::CATEGORIES.should be_instance_of(Array)
   end
   
-  it "should have many UserStoreExpenseCategories" do
+  it "should have many users" do
     category = ExpenseCategory.new
-    category.expense_categories.should be_an_instance_of(Array)
+    category.users.should be_an_instance_of(Array)
   end
   
   context "validation" do

@@ -5,12 +5,12 @@ describe UserStoreExpenseCategory do
     @cat = UserStoreExpenseCategory.new
   end
   
-  it "should belogn to expense category" do
+  it "should belong to an expense category" do
     @cat.expense_category.should be_nil
   end
   
-  it "should belong to a user" do
-    @cat.user.should be_nil
+  it "should require a user" do
+    @cat.should_not be_valid
   end
   
   it "should belong to a store" do
