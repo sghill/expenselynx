@@ -15,6 +15,7 @@ class StoresController < ApplicationController
         UserStoreExpenseCategory.create(:expense_category => cat5e, :user => current_user, :store => @store)
         @store.expense_categories.build(cat5e)
       else
+        UserStoreExpenseCategory.create(:expense_category => old_category, :user => current_user, :store => @store) #untested
         @store.expense_categories.build(old_category)
       end
       
