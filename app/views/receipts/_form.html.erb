@@ -33,7 +33,13 @@
         <%= f.check_box :expensed %>
       </div>
       <div class="field">
-        <%= f.label :participant_names %><br />
+        <%= f.label :guests %><br />
+        <% unless current_user.participants.empty? %>
+          <% current_user.participants.each do |participant| %>
+            <% names = @receipt.participants.collect{ |n| n.name }%>
+            <%= check_box_tag "old_participants[]", participant.name, names.include?(participant.name) %> <%= participant.name %><br />
+          <% end %>
+        <% end %>
         <%= text_field_tag :participant_names, nil, :placeholder => 'Art Vandelay, SG Hill' %>
       </div>
       <div class="field">
