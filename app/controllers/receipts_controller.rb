@@ -1,30 +1,26 @@
 class ReceiptsController < ApplicationController
   before_filter :authenticate_user!, 
     :only => [:index, :new, :create, :show, :edit, :update, :destroy, :upload]
+  
+  respond_to :html
     
   def index
     @receipt = Receipt.new(:purchase_date => Time.now.to_date)
     @receipts = current_user.receipts.find(:all)
-
-    respond_to do |format|
-      format.html
-    end
+    
+    respond_with(@receipt, @receipts)
   end
 
   def show
     @receipt = current_user.receipts.find(params[:id])
-
-    respond_to do |format|
-      format.html
-    end
+    
+    respond_with(@receipt)
   end
 
   def new
     @receipt = Receipt.new(:purchase_date => Time.now.to_date)
-
-    respond_to do |format|
-      format.html # new.html.erb
-    end
+    
+    respond_with(@receipt)
   end
 
   def edit
@@ -106,7 +102,7 @@ class ReceiptsController < ApplicationController
     @receipt = current_user.receipts.find(params[:id])
     @receipt.destroy
 
-    respond_to do |format|
+    respond_with do |format|
       format.html { redirect_to(receipts_url) }
     end
   end
