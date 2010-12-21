@@ -8,7 +8,6 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @receipts }
     end
   end
 
@@ -17,7 +16,6 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       format.html
-      format.xml  { render :xml => @receipt }
     end
   end
 
@@ -26,7 +24,6 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       format.html # new.html.erb
-      format.xml  { render :xml => @receipt }
     end
   end
 
@@ -38,7 +35,7 @@ class ReceiptsController < ApplicationController
     participants = []
     unless params[:participant_names].nil?
       params[:participant_names].split(",").each do |name|
-        name = name.strip
+        name = name.squeeze(" ").strip
         guy = Participant.find_or_create_by_name(name)
         guy.update_attributes(:user => current_user)
         participants << guy
@@ -64,10 +61,8 @@ class ReceiptsController < ApplicationController
       if @receipt.save
         format.js
         format.html { redirect_to(@receipt, :notice => 'Receipt was successfully created.') }
-        format.xml  { render :xml => @receipt, :status => :created, :location => @receipt }
       else
         format.html { render :action => "new" }
-        format.xml  { render :xml => @receipt.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -83,7 +78,7 @@ class ReceiptsController < ApplicationController
       end
       unless params[:participant_names].nil?
         params[:participant_names].split(",").each do |name|
-          name = name.strip
+          name = name.squeeze(" ").strip
           guy = Participant.find_or_create_by_name(name)
           guy.update_attributes(:user => current_user)
           participants << guy
@@ -101,10 +96,8 @@ class ReceiptsController < ApplicationController
           :participants => participants)
           
         format.html { redirect_to(@receipt, :notice => 'Receipt was successfully updated.') }
-        format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
-        format.xml  { render :xml => @receipt.errors, :status => :unprocessable_entity }
       end
     end
   end
@@ -115,7 +108,6 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to(receipts_url) }
-      format.xml  { head :ok }
     end
   end
 end
