@@ -38,6 +38,7 @@ class ReceiptsController < ApplicationController
     participants = []
     unless params[:participant_names].nil?
       params[:participant_names].split(",").each do |name|
+        name = name.strip
         guy = Participant.find_or_create_by_name(name)
         guy.update_attributes(:user => current_user)
         participants << guy
@@ -82,6 +83,7 @@ class ReceiptsController < ApplicationController
       end
       unless params[:participant_names].nil?
         params[:participant_names].split(",").each do |name|
+          name = name.strip
           guy = Participant.find_or_create_by_name(name)
           guy.update_attributes(:user => current_user)
           participants << guy
