@@ -285,6 +285,17 @@ class ReceiptsControllerTest < ActionController::TestCase
     assert_equal 2, Participant.find_by_name("craig lewis").receipts.count
   end
   
+  test "should add the same participant to different receipts with multiple spaces if spelling is the same" do
+    sign_in @john
+    post :create, :receipt => { :store_name => "Target", :purchase_date => 1.day.ago, :total => 18.46 }, 
+                  :participant_names => "craig lewis, john henry"
+    post :create, :receipt => { :store_name => "Starbucks", :purchase_date => 3.days.ago, :total => 218.46 }, 
+                  :participant_names => " CRAIG LEWIS"
+    post :create, :receipt => { :store_name => "Mervyn's", :purchase_date => 3.days.ago, :total => 118.46 }, 
+                  :participant_names => "CRAIG    LewIS"
+    assert_equal 3, Participant.find_by_name("craig lewis").receipts.count
+  end
+  
   test "should update receipt to include participant name" do
     sign_in @john
     put :update, :id => @receipt.to_param, :receipt => {:store_name => @receipt.store.name,

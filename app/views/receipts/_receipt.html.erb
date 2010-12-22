@@ -1,6 +1,6 @@
 <tr>
   <td><%= receipt.purchase_date.to_date.to_s(:short) %></td>
-  <td><%= receipt.store.name %></td>
+  <td><%= link_to receipt.store.name, "stores/#{receipt.store.id}/edit" %></td>
   <td class="right"><%= link_to number_to_currency(receipt.total), receipt %></td>
   <% if expensable %>
     <td class="center"><%= boolean_to_check receipt.expensable? %></td>
