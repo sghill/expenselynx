@@ -32,6 +32,8 @@ class ReceiptsController < ApplicationController
   def create
     service = ParticipantService.new(params[:participant_names], current_user)
     participants = service.participants_list
+    participants.concat(service.participants_list_from_collection(params[:old_participants])) unless params[:old_participants].nil?
+    
     @receipt = Receipt.new(
       :purchase_date => params[:receipt][:purchase_date],
       :total => params[:receipt][:total],
@@ -62,18 +64,17 @@ class ReceiptsController < ApplicationController
     @receipt = current_user.receipts.find(params[:id])
       service = ParticipantService.new(params[:participant_names], current_user)
       participants = service.participants_list
-      participants.concat service.participants_list_from_collection(params[:old_participants])
+      participants.concat service.participants_list_from_collection(params[:old_participants]) unless params[:old_participants].nil?
 
     respond_to do |format|
       if @receipt.update_attributes(:purchase_date => params[:receipt][:purchase_date],
-          :total => params[:receipt][:total],
-          :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
-          :expensable => params[:receipt][:expensable],
-          :expensed => params[:receipt][:expensed],
-          :note => params[:receipt][:note],
-          :user => current_user,
-          :participants => participants)
-          
+                                    :total => params[:receipt][:total],
+                                    :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
+                                    :expensable => params[:receipt][:expensable],
+                                    :expensed => params[:receipt][:expensed],
+                                    :note => params[:receipt][:note],
+                                    :user => current_user,
+                                    :participants => participants)
         format.html { redirect_to(@receipt, :notice => 'Receipt was successfully updated.') }
       else
         format.html { render :action => "edit" }
