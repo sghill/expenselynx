@@ -1,26 +1,38 @@
 require 'spec_helper'
 
 describe ParticipantService do
-  it "should require participants" do
-    lambda { ParticipantService.new }.should raise_error
+  before do
+    @john = Factory(:user)
   end
   
   it "should return a collection of participants, given a comma separated string" do
-    service = ParticipantService.new("tom,bill,jill")
-    assert service.participants_list.include?("tom")
-    assert service.participants_list.include?("bill")
-    assert service.participants_list.include?("jill")
+    tom = Participant.new(:name => "tom")
+    bill = Participant.new(:name => "bill")
+    service = ParticipantService.new("#{tom.name},#{bill.name}", @john)
+    
+    service.participants_list.first.should be_an_instance_of(Participant)
+    service.participants_list.should be_include(bill)
   end
   
   it "should remove trailing and leading whitespace" do
-    service = ParticipantService.new("tom, bill  ,jill")
-    assert service.participants_list.include?("bill")
+    bill = Participant.new(:name => "bill")
+    service = ParticipantService.new("tom, bill  ,jill", @john)
+    
+    service.participants_list.should be_include(bill)
   end
   
   it "should remove weird middle spaces in names" do
-    service = ParticipantService.new("sri fairchild, thomas    hutchcrafts   III")
-    assert service.participants_list.include?("sri fairchild")
-    assert service.participants_list.include?("thomas hutchcrafts III")
+    sri = Participant.new(:name => "sri fairchild")
+    thomas = Participant.new(:name => "thomas hutchcrafts III")
+    service = ParticipantService.new("sri fairchild, thomas    hutchcrafts   III", @john)
+    
+    service.participants_list.should be_include(sri)
+    service.participants_list.should be_include(thomas)
+  end
+  
+  it "should add the given user to the list of participants" do
+    service = ParticipantService.new("test,ha,laugh", @john)
+    service.participants_list.first.user.should == @john
   end
 end
 

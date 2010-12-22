@@ -8,6 +8,10 @@ class Participant < ActiveRecord::Base
   validates_uniqueness_of :name, :case_sensitive => false
   validates :user, :presence => true
   
+  def ==(other)
+    return (self.name == other.name) && other.is_a?(Participant)
+  end
+  
   def self.find_or_create_by_name(*args)
     options = args.extract_options!
     options[:name] = args[0] if args[0].is_a?(String)

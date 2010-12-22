@@ -36,7 +36,15 @@ describe Participant do
     participant2 = Participant.new(:name => "fRaNk", :user => @sara)
     participant2.should_not be_valid
   end
-    
+  
+  context "==" do
+    it "should be == to a duplicate object with the same name" do
+      testarossa = Participant.new(:name => "testarossa")
+      dup_testa = Participant.new(:name => "testarossa")
+      testarossa.should == dup_testa
+    end
+  end
+  
   context "searching" do
     it "should find or create by regardless of case" do
       original_tom = Participant.create(:name => "tom", :user => @sara)

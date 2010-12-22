@@ -1,3 +1,5 @@
+require 'participant_service'
+
 class ReceiptsController < ApplicationController
   before_filter :authenticate_user!, 
     :only => [:index, :new, :create, :show, :edit, :update, :destroy, :upload]
