@@ -5,6 +5,7 @@ class ParticipantService
   end
   
   def participants_list
+    return [] unless list_valid?
     names = []
     @list.split(",").each do |name|
       name = remove_goofy_whitespace_from(name)
@@ -19,10 +20,10 @@ class ParticipantService
     end
     
     def retrieve_participant_named( name )
-      participant = Participant.find_by_name(name)
-      if participant.nil?
-        participant = Participant.create(:name => name, :user => @owner)
-      end
-      return participant
+      Participant.find_or_create_by_name(:name => name, :user => @owner)
+    end
+    
+    def list_valid?
+      !(@list == "" || @list.nil?)
     end
 end

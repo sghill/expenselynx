@@ -34,5 +34,15 @@ describe ParticipantService do
     service = ParticipantService.new("test,ha,laugh", @john)
     service.participants_list.first.user.should == @john
   end
+  
+  it "shouldn't freak out with an empty list of participants" do
+    service = ParticipantService.new("", @john)
+    service.participants_list.should == []
+  end
+  
+  it "shouldn't freak out with a nil list of participants" do
+    service = ParticipantService.new(nil, @john)
+    service.participants_list.should == []
+  end
 end
 

@@ -30,15 +30,8 @@ class ReceiptsController < ApplicationController
   end
 
   def create
-    participants = []
-    unless params[:participant_names].nil?
-      params[:participant_names].split(",").each do |name|
-        name = name.squeeze(" ").strip
-        guy = Participant.find_or_create_by_name(name)
-        guy.update_attributes(:user => current_user)
-        participants << guy
-      end
-    end
+    service = ParticipantService.new(params[:participant_names], current_user)
+    participants = service.participants_list
     @receipt = Receipt.new(
       :purchase_date => params[:receipt][:purchase_date],
       :total => params[:receipt][:total],
