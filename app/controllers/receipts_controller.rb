@@ -62,8 +62,7 @@ class ReceiptsController < ApplicationController
     @receipt = current_user.receipts.find(params[:id])
       service = ParticipantService.new(params[:participant_names], current_user)
       participants = service.participants_list
-      service = ParticipantService.new(params[:old_participants], current_user)
-      participants.concat service.participants_list
+      participants.concat service.participants_list_from_collection(params[:old_participants])
 
     respond_to do |format|
       if @receipt.update_attributes(:purchase_date => params[:receipt][:purchase_date],

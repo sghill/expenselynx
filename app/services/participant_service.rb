@@ -14,6 +14,15 @@ class ParticipantService
     return names
   end
   
+  def participants_list_from_collection( collection )
+    names = []
+    collection.each do |name|
+      name = remove_goofy_whitespace_from(name)
+      names << retrieve_participant_named(name)
+    end
+    return names
+  end
+  
   private
     def remove_goofy_whitespace_from( name )
       name.squeeze(" ").strip

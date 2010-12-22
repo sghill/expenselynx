@@ -44,5 +44,11 @@ describe ParticipantService do
     service = ParticipantService.new(nil, @john)
     service.participants_list.should == []
   end
+  
+  it "should be able to take an array of strings and return a list of participants" do
+    jill = Participant.new(:name => "jill")
+    service = ParticipantService.new("test,ha,laugh", @john)
+    service.participants_list_from_collection(['jill','bob']).first.should == jill
+  end
 end
 
