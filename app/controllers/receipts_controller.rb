@@ -60,21 +60,10 @@ class ReceiptsController < ApplicationController
 
   def update
     @receipt = current_user.receipts.find(params[:id])
-     participants = []
-      unless params[:old_participants].nil?
-        params[:old_participants].each do |guest|
-          guy = Participant.find_by_name(guest)
-          participants << guy
-        end
-      end
-      unless params[:participant_names].nil?
-        params[:participant_names].split(",").each do |name|
-          name = name.squeeze(" ").strip
-          guy = Participant.find_or_create_by_name(name)
-          guy.update_attributes(:user => current_user)
-          participants << guy
-        end
-      end
+      service = ParticipantService.new(params[:participant_names], current_user)
+      participants = service.participants_list
+      service = ParticipantService.new(params[:old_participants], current_user)
+      participants.concat service.participants_list
 
     respond_to do |format|
       if @receipt.update_attributes(:purchase_date => params[:receipt][:purchase_date],
