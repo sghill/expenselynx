@@ -2,6 +2,10 @@ Given /^that a user with email address "(.*)" has not registered$/ do |email|
   User.find_by_email(email).destroy! unless User.find_by_email(email).nil?
 end
 
+Given /^that a user with email address "(.*)" and password "(.*)" exists$/ do |email, password|
+  User.create(:email => email, :password => password) if User.find_by_email(email).nil?
+end
+
 When /^enter my email address as "(.*)"$/ do |email|
   fill_in "user_email", :with => email
 end
