@@ -29,10 +29,12 @@ a {
 #user_bar #logo {
 	float:left;
 	width:300px;
+	padding-left:0.5em;
 }
 
 #user_bar #links {
 	float:right;
+	padding-right:0.5em;
 }
 
 #content_container {
