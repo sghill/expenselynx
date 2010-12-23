@@ -3,13 +3,12 @@ require 'spec_helper'
 describe ParticipantController do
   include Devise::TestHelpers
 
+  before do
+    @sara = Factory(:sara)
+    @john = Factory(:user)
+  end
+  
   describe "GET 'search'" do
-    
-    before do
-      @sara = Factory(:sara)
-      @john = Factory(:user)
-    end
-    
     it "should be successful" do
       sign_in @sara
       get :search
@@ -63,4 +62,20 @@ describe ParticipantController do
     end
   end
 
+  describe "GET 'index'" do
+    it "should require login" do
+      get :index
+      response.should redirect_to(new_user_session_path)
+    end
+    
+    it "should contain a list of the current users participants" do
+      alf = Participant.create(:name => "Alfred", :user => @sara)
+      ivan = Participant.create(:name => "Ivan", :user => @sara)
+      
+      sign_in @sara
+      get :index
+      assigns(:participants).length.should == 2
+      assigns(:participants).first.should == alf
+    end
+  end
 end

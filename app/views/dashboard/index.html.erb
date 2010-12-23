@@ -1,4 +1,4 @@
-<div id="expense_stats" class="stat_container">
+<section id="expense_stats" class="stat_container">
   <div id="receipt_total" class="stat_box">
     <p>Total</p>
     <p id="spending_total" class="sum"><%= number_to_currency @stats[:total] %></p>
@@ -11,7 +11,7 @@
     <p>Expensed</p>
     <p id="expensed_total" class="sum"><%= number_to_currency @stats[:expensed_total] %></p>
   </div>
-</div>
+</section>
 
 <div class="clearer"></div>
 
@@ -22,19 +22,22 @@
     <%= render 'receipts/form' %>
   </div>
 </div>
-<h3 class="center">Recent Receipts</h3>
-<br />
-<%= render :partial => 'receipts/receipt_table', 
-           :locals => { :receipts => @receipts,
-                        :expensable => true,
-                        :expensed => true } %>
-
+<section id="recent_receipts">
+  <h3 class="center">Recent Receipts</h3>
+  <br />
+  <%= render :partial => 'receipts/receipt_table', 
+             :locals => { :receipts => @receipts,
+                          :expensable => true,
+                          :expensed => true } %>
+</section>
 <br /><br />
-<h3 class="center">Recent Expense Reports</h3><br /><br />                        
-<table id="recent_expense_reports" class="summary_table">
-    <th>Date</th>
-    <th>Identifier</th>
-    <th>Receipts</th>
-    <th>Total</th>
-    <%= render :partial => 'expense_report/report', :collection => @reports %>
-</table>
+<section id="recent_expense_reports">
+  <h3 class="center">Recent Expense Reports</h3><br /><br />                        
+  <table id="recent_expense_reports" class="summary_table">
+      <th>Date</th>
+      <th>Identifier</th>
+      <th>Receipts</th>
+      <th>Total</th>
+      <%= render :partial => 'expense_report/report', :collection => @reports %>
+  </table>
+</section>

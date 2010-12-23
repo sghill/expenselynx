@@ -15,4 +15,10 @@ group :development, :test do
   gem 'rspec-core', '>= 2.1'
   gem 'rspec-expectations', '>= 2.1'
   gem 'rspec-mocks', '>= 2.1'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'cucumber-rails'
+  gem 'cucumber'
+  gem 'spork'
+  gem 'launchy'
 end

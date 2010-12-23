@@ -20,6 +20,10 @@ $(document).ready(function() {
       });
     }
   })
+  //login form styling
+  $("#user_remember_me").button();
+  $("#user_submit").button();
+  // end login form styling
   
   $("#receipt_purchase_date").datepicker({dateFormat:"yy-mm-dd", inline:true});
   
@@ -27,7 +31,7 @@ $(document).ready(function() {
     $("#receipt_form").slideToggle("slow");
   })
   
-  $("#create_receipt_link")[0].href = "#";
+  $("#create_receipt_link").attr("href","#");
   
   $("#new_receipt").submitWithAjax();
 })
