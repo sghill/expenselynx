@@ -1,0 +1,20 @@
+!!! 5
+%html
+  %head
+    %title ExpenseLynx
+    = stylesheet_link_tag "jquery-ui-1.8.6", "default"
+    = javascript_include_tag "jquery-1.4.1.min", "jquery-ui-1.8.6.min", "application"
+    = csrf_meta_tag
+  %body
+    #outer_container
+      %header#user_bar
+        %h1#logo= link_to 'ExpenseLynx', root_path
+        %nav#links
+        - if current_user
+          = link_to 'Unexpensed Receipts', dashboard_unexpensed_path
+          "::"
+          = link_to 'Sign Out', destroy_user_session_path
+    #content_container
+      %p.notice= notice
+      %p.alert= alert
+      = yield

@@ -23,7 +23,11 @@ When /^click the "(.*)" button$/ do |button_name|
 end
 
 Then /^I should see my dashboard$/ do
-  page.has_content?("Total")
-  page.has_link?("Unexpensed")
-  page.has_content?("Expensed")
+  page.should have_content("Total")
+  page.should have_content("Unexpensed")
+  page.should have_content("Expensed")
+end
+
+Then /^I should not see a "(.*)" link$/ do |link_name|
+  page.should have_no_content(link_name)
 end
