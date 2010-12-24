@@ -15,6 +15,9 @@
             = "::"
             = link_to 'Sign Out', destroy_user_session_path
       #content_container
-        %p.notice= notice
-        %p.alert= alert
+        - if flash[:notice]
+          %p#notice.center= notice
+        - if flash[:alert]
+          %p#alert.center= alert
         = yield
+    %footer.center= link_to "Home", root_path
