@@ -44,6 +44,7 @@ a {
 	margin:0 4em;
 	padding:2em;
 	max-width:888px;
+	min-height:600px;
 }
 
 #add_receipt {
@@ -157,4 +158,12 @@ a {
 #login_form input[type=submit], #login_form input[type=checkbox] {
   width:100px;
   padding:6px 0;
+}
+
+/* alert, notice */
+#alert {
+  background: #FFF5AA;
+  border: 1px solid black;
+  margin-bottom: 10px;
+  padding:10px;
 }

@@ -31,3 +31,7 @@ end
 Then /^I should not see a "(.*)" link$/ do |link_name|
   page.should have_no_content(link_name)
 end
+
+Then /^I should not see a "(.*)" element$/ do |id|
+  page.should have_no_css("#" + id)
+end

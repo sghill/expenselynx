@@ -9,6 +9,8 @@ Given that a user with email address "chuck@example.com" has not registered
 When I go to the registration page
 Then I should not see a "Sign Out" link
 Then I should not see a "Unexpensed Receipts" link
+Then I should not see a "notice" element
+Then I should not see a "alert" element
 And enter my email address as "chuck@example.com"
 And enter my password as "falaFEL7"
 And enter my password confirmation as "falaFEL7"
