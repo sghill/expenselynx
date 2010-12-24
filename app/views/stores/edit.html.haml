@@ -6,10 +6,9 @@
   .field
     = f.label :expense_category
     %br/
-    - unless @store.expense_categories.where(:user == current_user).empty?
-      - @store.expense_categories.where(:user == current_user).each do |category|
-        %ul
-          %li= category.name
+    - unless @expense_categories.nil?
+      - @expense_categories.each do |category|
+        %p= category.name
     = "Add another expense category"
     %br/
     = select :store, :expense_categories, ExpenseCategory::CATEGORIES, {:include_blank => true}
