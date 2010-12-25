@@ -1,13 +1,31 @@
 class ParticipantService
-  def initialize(participant_list, owner)
-    @list = participant_list
+  def initialize(owner)
     @owner = owner
   end
   
-  def participants_list
-    return [] unless list_valid?
+  def merge(participant_ids, name = "merged")
+    receipts = []
+    participant_ids.each do |id|
+      current_participant = Participant.find(id)
+      current_participant.receipts.each { |r| receipts << r }
+    end
+    superparticipant = Participant.create(:name => name, :user => @owner)
+    receipts.each do |r| 
+      mod_participants_list = []
+      r.participants.each do |p|
+        mod_participants_list << p unless participant_ids.include?(p.id)
+      end
+      mod_participants_list << superparticipant
+      r.update_attributes(:participants => mod_participants_list)
+      r.save
+    end
+    return superparticipant
+  end
+  
+  def participants_list(comma_list)
+    return [] unless list_valid?(comma_list)
     names = []
-    @list.split(",").each do |name|
+    comma_list.split(",").each do |name|
       name = remove_goofy_whitespace_from(name)
       names << retrieve_participant_named(name)
     end
@@ -32,7 +50,7 @@ class ParticipantService
       Participant.find_or_create_by_name(:name => name, :user => @owner)
     end
     
-    def list_valid?
-      !(@list == "" || @list.nil?)
+    def list_valid?( list )
+      !(list == "" || list.nil?)
     end
 end
