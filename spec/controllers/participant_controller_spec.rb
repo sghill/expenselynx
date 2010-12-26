@@ -84,5 +84,11 @@ describe ParticipantController do
       post :merge, :participant_ids => nil
       response.should redirect_to(new_user_session_path)
     end
+    
+    it "should take me back to my dashboard once finished" do
+      sign_in @sara
+      post :merge, :participant_ids => nil
+      response.should redirect_to(dashboard_index_path)
+    end
   end
 end
