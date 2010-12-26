@@ -1,0 +1,9 @@
+<%= form_tag participants_merge_path %>
+  <ol>
+  <% @participants.each do |p| %>
+    <li><%= check_box_tag "participant_ids[]", p.id, false %>
+    <%= p.name %></li>
+  <% end %>
+  </ol>
+  <%= text_field_tag :participant_name, nil, :placeholder => "New name" %>
+  <%= submit_tag "Merge Participants" %>

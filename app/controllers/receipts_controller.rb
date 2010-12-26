@@ -30,8 +30,8 @@ class ReceiptsController < ApplicationController
   end
 
   def create
-    service = ParticipantService.new(params[:participant_names], current_user)
-    participants = service.participants_list
+    service = ParticipantService.new(current_user)
+    participants = service.participants_list(params[:participant_names])
     participants.concat(service.participants_list_from_collection(params[:old_participants])) unless params[:old_participants].nil?
     
     @receipt = Receipt.new(
