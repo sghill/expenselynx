@@ -10,6 +10,8 @@ class ParticipantService
     receipts.each do |r| 
       mod_participants_list = remove_and_destroy_to_be_merged_participants(r, participant_ids)
       mod_participants_list << superparticipant
+      @owner.participants.build(superparticipant)
+      @owner.save
       r.update_attributes(:participants => mod_participants_list)
       r.save
     end
@@ -53,7 +55,9 @@ class ParticipantService
       list = []
       receipt.participants.each do |p|
         if participant_ids.include?(p.id) 
-          Participant.find(p.id).destroy 
+          Participant.find(p.id).destroy
+          @owner.participants.delete(p)
+          @owner.save!
         else
           list << p
         end

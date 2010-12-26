@@ -79,6 +79,22 @@ describe ParticipantController do
     end
   end
   
+  describe "GET 'merge_zone'" do
+    it "should require login" do
+      get :merge_zone
+      response.should redirect_to(new_user_session_path)
+    end
+    
+    it "should contain all of the current users participants" do
+      Participant.create(:name => "thomas", :user => @john)
+      Participant.create(:name => "jokland", :user => @john)
+      Participant.create(:name => "harold", :user => @sara)
+      sign_in @john
+      get :merge_zone
+      assigns(:participants).should == @john.participants
+    end
+  end
+  
   describe "POST 'merge'" do
     it "should require login" do
       post :merge, :participant_ids => nil
@@ -94,7 +110,7 @@ describe ParticipantController do
                      :participants => [mobie, moby],
                      :user => @sara)
       sign_in @sara
-      post :merge, :participant_ids => [mobie.id, moby.id]
+      post :merge, :participant_ids => [mobie.id, moby.id], :participant_name => "toodles"
       response.should redirect_to(dashboard_index_path)
     end
     
@@ -112,7 +128,7 @@ describe ParticipantController do
 
       sign_in @sara
       
-      post :merge, :participant_ids => [mobie.id, moby.id]
+      post :merge, :participant_ids => [mobie.id, moby.id], :participant_name => "toodles"
       User.find_by_email(@sara.email).receipts.first.participants.length.should == 1
       User.find_by_email(@sara.email).participants.length == 1
     end

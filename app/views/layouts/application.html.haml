@@ -20,4 +20,7 @@
         - if flash[:alert]
           %p#alert.center= alert
         = yield
-    %footer.center= link_to "Home", root_path
+    %footer.center
+      = link_to "Home", root_path
+      = "::"
+      = link_to "Need to Merge Participants?", participants_merge_zone_path

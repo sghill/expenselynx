@@ -29,8 +29,10 @@ describe ParticipantService do
       Participant.find_by_name(@frank.name).should be_nil
       Participant.find_by_name(@franklin.name).should be_nil
       User.find_by_email(@john.email).participants.length.should == 1
+      Receipt.find(target_receipt.id).participants.length.should == 1
+      Receipt.find(target_receipt.id).participants.first.should == merged_participant
     end
-    
+        
     it "should assign the specified name to the superparticipant" do
       target_receipt = Receipt.create(:store => @target, 
                                       :purchase_date => 1.day.ago, 

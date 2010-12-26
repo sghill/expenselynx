@@ -1,7 +1,7 @@
 require 'participant_service'
 
 class ParticipantController < ApplicationController
-  before_filter :authenticate_user!, :only => [:search, :index, :merge]
+  before_filter :authenticate_user!, :only => [:search, :index, :merge_zone, :merge]
   def search
     if params[:term].nil?
       @participants = current_user.participants      
@@ -16,13 +16,27 @@ class ParticipantController < ApplicationController
 
   def index
     @participants = current_user.participants
+    @participants.reset_column_information
+  end
+  
+  def merge_zone
+    @participants = current_user.participants
   end
   
   def merge
     service = ParticipantService.new(current_user)
-    service.merge(params[:participant_ids])
+    service.merge(to_integer_collection(params[:participant_ids]), params[:participant_name])
     respond_to do |format|
       format.html { redirect_to dashboard_index_path }
     end
   end
+  
+  private
+    def to_integer_collection( collection )
+      list = []
+      collection.each do |c|
+        list << c.to_i
+      end
+      return list
+    end
 end
