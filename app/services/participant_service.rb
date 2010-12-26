@@ -4,21 +4,16 @@ class ParticipantService
   end
   
   def merge(participant_ids, name = "merged")
-    receipts = []
-    participant_ids.each do |id|
-      current_participant = Participant.find(id)
-      current_participant.receipts.each { |r| receipts << r }
-    end
+    receipts = collect_receipts_of_participants_to_merge(participant_ids)
     superparticipant = Participant.create(:name => name, :user => @owner)
+    
     receipts.each do |r| 
-      mod_participants_list = []
-      r.participants.each do |p|
-        mod_participants_list << p unless participant_ids.include?(p.id)
-      end
+      mod_participants_list = remove_and_destroy_to_be_merged_participants(r, participant_ids)
       mod_participants_list << superparticipant
       r.update_attributes(:participants => mod_participants_list)
       r.save
     end
+    
     return superparticipant
   end
   
@@ -52,5 +47,22 @@ class ParticipantService
     
     def list_valid?( list )
       !(list == "" || list.nil?)
+    end
+    
+    def remove_and_destroy_to_be_merged_participants( receipt, participant_ids )
+      list = []
+      receipt.participants.each do |p|
+        participant_ids.include?(p.id) ? Participant.find(p.id).destroy : list << p
+      end
+      return list
+    end
+    
+    def collect_receipts_of_participants_to_merge( participant_ids )
+      receipts = []
+      participant_ids.each do |id|
+        participant = Participant.find(id)
+        participant.receipts.each { |r| receipts << r }
+      end
+      return receipts
     end
 end

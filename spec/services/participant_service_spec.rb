@@ -14,6 +14,22 @@ describe ParticipantService do
       @franklin = Participant.create(:name => "franklin", :user => @john)
     end
     
+    it "should remove the old participants from before the merge" do
+      target_receipt = Receipt.create(:store => @target, 
+                                      :purchase_date => 1.day.ago, 
+                                      :total => 11.32, 
+                                      :user => @john, 
+                                      :participants => [@frank])
+      chipotle_receipt = Receipt.create(:store => @chipotle, 
+                                        :purchase_date => 1.day.ago, 
+                                        :total => 65.32, :user => @john, 
+                                        :participants => [@franklin])
+      
+      merged_participant = @service.merge([@frank.id, @franklin.id], "merged_participant")
+      Participant.find_by_name(@frank.name).should be_nil
+      Participant.find_by_name(@franklin.name).should be_nil
+    end
+    
     it "should assign the specified name to the superparticipant" do
       target_receipt = Receipt.create(:store => @target, 
                                       :purchase_date => 1.day.ago, 

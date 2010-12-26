@@ -1,6 +1,7 @@
 Expenselynx::Application.routes.draw do
   match "participants/search" => 'participant#search'
   match "participants" => 'participant#index'
+  match "participants/merge" => 'participant#merge'
   
   #UNTESTED SPIKE
   match "expense_report/:id/download" => "expense_report#download_csv"

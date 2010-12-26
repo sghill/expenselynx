@@ -78,4 +78,11 @@ describe ParticipantController do
       assigns(:participants).first.should == alf
     end
   end
+  
+  describe "POST 'merge'" do
+    it "should require login" do
+      post :merge, :participant_ids => nil
+      response.should redirect_to(new_user_session_path)
+    end
+  end
 end

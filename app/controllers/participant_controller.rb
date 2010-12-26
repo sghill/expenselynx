@@ -1,5 +1,7 @@
+require 'participant_service'
+
 class ParticipantController < ApplicationController
-  before_filter :authenticate_user!, :only => [:search, :index]
+  before_filter :authenticate_user!, :only => [:search, :index, :merge]
   def search
     if params[:term].nil?
       @participants = current_user.participants      
@@ -14,5 +16,13 @@ class ParticipantController < ApplicationController
 
   def index
     @participants = current_user.participants
+  end
+  
+  def merge
+    service = ParticipantService.new(current_user)
+    
+    respond_to do |format|
+      format.html { redirect_to root_path }
+    end
   end
 end
