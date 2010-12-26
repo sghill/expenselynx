@@ -52,7 +52,11 @@ class ParticipantService
     def remove_and_destroy_to_be_merged_participants( receipt, participant_ids )
       list = []
       receipt.participants.each do |p|
-        participant_ids.include?(p.id) ? Participant.find(p.id).destroy : list << p
+        if participant_ids.include?(p.id) 
+          Participant.find(p.id).destroy 
+        else
+          list << p
+        end
       end
       return list
     end

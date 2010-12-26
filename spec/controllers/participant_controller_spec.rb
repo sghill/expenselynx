@@ -86,9 +86,35 @@ describe ParticipantController do
     end
     
     it "should take me back to my dashboard once finished" do
+      mobie = Participant.create(:name => "mobie", :user => @sara)
+      moby = Participant.create(:name => "moby", :user => @sara)
+      Receipt.create(:store => Store.create(:name => "Binstince Emporium"),
+                     :purchase_date => 5.days.ago,
+                     :total => 17.32,
+                     :participants => [mobie, moby],
+                     :user => @sara)
       sign_in @sara
-      post :merge, :participant_ids => nil
+      post :merge, :participant_ids => [mobie.id, moby.id]
       response.should redirect_to(dashboard_index_path)
+    end
+    
+    it "should remove the participants submitted to merge" do
+      mobie = Participant.create(:name => "mobie", :user => @sara)
+      moby = Participant.create(:name => "moby", :user => @sara)
+      Receipt.create(:store => Store.create(:name => "Binstince Emporium"),
+                     :purchase_date => 5.days.ago,
+                     :total => 17.32,
+                     :participants => [mobie, moby],
+                     :user => @sara)
+      @sara.receipts.length.should == 1
+      @sara.receipts.first.participants.length.should == 2
+      @sara.participants.length == 2
+
+      sign_in @sara
+      
+      post :merge, :participant_ids => [mobie.id, moby.id]
+      User.find_by_email(@sara.email).receipts.first.participants.length.should == 1
+      User.find_by_email(@sara.email).participants.length == 1
     end
   end
 end

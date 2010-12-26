@@ -24,10 +24,11 @@ describe ParticipantService do
                                         :purchase_date => 1.day.ago, 
                                         :total => 65.32, :user => @john, 
                                         :participants => [@franklin])
-      
+      @john.participants.length.should == 2
       merged_participant = @service.merge([@frank.id, @franklin.id], "merged_participant")
       Participant.find_by_name(@frank.name).should be_nil
       Participant.find_by_name(@franklin.name).should be_nil
+      User.find_by_email(@john.email).participants.length.should == 1
     end
     
     it "should assign the specified name to the superparticipant" do

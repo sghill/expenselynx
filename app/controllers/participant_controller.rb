@@ -20,9 +20,9 @@ class ParticipantController < ApplicationController
   
   def merge
     service = ParticipantService.new(current_user)
-    
+    service.merge(params[:participant_ids])
     respond_to do |format|
-      format.html { redirect_to root_path }
+      format.html { redirect_to dashboard_index_path }
     end
   end
 end
