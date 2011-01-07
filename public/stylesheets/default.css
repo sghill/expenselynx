@@ -15,13 +15,26 @@ a {
 	text-decoration:none;
 }
 
+#top_band {
+  background:black;
+}
+
+header {
+  max-width:1024px;
+  margin:0 auto;
+  color:white;
+}
+
+header a {
+  color:#ccc;
+}
+
 #outer_container {
 	margin:0 auto;
 	max-width:1024px;
 }
 
 #user_bar {
-	border-bottom:solid gray 1px;
 	height:36px;
 	width:inherit;
 }

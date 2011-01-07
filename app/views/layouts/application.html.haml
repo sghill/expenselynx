@@ -6,7 +6,7 @@
     = javascript_include_tag "jquery-1.4.1.min", "jquery-ui-1.8.6.min", "application"
     = csrf_meta_tag
   %body
-    #outer_container
+    #top_band
       %header#user_bar
         %h1#logo= link_to 'ExpenseLynx', root_path
         %nav#links
@@ -14,6 +14,7 @@
             = link_to 'Unexpensed Receipts', dashboard_unexpensed_path
             = "::"
             = link_to 'Sign Out', destroy_user_session_path
+    #outer_container
       #content_container
         - if flash[:notice]
           %p#notice.center= notice
