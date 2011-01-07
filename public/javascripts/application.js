@@ -23,7 +23,7 @@ $(document).ready(function() {
   //login form styling
   $("#user_remember_me").button();
   $("#user_submit").button();
-  $(":checkbox").button();
+  $("#add_receipt :checkbox").button();
   // end login form styling
   
   $("#receipt_purchase_date").datepicker({dateFormat:"yy-mm-dd", inline:true});
