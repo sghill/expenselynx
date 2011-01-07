@@ -134,6 +134,11 @@ a {
   text-align:right;
 }
 
+.center_object {
+  margin-left:auto;
+  margin-right:auto;
+}
+
 /** LOGIN FORM **/
 #login_form ol li {
   display:block;

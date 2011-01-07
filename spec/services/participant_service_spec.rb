@@ -8,19 +8,19 @@ describe ParticipantService do
   
   describe "merge" do
     before do
-      @target = Store.create(:name => "target")
-      @chipotle = Store.create(:name => "chipotle")
-      @frank = Participant.create(:name => "frank", :user => @john)
-      @franklin = Participant.create(:name => "franklin", :user => @john)
+      @target = Store.create!(:name => "target")
+      @chipotle = Store.create!(:name => "chipotle")
+      @frank = Participant.create!(:name => "frank", :user => @john)
+      @franklin =  Participant.create!(:name => "franklin", :user => @john)
     end
     
     it "should remove the old participants from before the merge" do
-      target_receipt = Receipt.create(:store => @target, 
-                                      :purchase_date => 1.day.ago, 
-                                      :total => 11.32, 
-                                      :user => @john, 
-                                      :participants => [@frank])
-      chipotle_receipt = Receipt.create(:store => @chipotle, 
+      target_receipt = Receipt.create!(:store => @target, 
+                                       :purchase_date => 1.day.ago, 
+                                       :total => 11.32, 
+                                       :user => @john, 
+                                       :participants => [@frank])
+      chipotle_receipt = Receipt.create!(:store => @chipotle, 
                                         :purchase_date => 1.day.ago, 
                                         :total => 65.32, :user => @john, 
                                         :participants => [@franklin])
