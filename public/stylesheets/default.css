@@ -17,6 +17,10 @@ a {
 
 #top_band {
   background:black;
+  -webkit-box-shadow:0 5px 5px #333;
+  -moz-box-shadow:0 5px 5px #333;
+  -o-box-shadow:0 5px 5px #333;
+  box-shadow:0 5px 5px #333;
 }
 
 header {
@@ -54,7 +58,7 @@ header a {
 	border-bottom:solid gray 1px;
 	border-left:solid gray 1px;
 	border-right:solid gray 1px;
-	margin:0 4em;
+	margin:7px 4em;
 	padding:2em;
 	max-width:888px;
 	min-height:600px;
