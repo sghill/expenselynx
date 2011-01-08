@@ -62,8 +62,8 @@ class ReceiptsController < ApplicationController
 
   def update
     @receipt = current_user.receipts.find(params[:id])
-      service = ParticipantService.new(params[:participant_names], current_user)
-      participants = service.participants_list
+      service = ParticipantService.new(current_user)
+      participants = service.participants_list(params[:participant_names])
       participants.concat service.participants_list_from_collection(params[:old_participants]) unless params[:old_participants].nil?
 
     respond_to do |format|

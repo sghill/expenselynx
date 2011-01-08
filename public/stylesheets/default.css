@@ -15,13 +15,30 @@ a {
 	text-decoration:none;
 }
 
+#top_band {
+  background:black;
+  -webkit-box-shadow:0 5px 5px #333;
+  -moz-box-shadow:0 5px 5px #333;
+  -o-box-shadow:0 5px 5px #333;
+  box-shadow:0 5px 5px #333;
+}
+
+header {
+  max-width:1024px;
+  margin:0 auto;
+  color:white;
+}
+
+header a {
+  color:#ccc;
+}
+
 #outer_container {
 	margin:0 auto;
 	max-width:1024px;
 }
 
 #user_bar {
-	border-bottom:solid gray 1px;
 	height:36px;
 	width:inherit;
 }
@@ -41,7 +58,7 @@ a {
 	border-bottom:solid gray 1px;
 	border-left:solid gray 1px;
 	border-right:solid gray 1px;
-	margin:0 4em;
+	margin:7px 4em;
 	padding:2em;
 	max-width:888px;
 	min-height:600px;
@@ -132,6 +149,11 @@ a {
 
 .right {
   text-align:right;
+}
+
+.center_object {
+  margin-left:auto;
+  margin-right:auto;
 }
 
 /** LOGIN FORM **/

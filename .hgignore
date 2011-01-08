@@ -7,3 +7,5 @@ public/uploads/*
 public/receipts/*
 *.lock
 *.csv
+log/*.log
+tmp/pids/*.pid
