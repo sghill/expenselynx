@@ -57,7 +57,6 @@ class ParticipantService
         if participant_ids.include?(p.id) 
           Participant.find(p.id).delete
           @owner.participants.delete(p)
-          # @owner.save!
         else
           list << p
         end

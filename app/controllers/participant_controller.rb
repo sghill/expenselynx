@@ -1,5 +1,3 @@
-require 'participant_service'
-
 class ParticipantController < ApplicationController
   before_filter :authenticate_user!, :only => [:search, :index, :merge_zone, :merge]
   def search
