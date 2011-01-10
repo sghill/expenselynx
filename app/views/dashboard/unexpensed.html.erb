@@ -1,4 +1,3 @@
-
 <p class="right"><%= text_field_tag "external_report_id", nil, :placeholder => "Expense Report ID" %>
 <%= submit_tag "Create Expense Report" %></p><br />
 
@@ -11,14 +10,14 @@
       <th>Total</th>
     </thead>
     <tbody>
-  <% @receipts.each do |receipt| %>
-    <tr>
-      <td><%= check_box_tag "receipt_ids[]", receipt.id %></td>
-      <td><%= receipt.purchase_date.to_s(:short) %></td>
-      <td><%= receipt.store.name %></td>
-      <td class="right"><%= link_to number_to_currency(receipt.total), receipt %></td>
-    </tr>
-  <% end %>
-  </tbody>
+      <% @receipts.each do |receipt| %>
+        <tr>
+          <td><%= check_box_tag "receipt_ids[]", receipt.id %></td>
+          <td><%= receipt.purchase_date.to_s(:short) %></td>
+          <td><%= receipt.store.name %></td>
+          <td class="right"><%= link_to number_to_currency(receipt.total), receipt %></td>
+        </tr>
+      <% end %>
+    </tbody>
   </table>
 <% end %>

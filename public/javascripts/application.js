@@ -37,5 +37,4 @@ $(document).ready(function() {
   $("#add_receipt :checkbox").button();
   //unexpensed receipts table
   $('#select_all').click(function() { $(':checkbox').attr('checked', $('#select_all').attr('checked'))});
-  
 })
