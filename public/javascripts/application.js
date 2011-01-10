@@ -20,11 +20,6 @@ $(document).ready(function() {
       });
     }
   })
-  //login form styling
-  $("#user_remember_me").button();
-  $("#user_submit").button();
-  $("#add_receipt :checkbox").button();
-  // end login form styling
   
   $("#receipt_purchase_date").datepicker({dateFormat:"yy-mm-dd", inline:true});
   
@@ -35,4 +30,12 @@ $(document).ready(function() {
   $("#create_receipt_link").attr("href","#");
   
   $("#new_receipt").submitWithAjax();
+  
+  //login form styling
+  $("#user_remember_me").button();
+  $("#user_submit").button();
+  $("#add_receipt :checkbox").button();
+  //unexpensed receipts table
+  $('#select_all').click(function() { $(':checkbox').attr('checked', $('#select_all').attr('checked'))});
+  
 })
