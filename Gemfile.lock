@@ -41,13 +41,9 @@ GEM
       rack-test (>= 0.5.4)
       selenium-webdriver (>= 0.0.27)
       xpath (~> 0.1.2)
-    carrierwave (0.5.0)
-      activesupport (~> 3.0.0)
     celerity (0.8.4)
     childprocess (0.1.4)
       ffi (~> 0.6.3)
-    cloudfiles (1.4.8)
-      mime-types (>= 1.16)
     configuration (1.1.0)
     cucumber (0.9.4)
       builder (~> 2.1.2)
@@ -142,8 +138,6 @@ PLATFORMS
 DEPENDENCIES
   autotest
   capybara
-  carrierwave (>= 0.5.0)
-  cloudfiles (= 1.4.8)
   cucumber
   cucumber-rails
   database_cleaner

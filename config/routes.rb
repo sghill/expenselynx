@@ -4,9 +4,7 @@ Expenselynx::Application.routes.draw do
   match "participants/merge" => 'participant#merge'
   match "participants/merge_zone" => 'participant#merge_zone'
   
-  #UNTESTED SPIKE
   match "expense_report/:id/download" => "expense_report#download_csv"
-  #END UNTESTED SPIKE
   
   get "expense_report/:id" => "expense_report#show", :as => "expense_report"
   post "expense_report/create"
