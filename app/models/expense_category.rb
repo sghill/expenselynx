@@ -6,5 +6,32 @@ class ExpenseCategory < ActiveRecord::Base
   validates :name, :presence => true
   
   
-  CATEGORIES = ["Hotel", "Local Transportation", "Airfare", "Business Meals"]
+  CATEGORIES = ["Airfare & Upgrades",
+                "Airfare Change Fees",
+                "Benefits (Fitness)",
+                "Benefits (Transit)",
+                "Books",
+                "Business Meals",
+                "Car Rental",
+                "Computer supplies",
+                "Conference",
+                "Corporate Apartment",
+                "Dues & Subscriptions",
+                "Entertainment",
+                "Fees and Other charges",
+                "Gas",
+                "Gifts/Incentives",
+                "High Speed Internet",
+                "Hotel",
+                "Local Transportation",
+                "Mileage/Parking/Tolls",
+                "Office Supplies",
+                "Other",
+                "Passport/Visa/Immigration",
+                "Per Diem/Stipend (pre-approved)",
+                "Postage & Shipping",
+                "Relocation",
+                "Telephone",
+                "Training/Education",
+                "Travel Medicines/Vaccinations"].freeze
 end
