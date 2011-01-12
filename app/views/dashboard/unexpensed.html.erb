@@ -1,7 +1,7 @@
+<%= form_tag expense_report_create_path do %>
 <p class="right"><%= text_field_tag "external_report_id", nil, :placeholder => "Expense Report ID" %>
 <%= submit_tag "Create Expense Report" %></p><br />
 
-<%= form_tag expense_report_create_path do %>
   <table id="recent_receipts" class="center_object">
     <thead>
       <th><%= check_box_tag "select_all" %></th>
