@@ -7,7 +7,7 @@ class DashboardController < ApplicationController
               :unexpensed_total => unexpensed_receipts.sum(:total).to_f,
               :expensed_total => current_user.receipts.sum(:total, :conditions => ["expensed = ?", true]).to_f,
               :unexpensed_receipts_count => unexpensed_receipts.count.to_i}
-    @reports = current_user.expense_reports.find(:all, :limit => 5)
+    @reports = current_user.expense_reports.find(:all, :limit => 5, :order => 'created_at DESC')
   end
   
   def unexpensed
