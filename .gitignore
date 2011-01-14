@@ -8,3 +8,4 @@ public/receipts/*
 public/uploads/*
 *.lock
 *.csv
+.idea
