@@ -3,7 +3,7 @@ class StoresController < ApplicationController
   
   def edit
     @store = Store.find(params[:id])
-    @expense_categories = ExpenseCategory.find_by_sql ["SELECT ec.name FROM expense_categories ec INNER JOIN user_store_expense_categories usec ON ec.id = usec.expense_category_id WHERE usec.user_id = ? AND usec.store_id = ?", current_user.id, params[:id]]
+    @expense_categories = ExpenseCategory.for_user_and_store(current_user.id, params[:id])
   end
   
   def update
@@ -27,7 +27,7 @@ class StoresController < ApplicationController
   
   def show
     @store = Store.find(params[:id])
-    @expense_categories = ExpenseCategory.find_by_sql ["SELECT ec.name FROM expense_categories ec INNER JOIN user_store_expense_categories usec ON ec.id = usec.expense_category_id WHERE usec.user_id = ? AND usec.store_id = ?", current_user.id, params[:id]]
+    @expense_categories = ExpenseCategory.for_user_and_store(current_user.id, params[:id])
   end
   
   def search
