@@ -35,3 +35,12 @@ end
 Then /^I should not see a "(.*)" element$/ do |id|
   page.should have_no_css("#" + id)
 end
+
+Given /^I am logged in as "([^\"]*)"$/ do |email|
+  user = User.create(:email => email, :password => 'password')
+
+  steps %q{And I am on the login page}
+  steps %Q{And enter my email address as "#{user.email}"}
+  steps %q{And enter my password as "password"}
+  steps %q{And click the "user_submit" button}
+end

@@ -7,7 +7,6 @@ $("#unexpensed_total").effect('highlight', {}, 'slow');
 $("#expensed_total").html("<%= number_to_currency current_user.receipts.where(:expensed => true).sum(:total) %>");
 $("#expensed_total").effect('highlight', {}, 'slow');
 
-$("<%= escape_javascript(render :partial => 'receipts/receipt', :locals => {:receipt => @receipt, :expensable => true, :expensed => true}) %>")
-  .appendTo("#recent_receipts > tbody:last").effect('highlight', {}, 'slow');
-  
+$("#recent_receipts").html("<h3 class=\"center\">Recent Receipts</h3><br /><%= escape_javascript(render :partial => 'receipts/receipt_table', :locals => {:receipts => @receipt.user.receipts.recent, :expensable => true, :expensed => true}) %>").effect('highlight', {}, 'slow');
+
 $("#new_receipt")[0].reset();

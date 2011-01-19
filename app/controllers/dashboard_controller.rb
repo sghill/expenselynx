@@ -1,21 +1,13 @@
 class DashboardController < ApplicationController
   before_filter :authenticate_user!, :only => [:index, :unexpensed]
+
   def index
     @receipt = Receipt.new(:purchase_date => Time.now.to_date)
-    @receipts = current_user.receipts.find(:all, :limit => 5)
-    @stats = {:total => current_user.receipts.sum(:total).to_f,
-              :unexpensed_total => unexpensed_receipts.sum(:total).to_f,
-              :expensed_total => current_user.receipts.sum(:total, :conditions => ["expensed = ?", true]).to_f,
-              :unexpensed_receipts_count => unexpensed_receipts.count.to_i}
+    @receipts = current_user.receipts
     @reports = current_user.expense_reports.find(:all, :limit => 5, :order => 'created_at DESC')
   end
-  
-  def unexpensed
-    @receipts = unexpensed_receipts
-  end
 
-  private
-    def unexpensed_receipts
-      return current_user.receipts.where(:expensable => true, :expensed => false)
-    end
+  def unexpensed
+    @receipts = current_user.receipts.unexpensed
+  end
 end
