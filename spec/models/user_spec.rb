@@ -12,4 +12,8 @@ describe User do
   it "should have many expense categories" do
     @user.expense_categories.should be_an_instance_of(Array)
   end
+  
+  it "should have many projects" do
+    @user.projects.should be_an_instance_of(Array)
+  end
 end
