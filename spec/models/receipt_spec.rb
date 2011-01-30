@@ -53,6 +53,5 @@ describe Receipt do
     its(:unexpensable) { should include oil_filter, another_oil_filter, yet_another_oil_filter }
 
     its(:recent) { should == [yet_another_oil_filter, another_oil_filter, oil_filter, starbucks_coffee, baja_tacos] }
-    its(:recent) { should be_sorted.descending.by(:created_at) }
   end
 end

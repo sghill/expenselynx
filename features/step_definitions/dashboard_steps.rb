@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 Then /^I should have "([^"]*)" in unexpensed spendings$/ do |amount|
   find(:css, '#unexpensed_total').should have_content amount
 end
