@@ -20,4 +20,29 @@ describe DashboardController do
     assigns(:reports).first.should == most_recent
     assigns(:reports).last.should == last_recent
   end
+  
+  describe "GET 'projects'" do
+    it "should require a login" do
+      get :projects
+      response.should redirect_to(new_user_session_path)
+    end
+    
+    it "should return all of the projects a user has" do
+      energy = Project.create(:user => @sara, :name => "Large Energy Company")
+      
+      sign_in @sara
+      get :projects
+      assigns(:projects).first.should == energy
+    end
+    
+    it "should return only the projects belonging to that user" do
+      energy = Project.create(:user => @sara, :name => "Large Energy Company")
+      banking = Project.create(:user => Factory(:user), :name => "Large Financial Company")
+      
+      sign_in @sara
+      get :projects
+      assigns(:projects).size.should == 1
+      assigns(:projects).first.should == energy
+    end
+  end
 end
