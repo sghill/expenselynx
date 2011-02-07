@@ -1,12 +1,4 @@
 Expenselynx::Application.routes.draw do
-  get "projects/index"
-
-  get "projects/show"
-
-  get "projects/edit"
-
-  get "projects/new"
-
   match "participants/search" => 'participant#search'
   match "participants" => 'participant#index'
   match "participants/merge" => 'participant#merge'
@@ -25,6 +17,7 @@ Expenselynx::Application.routes.draw do
   resources :dashboard
   resources :receipts
   resources :stores
+  resources :projects
   post "receipts/upload"
   root :to => "dashboard#index"
 end
