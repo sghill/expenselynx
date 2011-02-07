@@ -20,13 +20,13 @@ describe ProjectsController do
     end
     
     it "should contain only the users projects" do
-      energy = Project.create(:user => @sara, :name => "Big Energy Company")
-      finance = Project.create(:user => Factory(:user), :name => "Big Financial Company")
+      saras_receipt = Project.create(:user => @sara, :name => "Big Energy Company")
+      johns_receipt = Project.create(:user => Factory(:user), :name => "Big Financial Company")
       
       sign_in @sara
       get :index
       assigns(:projects).size.should == 1
-      assigns(:projects).first.should == energy
+      assigns(:projects).first.should == saras_receipt
     end
   end
 
@@ -37,11 +37,18 @@ describe ProjectsController do
     end
     
     it "should show a receipt the user owns" do
-      energy = Project.create(:user => @sara, :name => "Big Energy Company")
+      saras_receipt = Project.create(:user => @sara, :name => "Big Energy Company")
       
       sign_in @sara
-      get :show, :id => energy.id
-      assigns(:project).should == energy
+      get :show, :id => saras_receipt.id
+      assigns(:project).should == saras_receipt
+    end
+    
+    it "should not show a receipt the user doesn't own" do
+      not_saras_receipt = Project.create(:user => Factory(:user), :name => "Top Secret Popcorn")
+      
+      sign_in @sara
+      lambda { get :show, :id => not_saras_receipt.id }.should raise_error
     end
   end
 
@@ -51,10 +58,19 @@ describe ProjectsController do
       response.should redirect_to(new_user_session_path)
     end
     
-    it "should require login" do
+    it "should load a receipt the user owns" do
+      saras_receipt = Project.create(:user => @sara, :name => "Big Energy Company")
+      
       sign_in @sara
-      get :edit
-      response.should be_success
+      get :edit, :id => saras_receipt.id
+      assigns(:project).should == saras_receipt
+    end
+    
+    it "should not show a receipt the user doesn't own" do
+      not_saras_receipt = Project.create(:user => Factory(:user), :name => "Top Secret Popcorn")
+      
+      sign_in @sara
+      lambda { get :edit, :id => not_saras_receipt.id }.should raise_error
     end
   end
 
