@@ -116,9 +116,9 @@ describe ProjectsController do
   describe "POST 'create'" do
     it "should create a project when logged in" do
       sign_in @sara
-      post :create, :project => { :user => @sara, :name => "good project" }
-      response.should be_redirect
-      assigns(:project).name.should == "good project"
+      post :create, :project => { :name => "good project" }
+      response.should redirect_to(assigns(:project))
+      @sara.projects.size.should == 1
     end
   end
 end

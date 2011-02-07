@@ -27,6 +27,7 @@ class ProjectsController < ApplicationController
   
   def create
     @project = Project.new(params[:project])
+    @project.update_attributes(:user => current_user)
     respond_with(@project)
   end
 end

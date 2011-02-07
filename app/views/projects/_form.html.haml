@@ -1,0 +1,7 @@
+= form_for(@project) do |f|
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name, :placeholder => "Project Name"
+  .action.clearer
+    = f.submit
