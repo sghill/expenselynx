@@ -12,6 +12,6 @@ class DashboardController < ApplicationController
   end
   
   def projects
-    @projects = current_user.projects
+    @projects = current_user.project
   end
 end
