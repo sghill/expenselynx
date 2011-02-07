@@ -18,6 +18,16 @@ describe ProjectsController do
       get :index
       response.should be_success
     end
+    
+    it "should contain only the users projects" do
+      energy = Project.create(:user => @sara, :name => "Big Energy Company")
+      finance = Project.create(:user => Factory(:user), :name => "Big Financial Company")
+      
+      sign_in @sara
+      get :index
+      assigns(:projects).size.should == 1
+      assigns(:projects).first.should == energy
+    end
   end
 
   describe "GET 'show'" do
@@ -26,10 +36,12 @@ describe ProjectsController do
       response.should redirect_to(new_user_session_path)
     end
     
-    it "should require login" do
+    it "should show a receipt the user owns" do
+      energy = Project.create(:user => @sara, :name => "Big Energy Company")
+      
       sign_in @sara
-      get :show
-      response.should be_success
+      get :show, :id => energy.id
+      assigns(:project).should == energy
     end
   end
 
