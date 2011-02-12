@@ -1,0 +1,5 @@
+%h2
+  Project: 
+  %em= @project.name
+
+%p= link_to(:index, projects_path) + "|" + link_to(:edit, edit_project_path(@project))
