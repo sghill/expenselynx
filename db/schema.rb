@@ -47,12 +47,12 @@ ActiveRecord::Schema.define(:version => 20110206205629) do
   create_table "receipts", :force => true do |t|
     t.integer  "store_id"
     t.date     "purchase_date"
-    t.decimal  "total"
+    t.decimal  "total",             :precision => 10, :scale => 4
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "expensable",        :default => false
+    t.boolean  "expensable",                                       :default => false
     t.integer  "user_id"
-    t.boolean  "expensed",          :default => false
+    t.boolean  "expensed",                                         :default => false
     t.integer  "expense_report_id"
     t.string   "receipt_image"
     t.string   "note"
