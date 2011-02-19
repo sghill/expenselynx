@@ -5,9 +5,13 @@ gem 'devise', '>= 1.1.3'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'haml', '>= 3.0.24'
 gem 'pg', '>= 0.10.1'
+gem 'decent_exposure'
+gem 'representative'
+gem 'representative_view'
 
 group :development, :test do
   gem 'autotest'
+  gem 'killer_rspec_rack', :git => 'git://github.com/akiellor/killer_rspec_rack.git'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '>= 2.1'
   gem 'rspec', '>= 2.1'
