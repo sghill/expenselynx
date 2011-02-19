@@ -11,6 +11,7 @@ gem 'representative_view'
 
 group :development, :test do
   gem 'autotest'
+  gem 'timecop'
   gem 'killer_rspec_rack', :git => 'git://github.com/akiellor/killer_rspec_rack.git'
   gem 'factory_girl_rails'
   gem 'rspec-rails', '>= 2.5'
