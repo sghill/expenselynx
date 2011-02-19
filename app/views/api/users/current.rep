@@ -1,0 +1,3 @@
+r.element :resource, user do
+  r.element :email
+end
