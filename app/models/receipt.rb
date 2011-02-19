@@ -19,6 +19,10 @@ class Receipt < ActiveRecord::Base
   scope :unexpensable, :conditions => {:expensable => false}
   scope :recent, :limit => 5, :order => ['created_at DESC']
 
+  def self.default
+    self.new(:purchase_date => Time.now.to_date)    
+  end
+
   def store_name
     self.store.name unless self.store.nil?
   end

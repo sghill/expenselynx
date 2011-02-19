@@ -1,3 +1,12 @@
+GIT
+  remote: git://github.com/akiellor/killer_rspec_rack.git
+  revision: 1d2748cec3b11db74065c31d330ccec5bec79c35
+  specs:
+    killer_rspec_rack (0.0.2.trunk)
+      activesupport (>= 2.3)
+      rack-test (>= 0.5.3)
+      rspec (>= 1.3)
+
 GEM
   remote: http://rubygems.org/
   specs:
@@ -149,6 +158,7 @@ DEPENDENCIES
   devise (>= 1.1.3)
   factory_girl_rails
   haml (>= 3.0.24)
+  killer_rspec_rack!
   launchy
   pg (>= 0.10.1)
   rails (>= 3.0.4)
