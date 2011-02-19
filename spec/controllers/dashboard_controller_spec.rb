@@ -24,10 +24,10 @@ describe DashboardController do
     end
 
     describe_action :index do
-      assign(:receipts) { should =~ saras_receipts }
-      assign(:receipt) { should be_a Receipt }
-      assign(:receipt, :purchase_date) { should == Time.now.to_date }
-      assign(:reports) { should == saras_expense_reports }
+      the_assigned(:receipts) { should =~ saras_receipts }
+      the_assigned(:receipt) { should be_a Receipt }
+      the_assigned(:receipt, :purchase_date) { should == Time.now.to_date }
+      the_assigned(:reports) { should == saras_expense_reports }
     end
   end
 
@@ -45,12 +45,37 @@ describe DashboardController do
       end
 
       describe_action :projects do
-        assign(:projects) { should == saras_projects }
+        the_assigned(:projects) { should == saras_projects }
       end
     end
 
     context "no-one is signed in" do
       describe_action :projects do
+        the(:response) { should redirect_to(new_user_session_path) }
+      end
+    end
+  end
+
+  context "sara has 4 unexpensed receipts" do
+    let(:saras_unexpensed_receipts) { [mock_model(Receipt),
+                                       mock_model(Receipt),
+                                       mock_model(Receipt),
+                                       mock_model(Receipt)]}
+
+    context "sara is signed in" do
+      before :each do
+        sign_in sara
+        sara.stub_chain(:receipts, :unexpensed).and_return(saras_unexpensed_receipts)
+        controller.stub(:current_user).and_return(sara)
+      end
+
+      describe_action :unexpensed do
+        the_assigned(:receipts) { should == saras_unexpensed_receipts }
+      end
+    end
+
+    context "no-one is signed in" do
+      describe_action :unexpensed do
         the(:response) { should redirect_to(new_user_session_path) }
       end
     end

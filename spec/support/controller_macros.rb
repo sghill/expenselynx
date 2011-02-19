@@ -14,8 +14,8 @@ module ControllerMacros
       end
     end
 
-    def assign assign_name, *attrs, &block
-      describe "the assign #{assign_name}" do
+    def the_assigned assign_name, *attrs, &block
+      describe "the assigned #{assign_name} #{attrs.join(' ')}" do
         subject { attrs.inject(assigns(assign_name)) {|result, attr| result.send(attr) } }
 
         it &block
