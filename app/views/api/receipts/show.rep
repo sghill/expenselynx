@@ -1,0 +1,9 @@
+r.element :resource, receipt do
+  r.element :receipt, receipt do
+    r.element :href, api_receipt_url(receipt)
+    r.element :total
+  end
+  r.list_of :links, [
+    {:rel => 'index', :href => api_receipts_url}
+  ]
+end
