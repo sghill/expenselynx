@@ -1,6 +1,7 @@
 Expenselynx::Application.routes.draw do
   namespace :api do
     match 'user' => 'users#current', :defaults => { :format => 'json' }
+    resources :receipts, :defaults => { :format => 'json' }
   end
 
   match "participants/search" => 'participant#search'
