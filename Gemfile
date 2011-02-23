@@ -4,7 +4,11 @@ gem 'rails', '>= 3.0.4'
 gem 'devise', '>= 1.1.3'
 gem 'sqlite3-ruby', :require => 'sqlite3'
 gem 'haml', '>= 3.0.24'
-gem 'pg', '>= 0.10.1'
+
+group :production do
+  gem 'thin', '>= 1.2.7'
+  gem 'pg', '>= 0.10.1'
+end
 
 group :development, :test do
   gem 'autotest'
