@@ -1,0 +1,12 @@
+r.element :resource, 'root' do
+  r.list_of :receipts, receipts do |receipt|
+    r.element :href, api_receipt_url(receipt)
+    r.element :total
+  end
+  r.element :form, form do
+    r.element :href, api_receipts_url
+    r.element :method
+    r.element :enctype
+    r.element :properties
+  end
+end

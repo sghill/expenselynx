@@ -2,47 +2,73 @@ require 'spec_helper'
 
 describe DashboardController do
   include Devise::TestHelpers
-  
-  before do
-    @sara = Factory(:sara)
-  end
-  
-  it "should return the most recent 5 reports" do
-    ExpenseReport.create(:user => @sara, :created_at => 7.days.ago, :external_report_id => "report 1")
-    ExpenseReport.create(:user => @sara, :created_at => 9.days.ago, :external_report_id => "report 10")
-    ExpenseReport.create(:user => @sara, :created_at => 3.days.ago, :external_report_id => "report 100")
-    most_recent = ExpenseReport.create(:user => @sara, :created_at => 1.days.ago, :external_report_id => "report 1000")
-    ExpenseReport.create(:user => @sara, :created_at => 3.days.ago, :external_report_id => "report 10000")
-    last_recent = ExpenseReport.create(:user => @sara, :created_at => 8.days.ago, :external_report_id => "report 100000")
-    
-    sign_in @sara
-    get :index
-    assigns(:reports).first.should == most_recent
-    assigns(:reports).last.should == last_recent
-  end
-  
-  describe "GET 'projects'" do
-    it "should require a login" do
-      get :projects
-      response.should redirect_to(new_user_session_path)
+  include RSpecMacros
+  include ControllerMacros
+
+  context "no-one is signed in" do
+    describe_actions :index, :unexpensed, :projects do
+      the(:response) { should redirect_to(new_user_session_path) }
     end
-    
-    it "should return all of the projects a user has" do
-      energy = Project.create(:user => @sara, :name => "Large Energy Company")
-      
-      sign_in @sara
-      get :projects
-      assigns(:projects).first.should == energy
+  end
+
+  context "sara is signed in" do
+    let(:sara) { Factory(:sara) }
+
+    before :each do
+      sign_in sara
+      controller.stub(:current_user).and_return(sara)
     end
-    
-    it "should return only the projects belonging to that user" do
-      energy = Project.create(:user => @sara, :name => "Large Energy Company")
-      banking = Project.create(:user => Factory(:user), :name => "Large Financial Company")
-      
-      sign_in @sara
-      get :projects
-      assigns(:projects).size.should == 1
-      assigns(:projects).first.should == energy
+
+    context "sara has 5 receipts" do
+      let(:saras_receipts) { [mock_model(Receipt),
+                              mock_model(Receipt),
+                              mock_model(Receipt)] }
+
+      let(:saras_expense_reports) { [mock_model(ExpenseReport),
+                                     mock_model(ExpenseReport)] }
+
+      before :each do
+        sara.stub(:receipts).and_return(saras_receipts)
+        sara.stub_chain(:expense_reports, :recent).and_return(saras_expense_reports)
+        Timecop.freeze
+      end
+
+      describe_action :index do
+        the_assigned(:receipts) { should =~ saras_receipts }
+        the_assigned(:receipt) { should be_a Receipt }
+        the_assigned(:receipt, :purchase_date) { should == Time.now.to_date }
+        the_assigned(:reports) { should == saras_expense_reports }
+      end
+    end
+
+    context "sara has 4 projects" do
+      let(:saras_projects) { [mock_model(Project),
+                              mock_model(Project),
+                              mock_model(Project),
+                              mock_model(Project)] }
+
+      before :each do
+        sara.stub(:projects).and_return(saras_projects)
+      end
+
+      describe_action :projects do
+        the_assigned(:projects) { should == saras_projects }
+      end
+    end
+
+    context "sara has 4 unexpensed receipts" do
+      let(:saras_unexpensed_receipts) { [mock_model(Receipt),
+                                         mock_model(Receipt),
+                                         mock_model(Receipt),
+                                         mock_model(Receipt)] }
+
+      before :each do
+        sara.stub_chain(:receipts, :unexpensed).and_return(saras_unexpensed_receipts)
+      end
+
+      describe_action :unexpensed do
+        the_assigned(:receipts) { should == saras_unexpensed_receipts }
+      end
     end
   end
 end
