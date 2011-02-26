@@ -54,4 +54,160 @@ describe Receipt do
 
     its(:recent) { should == [yet_another_oil_filter, another_oil_filter, oil_filter, starbucks_coffee, baja_tacos] }
   end
+
+  describe "validation messages" do
+    let(:purchase_date) { DateTime.now.to_date }
+    let(:store) { Store.create(:name => 'My Test Store') }
+    let(:sara) { Factory(:sara) }
+    let(:user) { sara }
+    let(:total) { 10 }
+    let(:expensable) { false }
+    let(:expensed) { false }
+    let(:expense_report) { nil }
+
+    subject do
+      receipt = Receipt.new(:total => total,
+                            :purchase_date => purchase_date,
+                            :store => store,
+                            :user => user,
+                            :expensable => expensable,
+                            :expensed => expensed,
+                            :expense_report => expense_report)
+      receipt.valid?
+      receipt
+    end
+
+    context "purchased today by 'sara' at 'My Test Store' to the value of 10.23" do
+      let(:total) { 10.23 }
+
+      it { should be_valid }
+    end
+
+    context "purchased today by 'sara' at 'My Test Store' omitting total" do
+      let(:total) { nil }
+
+      it { should be_invalid }
+      it { should have_error_message("can't be blank").on(:total) }
+      it { should have_error_message("is not a number").on(:total) }
+    end
+
+    context "purchased today by 'sara' at 'My Test Store' with negative total" do
+      let(:total) { -0.10 }
+
+      it { should be_invalid }
+      it { should have_error_message("must be greater than or equal to 0.01").on(:total) }
+    end
+
+    context "purchased today by 'sara' at 'My Test Store' with 'lots' total" do
+      let(:total) { 'lots' }
+
+      it { should be_invalid }
+      it { should have_error_message("is not a number").on(:total) }
+    end
+
+    context "purchased (?) by 'sara' at 'My Test Store'" do
+      let(:purchase_date) { nil }
+
+      it { should be_invalid }
+      it { should have_error_message("cannot occur in future").on(:purchase_date) } #current behaviour but a bit weird
+    end
+
+    context "purchased tomorrow by 'sara' at 'My Test Store'" do
+      let(:purchase_date) { Time.zone.now + 1.day }
+
+      it { should be_invalid }
+      it { should have_error_message("cannot occur in future").on(:purchase_date) }
+    end
+
+    context "purchased 'yesteryear' by 'sara' at 'My Test Store'" do
+      let(:purchase_date) { 'yesteryear' }
+
+      it { should be_invalid }
+      it { should have_error_message("cannot occur in future").on(:purchase_date) } #current behaviour but a bit weird
+    end
+
+    context "purchased today by 'sara' at (?)" do
+      let(:store) { nil }
+
+      it { should be_invalid }
+      it { should have_error_message("does not exist").on(:store_id) } #should change to validates_presence_of
+    end
+
+    context "purchased today by 'sara' at unknown" do
+      subject do
+        receipt = Receipt.new(:total => total,
+                              :purchase_date => purchase_date,
+                              :store_id => 10000,
+                              :user => sara)
+        receipt.valid?
+        receipt
+      end
+
+      it { should be_invalid }
+      it { should have_error_message("does not exist").on(:store_id) }
+    end
+
+    context "purchased today by 'sara' at 'My Test Store' and is expensable" do
+      let(:expensable) { true }
+      it { should be_expensable }
+
+      context "and not expensed" do
+        let(:expensed) { false }
+        it { should_not be_expensed }
+      end
+
+      context "and expensed" do
+        let(:expensed) { true }
+        it { should be_expensed }
+      end
+    end
+
+    context "purchased today by 'sara' at 'My Test Store' and is not expensable" do
+      let(:expensable) { false }
+      it { should_not be_expensable }
+
+      context "and expensed" do
+        let(:expensed) { true }
+        it { should be_invalid }
+        it { should have_error_message("receipt isn't possible unless receipt is marked expensable").on(:expensed) }
+      end
+    end
+
+    context "purchased today by (?) at 'My Test Store'" do
+      let(:user) { nil }
+
+      it { should be_invalid }
+      it { should have_error_message("can't be blank").on(:user) } #should change to validates_presence_of
+    end
+
+    context "purchased today by 'sara' at 'My Test Store' with no expense report" do
+      let(:expense_report) { nil }
+
+      its(:expense_report) { should_not be_present }
+    end
+
+    context "purchased today by 'sara' at 'My Test Store' with expense report on unexpensable receipt" do
+      let(:expense_report) { ExpenseReport.new }
+      let(:expensable) { false }
+
+      it { should be_invalid }
+      it { should have_error_message("receipt is not marked expensable").on(:expense_report_id) }
+    end
+  end
+end
+
+RSpec::Matchers.define :have_error_message do |message|
+  @on = :base
+  chain(:on) {|on| @on = on}
+  match do |model|
+    errors = model.errors[@on] and errors.include? message
+  end
+
+  failure_message_for_should do |model|
+"""
+expected model to have error message '#{message}' on '#{@on}' but didn't. Had:
+#{model.errors[@on].inspect}
+
+"""
+  end
 end
