@@ -1,19 +1,12 @@
 require 'spec_helper'
 
 describe User do
-  before do
-    @user = Factory(:user)
-  end
-  
-  it "should have participants" do
-    @user.participants.should be_an_instance_of(Array)
-  end
-  
-  it "should have many expense categories" do
-    @user.expense_categories.should be_an_instance_of(Array)
-  end
-  
-  it "should have many projects" do
-    @user.projects.should be_an_instance_of(Array)
-  end
+
+  subject { Factory(:user) }
+
+  its(:participants) { should be_an_instance_of(Array) }
+  its(:expense_categories) { should be_an_instance_of(Array) }
+  its(:projects) { should be_an_instance_of(Array) }
+  its(:receipts) { should be_an_instance_of(Array) }
+  its(:expense_reports) { should be_an_instance_of(Array) }
 end
