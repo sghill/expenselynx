@@ -21,4 +21,76 @@ describe ExpenseReport do
                               @forth_most,
                               @last_recent]}
   end
+
+  context "with user" do
+    let(:sara) { Factory(:sara) }
+
+    subject { ExpenseReport.new(:user => sara) }
+
+    it { should be_valid}
+  end
+
+  context "with user and external report id" do
+    let(:sara) { Factory(:sara) }
+
+    subject { ExpenseReport.new(:external_report_id => "7F3X2", :user => sara) }
+
+    it { should be_valid}
+  end
+
+  context "with user and omitted external report id" do
+    let(:sara) { Factory(:sara) }
+
+    subject { ExpenseReport.new(:external_report_id => nil, :user => sara) }
+
+    it { should be_valid}
+  end
+
+  context "with no user" do
+    subject { ExpenseReport.new }
+
+    it { should be_invalid }
+  end
+
+  context "with one receipt" do
+    let(:sara) { Factory(:sara) }
+    let(:chipotle) { Factory(:chipotle) }
+
+    subject do
+      report = ExpenseReport.create(:user => sara)
+      Receipt.create(:total => 3.68,
+                     :purchase_date => 1.day.ago,
+                     :store => chipotle,
+                     :expensable => true,
+                     :expense_report => report,
+                     :user => sara)
+      report
+    end
+
+    its(:receipt_count) { should == 1 }
+  end
+
+  context "with two receipts with totals 3.68 and 33.32" do
+    let(:sara) { Factory(:sara) }
+    let(:chipotle) { Factory(:chipotle) }
+
+    subject do
+      report = ExpenseReport.create(:user => sara)
+      Receipt.create(:total => 3.68,
+                     :purchase_date => 1.day.ago,
+                     :store => chipotle,
+                     :expensable => true,
+                     :expense_report => report,
+                     :user => sara)
+      Receipt.create(:total => 33.32,
+                     :purchase_date => 1.day.ago,
+                     :store => chipotle,
+                     :expensable => true,
+                     :expense_report => report,
+                     :user => sara)
+      report
+    end
+
+    its(:receipt_sum) { should == 37 }
+  end
 end
