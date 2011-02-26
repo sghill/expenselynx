@@ -28,3 +28,4 @@ RSpec::Matchers.define :assign do |name|
     clazz.new(controller)
   end
 end
+
