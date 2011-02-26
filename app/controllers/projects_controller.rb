@@ -26,7 +26,7 @@ class ProjectsController < ApplicationController
   end
 
   def create
-    @project = Project.create({:user => current_user}.merge(params[:project]))
+    @project = current_user.projects.create(params[:project])
     respond_with(@project)
   end
 end
