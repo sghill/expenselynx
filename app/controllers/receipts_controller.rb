@@ -1,27 +1,27 @@
 require 'participant_service'
 
 class ReceiptsController < ApplicationController
-  before_filter :authenticate_user!, 
+  before_filter :authenticate_user!,
     :only => [:index, :new, :create, :show, :edit, :update, :destroy, :upload]
-  
+
   respond_to :html
-    
+
   def index
-    @receipt = Receipt.new(:purchase_date => Time.now.to_date)
+    @receipt = Receipt.default
     @receipts = current_user.receipts.find(:all)
-    
+
     respond_with(@receipt, @receipts)
   end
 
   def show
     @receipt = current_user.receipts.find(params[:id])
-    
+
     respond_with(@receipt)
   end
 
   def new
-    @receipt = Receipt.new(:purchase_date => Time.now.to_date)
-    
+    @receipt = Receipt.default
+
     respond_with(@receipt)
   end
 
@@ -33,7 +33,7 @@ class ReceiptsController < ApplicationController
     service = ParticipantService.new(current_user)
     participants = service.participants_list(params[:participant_names])
     participants.concat(service.participants_list_from_collection(params[:old_participants])) unless params[:old_participants].nil?
-    
+
     @receipt = Receipt.new(
       :purchase_date => params[:receipt][:purchase_date],
       :total => params[:receipt][:total],
@@ -43,13 +43,13 @@ class ReceiptsController < ApplicationController
       :note => params[:receipt][:note],
       :user => current_user,
       :participants => participants)
-      
+
       unless params[:receipt][:receipt_image].nil?
         uploader = ReceiptImageUploader.new(current_user)
         uploader.store!(params[:receipt][:receipt_image])
         @receipt.receipt_image = File.basename(params[:receipt][:receipt_image])
       end
-      
+
     respond_to do |format|
       if @receipt.save
         format.js
