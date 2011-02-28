@@ -10,4 +10,18 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable, :validatable
 
   attr_accessible :email, :password, :password_confirmation, :remember_me
+
+  def report report_receipts, as_report
+    new_report = expense_reports.new(:external_report_id => as_report[:as])
+    begin
+      transaction do
+        report_receipts.each do |rec|
+          rec.report new_report
+        end
+        new_report.save!
+      end
+    rescue ActiveRecord::RecordInvalid => e
+    end
+    new_report
+  end
 end

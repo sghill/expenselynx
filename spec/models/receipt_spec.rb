@@ -11,10 +11,10 @@ describe Receipt do
     receipt.note.should be_nil
   end
 
+  let(:user) { Factory :user }
+
   context "with 2 unexpensed, 1 expensed and 3 unexpensable for same user" do
     subject { user.receipts }
-
-    let(:user) { Factory :user }
 
     let!(:chipotle_burrito) { Factory :chipotle_burrito, :expensable => true,
                                       :expensed => false,
@@ -192,6 +192,27 @@ describe Receipt do
 
       it { should be_invalid }
       it { should have_error_message("receipt is not marked expensable").on(:expense_report_id) }
+    end
+  end
+
+  describe "reporting" do
+    let!(:chipotle_burrito) { Factory :chipotle_burrito, :expensable => true,
+                                      :expensed => false,
+                                      :user => user,
+                                      :total => 0.50 }
+
+    let!(:report) { ExpenseReport.new :external_report_id => "1234" }
+
+    let!(:expensed_burrito) { chipotle_burrito.report report }
+
+    subject { expensed_burrito }
+
+    it { should be_expensed }
+
+    describe "the expense report" do
+      subject { report }
+
+      its(:receipts) { should include expensed_burrito }
     end
   end
 end
