@@ -1,7 +1,7 @@
 Expenselynx::Application.routes.draw do
   namespace :api do
-    match 'user' => 'users#current', :defaults => { :format => 'json' }
-    resources :receipts, :defaults => { :format => 'json' }
+    match 'user' => 'users#current', :defaults => {:format => 'json'}
+    resources :receipts, :defaults => {:format => 'json'}
   end
 
   match "participants/search" => 'participant#search'
@@ -11,7 +11,7 @@ Expenselynx::Application.routes.draw do
 
   resources :expense_reports do
     member do
-      get :download
+      get :download, :defaults => {:format => 'application/csv'}
     end
   end
   devise_for :users

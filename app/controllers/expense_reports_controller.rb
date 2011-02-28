@@ -1,7 +1,11 @@
 require 'csv'
 
 class ExpenseReportsController < ApplicationController
-  before_filter :authenticate_user!, :only => [:show, :create]
+  before_filter :authenticate_user!, :only => [:show, :create, :download]
+
+  expose(:report) do
+    current_user.expense_reports.find(params[:id])
+  end
 
   def show
     @report = current_user.expense_reports.find(params[:id])
@@ -24,49 +28,10 @@ class ExpenseReportsController < ApplicationController
     end
   end
 
-  # UNTESTED SPIKE
   def download
-    @receipts = current_user.expense_reports.find(params[:id]).receipts
+    downloadable and expires_in 30.days
     respond_to do |format|
-      format.csv do
-        render_csv("my-csv-receipts")
-      end
+      format.csv
     end
   end
-
-  private
-    def render_csv(filename = nil)
-      filename ||= params[:action]
-      filename += '.csv'
-
-      if request.env['HTTP_USER_AGENT'] =~ /msie/i
-        headers['Pragma'] = 'public'
-        headers["Content-type"] = "text/plain"
-        headers['Cache-Control'] = 'no-cache, must-revalidate, post-check=0, pre-check=0'
-        headers['Content-Disposition'] = "attachment; filename=\"#{filename}\""
-        headers['Expires'] = "0"
-      else
-        headers["Content-Type"] ||= 'text/csv'
-        headers["Content-Disposition"] = "attachment; filename=\"#{filename}\""
-      end
-
-      @csv_string = CSV.generate do |csv|
-        @receipts.each do |receipt|
-          store = Store.find_by_name(receipt.store.name)
-          expense_category = ExpenseCategory.find_by_name(store.expense_categories.first.name) unless store.expense_categories.empty?
-          participant_names = receipt.participants.collect{ |p| p.name }
-          participant_names << "me"
-          csv << [expense_category.nil? ? "" : expense_category.name,
-            receipt.purchase_date,
-            receipt.total,
-            "USD",
-            receipt.note.nil? ? "" : receipt.note,
-            store.name,
-            "Personal Card",
-            participant_names.join("; "),
-            false]
-        end
-      end
-        render :layout => false
-    end
 end
