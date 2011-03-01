@@ -36,7 +36,7 @@ describe DashboardController do
       describe_action :index do
         the_assigned(:receipts) { should =~ saras_receipts }
         the_assigned(:receipt) { should be_a Receipt }
-        the_assigned(:receipt, :purchase_date) { should == Time.now.to_date }
+        the_assigned(:receipt, :purchase_date) { should == Time.current.to_date }
         the_assigned(:reports) { should == saras_expense_reports }
       end
     end

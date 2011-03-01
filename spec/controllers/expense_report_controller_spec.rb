@@ -5,7 +5,7 @@ describe ExpenseReportController do
 
   let(:sara) { Factory(:sara) }
   let(:store) { Factory(:chipotle) }
-  let(:today) { DateTime.now.to_date }
+  let(:today) { Time.current.to_date }
   let(:report) { ExpenseReport.create(:user => sara) }
 
   it "should GET show when logged in" do

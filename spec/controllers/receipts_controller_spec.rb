@@ -6,8 +6,8 @@ describe ReceiptsController do
   let!(:chipotle) { Factory(:chipotle) }
   let!(:john) { Factory(:user) }
   let!(:sara) { Factory(:sara) }
-  let!(:receipt) { Receipt.create(:store => chipotle, :user => john, :purchase_date => 2.days.ago, :total => 13.34) }
-  let!(:today) { Time.now.to_date }
+  let!(:receipt) { Receipt.create(:store => chipotle, :user => john, :purchase_date => 2.days.ago(Time.current), :total => 13.34) }
+  let!(:today) { Time.current.to_date }
 
   it "should not get index if not logged in" do
     get :index

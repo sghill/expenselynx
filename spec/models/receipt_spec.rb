@@ -56,7 +56,7 @@ describe Receipt do
   end
 
   describe "validation messages" do
-    let(:purchase_date) { DateTime.now.to_date }
+    let(:purchase_date) { Time.current.to_date }
     let(:store) { Store.create(:name => 'My Test Store') }
     let(:sara) { Factory(:sara) }
     let(:user) { sara }

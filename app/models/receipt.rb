@@ -20,7 +20,7 @@ class Receipt < ActiveRecord::Base
   scope :recent, :limit => 5, :order => ['created_at DESC']
 
   def self.default
-    self.new(:purchase_date => Time.now.to_date)    
+    self.new(:purchase_date => Time.current.to_date)
   end
 
   def store_name
