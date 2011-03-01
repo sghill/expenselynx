@@ -1,8 +1,9 @@
 source 'http://rubygems.org'
 
-gem 'rails', '>= 3.0.4'
+gem 'rails', '>= 3.0.5'
 gem 'devise', '>= 1.1.3'
 gem 'haml', '>= 3.0.24'
+gem 'slim', :require => 'slim/rails'
 gem 'decent_exposure'
 gem 'representative'
 gem 'representative_view'

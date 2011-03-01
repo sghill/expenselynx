@@ -1,5 +1,0 @@
-<% data = [] %>
-<% @stores.each do |s| %>
-  <% data << {:label => "#{(s.name)}"} %>
-<% end %>
-<%= data.to_json.html_safe %>

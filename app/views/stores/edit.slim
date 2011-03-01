@@ -1,0 +1,13 @@
+= form_for(@store) do |f|
+  fieldset
+    ul
+      li= f.label :name
+      li= f.text_field :name, :disabled => true
+      li= f.label :expense_category
+      - unless @expense_categories.nil?
+        - @expense_categories.each do |category|
+          p= category.name
+    p Add another expense category
+    = select :store, :expense_categories, ExpenseCategory::CATEGORIES, {:include_blank => true}
+  .actions.clearer
+    = f.submit
