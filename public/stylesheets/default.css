@@ -15,6 +15,10 @@ a {
 	text-decoration:none;
 }
 
+fieldset ul li {
+  list-style:none;
+}
+
 #top_band {
   background:black;
   -webkit-box-shadow:0 5px 5px #333;
@@ -175,10 +179,6 @@ header a {
 }
 
 /** LOGIN FORM **/
-#login_form ol li {
-  display:block;
-  list-style:none;
-}
 #login_form {
   border:2px solid gray;
   -webkit-border-radius:15px;
