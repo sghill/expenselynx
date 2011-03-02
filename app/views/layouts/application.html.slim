@@ -1,27 +1,27 @@
-!!! 5
-%html
-  %head
-    %title ExpenseLynx
+! doctype 5
+html
+  head
+    title ExpenseLynx
     = stylesheet_link_tag "jquery-ui-1.8.7.custom", "default"
     = javascript_include_tag "jquery-1.4.1.min", "jquery-ui-1.8.6.min", "application"
     = csrf_meta_tag
-  %body
+  body
     #top_band
-      %header#user_bar
-        %h1#logo= link_to 'ExpenseLynx', root_path
-        %nav#links
+      header#user_bar
+        h1#logo= link_to 'ExpenseLynx', root_path
+        nav#links
           - if current_user
             = link_to 'Unexpensed Receipts', dashboard_unexpensed_path
-            = "::"
+            ' ::
             = link_to 'Sign Out', destroy_user_session_path
     #outer_container
       #content_container
         - if flash[:notice]
-          %p#notice.center= notice
+          p#notice.center= notice
         - if flash[:alert]
-          %p#alert.center= alert
-        = yield
-    %footer.center
+          p#alert.center= alert
+        == yield
+    footer.center
       = link_to "Home", root_path
-      = "::"
+      ' :: 
       = link_to "Need to Merge Participants?", participants_merge_zone_path
