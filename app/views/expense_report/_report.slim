@@ -1,0 +1,8 @@
+tr
+  td= report.created_at.to_date.to_s(:short)
+  - if report.external_report_id
+    td.center= link_to report.external_report_id, report
+  - else
+    td.center= link_to report.id, report
+  td.center= report.receipt_count
+  td.right= number_to_currency report.receipt_sum
