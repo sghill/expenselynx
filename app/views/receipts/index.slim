@@ -1,0 +1,10 @@
+#add_receipt
+  = link_to "New Receipt", new_receipt_path, :id => "create_receipt_link"
+
+  #receipt_form style="display:none"
+    == render "form"
+
+== render :partial => "receipt_table", \
+          :locals => { :receipts => @receipts, \
+                      :expensable => true, \
+                      :expensed => true }

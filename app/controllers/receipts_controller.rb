@@ -52,7 +52,7 @@ class ReceiptsController < ApplicationController
 
     respond_to do |format|
       if @receipt.save
-        format.js
+        format.js { render :layout => false }
         format.html { redirect_to(@receipt, :notice => 'Receipt was successfully created.') }
       else
         format.html { render :action => "new" }

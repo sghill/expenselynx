@@ -1,0 +1,33 @@
+p 
+  strong 
+    | Store: 
+  = @receipt.store.name
+p 
+  strong
+    | Purchase date: 
+  = @receipt.purchase_date
+
+p 
+  strong 
+    | Total: 
+  = @receipt.total
+br 
+p #{@receipt.expensable? ? "" : "Not"} Expensable
+p #{@receipt.expensed? ? "" : "Not"} Expensed
+- if @receipt.participants.size > 0
+  br 
+  p
+    strong Guest Appearances:
+  
+  - @receipt.participants.each do |p|
+    p= p.name
+
+- unless @receipt.note.nil?
+  br 
+  p 
+    strong Note
+  p= @receipt.note
+
+= link_to "Edit", edit_receipt_path(@receipt)
+|  :: 
+= link_to "Back", receipts_path
