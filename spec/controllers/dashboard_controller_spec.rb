@@ -6,7 +6,7 @@ describe DashboardController do
   include ControllerMacros
 
   context "no-one is signed in" do
-    describe_actions :index, :unexpensed, :projects do
+    describe_actions :index, :unexpensed do
       the(:response) { should redirect_to(new_user_session_path) }
     end
   end
@@ -38,21 +38,6 @@ describe DashboardController do
         the_assigned(:receipt) { should be_a Receipt }
         the_assigned(:receipt, :purchase_date) { should == Time.current.to_date }
         the_assigned(:reports) { should == saras_expense_reports }
-      end
-    end
-
-    context "sara has 4 projects" do
-      let(:saras_projects) { [mock_model(Project),
-                              mock_model(Project),
-                              mock_model(Project),
-                              mock_model(Project)] }
-
-      before :each do
-        sara.stub(:projects).and_return(saras_projects)
-      end
-
-      describe_action :projects do
-        the_assigned(:projects) { should == saras_projects }
       end
     end
 

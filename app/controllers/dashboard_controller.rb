@@ -1,5 +1,5 @@
 class DashboardController < ApplicationController
-  before_filter :authenticate_user!, :only => [:index, :unexpensed, :projects]
+  before_filter :authenticate_user!, :only => [:index, :unexpensed]
 
   def index
     @receipt = Receipt.default
@@ -9,9 +9,5 @@ class DashboardController < ApplicationController
 
   def unexpensed
     @receipts = current_user.receipts.unexpensed
-  end
-
-  def projects
-    @projects = current_user.projects
   end
 end

@@ -17,7 +17,6 @@ Expenselynx::Application.routes.draw do
 
   match 'stores/search' => 'stores#search'
   match 'dashboard/unexpensed' => 'dashboard#unexpensed'
-  match 'dashboard/projects'
 
   resources :dashboard
   resources :receipts

@@ -1,0 +1,38 @@
+section#expense_stats.stat_container
+  #receipt_total.stat_box
+    p Total
+    p#spending_total.sum= number_to_currency @receipts.sum(:total)
+  #unexpensed_receipt_total.stat_box
+    p= link_to "Unexpensed(#{@receipts.unexpensed.count})", dashboard_unexpensed_path
+    p#unexpensed_total.sum= number_to_currency @receipts.unexpensed.sum(:total)
+  #expensed_receipt_total.stat_box
+    p Expensed
+    p#expensed_total.sum= number_to_currency @receipts.expensed.sum(:total)
+
+.clearer
+
+#add_receipt
+  = link_to "New Receipt", new_receipt_path, :id => "create_receipt_link"
+
+  #receipt_form style="display:none"
+    == render "receipts/form"
+
+section#recent_receipts
+  h3.center Recent Receipts
+  br
+  == render :partial => "receipts/receipt_table", \
+            :locals => { :receipts => @receipts.recent, \
+                         :expensable => true, \
+                         :expensed => true }
+br
+br
+section#recent_expense_reports
+  h3.center Recent Expense Reports
+  br
+  br
+  table#recent_expense_reports.summary_table
+      th Date
+      th Identifier
+      th Receipts
+      th Total
+      == render :partial => 'expense_report/report', :collection => @reports
