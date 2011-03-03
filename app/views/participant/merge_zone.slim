@@ -1,0 +1,7 @@
+= form_tag participants_merge_path
+fieldset
+  ul
+    == render :partial => "participant", :collection => @participants
+
+= text_field_tag :participant_name, nil, :placeholder => "New name"
+= submit_tag "Merge Participants"

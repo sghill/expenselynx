@@ -1,6 +1,0 @@
-<%= form_tag participants_merge_path %>
-  <ol>
-  <%= render :partial => "participant", :collection => @participants %>
-  </ol>
-  <%= text_field_tag :participant_name, nil, :placeholder => "New name" %>
-  <%= submit_tag "Merge Participants" %>
