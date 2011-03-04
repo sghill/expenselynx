@@ -1,7 +1,9 @@
 require 'spec_helper'
+require 'killer_rspec_rack'
 
-describe ExpenseReportController do
+describe ExpenseReportsController do
   include Devise::TestHelpers
+  include KillerRspecRack::Matchers
 
   let(:sara) { Factory(:sara) }
   let(:store) { Factory(:chipotle) }
@@ -129,5 +131,26 @@ describe ExpenseReportController do
       after_post_receipt2 = Receipt.find(receipt2.id)
       assigns(:report).id.should == after_post_receipt1.expense_report.id
       assigns(:report).id.should == after_post_receipt2.expense_report.id
+  end
+
+  describe "GET #download" do
+    let(:receipts) { [mock(:receipt), mock(:receipt)] }
+
+    before :each do
+      sara.stub_chain(:expense_reports, :find, :receipts).and_return(receipts)
+      controller.stub(:current_user).and_return(sara)
+      controller.stub(:render_csv).and_return("")
+      sign_in sara
+
+      get :download, :id => '1', :format => :csv
+    end
+
+    it { should assign(:receipts).with(receipts) }
+
+    describe "the response headers" do
+      subject { response.headers }
+
+      it { should have_key('Content-Type').with_value('text/csv; charset=utf-8') }
+    end
   end
 end

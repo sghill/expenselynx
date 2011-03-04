@@ -1,5 +1,5 @@
 h2
-  | Expense Report 
+  | Expense Report
   em= @report.external_report_id
 #expense_report_stats.stat_container
   #receipt_count_box.stat_box
@@ -13,5 +13,5 @@ h2
           :locals => { :receipts => @report.receipts, \
                         :expensable => false, \
                         :expensed => false }
-                        
-= button_to "Download as CSV", "#{@report.id}/download.csv"
+
+= link_to "Download as CSV", download_expense_report_path(:id => @report, :format => :csv)
