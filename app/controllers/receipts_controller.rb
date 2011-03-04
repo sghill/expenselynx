@@ -1,28 +1,19 @@
-require 'participant_service'
-
 class ReceiptsController < ApplicationController
-  before_filter :authenticate_user!,
-    :only => [:index, :new, :create, :show, :edit, :update, :destroy, :upload]
+  before_filter :authenticate_user!
 
   respond_to :html
 
   def index
     @receipt = Receipt.default
     @receipts = current_user.receipts.find(:all)
-
-    respond_with(@receipt, @receipts)
   end
 
   def show
     @receipt = current_user.receipts.find(params[:id])
-
-    respond_with(@receipt)
   end
 
   def new
     @receipt = Receipt.default
-
-    respond_with(@receipt)
   end
 
   def edit
