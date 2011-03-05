@@ -35,7 +35,7 @@ describe ExpenseReportsController do
                    :user => sara)
     sign_in sara
     get :show, :id => report.to_param
-    should assign(:report).with(report)
+    should expose(:report).with(report)
   end
 
   it "should have receipts available in GET show" do
@@ -57,7 +57,7 @@ describe ExpenseReportsController do
                    :user => sara)
     sign_in sara
     get :show, :id => report.to_param
-    assigns(:report).receipts.first.should == receipt
+    controller.report.receipts.first.should == receipt
   end
 
   it "must be logged in to GET show" do
@@ -71,7 +71,7 @@ describe ExpenseReportsController do
     report = ExpenseReport.create(:user => john)
 
     sign_in sara
-    lambda { get :show, :id => report.to_param }.should raise_error ActiveRecord::RecordNotFound
+    lambda { get :show, :id => report.to_param; controller.report }.should raise_error ActiveRecord::RecordNotFound
   end
 
   it "should be logged in to access POST create" do
