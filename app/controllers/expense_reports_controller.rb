@@ -12,18 +12,11 @@ class ExpenseReportsController < ApplicationController
   end
 
   def create
-    @report = ExpenseReport.new(:external_report_id => params[:external_report_id],
-                                :user => current_user)
-    unless params[:receipt_ids].nil?
-      params[:receipt_ids].each do |receipt_id|
-        receipt = current_user.receipts.find(receipt_id)
-        receipt.expensed = true
-        receipt.expense_report = @report
-        receipt.save
-      end
-    end
+    receipts = current_user.receipts.where(:id => params[:receipt_ids])
 
-    if @report.save
+    @report = current_user.report receipts, :as => params[:external_report_id]
+
+    unless @report.new_record?
       redirect_to @report
     end
   end
