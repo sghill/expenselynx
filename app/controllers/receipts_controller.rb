@@ -39,17 +39,12 @@ class ReceiptsController < ApplicationController
 
   def update
     @receipt = current_user.receipts.find(params[:id])
-      service = ParticipantService.new(current_user)
-      participants = service.participants_list(params[:participant_names])
-      participants.concat service.participants_list_from_collection(params[:old_participants]) unless params[:old_participants].nil?
-      
-    respond_to do |format|
-      if @receipt.update_attributes(params[:receipt].merge(:user => current_user, :participants => participants))
-        format.html { redirect_to(@receipt, :notice => 'Receipt was successfully updated.') }
-      else
-        format.html { render :action => "edit" }
-      end
-    end
+    service = ParticipantService.new(current_user)
+    participants = service.participants_list(params[:participant_names])
+    participants.concat service.participants_list_from_collection(params[:old_participants]) unless params[:old_participants].nil?
+    
+    @receipt.update_attributes(params[:receipt].merge(:user => current_user, :participants => participants))
+    respond_with(@receipt)
   end
 
   def destroy
