@@ -28,7 +28,7 @@ class ReceiptsController < ApplicationController
     @receipt = Receipt.new(
       :purchase_date => params[:receipt][:purchase_date],
       :total => params[:receipt][:total],
-      :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
+      :store => Store.find_or_create_by_name(params[:receipt][:store_name]),
       :expensable => params[:receipt][:expensable],
       :expensed => params[:receipt][:expensed],
       :note => params[:receipt][:note],
@@ -60,7 +60,7 @@ class ReceiptsController < ApplicationController
     respond_to do |format|
       if @receipt.update_attributes(:purchase_date => params[:receipt][:purchase_date],
                                     :total => params[:receipt][:total],
-                                    :store_id => Store.find_or_create_by_name(params[:receipt][:store_name]).id,
+                                    :store => Store.find_or_create_by_name(params[:receipt][:store_name]),
                                     :expensable => params[:receipt][:expensable],
                                     :expensed => params[:receipt][:expensed],
                                     :note => params[:receipt][:note],
