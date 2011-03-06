@@ -42,7 +42,7 @@ class ReceiptsController < ApplicationController
       service = ParticipantService.new(current_user)
       participants = service.participants_list(params[:participant_names])
       participants.concat service.participants_list_from_collection(params[:old_participants]) unless params[:old_participants].nil?
-
+      
     respond_to do |format|
       if @receipt.update_attributes(params[:receipt].merge(:user => current_user, :participants => participants))
         format.html { redirect_to(@receipt, :notice => 'Receipt was successfully updated.') }
@@ -56,8 +56,6 @@ class ReceiptsController < ApplicationController
     @receipt = current_user.receipts.find(params[:id])
     @receipt.destroy
 
-    respond_with do |format|
-      format.html { redirect_to(receipts_url) }
-    end
+    respond_with(@receipt)
   end
 end
