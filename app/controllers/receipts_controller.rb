@@ -1,7 +1,7 @@
 class ReceiptsController < ApplicationController
   before_filter :authenticate_user!
 
-  respond_to :html
+  respond_to :html, :js
 
   def index
     @receipt = Receipt.default
@@ -26,15 +26,8 @@ class ReceiptsController < ApplicationController
     participants.concat(service.participants_list_from_collection(params[:old_participants])) unless params[:old_participants].nil?
 
     @receipt = Receipt.new(params[:receipt].merge(:user => current_user, :participants => participants))
-
-    respond_to do |format|
-      if @receipt.save
-        format.js { render :layout => false }
-        format.html { redirect_to(@receipt, :notice => 'Receipt was successfully created.') }
-      else
-        format.html { render :action => "new" }
-      end
-    end
+    @receipt.save
+    respond_with(@receipt)
   end
 
   def update
