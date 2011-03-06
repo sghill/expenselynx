@@ -26,7 +26,11 @@ class Receipt < ActiveRecord::Base
   def store_name
     self.store.name unless self.store.nil?
   end
-
+  
+  def store_name=(name)
+    self.store = Store.find_or_create_by_name(name)
+  end
+  
   def report exreport
     self[:expensed] = true
     exreport.receipts << self

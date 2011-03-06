@@ -1,6 +1,24 @@
 require 'spec_helper'
 
 describe Receipt do
+
+  let(:user) { Factory :user }
+
+  describe "store relationship" do
+    it "should create a new store if one doesn't exist with a new receipt" do
+      Store.count.should == 0
+      Receipt.create(:purchase_date => 1.day.ago, :user => user, :total => 4.32, :store_name => "Delta")
+      Store.count.should == 1
+    end
+    
+    it "should find a current store if it exists regardless of case" do
+      Store.create(:name => "Ikea")
+      Receipt.create(:purchase_date => 1.day.ago, :user => user, :total => 9.23, :store_name => "ikEa")
+      Receipt.find(1).store.should == Store.find_by_name("ikea")
+    end
+  end
+  
+  
   it "should have many participants" do
     receipt = Factory(:chipotle_burrito)
     receipt.participants.should be_an_instance_of(Array)
@@ -10,8 +28,6 @@ describe Receipt do
     receipt = Factory(:chipotle_burrito)
     receipt.note.should be_nil
   end
-
-  let(:user) { Factory :user }
 
   context "with 2 unexpensed, 1 expensed and 3 unexpensable for same user" do
     subject { user.receipts }
