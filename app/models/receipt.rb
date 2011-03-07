@@ -37,6 +37,10 @@ class Receipt < ActiveRecord::Base
     self
   end
 
+  def exportable?
+    return !self.store.expense_categories.empty?
+  end
+  
   private
     def purchase_date_is_not_in_the_future
       errors.add(:purchase_date, "cannot occur in future") unless

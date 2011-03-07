@@ -9,6 +9,7 @@
       th Purchase Date
       th Store
       th Total
+      th Export Ready?
     tbody
       - @receipts.each do |receipt|
         tr
@@ -16,3 +17,4 @@
           td= receipt.purchase_date.to_s(:short)
           td= receipt.store.name
           td.right= link_to number_to_currency(receipt.total), receipt
+          td.center.exportable= boolean_to_check receipt.exportable?

@@ -18,6 +18,12 @@ describe Receipt do
     end
   end
   
+  describe :exportable do
+    it "should mark itself as non-exportable if its store has no expense category" do
+      receipt = Receipt.create(:purchase_date => 1.day.ago, :user => user, :total => 2.54, :store_name => "Store #{Time.current.to_date.to_s}")
+      receipt.exportable?.should be_false
+    end
+  end
   
   it "should have many participants" do
     receipt = Factory(:chipotle_burrito)

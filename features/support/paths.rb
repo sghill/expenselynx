@@ -22,7 +22,8 @@ module NavigationHelpers
         new_user_session_path
       when /the dashboard page/
         root_path
-
+      when /the unexpensed receipts page/
+        dashboard_unexpensed_path
       else
         begin
           page_name =~ /the (.*) page/
