@@ -1,6 +1,6 @@
 tr
   td= receipt.purchase_date.to_date.to_s(:short)
-  td= link_to receipt.store.name, edit_store_path(receipt.store)
+  td= link_to receipt.store.name, [:edit, receipt.store]
   td.right= link_to number_to_currency(receipt.total), receipt
   - if expensable
     td.center= boolean_to_check receipt.expensable?

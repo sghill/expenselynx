@@ -11,9 +11,7 @@ html
         h1#logo= link_to 'ExpenseLynx', root_path
         nav#links
           - if current_user
-            = link_to 'Unexpensed Receipts', dashboard_unexpensed_path
-            ' ::
-            = link_to 'Sign Out', destroy_user_session_path
+            == separate_links(link_to('Unexpensed Receipts', dashboard_unexpensed_path), link_to('Sign Out', destroy_user_session_path))
     #outer_container
       #content_container
         - if flash[:notice]
@@ -22,6 +20,4 @@ html
           p#alert.center= alert
         == yield
     footer.center
-      = link_to "Home", root_path
-      ' :: 
-      = link_to "Need to Merge Participants?", participants_merge_zone_path
+      == separate_links(link_to("Home", root_path), link_to("Need to Merge Participants?", participants_merge_zone_path))

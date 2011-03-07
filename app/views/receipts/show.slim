@@ -28,6 +28,4 @@ p #{@receipt.expensed? ? "" : "Not"} Expensed
     strong Note
   p= @receipt.note
 
-= link_to "Edit", edit_receipt_path(@receipt)
-|  :: 
-= link_to "Back", receipts_path
+== separate_links( (link_to "Edit", [:edit, @receipt]), (link_to "Back", receipts_path) )
