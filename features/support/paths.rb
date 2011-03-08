@@ -24,6 +24,8 @@ module NavigationHelpers
         root_path
       when /the unexpensed receipts page/
         dashboard_unexpensed_path
+      when /the expense report page/
+        expense_report_path(ExpenseReport.last)
       else
         begin
           page_name =~ /the (.*) page/

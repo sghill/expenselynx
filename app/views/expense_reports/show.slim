@@ -1,10 +1,10 @@
 h2
-  | Expense Report
+  | Expense Report 
   em= report.external_report_id
 #expense_report_stats.stat_container
   #receipt_count_box.stat_box
     p Receipts
-    p#receipt_count.count= @report.receipt_count
+    p#receipt_count.count= report.receipt_count
   #receipt_total_box.stat_box
     p Total
     p#receipt_total.sum= number_to_currency report.receipt_sum
