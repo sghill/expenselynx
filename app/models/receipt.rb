@@ -9,8 +9,8 @@ class Receipt < ActiveRecord::Base
   validates :total, :presence => true,
                     :numericality => {:greater_than_or_equal_to => 0.01}
   validates :user, :presence => true
-  validate :purchase_date_is_not_in_the_future,
-           :store_existence,
+  validates :purchase_date, :presence => true
+  validate :store_existence,
            :nonexpensable_receipt_is_not_expensed,
            :nonexpensable_receipt_is_not_member_of_expense_report
 
@@ -42,11 +42,6 @@ class Receipt < ActiveRecord::Base
   end
   
   private
-    def purchase_date_is_not_in_the_future
-      errors.add(:purchase_date, "cannot occur in future") unless
-        purchase_date.present? and DateTime.now > purchase_date
-    end
-
     def store_existence
       errors.add(:store_id, "does not exist") if Store.find_by_id(store_id).nil?
     end

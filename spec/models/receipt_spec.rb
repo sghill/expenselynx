@@ -127,26 +127,20 @@ describe Receipt do
       it { should be_invalid }
       it { should have_error_message("is not a number").on(:total) }
     end
+    
+    describe :purchase_date do
+      context "purchased (?) by 'sara' at 'My Test Store'" do
+        let(:purchase_date) { nil }
 
-    context "purchased (?) by 'sara' at 'My Test Store'" do
-      let(:purchase_date) { nil }
+        it { should be_invalid }
+      end
 
-      it { should be_invalid }
-      it { should have_error_message("cannot occur in future").on(:purchase_date) } #current behaviour but a bit weird
-    end
+      context "purchased 'yesteryear' by 'sara' at 'My Test Store'" do
+        let(:purchase_date) { 'yesteryear' }
 
-    context "purchased tomorrow by 'sara' at 'My Test Store'" do
-      let(:purchase_date) { Time.zone.now + 1.day }
-
-      it { should be_invalid }
-      it { should have_error_message("cannot occur in future").on(:purchase_date) }
-    end
-
-    context "purchased 'yesteryear' by 'sara' at 'My Test Store'" do
-      let(:purchase_date) { 'yesteryear' }
-
-      it { should be_invalid }
-      it { should have_error_message("cannot occur in future").on(:purchase_date) } #current behaviour but a bit weird
+        it { should be_invalid }
+        it { should have_error_message("can't be blank").on(:purchase_date) }
+      end
     end
 
     context "purchased today by 'sara' at (?)" do
