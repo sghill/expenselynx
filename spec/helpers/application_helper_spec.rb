@@ -22,4 +22,18 @@ describe ApplicationHelper do
     
     it { should == "home :: dashboard :: unexpensed"}
   end
+  
+  describe :grid_for do
+    before do
+      @receipts = [Receipt.make(:colins_tv_from_circuit_city)]
+    end
+    
+    context :default do
+      subject { grid_for(@receipts) }
+    
+      it { should include "Purchase Date" }
+      it { should include "Store" }
+      it { should include "Total" }
+    end
+  end
 end

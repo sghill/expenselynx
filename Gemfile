@@ -17,6 +17,7 @@ group :development, :test do
   gem 'timecop'
   gem 'killer_rspec_rack', :git => 'git://github.com/akiellor/killer_rspec_rack.git'
   gem 'factory_girl_rails'
+  gem 'machinist', '>= 2.0.0.beta2'
   gem 'rspec-rails', '>= 2.5'
   gem 'rspec', '>= 2.5'
   gem 'rspec-core', '>= 2.5'
