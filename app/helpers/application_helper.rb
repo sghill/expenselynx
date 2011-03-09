@@ -1,6 +1,8 @@
+#encoding: utf-8
+
 module ApplicationHelper  
   def boolean_to_check(conditional)
-    return conditional ? "&#10003;".html_safe : "&mdash;".html_safe
+    return conditional ? "✓" : "—"
   end
   
   def separate_links(*links)

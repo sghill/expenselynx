@@ -1,3 +1,5 @@
+#encoding: utf-8
+
 require 'spec_helper'
 
 describe ApplicationHelper do
@@ -5,13 +7,13 @@ describe ApplicationHelper do
     context "when true param" do
       subject { boolean_to_check(true) }
 
-      it { should == "&#10003;".html_safe }
+      it { should == "✓" }
     end
 
     context "when false param" do
       subject { boolean_to_check(false) }
 
-      it { should == "&mdash;".html_safe }
+      it { should == "—" }
     end
   end
   
