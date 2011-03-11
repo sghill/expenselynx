@@ -3,19 +3,4 @@
     = text_field_tag "external_report_id", nil, :placeholder => "Expense Report ID"
     = submit_tag "Create Expense Report"
   br
-  == grid_for(@receipts, {:editable => true})
-  / table#recent_receipts.center_object
-    / thead
-    /   th= check_box_tag "select_all"
-    /   th Purchase Date
-    /   th Store
-    /   th Total
-    /   th Export Ready?
-    / tbody
-    /   - @receipts.each do |receipt|
-    /     tr
-    /       td= check_box_tag "receipt_ids[]", receipt.id
-    /       td= receipt.purchase_date.to_s(:short)
-    /       td= receipt.store.name
-    /       td.right= link_to number_to_currency(receipt.total), receipt
-    /       td.center.exportable= boolean_to_check receipt.exportable?
+  == grid_for(@receipts, {:editable => true, :shows_export_status => true})

@@ -4,7 +4,4 @@
   #receipt_form style="display:none"
     == render "form"
 
-== render :partial => "receipt_table", \
-          :locals => { :receipts => @receipts, \
-                      :expensable => true, \
-                      :expensed => true }
+== grid_for(@receipts, {:shows_expense_status => true})
