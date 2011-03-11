@@ -20,10 +20,7 @@ section#expense_stats.stat_container
 section#recent_receipts
   h3.center Recent Receipts
   br
-  == render :partial => "receipts/receipt_table", \
-            :locals => { :receipts => @receipts.recent, \
-                         :expensable => true, \
-                         :expensed => true }
+  == grid_for(@receipts.recent, { :shows_expense_status => true } )
 br
 br
 section#recent_expense_reports
