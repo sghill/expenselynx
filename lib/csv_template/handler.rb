@@ -1,3 +1,5 @@
+require 'csv'
+
 module CsvTemplate
   module ViewHelpers
     def mime_type
