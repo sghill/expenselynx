@@ -4,7 +4,7 @@ report.receipts.each do |receipt|
   participant_names = receipt.participants.collect{ |p| p.name }
   participant_names << "me"
   csv << [expense_category.nil? ? "" : expense_category.name,
-    receipt.purchase_date,
+    receipt.purchase_date.strftime("%d %b %Y"),
     receipt.total,
     "USD",
     receipt.note.nil? ? "" : receipt.note,
