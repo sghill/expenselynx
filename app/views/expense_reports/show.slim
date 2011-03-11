@@ -9,9 +9,6 @@ h2
     p Total
     p#receipt_total.sum= number_to_currency report.receipt_sum
 
-== render :partial => 'receipts/receipt_table', \
-          :locals => { :receipts => report.receipts, \
-                        :expensable => false, \
-                        :expensed => false }
+== grid_for(report.receipts)
 
 = link_to "Download as CSV", download_expense_report_path(:id => report, :format => :csv)
