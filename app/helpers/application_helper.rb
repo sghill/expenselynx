@@ -13,6 +13,7 @@ module ApplicationHelper
     options.each { |opt| opt = false if opt.nil? }
     render :partial => "receipts/table", :locals => { :receipts => receipts,
                                                       :editable => options[:editable],
-                                                      :shows_expense_status => options[:shows_expense_status] }
+                                                      :shows_expense_status => options[:shows_expense_status],
+                                                      :shows_export_status => options[:shows_export_status] }
   end
 end

@@ -1,0 +1,25 @@
+table#recent_receipts.summary_table
+  thead
+    - if editable
+      th= check_box_tag "select_all"
+    th Purchase Date
+    th Store
+    th Total
+    - if shows_expense_status
+      th Expensable?
+      th Expensed?
+    - if shows_export_status
+      th Export Ready?
+  tbody
+    - receipts.each do |r|
+      tr
+        - if editable
+          td= check_box_tag "receipt_ids[]", r.id
+        td= r.purchase_date
+        td= r.store_name
+        td.right= number_to_currency r.total
+        - if shows_expense_status
+          td.center= boolean_to_check r.expensable?
+          td.center= boolean_to_check r.expensed?
+        - if shows_export_status
+          td.center= boolean_to_check r.exportable?

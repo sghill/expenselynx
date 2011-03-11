@@ -56,5 +56,11 @@ describe ApplicationHelper do
       it { should include "✓" }
       it { should include "—" }
     end
+    
+    context :shows_export_status do
+      subject { grid_for(@receipts, { :shows_export_status => true }) }
+      it { should include "Export Ready?" }
+      it { should include "—" }
+    end
   end
 end
