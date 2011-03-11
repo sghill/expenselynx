@@ -12,6 +12,7 @@ module ApplicationHelper
   def grid_for(receipts, options = {})
     options.each { |opt| opt = false if opt.nil? }
     render :partial => "receipts/table", :locals => { :receipts => receipts,
-                                                      :editable => options[:editable] }
+                                                      :editable => options[:editable],
+                                                      :shows_expense_status => options[:shows_expense_status] }
   end
 end

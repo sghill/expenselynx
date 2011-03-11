@@ -25,7 +25,7 @@ describe ApplicationHelper do
   
   describe :grid_for do
     before do
-      @receipts = [Receipt.make(:colins_tv_from_circuit_city)]
+      @receipts = [Receipt.make(:colins_unexpensed_tv_from_circuit_city)]
     end
     
     context :default do
@@ -45,8 +45,16 @@ describe ApplicationHelper do
       it { should include "input" }
       it { should include "checkbox" }
       it { should include "receipt_ids[]" }
+      it { should include "select_all" }
     end
     
-    
+    context :shows_expense_status do
+      subject { grid_for(@receipts, { :shows_expense_status => true }) }
+      
+      it { should include "Expensable?" }
+      it { should include "Expensed?" }
+      it { should include "✓" }
+      it { should include "—" }
+    end
   end
 end
