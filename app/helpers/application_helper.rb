@@ -9,7 +9,9 @@ module ApplicationHelper
     return links.to_a.join(" :: ")
   end
   
-  def grid_for(collection)
-    return "<table><thead><th>Purchase Date</th><th>Store</th><th>Total</th></thead></table>"
+  def grid_for(receipts, options = {})
+    options.each { |opt| opt = false if opt.nil? }
+    render :partial => "receipts/table", :locals => { :receipts => receipts,
+                                                      :editable => options[:editable] }
   end
 end
