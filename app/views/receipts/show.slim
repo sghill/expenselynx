@@ -10,7 +10,7 @@ p
 p 
   strong 
     | Total: 
-  = @receipt.total
+  = money @receipt.total_money
 br 
 p #{@receipt.expensable? ? "" : "Not"} Expensable
 p #{@receipt.expensed? ? "" : "Not"} Expensed
