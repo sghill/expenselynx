@@ -17,8 +17,8 @@ table#recent_receipts.summary_table
         - if editable
           td= check_box_tag "receipt_ids[]", r.id
         td= r.purchase_date
-        td= r.store_name
-        td.right= money r.total_money
+        td= link_to r.store_name, [:edit, r.store]
+        td.right= link_to money(r.total_money), [r]
         - if shows_expense_status
           td.center= boolean_to_check r.expensable?
           td.center= boolean_to_check r.expensed?

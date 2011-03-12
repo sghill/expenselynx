@@ -34,7 +34,7 @@ describe ApplicationHelper do
   
   describe :grid_for do
     before do
-      @receipts = [Receipt.make(:colins_unexpensed_tv_from_circuit_city)]
+      @receipts = [Receipt.make!(:colins_unexpensed_tv_from_circuit_city)]
     end
     
     context :default do
@@ -46,6 +46,8 @@ describe ApplicationHelper do
       it { should include @receipts.first.purchase_date.to_s }
       it { should include @receipts.first.store.name }
       it { should include @receipts.first.total.to_s }
+      it { should include link_to money(@receipts.first.total_money), [@receipts.first] }
+      it { should include link_to @receipts.first.store_name, [:edit, @receipts.first.store] }
     end
     
     context :editable do
