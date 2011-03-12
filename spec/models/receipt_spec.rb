@@ -232,4 +232,11 @@ describe Receipt do
       its(:receipts) { should include expensed_burrito }
     end
   end
+
+  describe "a receipts with total 0.50" do
+    subject { Factory :chipotle_burrito, :user => user,
+                                         :total => 0.50 }
+
+    its(:total_money) { should == Money.new(0.50, "USD") }
+  end
 end

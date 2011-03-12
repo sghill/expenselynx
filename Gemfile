@@ -6,6 +6,7 @@ gem 'slim', :require => 'slim/rails'
 gem 'decent_exposure'
 gem 'representative'
 gem 'representative_view'
+gem 'money'
 
 group :production do
   gem 'thin', '>= 1.2.7'

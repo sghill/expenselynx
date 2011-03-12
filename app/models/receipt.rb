@@ -40,6 +40,10 @@ class Receipt < ActiveRecord::Base
   def exportable?
     return !self.store.expense_categories.empty?
   end
+
+  def total_money
+    Money.new(total, "USD")
+  end
   
   private
     def store_existence
