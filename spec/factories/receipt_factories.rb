@@ -4,6 +4,11 @@ Factory.define :receipt do |r|
   r.total 12.31
 end
 
+Factory.define :receipt_with_no_total, :class => Receipt do |r|
+  r.store { |s| s.association(:target) }
+  r.purchase_date DateTime.now
+end
+
 Factory.define :chipotle_burrito, :class => Receipt do |r|
   r.user {|u| u.association(:sara)}
   r.store {|s| s.association(:chipotle)}

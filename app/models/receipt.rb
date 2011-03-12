@@ -3,6 +3,11 @@ class Receipt < ActiveRecord::Base
   belongs_to :user
   belongs_to :expense_report
   has_and_belongs_to_many :participants
+  composed_of :total_money,
+    :class_name => "Money",
+    :mapping => [%w(total_cents cents), %w(total dollars), %w(total_currency currency_as_string)],
+    :constructor => Proc.new { |cents, dollars, currency| Money.new(dollars * 100 || 0, currency || "USD") },
+    :converter => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : raise(ArgumentError, "Can't convert #{value.class} to Money") }
 
   default_scope :order => 'purchase_date DESC'
 
@@ -18,6 +23,14 @@ class Receipt < ActiveRecord::Base
   scope :expensed, :conditions => {:expensed => true}
   scope :unexpensable, :conditions => {:expensable => false}
   scope :recent, :limit => 5, :order => ['created_at DESC']
+
+  def total= amount
+    if amount
+      self[:total] = amount
+      self[:total_cents] = amount * 100
+      self[:total_currency] = "USD"
+    end
+  end
 
   def self.default
     self.new(:purchase_date => Time.current.to_date)
@@ -41,10 +54,6 @@ class Receipt < ActiveRecord::Base
     return !self.store.expense_categories.empty?
   end
 
-  def total_money
-    Money.new(total, "USD")
-  end
-  
   private
     def store_existence
       errors.add(:store_id, "does not exist") if Store.find_by_id(store_id).nil?

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110206205629) do
+ActiveRecord::Schema.define(:version => 20110312013437) do
 
   create_table "expense_categories", :force => true do |t|
     t.string   "name"
@@ -50,12 +50,15 @@ ActiveRecord::Schema.define(:version => 20110206205629) do
     t.decimal  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.boolean  "expensable",        :default => false
+    t.boolean  "expensable",               :default => false
     t.integer  "user_id"
-    t.boolean  "expensed",          :default => false
+    t.boolean  "expensed",                 :default => false
     t.integer  "expense_report_id"
     t.string   "receipt_image"
     t.string   "note"
+    t.string   "total_currency_as_string"
+    t.integer  "total_cents"
+    t.string   "total_currency"
   end
 
   create_table "stores", :force => true do |t|

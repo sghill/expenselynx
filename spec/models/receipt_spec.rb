@@ -234,9 +234,28 @@ describe Receipt do
   end
 
   describe "a receipts with total 0.50" do
-    subject { Factory :chipotle_burrito, :user => user,
-                                         :total => 0.50 }
+    subject { Factory :receipt_with_no_total, :user => user, :total => 0.50 }
 
-    its(:total_money) { should == Money.new(0.50, "USD") }
+    its(:total_money) { should == Money.new(50, "USD") }
+    its(:total_cents) { should == 50 }
+    its(:total_currency) { should == "USD" }
+  end
+
+  describe "a receipts with total_money 0.50 USD" do
+    subject { Factory :receipt_with_no_total, :user => user, :total_money => Money.new(50, "USD") }
+
+    its(:total_money) { should == Money.new(50, "USD") }
+    its(:total) { should == 0.50 }
+    its(:total_cents) { should == 50 }
+    its(:total_currency) { should == "USD" }
+  end
+
+  describe "a receipts with total_money 0.50 AUD" do
+    subject { Factory :receipt_with_no_total, :user => user, :total_money => Money.new(50, "AUD") }
+
+    its(:total_money) { should == Money.new(50, "AUD") }
+    its(:total) { should == 0.50 }
+    its(:total_cents) { should == 50 }
+    its(:total_currency) { should == "AUD" }
   end
 end
