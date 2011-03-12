@@ -16,4 +16,8 @@ module ApplicationHelper
                                                       :shows_expense_status => options[:shows_expense_status],
                                                       :shows_export_status => options[:shows_export_status] }
   end
+
+  def money value
+    number_to_currency value.dollars, :unit => value.currency.symbol
+  end
 end

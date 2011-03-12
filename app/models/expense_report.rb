@@ -10,6 +10,6 @@ class ExpenseReport < ActiveRecord::Base
   end
 
   def receipt_sum
-    return receipts.sum(:total)
+    receipts.map(&:total_money).reduce(:+)
   end
 end

@@ -22,6 +22,15 @@ describe ApplicationHelper do
     
     it { should == "home :: dashboard :: unexpensed"}
   end
+
+  describe "#money" do
+    context "where argument is USD3.00" do
+      subject { money Money.new(300, "USD") }
+
+      it { should == "$3.00"}
+    end
+  end
+
   
   describe :grid_for do
     before do

@@ -76,13 +76,13 @@ describe ExpenseReport do
 
     subject do
       report = ExpenseReport.create(:user => sara)
-      Receipt.create(:total => 3.68,
+      Receipt.create(:total_money => Money.new(368, "USD"),
                      :purchase_date => 1.day.ago,
                      :store => chipotle,
                      :expensable => true,
                      :expense_report => report,
                      :user => sara)
-      Receipt.create(:total => 33.32,
+      Receipt.create(:total_money => Money.new(3332, "USD"),
                      :purchase_date => 1.day.ago,
                      :store => chipotle,
                      :expensable => true,
@@ -91,6 +91,6 @@ describe ExpenseReport do
       report
     end
 
-    its(:receipt_sum) { should == 37 }
+    its(:receipt_sum) { should == Money.new(3700, "USD") }
   end
 end
