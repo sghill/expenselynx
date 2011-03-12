@@ -55,12 +55,12 @@ Feature: As a user I want to see a dashboard of my expenses
     And I should have "$24.50" in total spendings
     And I am on the dashboard page
     And I should see the following recent receipts:
-      | Date   | Store      | Total  | Expensable? | Expensed? |
-      | 19 Jan | Boost      | $0.50  | ✓           | ✓         |
-      | 19 Jan | Woolworths | $1.00  | ✓           | ✓         |
-      | 19 Jan | Saba       | $10.00 | ✓           | ✓         |
-      | 19 Jan | North West | $3.00  | ✓           | ✓         |
-      | 19 Jan | Jag        | $4.00  | ✓           | —         |
+      | Purchase Date   | Store      | Total  | Expensable? | Expensed? |
+      | 2010-01-19      | Boost      | $0.50  | ✓           | ✓         |
+      | 2010-01-19      | Woolworths | $1.00  | ✓           | ✓         |
+      | 2010-01-19      | Saba       | $10.00 | ✓           | ✓         |
+      | 2010-01-19      | North West | $3.00  | ✓           | ✓         |
+      | 2010-01-19      | Jag        | $4.00  | ✓           | —         |
 
   Scenario: A user has entered 7 receipts and don't refresh the page
     Given I am logged in as "chuck@example.com"
@@ -78,9 +78,9 @@ Feature: As a user I want to see a dashboard of my expenses
     And I should have "$20.50" in expensed spendings
     And I should have "$24.50" in total spendings
     And I should see the following recent receipts:
-      | Date   | Store      | Total  | Expensable? | Expensed? |
-      | 19 Jan | Boost      | $0.50  | ✓           | ✓         |
-      | 19 Jan | Woolworths | $1.00  | ✓           | ✓         |
-      | 19 Jan | Saba       | $10.00 | ✓           | ✓         |
-      | 19 Jan | North West | $3.00  | ✓           | ✓         |
-      | 19 Jan | Jag        | $4.00  | ✓           | —         |
+      | Purchase Date   | Store      | Total  | Expensable? | Expensed? |
+      | 2010-01-19      | Boost      | $0.50  | ✓           | ✓         |
+      | 2010-01-19      | Woolworths | $1.00  | ✓           | ✓         |
+      | 2010-01-19      | Saba       | $10.00 | ✓           | ✓         |
+      | 2010-01-19      | North West | $3.00  | ✓           | ✓         |
+      | 2010-01-19      | Jag        | $4.00  | ✓           | —         |

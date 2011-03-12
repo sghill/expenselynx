@@ -9,6 +9,6 @@ h2
     p Total
     p#receipt_total.sum= number_to_currency report.receipt_sum
 
-== grid_for(report.receipts)
+== grid_for(report.receipts, :shows_export_status => true)
 
 = link_to "Download as CSV", download_expense_report_path(:id => report, :format => :csv)
