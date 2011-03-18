@@ -19,6 +19,12 @@ fieldset ul li {
   list-style:none;
 }
 
+nav ul li {
+  display:inline;
+  list-style:none;
+  padding-right:1em;
+}
+
 #top_band {
   background:black;
   -webkit-box-shadow:0 5px 5px #333;
@@ -33,7 +39,7 @@ header {
   color:white;
 }
 
-header a {
+#user_bar a {
   color:#ccc;
 }
 
@@ -59,9 +65,6 @@ header a {
 }
 
 #content_container {
-	border-bottom:solid gray 1px;
-	border-left:solid gray 1px;
-	border-right:solid gray 1px;
 	margin:7px 4em;
 	padding:2em;
 	max-width:888px;

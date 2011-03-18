@@ -7,11 +7,13 @@ html
     = csrf_meta_tag
   body
     #top_band
-      header#user_bar
+      #user_bar
         h1#logo= link_to 'ExpenseLynx', root_path
-        nav#links
-          - if current_user
-            == separate_links(link_to('Unexpensed Receipts', dashboard_unexpensed_path), link_to('Sign Out', destroy_user_session_path))
+        - if current_user
+          nav#links
+            ul
+              li= link_to('Unexpensed Receipts', dashboard_unexpensed_path)
+              li= link_to('Sign Out', destroy_user_session_path)
     #outer_container
       #content_container
         - if flash[:notice]
