@@ -13,12 +13,12 @@ describe Participant do
     
     it "should have a display property that determines if it shows up as an option by default" do
       participant = Participant.new(:display => false, :name => "turtle", :user => @sara)
-      participant.display?.should be_a_kind_of(FalseClass)
+      participant.display?.should be_false
     end
     
     it "should be set to display by default" do
       participant = Participant.new(:name => "turtle", :user => @sara)
-      participant.display?.should be_a_kind_of(TrueClass)      
+      participant.display?.should be_true      
     end
   end
   
