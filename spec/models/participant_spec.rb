@@ -10,6 +10,16 @@ describe Participant do
       participant = Participant.new(:name => "turtle", :user => @sara)
       participant.name.should be_a_kind_of(String)
     end
+    
+    it "should have a display property that determines if it shows up as an option by default" do
+      participant = Participant.new(:display => false, :name => "turtle", :user => @sara)
+      participant.display?.should be_a_kind_of(FalseClass)
+    end
+    
+    it "should be set to display by default" do
+      participant = Participant.new(:name => "turtle", :user => @sara)
+      participant.display?.should be_a_kind_of(TrueClass)      
+    end
   end
   
   describe :relationships do
