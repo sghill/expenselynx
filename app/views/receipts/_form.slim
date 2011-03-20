@@ -33,8 +33,8 @@
         h3 Guests
         - unless current_user.participants.empty?
           table.center_object
-            - current_user.participants.each_with_index do |participant, i|
-              - if participant.display?
+            - participants = current_user.participants.select { |p| p.display? }
+            - participants.each_with_index do |participant, i|
                 - names = @receipt.participants.collect{ |n| n.name }
                 - if i % 2 == 0
                   tr
