@@ -1,13 +1,86 @@
 require 'spec_helper'
 
-describe ParticipantController do
+describe ParticipantsController do
   include Devise::TestHelpers
 
   before do
     @sara = Factory(:sara)
     @john = Factory(:user)
   end
+
+  describe :edit do
+    before do
+      @participant = Participant.create!(:name => "Toby", :user => @sara)
+    end
+    
+    context :authentication do
+      it "should redirect if not authenticated" do
+        get :edit, :id => @participant.to_param
+        response.should redirect_to(new_user_session_path)
+      end
+    
+      it "should be successful if authenticated" do
+        sign_in @sara
+        get :edit, :id => @participant.to_param
+        response.should be_success
+      end
+      
+      it "should not allow seeing other user's participants" do
+        sign_in @john
+        lambda { get :edit, :id => @participant.to_param }.should raise_error
+      end
+    end
+    
+    it "should contain requested participant" do
+      sign_in @sara
+      get :edit, :id => @participant.to_param
+      assigns(:participant).name.should == "Toby"
+    end
+  end
+
+  describe :update do
+    before do
+      @participant = Participant.create!(:name => "Toby #{Time.current}", :user => @sara)
+      @updated_participant = { :name => "Pluto" }
+    end
+    
+    it "should change receipt if logged in" do
+      sign_in @sara
+      post :update, :id => @participant.to_param, :participant => @updated_participant
+      assigns(:participant).name.should == "Pluto"
+    end
+
+    it "should not change receipt if not logged in" do
+      post :update, :id => @participant.to_param, :participant => @updated_participant
+      response.should redirect_to(new_user_session_path)
+    end
+  end
   
+  describe :show do
+    before do
+      @participant = Participant.create!(:name => "Toby", :user => @sara)
+    end
+    
+    context :authentication do
+      it "should disallow showing of other user's participants" do
+        sign_in @john
+        lambda { get :show, :id => @participant.to_param }.should raise_error
+      end
+
+      it "should redirect to sign in page if not logged in" do
+        get :show, :id => @participant.to_param
+        response.should redirect_to(new_user_session_path)
+      end
+    end
+    
+    it "should display basic information about the participant if logged in" do
+      sign_in @sara
+      get :show, :id => @participant.to_param
+      assigns(:participant).name.should == "Toby"
+      assigns(:participant).display?.should == true
+    end
+  end
+
   describe "GET 'search'" do
     it "should be successful" do
       sign_in @sara

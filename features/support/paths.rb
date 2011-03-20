@@ -26,6 +26,9 @@ module NavigationHelpers
         dashboard_unexpensed_path
       when /the expense report page/
         expense_report_path(ExpenseReport.last)
+      when /the edit participant "(.*)" page/
+        participant = Participant.find_by_name($1)
+        edit_participant_path(participant)
       else
         begin
           page_name =~ /the (.*) page/
