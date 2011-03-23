@@ -1,9 +1,0 @@
-= form_for @participant do |f|
-  fieldset
-    ul
-      li= f.label :name
-      li= f.text_field :name
-      li
-        = f.check_box :display?
-        = f.label :display?, "Display on Receipt Form"
-    =f.submit

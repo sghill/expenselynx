@@ -1,22 +1,6 @@
-class ParticipantsController < ApplicationController
-  before_filter :authenticate_user!
+class ParticipantController < ApplicationController
+  before_filter :authenticate_user!, :only => [:search, :index, :merge_zone, :merge]
 
-  respond_to :html
-  
-  def show
-    @participant = current_user.participants.find(params[:id])
-  end
-  
-  def edit
-    @participant = current_user.participants.find(params[:id])
-  end
-  
-  def update
-    @participant = current_user.participants.find(params[:id])
-    @participant.update_attributes(params[:participant].merge(:user => current_user))
-    respond_with(@participant)
-  end
-  
   def search
     if params[:term].nil?
       @participants = current_user.participants

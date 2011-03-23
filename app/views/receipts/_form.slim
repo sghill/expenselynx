@@ -33,18 +33,17 @@
         h3 Guests
         - unless current_user.participants.empty?
           table.center_object
-            - participants = current_user.participants.select { |p| p.display? }
-            - participants.each_with_index do |participant, i|
-                - names = @receipt.participants.collect{ |n| n.name }
-                - if i % 2 == 0
-                  tr
-                td
-                  = check_box_tag "old_participants[#{i}]", \
-                    participant.name, \
-                    names.include?(participant.name), \
-                    {:name => "old_participants[]"}
-                  ' 
-                  = label_tag "old_participants[#{i}]", participant.name
+            - current_user.participants.each_with_index do |participant, i|
+              - names = @receipt.participants.collect{ |n| n.name }
+              - if i % 2 == 0
+                tr
+              td
+                = check_box_tag "old_participants[#{i}]", \
+                  participant.name, \
+                  names.include?(participant.name), \
+                  {:name => "old_participants[]"}
+                ' 
+                = label_tag "old_participants[#{i}]", participant.name
         p.right
           strong Add Guest(s)
           = text_field_tag :participant_names, nil, :placeholder => 'Art Vandelay, SG Hill'
