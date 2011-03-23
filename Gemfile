@@ -27,7 +27,7 @@ group :development, :test do
   gem 'capybara'
   gem 'database_cleaner'
   gem 'cucumber-rails'
-  gem 'cucumber'
+  gem 'cucumber', '>= 0.10.2'
   gem 'spork'
   gem 'launchy'
   gem 'sqlite3-ruby', :require => 'sqlite3'
