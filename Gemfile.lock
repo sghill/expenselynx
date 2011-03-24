@@ -180,7 +180,7 @@ DEPENDENCIES
   autotest
   capybara
   cucumber (>= 0.10.2)
-  cucumber-rails
+  cucumber-rails (>= 0.3, < 0.4)
   database_cleaner
   decent_exposure
   devise (>= 1.1.3)

@@ -26,7 +26,7 @@ group :development, :test do
   gem 'rspec-mocks', '>= 2.5'
   gem 'capybara'
   gem 'database_cleaner'
-  gem 'cucumber-rails'
+  gem 'cucumber-rails', '>= 0.3', '< 0.4'
   gem 'cucumber', '>= 0.10.2'
   gem 'spork'
   gem 'launchy'
