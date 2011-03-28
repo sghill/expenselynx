@@ -4,10 +4,9 @@ Expenselynx::Application.routes.draw do
     resources :receipts, :defaults => {:format => 'json'}
   end
 
-  match "participants/search" => 'participant#search'
-  match "participants" => 'participant#index'
-  match "participants/merge" => 'participant#merge'
-  match "participants/merge_zone" => 'participant#merge_zone'
+  match "participants/search" => 'participants#search'
+  match "participants/merge" => 'participants#merge'
+  match "participants/merge_zone" => 'participants#merge_zone'
 
   resources :expense_reports do
     member do
@@ -23,6 +22,7 @@ Expenselynx::Application.routes.draw do
   resources :receipts
   resources :stores
   resources :projects
+  resources :participants
   post "receipts/upload"
   root :to => "dashboard#index"
 end

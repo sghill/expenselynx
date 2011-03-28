@@ -1,6 +1,6 @@
 require 'spec_helper'
 
-describe ParticipantController do
+describe ParticipantsController do
   include Devise::TestHelpers
 
   before do
@@ -131,6 +131,72 @@ describe ParticipantController do
       post :merge, :participant_ids => [mobie.id, moby.id], :participant_name => "toodles"
       User.find_by_email(@sara.email).receipts.first.participants.length.should == 1
       User.find_by_email(@sara.email).participants.length == 1
+    end
+  end
+  
+  describe :edit do
+    it "should redirect to sign in page if not logged in" do
+      participant = Participant.create!(:name => "teddy", :user => @sara)
+      get :edit, :id => participant.id
+      response.should redirect_to(new_user_session_path)
+    end
+    
+    it "should contain the participant" do
+      sign_in @sara
+      participant = Participant.create!(:name => "teddy", :user => @sara)
+      get :edit, :id => participant.id
+      assigns(:participant).name.should == "teddy"
+    end
+    
+    it "should not allow editing of other users' receipts" do
+      sign_in @john
+      participant = Participant.create!(:name => "teddy", :user => @sara)
+      lambda { get :edit, :id => participant.id }.should raise_error
+    end
+  end
+  
+  describe :update do
+    it "should not allow a user to update if not logged in" do
+      participant = Participant.create!(:name => "teddy", :user => @sara)
+      updated_participant = Participant.new(:name => "clancy", :user => @sara)
+      post :update, :id => participant.id, :participant => updated_participant.attributes
+      response.should redirect_to new_user_session_path
+    end
+    
+    it "should update if logged in" do
+      sign_in @sara
+      participant = Participant.create!(:name => "teddy", :user => @sara)
+      updated_participant = Participant.new(:name => "clancy", :user => @sara)
+      post :update, :id => participant.id, :participant => updated_participant.attributes
+      assigns(:participant).name.should == "clancy"
+    end
+    
+    it "should not allow updating another user's participant" do
+      sign_in @john
+      participant = Participant.create!(:name => "teddy", :user => @sara)
+      updated_participant = Participant.new(:name => "clancy", :user => @sara)
+      lambda { post :update, :id => participant.id, :participant => updated_participant.attributes }.should raise_error
+    end
+  end
+  
+  describe :show do
+    it "should redirect to sign in page if not logged in" do
+      participant = Participant.create!(:name => "teddy", :user => @sara)
+      get :show, :id => participant.id
+      response.should redirect_to new_user_session_path
+    end
+    
+    it "should contain the participant" do
+      sign_in @sara
+      participant = Participant.create!(:name => "teddy", :user => @sara)
+      get :show, :id => participant.id
+      assigns(:participant).name.should == "teddy"
+    end
+    
+    it "should not show another user's participant" do
+      sign_in @john
+      participant = Participant.create!(:name => "teddy", :user => @sara)
+      lambda { get :show, :id => participant.id }.should raise_error
     end
   end
 end

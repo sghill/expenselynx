@@ -1,6 +1,8 @@
-class ParticipantController < ApplicationController
-  before_filter :authenticate_user!, :only => [:search, :index, :merge_zone, :merge]
+class ParticipantsController < ApplicationController
+  before_filter :authenticate_user!
 
+  respond_to :html
+  
   def search
     if params[:term].nil?
       @participants = current_user.participants
@@ -8,7 +10,7 @@ class ParticipantController < ApplicationController
       @participants = current_user.participants.search_by_name(params[:term])
     end
 
-    respond_to do |format|
+    respond_with do |format|
       format.html { render :layout => false }
     end
   end
@@ -25,8 +27,22 @@ class ParticipantController < ApplicationController
   def merge
     service = ParticipantService.new(current_user)
     service.merge(params[:participant_ids].map(&:to_i), params[:participant_name])
-    respond_to do |format|
+    respond_with do |format|
       format.html { redirect_to dashboard_index_path }
     end
+  end
+  
+  def edit
+    @participant = current_user.participants.find(params[:id])
+  end
+  
+  def update
+    @participant = current_user.participants.find(params[:id])
+    @participant.update_attributes(params[:participant].merge(:user => current_user))
+    respond_with @participant
+  end
+  
+  def show
+    @participant = current_user.participants.find(params[:id])
   end
 end
