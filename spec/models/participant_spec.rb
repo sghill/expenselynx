@@ -67,4 +67,11 @@ describe Participant do
       results.first.should == tom
     end
   end
+  
+  describe :display do
+    it "should display by default" do
+      participant = Participant.create!(:name => "tom", :user => @sara)
+      participant.display?.should be_true
+    end
+  end
 end

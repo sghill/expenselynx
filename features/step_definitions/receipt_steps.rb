@@ -10,3 +10,7 @@ end
 Then /^I should see "([^"]*)" in the receipt form$/ do |participant_name|
   find(:css, "#receipt_fields").should have_content participant_name
 end
+
+Then /^I should not see "([^"]*)" in the receipt form$/ do |participant_name|
+  find(:css, "#receipt_fields").should have_no_content participant_name
+end

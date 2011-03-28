@@ -8,3 +8,12 @@ Feature: Set default participants display visibility
     And "chuck@example.com" has created a receipt with participant "rafael"
     When I am on the dashboard page
     Then I should see "rafael" in the receipt form
+    
+  Scenario: Marking a participant's display status as off
+    Given I am logged in as "chuck@example.com"
+    And "chuck@example.com" has created a receipt with participant "cosmosis"
+    When I am on the edit participant page for "cosmosis"
+    And I uncheck "Display on Receipt Form?"
+    And I press "Update Participant"
+    When I go to the dashboard page
+    Then I should not see "cosmosis" in the receipt form
