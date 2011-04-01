@@ -31,10 +31,6 @@ $(document).ready(function() {
   
   $("#new_receipt").submitWithAjax();
   
-  //login form styling
-  $("#user_remember_me").button();
-  $("#user_submit").button();
-  $("#add_receipt :checkbox").button();
   //unexpensed receipts table
   $('#select_all').click(function() { $(':checkbox').attr('checked', $('#select_all').attr('checked'))});
 })
