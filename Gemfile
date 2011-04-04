@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '>= 3.0.5'
 gem 'devise', '>= 1.1.3'
-gem 'slim', :require => 'slim/rails'
+gem 'slim'
 gem 'decent_exposure'
 gem 'representative'
 gem 'representative_view'

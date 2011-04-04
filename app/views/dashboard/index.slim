@@ -23,8 +23,11 @@ section#recent_expense_reports
   br
   br
   table#recent_expense_reports.summary_table
-      th Date
-      th Identifier
-      th Receipts
-      th Total
+    thead
+      tr
+        th Date
+        th Identifier
+        th Receipts
+        th Total
+    tbody
       == render :partial => 'expense_reports/report', :collection => @reports
