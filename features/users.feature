@@ -14,7 +14,7 @@ Feature: Users
     And enter my email address as "chuck@example.com"
     And enter my password as "falaFEL7"
     And enter my password confirmation as "falaFEL7"
-    And click the "Sign up" button
+    And I press "sign up"
     Then I should see my dashboard
 
   Scenario: Login as an existing user
@@ -24,5 +24,5 @@ Feature: Users
     Then I should not see a "Unexpensed Receipts" link
     And enter my email address as "chuck@example.com"
     And enter my password as "test!234"
-    And click the "Sign in" button
+    And I press "sign in"
     Then I should see my dashboard

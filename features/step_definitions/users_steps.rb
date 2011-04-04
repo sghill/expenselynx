@@ -18,10 +18,6 @@ When /^enter my password confirmation as "(.*)"$/ do |password|
   fill_in "user_password_confirmation", :with => password
 end
 
-When /^click the "(.*)" button$/ do |button_name|
-  click_button button_name
-end
-
 Then /^I should see my dashboard$/ do
   page.should have_content("Total")
   page.should have_content("Unexpensed")
@@ -42,5 +38,5 @@ Given /^I am logged in as "([^\"]*)"$/ do |email|
   steps %q{And I am on the login page}
   steps %Q{And enter my email address as "#{user.email}"}
   steps %q{And enter my password as "password"}
-  steps %q{And click the "user_submit" button}
+  steps %q{And I press "user_submit"}
 end
