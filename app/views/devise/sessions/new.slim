@@ -1,4 +1,4 @@
-h2 there you are!
+h2 There you are!
 
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   fieldset.center
@@ -14,3 +14,7 @@ h2 there you are!
         = f.submit "sign in"
         '  or 
         = link_to "sign up", new_registration_path(resource_name)
+
+#act
+  ul
+    li= link_to "retrieve password", new_password_path(resource_name)

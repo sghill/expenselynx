@@ -15,7 +15,7 @@ a {
 	text-decoration:none;
 }
 
-fieldset ul li {
+ul li {
   list-style:none;
   padding-bottom:0.5em;
 }
@@ -195,4 +195,9 @@ header {
   border: 1px solid black;
   margin-bottom: 10px;
   padding:10px;
+}
+
+#act {
+  float:right;
+  margin-top:-13em;
 }
