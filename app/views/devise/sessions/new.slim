@@ -1,4 +1,4 @@
-h2 There you are!
+h2.clearer There you are!
 
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
   fieldset.center
@@ -10,11 +10,9 @@ h2 There you are!
       li
         = f.check_box :remember_me
         = f.label :remember_me, "remember me"
-      li
-        = f.submit "sign in"
-        '  or 
-        = link_to "sign up", new_registration_path(resource_name)
+      li= f.submit "sign in"
 
 #act
   ul
     li= link_to "retrieve password", new_password_path(resource_name)
+    li= link_to "sign up", new_registration_path(resource_name)
