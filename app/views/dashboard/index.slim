@@ -1,15 +1,10 @@
-#expense_stats.stat_container
-  #receipt_total.stat_box
-    p Total
-    p#spending_total.sum= number_to_currency @receipts.sum(:total)
-  #unexpensed_receipt_total.stat_box
-    p= link_to "Unexpensed(#{@receipts.unexpensed.count})", dashboard_unexpensed_path
-    p#unexpensed_total.sum= number_to_currency @receipts.unexpensed.sum(:total)
-  #expensed_receipt_total.stat_box
-    p Expensed
-    p#expensed_total.sum= number_to_currency @receipts.expensed.sum(:total)
+h2
+  span#unexpensed_total.sum= number_to_currency @receipts.unexpensed.sum(:total)
+  '  ready to expense
 
-.clearer
+#act
+  ul
+    li= link_to "create expense report", dashboard_unexpensed_path
 
 #add_receipt
   = link_to "New Receipt", new_receipt_path, :id => "create_receipt_link"

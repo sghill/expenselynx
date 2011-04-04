@@ -128,10 +128,6 @@ header {
 }
 
 /** STAT BOX **/
-#expense_stats {
-  width:400px;/* needs a better way than roughly 2.5* .stat_box */
-}
-
 #expense_report_stats {
   width:260px;
 }
@@ -144,19 +140,7 @@ header {
 	text-align:center;
 }
 
-.stat_box {
-	border:1px solid green;
-	float:left;
-	padding:1em;
-	width:100px;
-}
-
-#spending_total {
-	color:red;
-}
-
 #unexpensed_total {
-	font-size:large;
 	color:green;
 }
 
