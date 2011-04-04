@@ -1,7 +1,12 @@
-h2.clearer There you are!
+h2 There you are!
 
+#act
+  ul
+    li= link_to "reset password", new_password_path(resource_name)
+    li= link_to "sign up", new_registration_path(resource_name)
+    
 = form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
-  fieldset.center
+  fieldset.center.clearer
     ul
       li= f.label :email, "email"
       li= f.text_field :email
@@ -11,8 +16,3 @@ h2.clearer There you are!
         = f.check_box :remember_me
         = f.label :remember_me, "remember me"
       li= f.submit "sign in"
-
-#act
-  ul
-    li= link_to "retrieve password", new_password_path(resource_name)
-    li= link_to "sign up", new_registration_path(resource_name)
