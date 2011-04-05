@@ -33,7 +33,7 @@ Then /^I should not see a "(.*)" element$/ do |id|
 end
 
 Given /^I am logged in as "([^\"]*)"$/ do |email|
-  user = User.create!(:email => email, :password => 'password')
+  user = User.find_by_email(email) || User.create!(:email => email, :password => 'password')
 
   steps %q{And I am on the login page}
   steps %Q{And enter my email address as "#{user.email}"}
