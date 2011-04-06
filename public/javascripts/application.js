@@ -31,6 +31,9 @@ $(document).ready(function() {
   
   $("#new_receipt").submitWithAjax();
   
+  $("#alert").delay(2500).slideUp('slow');
+  $("#notice").delay(2500).slideUp('slow');
+  
   //unexpensed receipts table
   $('#select_all').click(function() { $(':checkbox').attr('checked', $('#select_all').attr('checked'))});
 })

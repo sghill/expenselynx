@@ -6,6 +6,7 @@ Feature: As a user I want to see a dashboard of my expenses
     When I am on the dashboard page
     Then I should have "$0.00" in unexpensed spendings
 
+  @wip
   Scenario: A user an unexpensable receipt
     Given I am logged in as "chuck@example.com"
     When I am on the dashboard page
