@@ -4,14 +4,6 @@ Then /^I should have "([^"]*)" in unexpensed spendings$/ do |amount|
   find(:css, '#unexpensed_total').should have_content amount
 end
 
-When /^I should have "([^\"]*)" in expensed spendings$/ do |amount|
-  find(:css, '#expensed_total').should have_content amount
-end
-
-When /^I should have "([^\"]*)" in total spendings$/ do |amount|
-  find(:css, '#spending_total').should have_content amount
-end
-
 When /^I enter the following receipts:$/ do |receipts|
   click_link 'create_receipt_link' unless find(:css, '#receipt_submit').visible?
 
