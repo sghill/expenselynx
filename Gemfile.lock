@@ -194,7 +194,7 @@ DEPENDENCIES
   machinist (>= 2.0.0.beta2)
   money
   pg (>= 0.10.1)
-  rails (>= 3.0.5)
+  rails (>= 3.0.6)
   representative
   representative_view
   rspec (>= 2.5)
