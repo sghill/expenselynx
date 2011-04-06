@@ -21,8 +21,6 @@ $(document).ready(function() {
     }
   })
   
-  $("#receipt_purchase_date").datepicker({dateFormat:"yy-mm-dd", inline:true});
-  
   $("#create_receipt_link").click(function() {
     $("#receipt_form").slideToggle("slow");
   })
