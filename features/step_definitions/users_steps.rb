@@ -1,20 +1,23 @@
-Given /^that a user with email address "(.*)" has not registered$/ do |email|
-  User.find_by_email(email).destroy! unless User.find_by_email(email).nil?
-end
-
 Given /^that a user with email address "(.*)" and password "(.*)" exists$/ do |email, password|
-  User.create(:email => email, :password => password) if User.find_by_email(email).nil?
+  if User.find_by_email(email).nil?
+    steps %q{And I am on the registration page}
+    steps %Q{And I enter my email address as "#{email}"}
+    steps %Q{And I enter my password as "#{password}"}
+    steps %Q{And I enter my password confirmation as "#{password}"}
+    steps %q{And I press "sign up"}
+    steps %q{And I follow "Sign Out"}
+  end
 end
 
-When /^enter my email address as "(.*)"$/ do |email|
+When /^I enter my email address as "(.*)"$/ do |email|
   fill_in "user_email", :with => email
 end
 
-When /^enter my password as "(.*)"$/ do |password|
+When /^I enter my password as "(.*)"$/ do |password|
   fill_in "user_password", :with => password
 end
 
-When /^enter my password confirmation as "(.*)"$/ do |password|
+When /^I enter my password confirmation as "(.*)"$/ do |password|
   fill_in "user_password_confirmation", :with => password
 end
 
@@ -33,10 +36,16 @@ Then /^I should not see a "(.*)" element$/ do |id|
 end
 
 Given /^I am logged in as "([^\"]*)"$/ do |email|
-  user = User.find_by_email(email) || User.create!(:email => email, :password => 'password')
-
-  steps %q{And I am on the login page}
-  steps %Q{And enter my email address as "#{user.email}"}
-  steps %q{And enter my password as "password"}
-  steps %q{And I press "user_submit"}
+  if User.find_by_email(email).nil?
+    steps %q{And I am on the registration page}
+    steps %Q{And I enter my email address as "#{email}"}
+    steps %q{And I enter my password as "password"}
+    steps %q{And I enter my password confirmation as "password"}
+    steps %q{And I press "sign up"}
+  else
+    steps %q{And I am on the login page}
+    steps %Q{And I enter my email address as "#{email}"}
+    steps %q{And I enter my password as "password"}
+    steps %q{And I press "user_submit"}
+  end
 end
