@@ -52,6 +52,7 @@ Feature: As a user I want to see a dashboard of my expenses
       | 2010-01-19      | North West | $3.00  | ✓           | ✓         |
       | 2010-01-19      | Jag        | $4.00  | ✓           | —         |
 
+  @flakey
   Scenario: A user has entered 7 receipts and don't refresh the page
     Given I am logged in as "chuck@example.com"
     When I am on the dashboard page
