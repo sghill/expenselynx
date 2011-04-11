@@ -1,14 +1,16 @@
 h2
   | Expense Report 
   em= report.external_report_id
-#expense_report_stats.stat_container
-  #receipt_count_box.stat_box
-    p Receipts
-    p#receipt_count.count= report.receipt_count
-  #receipt_total_box.stat_box
-    p Total
-    p#receipt_total.sum= money report.receipt_sum
 
+#act
+  ul
+    li= link_to "download as csv", download_expense_report_path(:id => report, :format => :csv)
+
+#expense_report_summary
+    p
+    ' you spent 
+    = money report.receipt_sum
+    '  on 
+    = pluralize report.receipt_count, "receipt"
+    
 == grid_for(report.receipts, :shows_export_status => true)
-
-= link_to "Download as CSV", download_expense_report_path(:id => report, :format => :csv)

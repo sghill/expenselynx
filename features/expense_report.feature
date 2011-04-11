@@ -7,4 +7,4 @@ Feature: View expense report
     Given I am logged in as "chuck@example.com"
     And I have an expense report in the system
     When I am on the expense report page
-    Then I should see "Download as CSV"
+    Then I should see "download as csv"

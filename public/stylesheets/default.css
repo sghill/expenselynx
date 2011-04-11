@@ -78,6 +78,17 @@ header {
 	text-align:center;
 }
 
+/* EXPENSE REPORTS */
+#expense_report_summary {
+  background:#afa;
+  text-align:center;
+  margin-left:auto;
+  margin-right:auto;
+  margin-bottom:1em;
+  padding:1em;
+  width:300px;
+}
+
 /* RECEIPTS */
 #receipt_fields {
   margin-left:auto;
@@ -125,19 +136,6 @@ header {
 #recent_receipts td,th {
 	padding-left:1em;
 	padding-right:1em;
-}
-
-/** STAT BOX **/
-#expense_report_stats {
-  width:260px;
-}
-
-.stat_container {
-	margin-bottom:7em;
-	margin-left: auto;
-	margin-right: auto;
-	margin-top:1em;
-	text-align:center;
 }
 
 #unexpensed_total {
