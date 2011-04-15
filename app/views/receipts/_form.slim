@@ -25,10 +25,8 @@
     #receipt_fields_metadata
       br
       .field
-        = f.label :expensable, 'Expensable?'
         = f.check_box :expensable
-        = f.label :expensed, 'Expensed?'
-        = f.check_box :expensed
+        = f.label :expensable, 'Expensable?'
       .field
         h3 Guests
         - unless current_user.participants.empty?

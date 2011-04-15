@@ -40,40 +40,38 @@ describe Receipt do
     subject { user.receipts }
 
     let!(:chipotle_burrito) { Factory :chipotle_burrito, :expensable => true,
-                                      :expensed => false,
                                       :user => user,
                                       :total => 0.50 }
 
     let!(:baja_tacos) { Factory :baja_tacos, :expensable => true,
-                                :expensed => false,
                                 :user => user,
                                 :total => 0.50 }
 
     let!(:starbucks_coffee) { Factory :starbucks_coffee, :expensable => true,
-                                      :expensed => true,
+                                      :expense_report => ExpenseReport.new(:user => user),
                                       :user => user,
                                       :total => 0.50 }
 
     let!(:oil_filter) { Factory :oil_filter, :expensable => false,
-                                :expensed => false,
                                 :user => user,
                                 :total => 0.50 }
 
     let!(:another_oil_filter) { Factory :oil_filter, :expensable => false,
-                                        :expensed => false,
                                         :user => user,
                                         :total => 0.50,
                                         :store => oil_filter.store }
 
     let!(:yet_another_oil_filter) { Factory :oil_filter, :expensable => false,
-                                            :expensed => false,
                                             :user => user,
                                             :total => 0.50,
                                             :store => oil_filter.store }
 
     its(:unexpensed) { should include chipotle_burrito, baja_tacos }
+    its(:unexpensed) { should_not include starbucks_coffee, oil_filter, another_oil_filter, yet_another_oil_filter }
     its(:expensed) { should include starbucks_coffee }
+    its(:expensed) { should_not include chipotle_burrito, baja_tacos, oil_filter, another_oil_filter, yet_another_oil_filter }
     its(:unexpensable) { should include oil_filter, another_oil_filter, yet_another_oil_filter }
+    its(:unexpensable) { should_not include chipotle_burrito, baja_tacos, starbucks_coffee }
 
     its(:recent) { should == [yet_another_oil_filter, another_oil_filter, oil_filter, starbucks_coffee, baja_tacos] }
   end
@@ -85,7 +83,6 @@ describe Receipt do
     let(:user) { sara }
     let(:total) { 10 }
     let(:expensable) { false }
-    let(:expensed) { false }
     let(:expense_report) { nil }
 
     subject do
@@ -94,7 +91,6 @@ describe Receipt do
                             :store => store,
                             :user => user,
                             :expensable => expensable,
-                            :expensed => expensed,
                             :expense_report => expense_report)
       receipt.valid?
       receipt
@@ -172,22 +168,11 @@ describe Receipt do
         let(:expensed) { false }
         it { should_not be_expensed }
       end
-
-      context "and expensed" do
-        let(:expensed) { true }
-        it { should be_expensed }
-      end
     end
 
     context "purchased today by 'sara' at 'My Test Store' and is not expensable" do
       let(:expensable) { false }
       it { should_not be_expensable }
-
-      context "and expensed" do
-        let(:expensed) { true }
-        it { should be_invalid }
-        it { should have_error_message("receipt isn't possible unless receipt is marked expensable").on(:expensed) }
-      end
     end
 
     context "purchased today by (?) at 'My Test Store'" do
@@ -214,11 +199,11 @@ describe Receipt do
 
   describe "reporting" do
     let!(:chipotle_burrito) { Factory :chipotle_burrito, :expensable => true,
-                                      :expensed => false,
                                       :user => user,
                                       :total => 0.50 }
 
-    let!(:report) { ExpenseReport.new :external_report_id => "1234" }
+    # below works only if created, not 'new' as before...
+    let!(:report) { ExpenseReport.create :external_report_id => "1234", :user => user }
 
     let!(:expensed_burrito) { chipotle_burrito.report report }
 
@@ -257,5 +242,16 @@ describe Receipt do
     its(:total) { should == 0.50 }
     its(:total_cents) { should == 50 }
     its(:total_currency) { should == "AUD" }
+  end
+  
+  describe "expense report relationship" do
+    it "should be expensed? if it has an expense report" do
+      receipt = Factory :receipt_with_no_total, 
+                        :user => user, 
+                        :total_money => Money.new(50, "AUD"),
+                        :expensable => true,
+                        :expense_report => ExpenseReport.create(:user => user)
+      receipt.expensed?.should be_true
+    end
   end
 end

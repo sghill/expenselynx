@@ -15,7 +15,7 @@ table#recent_receipts.summary_table
     - receipts.each do |r|
       tr
         - if editable
-          td= check_box_tag "receipt_ids[]", r.id
+          td= check_box_tag "receipt_ids[]", r.id, false, { :id => "receipt_#{r.id}" }
         td= r.purchase_date
         td= link_to r.store_name, [:edit, r.store]
         td.right= link_to money(r.total_money), [r]

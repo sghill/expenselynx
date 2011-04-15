@@ -14,6 +14,5 @@ Receipt.blueprint(:colins_unexpensed_tv_from_circuit_city) do
   store { Store.make!(:circuit_city) }
   total { 9.16 }
   expensable { true }
-  expensed { false }
   user { User.make(:colin) }
 end

@@ -19,11 +19,15 @@ class Receipt < ActiveRecord::Base
            :nonexpensable_receipt_is_not_expensed,
            :nonexpensable_receipt_is_not_member_of_expense_report
 
-  scope :unexpensed, :conditions => {:expensable => true, :expensed => false}
-  scope :expensed, :conditions => {:expensed => true}
-  scope :unexpensable, :conditions => {:expensable => false}
+  scope :unexpensed, :conditions => { :expensable => true, :expense_report_id => nil }
+  scope :expensed, :conditions => { :expense_report_id => !nil }
+  scope :unexpensable, :conditions => { :expensable => false }
   scope :recent, :limit => 5, :order => ['created_at DESC']
 
+  def expensed?
+    return !self.expense_report.nil?
+  end
+  
   def total= amount
     if amount
       self[:total] = amount
@@ -45,7 +49,6 @@ class Receipt < ActiveRecord::Base
   end
   
   def report exreport
-    self[:expensed] = true
     exreport.receipts << self
     self
   end
