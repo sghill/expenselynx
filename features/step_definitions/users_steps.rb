@@ -5,7 +5,7 @@ Given /^that a user with email address "(.*)" and password "(.*)" exists$/ do |e
     steps %Q{And I enter my password as "#{password}"}
     steps %Q{And I enter my password confirmation as "#{password}"}
     steps %q{And I press "sign up"}
-    steps %q{And I follow "Sign Out"}
+    steps %q{And I follow "sign out"}
   end
 end
 
@@ -48,4 +48,11 @@ Given /^I am logged in as "([^\"]*)"$/ do |email|
     steps %q{And I enter my password as "password"}
     steps %q{And I press "user_submit"}
   end
+end
+
+Then /^I should see the login page$/ do
+  page.should have_content("email")
+  page.should have_content("password")
+  page.should have_content("remember me")
+  page.should have_button("sign in")
 end

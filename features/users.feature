@@ -6,7 +6,7 @@ Feature: Users
 
   Scenario: Register as a new user
     When I go to the registration page
-    Then I should not see a "Sign Out" link
+    Then I should not see a "sign out" link
     Then I should not see a "Unexpensed Receipts" link
     Then I should not see a "notice" element
     Then I should not see a "alert" element
@@ -19,7 +19,7 @@ Feature: Users
   Scenario: Login as an existing user
     Given that a user with email address "chuck@example.com" and password "test!234" exists
     When I go to the login page
-    Then I should not see a "Sign Out" link
+    Then I should not see a "sign out" link
     Then I should not see a "Unexpensed Receipts" link
     And I enter my email address as "chuck@example.com"
     And I enter my password as "test!234"
