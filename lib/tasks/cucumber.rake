@@ -20,6 +20,12 @@ begin
       t.profile = 'default'
     end
 
+    Cucumber::Rake::Task.new({:flakey => 'db:test:prepare'}, 'Run features that are flakey') do |t|
+      t.binary = vendored_cucumber_bin
+      t.fork = true # You may get faster startup if you set this to false
+      t.profile = 'flakey'
+    end
+
     Cucumber::Rake::Task.new({:wip => 'db:test:prepare'}, 'Run features that are being worked on') do |t|
       t.binary = vendored_cucumber_bin
       t.fork = true # You may get faster startup if you set this to false
@@ -33,7 +39,7 @@ begin
     end
 
     desc 'Run all features'
-    task :all => [:ok, :wip]
+    task :all => [:ok, :wip, :flakey]
   end
   desc 'Alias for cucumber:ok'
   task :cucumber => 'cucumber:ok'
