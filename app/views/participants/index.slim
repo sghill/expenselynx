@@ -1,3 +1,8 @@
-ul
-  - @participants.each do |p|
-    li= p.name
+h2 Your guests!
+
+table
+  tbody
+    - @participants.each do |p|
+      tr id="#{p.name}"
+        td= p.name
+        td= link_to :edit, [:edit, p]
