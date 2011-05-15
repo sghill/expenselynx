@@ -1,7 +1,8 @@
 r.element :resource, 'root' do
   r.list_of :receipts, receipts do |receipt|
     r.element :href, api_receipt_url(receipt)
-    r.element :total
+    r.element :total, receipt.total_money.format
+    r.element :vendor, receipt.store_name
   end
   r.element :form, form do
     r.element :href, api_receipts_url

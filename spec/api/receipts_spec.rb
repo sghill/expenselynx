@@ -14,7 +14,7 @@ describe '/api/receipts' do
 
   context "user is authorised" do
     before :each do
-      Factory.create :user, :email => 'user@example.com', :password => 'password'
+      @user = Factory.create :user, :email => 'user@example.com', :password => 'password'
       authorize "user@example.com", "password"
     end
 
@@ -23,7 +23,23 @@ describe '/api/receipts' do
     end
 
     the_response_body_of '/api/receipts' do
-      it { should have_key("receipts").with_value([]) }
+      its(["receipts"]) { should == [] }
+    end
+
+    context "user has 1 receipt" do
+      let!(:burrito) { Factory.create :chipotle_burrito, :user => @user, :total => '27.00' }
+
+      the_response_body_of '/api/receipts' do
+        its(["receipts"]) do
+          should == [
+              {
+                  "href" => "http://example.org/api/receipts/#{burrito.id}",
+                  "total" => "$27.00",
+                  "vendor" => "Chipotle"
+              }
+          ]
+        end
+      end
     end
   end
 end

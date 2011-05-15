@@ -8,13 +8,10 @@ class Api::Forms::CreateReceiptForm
 
   def receipt
     Receipt.new(
-            :purchase_date => @body['receipt']['purchase_date'],
-            :total => @body['receipt']['total'],
-            :store_id => Store.find_or_create_by_name(@body['receipt']['store_name']).id,
-            #      :expensable => @body['receipt']['expensable'],
-            #      :note => @body['receipt']['note'],
+            :purchase_date => @body['purchase_date'] || Time.current,
+            :total => @body['total'],
+            :store_id => Store.find_or_create_by_name(@body['store_name']).id,
             :user => @user
-#      :participants => @body['receipt']['participants']
     )
   end
 
