@@ -47,10 +47,13 @@ describe Receipt do
                                 :user => user,
                                 :total => 0.50 }
 
-    let!(:starbucks_coffee) { Factory :starbucks_coffee, :expensable => true,
-                                      :expense_report => ExpenseReport.new(:user => user),
+    let!(:starbucks_coffee) do
+      receipt = Factory :starbucks_coffee, :expensable => true,
                                       :user => user,
-                                      :total => 0.50 }
+                                      :total => 0.50
+      user.report [receipt], :as => '123456'
+      receipt
+    end
 
     let!(:oil_filter) { Factory :oil_filter, :expensable => false,
                                 :user => user,
@@ -223,6 +226,15 @@ describe Receipt do
 
     its(:total_money) { should == Money.new(50, "USD") }
     its(:total_cents) { should == 50 }
+    its(:total_currency) { should == "USD" }
+  end
+
+  describe "a receipts with total 9 as string" do
+    subject { Factory :receipt_with_no_total, :user => user, :total => '9' }
+
+    its(:total_money) { should == Money.new(900, "USD") }
+    its(:total) { should == 9 }
+    its(:total_cents) { should == 900 }
     its(:total_currency) { should == "USD" }
   end
 

@@ -6,7 +6,7 @@ class Receipt < ActiveRecord::Base
   composed_of :total_money,
     :class_name => "Money",
     :mapping => [%w(total_cents cents), %w(total dollars), %w(total_currency currency_as_string)],
-    :constructor => Proc.new { |cents, dollars, currency| Money.new(dollars * 100 || 0, currency || "USD") },
+    :constructor => Proc.new { |cents, dollars, currency| Money.new(dollars.to_f * 100 || 0, currency || "USD") },
     :converter => Proc.new { |value| value.respond_to?(:to_money) ? value.to_money : raise(ArgumentError, "Can't convert #{value.class} to Money") }
 
   default_scope :order => 'purchase_date DESC'
@@ -20,18 +20,18 @@ class Receipt < ActiveRecord::Base
            :nonexpensable_receipt_is_not_member_of_expense_report
 
   scope :unexpensed, :conditions => { :expensable => true, :expense_report_id => nil }
-  scope :expensed, :conditions => { :expense_report_id => !nil }
+  scope :expensed, :conditions => ['expense_report_id IS NOT NULL']
   scope :unexpensable, :conditions => { :expensable => false }
   scope :recent, :limit => 5, :order => ['created_at DESC']
 
   def expensed?
-    return !self.expense_report.nil?
+    expense_report.present?
   end
   
   def total= amount
     if amount
       self[:total] = amount
-      self[:total_cents] = amount * 100
+      self[:total_cents] = 100 * amount.to_f
       self[:total_currency] = "USD"
     end
   end
