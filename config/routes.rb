@@ -4,25 +4,26 @@ Expenselynx::Application.routes.draw do
     resources :receipts, :defaults => {:format => 'json'}
   end
 
-  match "participants/search" => 'participants#search'
-  match "participants/merge" => 'participants#merge'
-  match "participants/merge_zone" => 'participants#merge_zone'
+  match "participants/search"
+  match "participants/merge"
+  match "participants/merge_zone"
 
   resources :expense_reports do
     member do
       get :download, :defaults => {:format => 'application/csv'}
     end
   end
+  
   devise_for :users
 
-  match 'stores/search' => 'stores#search'
-  match 'dashboard/unexpensed' => 'dashboard#unexpensed'
+  match 'stores/search'
+  match 'dashboard/unexpensed'
 
-  resources :dashboard
+  resources :dashboard, :only => :index
   resources :receipts
-  resources :stores
-  resources :projects
-  resources :participants
-  post "receipts/upload"
+  resources :stores, :only => [:show, :update, :edit]
+  resources :projects, :except => :destroy
+  resources :participants, :except => [:new, :destroy]
+
   root :to => "dashboard#index"
 end
