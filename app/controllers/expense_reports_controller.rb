@@ -25,11 +25,8 @@
   end
   
   def update
-    receipts = current_user.receipts.where(id: params[:receipt_ids])
     @expense_report = current_user.expense_reports.find params[:id]
-    @expense_report.receipts.each { |r| r.update_attribute(:expense_report, nil) }
-    receipts.each { |r| r.update_attributes(expense_report: @expense_report) }
-    @expense_report.update_attributes(params[:expense_report].merge(user: current_user))
+    @expense_report.receipts = current_user.receipts.where(id: params[:receipt_ids])
     respond_with @expense_report
   end
 
