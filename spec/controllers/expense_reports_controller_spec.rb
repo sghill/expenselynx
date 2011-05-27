@@ -91,6 +91,60 @@ describe ExpenseReportsController do
     end
   
   end
+  
+  describe :edit do
+  
+    it "should require login" do
+      get :edit, id: sams_report.to_param
+      response.should redirect_to new_user_session_path
+    end
+    
+    it "should not load another user's expense report" do
+      sign_in tom
+      lambda { get :edit, id: sams_report.to_param }.should raise_error ActiveRecord::RecordNotFound
+    end
+    
+    it "should load the correct expense report" do
+      sign_in sam
+      get :edit, id: sams_report.to_param
+      should assign(:expense_report).with(sams_report)
+    end
+  
+  end
+  
+  describe :update do
+  
+    it "should require login" do
+      put :update, id: sams_report.to_param, receipt_ids: nil
+      response.should redirect_to new_user_session_path
+    end
+    
+    it "should reassociate receipts to expense report" do
+      forgotten_receipt =  Receipt.create(total: 1, 
+                                          store: burrito_palace, 
+                                  purchase_date: 1.day.ago,
+                                     expensable: true,
+                                           user: sam)
+      sign_in sam
+      
+      # explicitly leaving out the former receipt of this report, sams_burrito_receipt
+      put :update, id: sams_report.to_param, receipt_ids:[forgotten_receipt.id], 
+                                          expense_report: { external_report_id: "zx43" }
+      get :show, id: sams_report.to_param
+      
+      assigns(:expense_report).receipts.should == [forgotten_receipt]
+    end
+    
+    it "should update the expense report external report id" do
+      report_id = "something new"
+      sign_in sam
+      
+      put :update, id: sams_report.to_param, expense_report: { external_report_id: report_id }
+      
+      assigns(:expense_report).external_report_id == report_id
+    end
+  
+  end
 
   describe :download do
     let(:report) { mock(:report) }
