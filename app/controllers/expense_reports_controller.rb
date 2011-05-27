@@ -5,7 +5,9 @@
     current_user.expense_reports.find(params[:id])
   end
 
-  def show; end
+  def show
+    @expense_report = current_user.expense_reports.find params[:id]
+  end
 
   def create
     receipts = current_user.receipts.where(:id => params[:receipt_ids])
