@@ -7,6 +7,7 @@ class DashboardController < ApplicationController
     @reports = current_user.expense_reports.recent
   end
 
+  #FIXME: move this to a receipts view or ExpenseReport#new
   def unexpensed
     @receipts = current_user.receipts.unexpensed
   end

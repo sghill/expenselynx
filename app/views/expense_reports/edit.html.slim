@@ -1,0 +1,21 @@
+h2
+  | editing expense report 
+  em= report.external_report_id
+
+#act
+  ul
+    li= link_to "download as csv", download_expense_report_path(:id => report, :format => :csv)
+
+#expense_report_summary
+    p
+    ' you spent 
+    = money report.receipt_sum
+    '  on 
+    = pluralize report.receipt_count, "receipt"
+    
+= form_tag expense_reports_path, method: 'put' do
+  p.right
+    = text_field_tag "external_report_id", report.external_report_id, :placeholder => "Expense Report ID"
+    = submit_tag "Update Expense Report"
+    
+  == grid_for(report.receipts, shows_export_status: true, editable: true )

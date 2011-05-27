@@ -2,9 +2,16 @@
   before_filter :authenticate_user!
   
   respond_to :html
+  #TODO: handle the expense_report forms as resources, with form_for in the views
 
+  #FIXME: decent_exposure is adding confusion atm
   expose(:report) do
     current_user.expense_reports.find(params[:id])
+  end
+  
+  def index
+    @expense_reports = current_user.expense_reports
+    respond_with @expense_reports
   end
 
   def show

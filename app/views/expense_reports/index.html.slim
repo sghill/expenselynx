@@ -1,0 +1,11 @@
+h2 expense reports
+
+table
+  thead
+    tr
+      th date
+      th identifier
+      th receipts
+      th total
+  tbody
+    == render :partial => 'expense_reports/report', :collection => @expense_reports

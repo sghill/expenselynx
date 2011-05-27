@@ -17,10 +17,33 @@ describe ExpenseReportsController do
                                                  user: sam) }
   let(:today) { Time.current.to_date }
 
+  #TODO: get rid of factory_girl calls
   let(:sara) { Factory(:sara) }
   let(:store) { Factory(:chipotle) }
   
   let(:report) { ExpenseReport.create(:user => sara) }
+  
+  describe :index do
+  
+    it "should require login" do
+      get :index
+      response.should redirect_to new_user_session_path
+    end
+    
+    it "should not have another user's expense reports" do
+      sign_in tom
+      get :index
+      assigns(:expense_reports).should be_empty
+    end
+    
+    it "should get the right expense reports" do
+      sign_in sam
+      get :index
+      assigns(:expense_reports).length.should == 1
+      assigns(:expense_reports).first.should == sams_report
+    end
+  
+  end
 
   describe :show do
   

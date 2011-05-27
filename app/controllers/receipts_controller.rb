@@ -1,7 +1,10 @@
 class ReceiptsController < ApplicationController
   before_filter :authenticate_user!
 
+  #FIXME: don't respond to js for everything
   respond_to :html, :js
+  
+  #TODO: responders cleanup
 
   def index
     @receipt = Receipt.default
@@ -21,6 +24,7 @@ class ReceiptsController < ApplicationController
   end
 
   def create
+    #todo: shove this participant service into the participant model
     service = ParticipantService.new(current_user)
     participants = service.participants_list(params[:participant_names])
     participants.concat(service.participants_list_from_collection(params[:old_participants])) unless params[:old_participants].nil?
