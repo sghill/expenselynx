@@ -46,3 +46,11 @@ Factory.define :sara_nachos, :class => Receipt do |r|
   r.purchase_date "11/06/2010"
   r.total 7.54
 end
+
+Factory.define :colins_unexpensed_tv_from_circuit_city, :class => Receipt do |r|
+  r.purchase_date 1.day.ago
+  r.sequence(:store_name) {|n| "Circuit City #{n}" }
+  r.total 9.16
+  r.expensable true
+  r.user {|u| u.association(:colin)}
+end

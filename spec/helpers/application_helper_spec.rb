@@ -34,7 +34,7 @@ describe ApplicationHelper do
   
   describe :grid_for do
     before do
-      @receipts = [Receipt.make!(:colins_unexpensed_tv_from_circuit_city)]
+      @receipts = [Factory.create(:colins_unexpensed_tv_from_circuit_city)]
     end
     
     context :default do
