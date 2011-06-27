@@ -4,14 +4,11 @@ h2
 
 #act
   ul
+    li= link_to "new receipt", new_receipt_path
     li= link_to "create expense report", dashboard_unexpensed_path
 
-#add_receipt
-  = link_to "New Receipt", new_receipt_path, :id => "create_receipt_link"
-
-  #receipt_form style="display:none"
-    == render "receipts/form"
-
+br
+br
 section#recent_receipts
   h3.center Recent Receipts
   br
