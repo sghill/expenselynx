@@ -1,0 +1,25 @@
+h2 new expense report 
+
+#act
+  ul
+    
+= form_for @expense_report do |f|
+  p.right
+    = f.text_field :external_report_id, :placeholder => 'external report id'
+  table
+    thead
+      tr
+        th
+        th purchased on
+        th from
+        th for
+        th export ready?
+    tbody
+      - current_user.receipts.unexpensed.each do |receipt|
+        tr
+          td= check_box_tag 'receipts[]', receipt.id
+          td= receipt.purchase_date
+          td= receipt.store_name
+          td= receipt.total
+          td.exportable= boolean_to_check receipt.exportable?
+  = f.submit 'create expense report'

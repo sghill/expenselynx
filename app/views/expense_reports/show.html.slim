@@ -4,12 +4,13 @@ h2
 
 #act
   ul
+    li= link_to 'edit', [:edit, report]
     li= link_to "download as csv", download_expense_report_path(:id => report, :format => :csv)
 
 #expense_report_summary
     p
     ' you spent 
-    = money report.receipt_sum
+    = money report.receipt_sum if report.receipt_sum
     '  on 
     = pluralize report.receipt_count, "receipt"
     

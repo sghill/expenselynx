@@ -22,9 +22,7 @@ When /^I enter my password confirmation as "(.*)"$/ do |password|
 end
 
 Then /^I should see my dashboard$/ do
-  page.should have_content("Total")
-  page.should have_content("Unexpensed")
-  page.should have_content("Expensed")
+  page.should have_content("ready to expense")
 end
 
 Then /^I should not see a "(.*)" link$/ do |link_name|

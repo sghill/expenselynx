@@ -21,12 +21,6 @@ describe ReceiptsController do
     should_not assign(:receipts).with(nil)
   end
 
-  it "form in index should have todays date preloaded" do
-    sign_in john
-    get :index
-    assigns(:receipt).purchase_date.should == today
-  end
-
   it "should not get new if not logged in" do
     get :new
     response.should redirect_to new_user_session_path

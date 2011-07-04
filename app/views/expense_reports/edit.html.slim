@@ -1,5 +1,5 @@
-h2
-  | editing expense report 
+h2 
+  ' editing expense report 
   em= report.external_report_id
 
 #act
@@ -9,13 +9,35 @@ h2
 #expense_report_summary
     p
     ' you spent 
-    = money report.receipt_sum
+    = money report.receipt_sum if report.receipt_sum
     '  on 
     = pluralize report.receipt_count, "receipt"
     
-= form_tag expense_reports_path, method: 'put' do
+= form_for @expense_report do |f|
   p.right
-    = text_field_tag "external_report_id", report.external_report_id, :placeholder => "Expense Report ID"
-    = submit_tag "Update Expense Report"
-    
-  == grid_for(report.receipts, shows_export_status: true, editable: true )
+    = f.text_field :external_report_id, :placeholder => 'external report id'
+  table
+    thead
+      tr
+        th
+        th purchased on
+        th from
+        th for
+    tbody
+      - @expense_report.receipts.each do |receipt|
+        tr
+          td= check_box_tag 'receipts[]', receipt.id, true
+          td= receipt.purchase_date
+          td= receipt.store_name
+          td= receipt.total
+  p.center
+    strong receipts not currently included
+  table
+    tbody
+      - current_user.receipts.unexpensed.each do |receipt|
+        tr
+          td= check_box_tag 'receipts[]', receipt.id
+          td= receipt.purchase_date
+          td= receipt.store_name
+          td= receipt.total
+  = f.submit 'update expense report'

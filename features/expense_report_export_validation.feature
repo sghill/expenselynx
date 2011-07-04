@@ -7,6 +7,6 @@ Feature: Export expense report data validation
   Scenario: User has a receipt from a store that is missing an expense category
     Given I am logged in as "chuck@example.com"
     And I have an unexpensed receipt from a new store
-    When I am on the unexpensed receipts page
-    Then I should see "Export Ready?"
+    When I am on the create new expense report page
+    Then I should see "export ready?"
     Then I should see "—" in the "exportable" column

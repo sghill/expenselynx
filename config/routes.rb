@@ -17,7 +17,6 @@ Expenselynx::Application.routes.draw do
   devise_for :users
 
   match 'stores/search'
-  match 'dashboard/unexpensed'
 
   resources :dashboard, :only => :index
   resources :receipts

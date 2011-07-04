@@ -1,6 +1,0 @@
-$("#unexpensed_total").html("<%= number_to_currency current_user.receipts.unexpensed.sum(:total) %>");
-$("#unexpensed_total").effect('highlight', {}, 'slow');
-
-$("#recent_receipts").html("<h3 class=\"center\">Recent Receipts</h3><br /><%= escape_javascript(grid_for(@receipt.user.receipts.recent, {:shows_expense_status => true})) %>").effect('highlight', {}, 'slow');
-
-$("#new_receipt")[0].reset();

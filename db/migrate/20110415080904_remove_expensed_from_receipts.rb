@@ -1,6 +1,6 @@
 class RemoveExpensedFromReceipts < ActiveRecord::Migration
   def self.up
-    remove_column :receipts, :expensed, :boolean
+    remove_column :receipts, :expensed
   end
 
   def self.down

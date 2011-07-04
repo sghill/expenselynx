@@ -75,7 +75,7 @@ describe ExpenseReportsController do
   describe :create do
   
     it "should require login" do
-      post :create, receipt_ids: nil
+      post :create, :receipts => nil
       response.should redirect_to new_user_session_path
     end
   
@@ -83,9 +83,8 @@ describe ExpenseReportsController do
       external_id = "crazy report identifier"
       sign_in tom
       
-      post :create, receipt_ids: nil, external_report_id: external_id
-      get :show, id: assigns(:report).to_param
-      
+      post :create, :receipts => nil, :expense_report => { :external_report_id => external_id }
+      get :show, id: assigns(:expense_report).to_param
       assigns(:expense_report).external_report_id.should == external_id
     end
     
@@ -96,7 +95,7 @@ describe ExpenseReportsController do
                           expensable: true,
                                 user: tom)
       sign_in tom
-      post :create, receipt_ids: [receipt.id]
+      post :create, receipts: [receipt.id]
       after_post_receipt = Receipt.find receipt.id
       after_post_receipt.should be_expensed
     end
@@ -108,9 +107,9 @@ describe ExpenseReportsController do
                           expensable: true,
                                 user: tom)
       sign_in tom
-      post :create, receipt_ids: [receipt.id]
+      post :create, receipts: [receipt.id]
       after_post_receipt = Receipt.find receipt.id
-      after_post_receipt.expense_report.should == assigns(:report)
+      after_post_receipt.expense_report.should == assigns(:expense_report)
     end
   
   end
@@ -151,7 +150,7 @@ describe ExpenseReportsController do
       sign_in sam
       
       # explicitly leaving out the former receipt of this report, sams_burrito_receipt
-      put :update, id: sams_report.to_param, receipt_ids:[forgotten_receipt.id], 
+      put :update, id: sams_report.to_param, receipts:[forgotten_receipt.id], 
                                           expense_report: { external_report_id: "zx43" }
       get :show, id: sams_report.to_param
       

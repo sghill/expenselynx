@@ -7,18 +7,37 @@ describe ExpenseReport do
     subject { ExpenseReport }
 
     before :each do
-      ExpenseReport.create(:user => sara, :created_at => 9.days.ago, :external_report_id => "report 10")
-      @forth_most = ExpenseReport.create(:user => sara, :created_at => 7.days.ago, :external_report_id => "report 1")
-      @third_most = ExpenseReport.create(:user => sara, :created_at => 3.days.ago, :external_report_id => "report 100")
-      @most_recent = ExpenseReport.create(:user => sara, :created_at => 1.days.ago, :external_report_id => "report 1000")
-      @second_most = ExpenseReport.create(:user => sara, :created_at => 3.days.ago, :external_report_id => "report 10000")
-      @last_recent = ExpenseReport.create(:user => sara, :created_at => 8.days.ago, :external_report_id => "report 100000")
+      nonrecent = ExpenseReport.create(:user => sara, :external_report_id => "report 10")
+      @fourth_most  = ExpenseReport.create(:user => sara, :external_report_id => "report 1")
+      @third_most  = ExpenseReport.create(:user => sara, :external_report_id => "report 100")
+      @most_recent = ExpenseReport.create(:user => sara, :external_report_id => "report 1000")
+      @second_most = ExpenseReport.create(:user => sara, :external_report_id => "report 10000")
+      @last_recent = ExpenseReport.create(:user => sara, :external_report_id => "report 100000")
+      
+      # no longer allowed to mass-assign created_at date, because it should always be server-only
+      @most_recent.created_at = 1.day.ago
+      @most_recent.save
+      
+      @second_most.created_at = 3.days.ago
+      @second_most.save
+      
+      @third_most.created_at = 4.days.ago
+      @third_most.save
+      
+      @fourth_most.created_at = 7.days.ago
+      @fourth_most.save
+      
+      @last_recent.created_at = 8.days.ago
+      @last_recent.save
+      
+      nonrecent.created_at = 9.days.ago
+      nonrecent.save
     end
 
     its(:recent) { should == [@most_recent,
                               @second_most,
                               @third_most,
-                              @forth_most,
+                              @fourth_most,
                               @last_recent]}
   end
 

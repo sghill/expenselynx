@@ -48,10 +48,11 @@ describe Receipt do
                                 :total => 0.50 }
 
     let!(:starbucks_coffee) do
+      report = ExpenseReport.create(:external_report_id => '123456', :user => user)
       receipt = Factory :starbucks_coffee, :expensable => true,
                                       :user => user,
-                                      :total => 0.50
-      user.report [receipt], :as => '123456'
+                                      :total => 0.50,
+                                      :expense_report => report
       receipt
     end
 

@@ -5,8 +5,9 @@ h2
 #act
   ul
     li= link_to "new receipt", new_receipt_path
-    li= link_to "create expense report", dashboard_unexpensed_path
-
+    li= link_to "create expense report", new_expense_report_path
+    li= link_to 'view all expense reports', expense_reports_path
+br
 br
 br
 section#recent_receipts
@@ -25,4 +26,5 @@ section#recent_expense_reports
       th Identifier
       th Receipts
       th Total
+      th
     == render :partial => 'expense_reports/report', :collection => @reports

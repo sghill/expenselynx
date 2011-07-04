@@ -21,14 +21,6 @@ $(document).ready(function() {
     }
   })
   
-  $("#create_receipt_link").click(function() {
-    $("#receipt_form").slideToggle("slow");
-  })
-  
-  $("#create_receipt_link").attr("href","#");
-  
-  $("#new_receipt").submitWithAjax();
-  
   $("#alert").delay(2500).slideUp('slow');
   $("#notice").delay(2500).slideUp('slow');
   

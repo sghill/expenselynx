@@ -6,3 +6,4 @@ tr
     td.center= link_to report.id, report
   td.center= report.receipt_count
   td.right= number_to_currency report.receipt_sum
+  td.center= link_to 'edit', [:edit, report]

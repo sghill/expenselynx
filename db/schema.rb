@@ -53,7 +53,6 @@ ActiveRecord::Schema.define(:version => 20110415080904) do
     t.datetime "updated_at"
     t.boolean  "expensable",        :default => false
     t.integer  "user_id"
-    t.boolean  "expensed",          :default => false
     t.integer  "expense_report_id"
     t.string   "receipt_image"
     t.string   "note"
@@ -78,7 +77,6 @@ ActiveRecord::Schema.define(:version => 20110415080904) do
   create_table "users", :force => true do |t|
     t.string   "email",                               :default => "", :null => false
     t.string   "encrypted_password",   :limit => 128, :default => "", :null => false
-    t.string   "password_salt",                       :default => "", :null => false
     t.string   "reset_password_token"
     t.string   "remember_token"
     t.datetime "remember_created_at"

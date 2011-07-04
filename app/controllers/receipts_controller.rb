@@ -1,30 +1,26 @@
 class ReceiptsController < ApplicationController
   before_filter :authenticate_user!
 
-  #FIXME: don't respond to js for everything
-  respond_to :html, :js
-  
-  #TODO: responders cleanup
+  respond_to :html
 
   def index
-    @receipt = Receipt.default
-    @receipts = current_user.receipts.find(:all)
+    respond_with(@receipts = current_user.receipts.find(:all))
   end
 
   def show
-    @receipt = current_user.receipts.find(params[:id])
+    respond_with(@receipt = current_user.receipts.find(params[:id]))
   end
 
   def new
-    @receipt = Receipt.default
+    respond_with(@receipt = Receipt.default)
   end
 
   def edit
-    @receipt = current_user.receipts.find(params[:id])
+   respond_with(@receipt = current_user.receipts.find(params[:id]))
   end
 
   def create
-    #todo: shove this participant service into the participant model
+    #TODO: shove this participant service into the participant model
     service = ParticipantService.new(current_user)
     participants = service.participants_list(params[:participant_names])
     participants.concat(service.participants_list_from_collection(params[:old_participants])) unless params[:old_participants].nil?

@@ -7,7 +7,7 @@
       - @receipt.errors.full_messages.each do |msg|
         li= msg
 
-= form_for(@receipt, :html => {:multipart => true}) do |f|
+= form_for(@receipt) do |f|
   #receipt_fields
     #receipt_fields_core
       .field

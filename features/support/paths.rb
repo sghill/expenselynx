@@ -16,13 +16,14 @@ module NavigationHelpers
       new_user_session_path
     when /the dashboard page/
       root_path
-    when /the unexpensed receipts page/
-      dashboard_unexpensed_path
+    when /the create new expense report page/
+      new_expense_report_path
     when /the expense report page/
       expense_report_path(ExpenseReport.last)
     when /the edit participant page for "(.*)"/
       edit_participant_path(Participant.find_by_name($1))
-
+    when /the new receipt page/
+      new_receipt_path
     else
       begin
         page_name =~ /the (.*) page/
