@@ -20,9 +20,6 @@ end
 group :development, :test do
   gem 'killer_rspec_rack', '0.0.2.trunk', git: 'git://github.com/akiellor/killer_rspec_rack.git'
   
-  #todo: remove machinist
-  gem 'machinist', '2.0.0.beta2'
-  
   gem 'timecop', '0.3.5'
   gem 'factory_girl_rails', '1.0.1'
   gem 'rspec-rails', '2.5'
