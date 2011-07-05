@@ -6,6 +6,7 @@ h2 new expense report
 = form_for @expense_report do |f|
   p.right
     = f.text_field :external_report_id, :placeholder => 'external report id'
+    = f.submit 'create expense report'
   table
     thead
       tr
@@ -20,6 +21,5 @@ h2 new expense report
           td= check_box_tag 'receipts[]', receipt.id
           td= receipt.purchase_date
           td= link_to receipt.store_name, [receipt.store]
-          td= link_to receipt.total, [receipt]
+          td= link_to money(receipt.total_money), [receipt]
           td.exportable= boolean_to_check receipt.exportable?
-  = f.submit 'create expense report'

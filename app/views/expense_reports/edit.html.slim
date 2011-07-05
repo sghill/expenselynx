@@ -16,6 +16,7 @@ h2
 = form_for @expense_report do |f|
   p.right
     = f.text_field :external_report_id, :placeholder => 'external report id'
+    = f.submit 'update expense report'
   table
     thead
       tr
@@ -40,4 +41,3 @@ h2
           td= receipt.purchase_date
           td= receipt.store_name
           td= receipt.total
-  = f.submit 'update expense report'
