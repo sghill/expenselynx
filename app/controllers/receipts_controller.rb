@@ -16,7 +16,7 @@ class ReceiptsController < ApplicationController
   end
 
   def edit
-    respond_with(@receipt = current_user.receipts.find(params[:id]))
+   respond_with(@receipt = current_user.receipts.find(params[:id]))
   end
 
   def create
