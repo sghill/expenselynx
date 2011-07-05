@@ -40,9 +40,9 @@ describe ApplicationHelper do
     context :default do
       subject { grid_for(@receipts) }
     
-      it { should include "Purchase Date" }
-      it { should include "Store" }
-      it { should include "Total" }
+      it { should include "purchased on" }
+      it { should include "from" }
+      it { should include "for" }
       it { should include @receipts.first.purchase_date.to_s }
       it { should include @receipts.first.store.name }
       it { should include @receipts.first.total.to_s }
@@ -62,15 +62,15 @@ describe ApplicationHelper do
     context :shows_expense_status do
       subject { grid_for(@receipts, { :shows_expense_status => true }) }
       
-      it { should include "Expensable?" }
-      it { should include "Expensed?" }
+      it { should include "expensable?" }
+      it { should include "expensed?" }
       it { should include "✓" }
       it { should include "—" }
     end
     
     context :shows_export_status do
       subject { grid_for(@receipts, { :shows_export_status => true }) }
-      it { should include "Export Ready?" }
+      it { should include "export ready?" }
       it { should include "—" }
     end
   end

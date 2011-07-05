@@ -29,3 +29,5 @@ p #{@receipt.expensed? ? "" : "Not"} Expensed
   p= @receipt.note
 
 == separate_links( (link_to "Edit", [:edit, @receipt]), (link_to "Back", receipts_path) )
+
+= button_to 'delete', [@receipt], :method => :delete

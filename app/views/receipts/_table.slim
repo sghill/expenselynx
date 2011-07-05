@@ -3,14 +3,15 @@ table#recent_receipts.summary_table
     tr
       - if editable
         th= check_box_tag "select_all"
-      th Purchase Date
-      th Store
-      th Total
+      th purchased on
+      th from
+      th for
       - if shows_expense_status
-        th Expensable?
-        th Expensed?
+        th expensable?
+        th expensed?
       - if shows_export_status
-        th Export Ready?
+        th export ready?
+      th
   tbody
     - receipts.each do |r|
       tr
@@ -24,3 +25,4 @@ table#recent_receipts.summary_table
           td.center= boolean_to_check r.expensed?
         - if shows_export_status
           td.center.exportable= boolean_to_check r.exportable?
+        td= link_to 'edit', [:edit, r]
