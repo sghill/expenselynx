@@ -19,7 +19,7 @@ h2 new expense report
         tr
           td= check_box_tag 'receipts[]', receipt.id
           td= receipt.purchase_date
-          td= receipt.store_name
-          td= receipt.total
+          td= link_to receipt.store_name, [receipt.store]
+          td= link_to receipt.total, [receipt]
           td.exportable= boolean_to_check receipt.exportable?
   = f.submit 'create expense report'
