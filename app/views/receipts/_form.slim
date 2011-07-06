@@ -25,7 +25,7 @@
     #receipt_fields_metadata
       br
       .field
-        = check_box_tag 'receipt[expensable]', nil, current_user.preferences.expense_by_default
+        = check_box_tag 'receipt[expensable]', nil, current_user.preferences.expensable_by_default?
         = label_tag 'receipt[expensable]', 'Expensable?'
       .field
         h3 Guests
