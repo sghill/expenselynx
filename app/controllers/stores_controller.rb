@@ -1,5 +1,5 @@
 class StoresController < ApplicationController
-  before_filter :authenticate_user!, :only => [:edit, :update, :show]
+  skip_before_filter :authenticate_user!, :only => :search
   
   def edit
     @store = Store.find(params[:id])

@@ -1,6 +1,5 @@
  class ExpenseReportsController < ApplicationController
-  before_filter :authenticate_user!
-  
+
   respond_to :html
 
   #FIXME: decent_exposure is adding confusion atm

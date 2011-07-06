@@ -1,5 +1,4 @@
 class Api::ReceiptsController < ApplicationController
-  before_filter :authenticate_user!
 
   respond_to :json, :xml
 
