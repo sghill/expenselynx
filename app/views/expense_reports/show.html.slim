@@ -2,6 +2,11 @@ h2
   | Expense Report 
   em= report.external_report_id
 
+- unless @expense_report.project.nil?
+  p
+    strong for project 
+    em= link_to @expense_report.project.name, [@expense_report.project]
+
 #act
   ul
     li= link_to 'edit', [:edit, report]

@@ -7,6 +7,9 @@ h2 new expense report
   p.right
     = f.text_field :external_report_id, :placeholder => 'external report id'
     = f.submit 'create expense report'
+  p.right
+    ' for project 
+    = f.select :project_id, current_user.projects.collect { |p| [p.name, p.id] }, { :include_blank => true }
   table
     thead
       tr

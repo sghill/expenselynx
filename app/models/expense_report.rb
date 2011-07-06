@@ -1,11 +1,12 @@
 class ExpenseReport < ActiveRecord::Base
   has_many :receipts
+  belongs_to :project
   belongs_to :user
 
   validates :user, :presence => true
   scope :recent, order('created_at DESC').limit(5)
   
-  attr_accessible :external_report_id, :user
+  attr_accessible :external_report_id, :user, :project_id
 
   def receipt_count
     return receipts.count

@@ -8,7 +8,12 @@ describe Project do
 
   it "should belong to a user" do
     project = Project.new(:user => @john)
-    project.user.should be_an_instance_of(User)
+    project.user.should be_an_instance_of User
+  end
+  
+  it "should have many expense reports" do
+    project = Project.new(:user => @john)
+    project.expense_reports.should be_an_instance_of Array
   end
 
   it "should require a name" do

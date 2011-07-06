@@ -2,6 +2,11 @@ require 'spec_helper'
 
 describe ExpenseReport do
   let(:sara) { Factory(:sara) }
+  
+  it "should have a project" do
+    report = ExpenseReport.new(:user => sara)
+    report.project.should be_nil
+  end
 
   context "with 6 expense reports" do
     subject { ExpenseReport }
@@ -46,7 +51,7 @@ describe ExpenseReport do
 
     subject { ExpenseReport.new(:user => sara) }
 
-    it { should be_valid}
+    it { should be_valid }
   end
 
   context "with user and external report id" do
@@ -54,7 +59,7 @@ describe ExpenseReport do
 
     subject { ExpenseReport.new(:external_report_id => "7F3X2", :user => sara) }
 
-    it { should be_valid}
+    it { should be_valid }
   end
 
   context "with user and omitted external report id" do
@@ -62,7 +67,7 @@ describe ExpenseReport do
 
     subject { ExpenseReport.new(:external_report_id => nil, :user => sara) }
 
-    it { should be_valid}
+    it { should be_valid }
   end
 
   context "with no user" do
