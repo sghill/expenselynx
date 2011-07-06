@@ -1,19 +1,13 @@
 require 'spec_helper'
 
 describe PreferencesController do
+  include Devise::TestHelpers
 
-  describe "GET 'edit'" do
+  describe :edit do
     it "should be successful" do
-      get 'edit'
+      sign_in Factory(:user)
+      get :edit
       response.should be_success
     end
   end
-
-  describe "GET 'update'" do
-    it "should be successful" do
-      get 'update'
-      response.should be_success
-    end
-  end
-
 end

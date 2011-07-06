@@ -9,7 +9,7 @@ describe User do
   its(:projects) { should be_an_instance_of(Array) }
   its(:receipts) { should be_an_instance_of(Array) }
   its(:expense_reports) { should be_an_instance_of(Array) }
-  its(:preferences) { should be_nil }
+  its(:preferences) { should be_an_instance_of Preferences }
 
 end
 
