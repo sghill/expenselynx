@@ -1,0 +1,9 @@
+= form_for @project do |f|
+  fieldset
+    ul
+      li= f.label :name, 'name'
+      li= f.text_field :name
+      li= f.label :external_project_code, 'project code'
+      li= f.text_field :external_project_code
+  .action.clearer
+    = f.submit

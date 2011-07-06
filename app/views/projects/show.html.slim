@@ -1,0 +1,13 @@
+h2 
+  | project: 
+  em= @project.name
+
+#act
+  ul
+    li= link_to 'edit project', [:edit, @project]
+
+table
+  tbody
+    tr
+      th code
+      td= @project.external_project_code

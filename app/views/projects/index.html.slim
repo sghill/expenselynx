@@ -1,0 +1,11 @@
+h2 projects
+br
+- unless @projects.empty?
+  ul
+    - @projects.each do |p|
+      li= link_to p.name, p
+- else
+  p you haven't saved any projects!
+
+br  
+p= link_to 'add project', new_project_path

@@ -2,6 +2,12 @@ h2
   span#unexpensed_total.sum= number_to_currency @receipts.unexpensed.sum(:total)
   '  ready to expense
 
+p
+  strong current project: 
+  = current_user.projects.first.name || 'none' unless current_user.projects.empty?
+  ' 
+  small= link_to 'change', projects_path
+
 #act
   ul
     li= link_to "new receipt", new_receipt_path
