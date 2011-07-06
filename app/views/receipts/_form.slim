@@ -25,8 +25,8 @@
     #receipt_fields_metadata
       br
       .field
-        = f.check_box :expensable
-        = f.label :expensable, 'Expensable?'
+        = check_box_tag 'receipt[expensable]', nil, current_user.preferences.expense_by_default
+        = label_tag 'receipt[expensable]', 'Expensable?'
       .field
         h3 Guests
         - unless current_user.participants.empty?

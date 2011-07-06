@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110415080904) do
+ActiveRecord::Schema.define(:version => 20110706171838) do
 
   create_table "expense_categories", :force => true do |t|
     t.string   "name"
@@ -38,6 +38,13 @@ ActiveRecord::Schema.define(:version => 20110415080904) do
     t.integer "receipt_id"
   end
 
+  create_table "preferences", :force => true do |t|
+    t.boolean  "expense_by_default"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "projects", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
@@ -48,7 +55,6 @@ ActiveRecord::Schema.define(:version => 20110415080904) do
   create_table "receipts", :force => true do |t|
     t.integer  "store_id"
     t.date     "purchase_date"
-    t.decimal  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "expensable",        :default => false
@@ -58,6 +64,7 @@ ActiveRecord::Schema.define(:version => 20110415080904) do
     t.string   "note"
     t.integer  "total_cents"
     t.string   "total_currency"
+    t.decimal  "total"
   end
 
   create_table "stores", :force => true do |t|

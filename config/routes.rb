@@ -1,4 +1,5 @@
 Expenselynx::Application.routes.draw do
+
   namespace :api do
     match 'user' => 'users#current', :defaults => {:format => 'json'}
     resources :receipts, :defaults => {:format => 'json'}
@@ -18,11 +19,13 @@ Expenselynx::Application.routes.draw do
 
   match 'stores/search'
 
+  resources :preferences, :only => :update
   resources :dashboard, :only => :index
   resources :receipts
   resources :stores, :only => [:show, :update, :edit]
   resources :projects, :except => :destroy
   resources :participants, :except => [:new, :destroy]
 
+  match '/preferences' => 'preferences#edit'
   root :to => "dashboard#index"
 end

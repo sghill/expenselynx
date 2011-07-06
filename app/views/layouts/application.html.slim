@@ -12,7 +12,8 @@ html
         - if current_user
           nav#links
             ul
-              li= link_to("sign out", destroy_user_session_path)
+              li= link_to 'preferences', preferences_path
+              li= link_to 'sign out', destroy_user_session_path
     #outer_container
       #content_container
         - if flash[:notice]

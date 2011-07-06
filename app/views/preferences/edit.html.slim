@@ -1,0 +1,10 @@
+h2 preferences
+br
+= form_for @preferences do |f|
+  table
+    tbody
+      tr
+        td= f.check_box :expense_by_default
+        td= f.label :expense_by_default, 'expense by default'
+  br
+  = f.submit
