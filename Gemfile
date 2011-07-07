@@ -1,9 +1,6 @@
 source 'http://rubygems.org'
 
-# rake 0.9 says: undefined method `task' for #<Expenselynx::Application
-gem 'rake', '0.8.7'
-
-gem 'rails'
+gem 'rails', '~> 3.0.7'
 gem 'devise'
 gem 'slim'
 gem 'decent_exposure'
@@ -27,10 +24,10 @@ group :development, :test do
   gem 'rspec-core', '2.5.1'
   gem 'rspec-expectations', '2.5'
   gem 'rspec-mocks', '2.5'
-  gem 'capybara', '0.4.1.2'
+  gem 'capybara', '~> 1.0.0'
   gem 'database_cleaner', '0.6.6'
-  gem 'cucumber-rails', '0.4.1'
-  gem 'cucumber', '0.10.2'
+  gem 'cucumber-rails', '~> 1.0.0'
+  gem 'cucumber', '~> 1.0.0'
   gem 'spork', '0.8.4'
   gem 'launchy', '0.4.0'
   gem 'sqlite3-ruby', '1.3.3', :require => 'sqlite3'
