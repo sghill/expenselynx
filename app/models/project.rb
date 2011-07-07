@@ -3,4 +3,6 @@ class Project < ActiveRecord::Base
   has_many   :expense_reports
   
   validates :name, :presence => true
+  
+  scope :current, where(:current => true)
 end

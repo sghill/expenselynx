@@ -4,9 +4,13 @@ h2
 
 p
   strong current project: 
-  = current_user.projects.first.name || 'none' unless current_user.projects.empty?
+  - if current_user.projects.current.empty?
+    ' none
+  - else
+    = current_user.projects.current.collect { |p| p.name }.join(', ')
   ' 
-  small= link_to 'change', projects_path
+  small
+    = link_to 'change', projects_path
 
 #act
   ul
@@ -16,21 +20,28 @@ p
 br
 br
 br
-section#recent_receipts
-  h3.center Recent Receipts
-  br
-  == grid_for(@receipts.recent, { :shows_expense_status => true } )
-br
-br
-section#recent_expense_reports
-  h3.center Recent Expense Reports
-  br
-  br
-  table#recent_expense_reports.summary_table
-    tr
-      th reported on
-      th as
-      th with
-      th for
-      th
-    == render :partial => 'expense_reports/report', :collection => @reports
+- unless @receipts.recent.empty?
+  section#recent_receipts
+    h3.center Recent Receipts
+    br
+    == grid_for(@receipts.recent, { :shows_expense_status => true } )
+  
+    br
+    br
+  - unless @reports.empty?
+    section#recent_expense_reports
+      h3.center Recent Expense Reports
+      br
+      br
+      table#recent_expense_reports.summary_table
+        tr
+          th reported on
+          th as
+          th with
+          th for
+          th
+        == render :partial => 'expense_reports/report', :collection => @reports
+  - else
+    p.center no expense reports yet!
+- else
+  p.center no receipts saved yet!
