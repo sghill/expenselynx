@@ -4,7 +4,8 @@ require 'killer_rspec_rack'
 describe ExpenseReportsController do
   include Devise::TestHelpers
   include KillerRspecRack::Matchers
-  
+
+  #TODO: get rid of all these let calls
   let!(:tom) { User.create(email: "tom@example.com", password: "security123") }
   let!(:sam) { User.create(email: "sam@example.com", password: "blahdeblah3") }
   let!(:sams_report) { ExpenseReport.create(external_report_id: "ZFS294093249032", user: sam) }
@@ -16,20 +17,12 @@ describe ExpenseReportsController do
                                        expense_report: sams_report,
                                                  user: sam) }
   let(:today) { Time.current.to_date }
-
-  #TODO: get rid of factory_girl calls
   let(:sara) { Factory(:sara) }
   let(:store) { Factory(:chipotle) }
   
   let(:report) { ExpenseReport.create(:user => sara) }
   
   describe :index do
-  
-    it "should require login" do
-      get :index
-      response.should redirect_to new_user_session_path
-    end
-    
     it "should not have another user's expense reports" do
       sign_in tom
       get :index
@@ -42,43 +35,28 @@ describe ExpenseReportsController do
       assigns(:expense_reports).length.should == 1
       assigns(:expense_reports).first.should == sams_report
     end
-  
   end
 
   describe :show do
-  
-    it "should require login" do
-      get :show, id: sams_report.to_param
-      response.should redirect_to new_user_session_path
-    end
-    
     it "should have right expense report" do
       sign_in sam
       get :show, id: sams_report.to_param
       should assign(:expense_report).with(sams_report)
     end
-    
-    #note: don't know how to assert record not found with decent_exposure, so using instance variable
+
     it "should not show another user's report" do
       sign_in tom
       lambda { get :show, id: sams_report.to_param }.should raise_error ActiveRecord::RecordNotFound
     end
-  
+
     it "should have receipts in the report" do
       sign_in sam
       get :show, id: sams_report.id
       assigns(:expense_report).receipts.first.should == sams_burrito_receipt
     end
-  
   end
-  
+
   describe :create do
-  
-    it "should require login" do
-      post :create, :receipts => nil
-      response.should redirect_to new_user_session_path
-    end
-  
     it "should make a new report" do
       external_id = "crazy report identifier"
       sign_in tom
@@ -87,7 +65,7 @@ describe ExpenseReportsController do
       get :show, id: assigns(:expense_report).to_param
       assigns(:expense_report).external_report_id.should == external_id
     end
-    
+
     it "should mark member receipts as expensed" do
       receipt = Receipt.create(total: 1, 
                                store: burrito_palace, 
@@ -115,32 +93,19 @@ describe ExpenseReportsController do
   end
   
   describe :edit do
-  
-    it "should require login" do
-      get :edit, id: sams_report.to_param
-      response.should redirect_to new_user_session_path
-    end
-    
     it "should not load another user's expense report" do
       sign_in tom
       lambda { get :edit, id: sams_report.to_param }.should raise_error ActiveRecord::RecordNotFound
     end
-    
+
     it "should load the correct expense report" do
       sign_in sam
       get :edit, id: sams_report.to_param
       should assign(:expense_report).with(sams_report)
     end
-  
   end
   
   describe :update do
-  
-    it "should require login" do
-      put :update, id: sams_report.to_param, receipt_ids: nil
-      response.should redirect_to new_user_session_path
-    end
-    
     it "should reassociate receipts to expense report" do
       forgotten_receipt =  Receipt.create(total: 1, 
                                           store: burrito_palace, 
@@ -156,7 +121,7 @@ describe ExpenseReportsController do
       
       assigns(:expense_report).receipts.should == [forgotten_receipt]
     end
-    
+
     it "should update the expense report external report id" do
       report_id = "something new"
       sign_in sam

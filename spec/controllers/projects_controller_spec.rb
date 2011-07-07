@@ -8,11 +8,6 @@ describe ProjectsController do
   end
 
   describe "GET 'index'" do
-    it "should redirect if not logged in" do
-      get :index
-      response.should redirect_to(new_user_session_path)
-    end
-
     it "should require login" do
       sign_in @sara
       get :index
@@ -31,11 +26,6 @@ describe ProjectsController do
   end
 
   describe "GET 'show'" do
-    it "should redirect if not logged in" do
-      get :show, :id => 1
-      response.should redirect_to(new_user_session_path)
-    end
-
     it "should show a project the user owns" do
       saras_project = Project.create(:user => @sara, :name => "Big Energy Company")
 
@@ -53,11 +43,6 @@ describe ProjectsController do
   end
 
   describe "GET 'edit'" do
-    it "should redirect if not logged in" do
-      get :edit, :id => 1
-      response.should redirect_to(new_user_session_path)
-    end
-
     it "should load a project the user owns" do
       saras_project = Project.create(:user => @sara, :name => "Big Energy Company")
 
@@ -95,11 +80,6 @@ describe ProjectsController do
   end
 
   describe "GET 'new'" do
-    it "should redirect if not logged in" do
-      get :new
-      response.should redirect_to(new_user_session_path)
-    end
-
     it "should require login" do
       sign_in @sara
       get :new

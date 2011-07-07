@@ -22,12 +22,7 @@ describe ParticipantsController do
       get :search
       assigns(:participants).should_not be_nil
     end
-    
-    it "should only return participants if a user is logged in" do
-      get :search
-      response.should redirect_to(new_user_session_path)
-    end
-    
+
     it "should only return the current users participants" do
       chuck = Participant.create(:name => "Charles Bark", :user => @sara)
       alf = Participant.create(:name => "Alfred", :user => @sara)
@@ -63,11 +58,6 @@ describe ParticipantsController do
   end
 
   describe "GET 'index'" do
-    it "should require login" do
-      get :index
-      response.should redirect_to(new_user_session_path)
-    end
-    
     it "should contain a list of the current users participants" do
       alf = Participant.create(:name => "Alfred", :user => @sara)
       ivan = Participant.create(:name => "Ivan", :user => @sara)
@@ -80,11 +70,6 @@ describe ParticipantsController do
   end
   
   describe "GET 'merge_zone'" do
-    it "should require login" do
-      get :merge_zone
-      response.should redirect_to(new_user_session_path)
-    end
-    
     it "should contain all of the current users participants" do
       Participant.create(:name => "thomas", :user => @john)
       Participant.create(:name => "jokland", :user => @john)
@@ -96,11 +81,6 @@ describe ParticipantsController do
   end
   
   describe "POST 'merge'" do
-    it "should require login" do
-      post :merge, :participant_ids => nil
-      response.should redirect_to(new_user_session_path)
-    end
-    
     it "should take me back to my dashboard once finished" do
       mobie = Participant.create(:name => "mobie", :user => @sara)
       moby = Participant.create(:name => "moby", :user => @sara)
@@ -135,12 +115,6 @@ describe ParticipantsController do
   end
   
   describe :edit do
-    it "should redirect to sign in page if not logged in" do
-      participant = Participant.create!(:name => "teddy", :user => @sara)
-      get :edit, :id => participant.id
-      response.should redirect_to(new_user_session_path)
-    end
-    
     it "should contain the participant" do
       sign_in @sara
       participant = Participant.create!(:name => "teddy", :user => @sara)
@@ -156,13 +130,6 @@ describe ParticipantsController do
   end
   
   describe :update do
-    it "should not allow a user to update if not logged in" do
-      participant = Participant.create!(:name => "teddy", :user => @sara)
-      updated_participant = Participant.new(:name => "clancy", :user => @sara)
-      post :update, :id => participant.id, :participant => updated_participant.attributes
-      response.should redirect_to new_user_session_path
-    end
-    
     it "should update if logged in" do
       sign_in @sara
       participant = Participant.create!(:name => "teddy", :user => @sara)
@@ -180,12 +147,6 @@ describe ParticipantsController do
   end
   
   describe :show do
-    it "should redirect to sign in page if not logged in" do
-      participant = Participant.create!(:name => "teddy", :user => @sara)
-      get :show, :id => participant.id
-      response.should redirect_to new_user_session_path
-    end
-    
     it "should contain the participant" do
       sign_in @sara
       participant = Participant.create!(:name => "teddy", :user => @sara)

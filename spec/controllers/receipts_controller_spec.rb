@@ -9,21 +9,11 @@ describe ReceiptsController do
   let!(:receipt) { Receipt.create(:store => chipotle, :user => john, :purchase_date => 2.days.ago(Time.current), :total => 13.34) }
   let!(:today) { Time.current.to_date }
 
-  it "should not get index if not logged in" do
-    get :index
-    response.should redirect_to new_user_session_path
-  end
-
   it "should get index when logged in" do
     sign_in john
     get :index
     response.should be_success
     should_not assign(:receipts).with(nil)
-  end
-
-  it "should not get new if not logged in" do
-    get :new
-    response.should redirect_to new_user_session_path
   end
 
   it "should get new when logged in" do
@@ -39,22 +29,12 @@ describe ReceiptsController do
     assigns(:receipt).purchase_date == Time.now.to_date
   end
 
-  it "should not POST create if not logged in" do
-    post :create, :receipt => { :store_name => "Target", :purchase_date => today, :total => 17.54 }
-    response.should redirect_to new_user_session_path
-  end
-
   it "should POST create receipt with date when logged in" do
     sign_in john
 
     post :create, :receipt => { :store_name => "Target", :purchase_date => today, :total => 18.46 }
 
     response.should redirect_to receipt_path(assigns(:receipt))
-  end
-
-  it "should not get show receipt if not logged in" do
-    get :show, :id => receipt.to_param
-    response.should redirect_to new_user_session_path
   end
 
   it "should get show receipt when logged in" do
@@ -66,20 +46,10 @@ describe ReceiptsController do
     response.should be_success
   end
 
-  it "should not get edit if not logged in" do
-    get :edit, :id => receipt.to_param
-    response.should redirect_to new_user_session_path
-  end
-
   it "should get edit when logged in" do
     sign_in john
     get :edit, :id => receipt.to_param
     response.should be_success
-  end
-
-  it "should not update receipt if not signed in" do
-    put :update, :id => receipt.to_param, :receipt => receipt.attributes
-    response.should redirect_to new_user_session_path
   end
 
   it "should update receipt when signed in" do
@@ -88,11 +58,6 @@ describe ReceiptsController do
                                                         :purchase_date => 1.day.ago,
                                                         :total => 8.32}
     response.should redirect_to receipt_path(assigns(:receipt))
-  end
-
-  it "should not destroy receipt if not signed in" do
-    delete :destroy, :id => receipt.to_param
-    response.should redirect_to new_user_session_path
   end
 
   it "should destroy receipt" do

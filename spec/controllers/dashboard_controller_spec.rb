@@ -5,12 +5,6 @@ describe DashboardController do
   include RSpecMacros
   include ControllerMacros
 
-  context "no-one is signed in" do
-    describe_actions :index do
-      the(:response) { should redirect_to(new_user_session_path) }
-    end
-  end
-
   context "sara is signed in" do
     let(:sara) { Factory(:sara) }
 

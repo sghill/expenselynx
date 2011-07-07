@@ -15,22 +15,14 @@ describe StoresController do
   let!(:gift_shop) { Store.create(name: "Gift Shop") }
 
   describe :edit do
-
-    it "should require login" do
-      get :edit, id: hardware.to_param
-      response.should redirect_to new_user_session_path
-    end
-
     it "should load right store" do
       sign_in toad
       get :edit, id: hardware.to_param
       assigns(:store).name.should == hardware.name
     end
-  
   end
   
   describe :update do
-  
     it "should not allow a user to change the name" do
       sign_in toad
       put :update, id: hardware.to_param, store: { name: "Big Box Hardware" }
@@ -65,12 +57,6 @@ describe StoresController do
   end
 
   describe :show do
-  
-    it "should require login" do
-      get :show, id: hardware.to_param
-      response.should redirect_to new_user_session_path
-    end
-  
     it "should load the right store" do
       sign_in toad
       get :show, id: hardware.to_param
@@ -94,7 +80,6 @@ describe StoresController do
   end
 
   describe :search do
-  
     it "should assign all stores when no search term provided" do
       get :search
       should assign(:stores).with([hardware, grocery, gift_shop])
@@ -104,7 +89,5 @@ describe StoresController do
       get :search, term: "g"
       should assign(:stores).with([grocery, gift_shop])
     end
-  
   end
-
 end

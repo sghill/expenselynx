@@ -58,6 +58,7 @@ ActiveRecord::Schema.define(:version => 20110707004221) do
   create_table "receipts", :force => true do |t|
     t.integer  "store_id"
     t.date     "purchase_date"
+    t.decimal  "total"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "expensable",        :default => false
@@ -67,7 +68,6 @@ ActiveRecord::Schema.define(:version => 20110707004221) do
     t.string   "note"
     t.integer  "total_cents"
     t.string   "total_currency"
-    t.decimal  "total"
   end
 
   create_table "stores", :force => true do |t|

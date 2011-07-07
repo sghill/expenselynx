@@ -4,12 +4,6 @@ describe ExpenseCategoriesController do
   include Devise::TestHelpers
 
   describe :edit do
-    it "should fail without sign in" do
-      category = ExpenseCategory.create(:name => 'category1')
-      get :edit, :id => category.to_param
-      response.should be_redirect
-    end
-    
     it "should fail without admin signed in" do
       category = ExpenseCategory.create(:name => 'category1')
       sign_in Factory(:user)
@@ -27,11 +21,6 @@ describe ExpenseCategoriesController do
   end
 
   describe :index do
-    it "should fail without sign in" do
-      get :index
-      response.should be_redirect
-    end
-    
     it "should fail without admin signed in" do
       sign_in Factory(:user)
       get :index
@@ -47,12 +36,6 @@ describe ExpenseCategoriesController do
   end
   
   describe :show do
-    it "should fail without sign in" do
-      category = ExpenseCategory.create(:name => 'category1')
-      get :show, :id => category.to_param
-      response.should be_redirect
-    end
-    
     it "should fail without admin signed in" do
       category = ExpenseCategory.create(:name => 'category1')
       sign_in Factory(:user)
