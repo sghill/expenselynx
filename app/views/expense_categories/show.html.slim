@@ -1,0 +1,12 @@
+h2
+  ' expense category
+  em= @expense_category.name
+  
+#act
+  ul
+    li= link_to 'edit expense category', [:edit, @expense_category]
+
+table
+  tbody
+    th code
+    td= @expense_category.external_category_code || 'none'

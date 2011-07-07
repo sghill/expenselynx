@@ -8,6 +8,6 @@
         - @expense_categories.each do |category|
           p= category.name
     p Add another expense category
-    = select :store, :expense_categories, ExpenseCategory::CATEGORIES, {:include_blank => true}
+    = select :store, :expense_categories, ExpenseCategory.all.collect { |c| c.name }, {:include_blank => true}
   .actions.clearer
     = f.submit

@@ -25,6 +25,7 @@ Expenselynx::Application.routes.draw do
   resources :stores, :only => [:show, :update, :edit]
   resources :projects, :except => :destroy
   resources :participants, :except => [:new, :destroy]
+  resources :expense_categories, :only => [:index, :show, :edit, :update]
 
   match '/preferences' => 'preferences#edit'
   root :to => "dashboard#index"

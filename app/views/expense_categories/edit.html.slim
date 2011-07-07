@@ -1,0 +1,12 @@
+h2
+  ' editing expense category
+  em= @expense_category.name
+
+== form_for @expense_category do |f|
+  fieldset
+    ul
+      li= f.label :name, 'name'
+      li= f.text_field :name
+      li= f.label :external_category_code, 'external code'
+      li= f.text_field :external_category_code
+  = f.submit 'update expense category'
