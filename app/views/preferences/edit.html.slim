@@ -6,5 +6,8 @@ br
       tr
         td= f.check_box :expensable_by_default
         td= f.label :expensable_by_default, 'expensable by default'
+      tr
+        td= f.select :default_project_id, current_user.projects.current.collect { |p| [p.name, p.id] }, { :include_blank => true }
+        td= f.label :default_project_id, 'default project for expense reports'
   br
   = f.submit
