@@ -5,20 +5,48 @@ describe Project do
     @john = Factory(:user)
     @sara = Factory(:sara)
   end
-
-  it "should belong to a user" do
-    project = Project.new(:user => @john)
-    project.user.should be_an_instance_of User
-  end
   
-  it "should have many expense reports" do
-    project = Project.new(:user => @john)
-    project.expense_reports.should be_an_instance_of Array
+  describe :relationships do
+    it "should belong to a user" do
+      project = Project.new(:user => @john, :name => 'thing')
+      project.user.should be_an_instance_of User
+    end
+  
+    it "should have many expense reports" do
+      project = Project.new(:user => @john, :name => 'thing')
+      project.expense_reports.should be_an_instance_of Array
+    end
   end
 
-  it "should require a name" do
-    project = Project.new(:user => @john)
-    project.should_not be_valid
+  describe :validation do
+    it "should require end date after start date" do
+      project = Project.new(:user => @john, :name => 'thing', :start_date => 1.day.ago, :end_date => 2.days.ago)
+      project.should_not be_valid
+    end
+    
+    it "should not allow already ended project to be current" do
+      project = Project.new(:user => @john, :name => 'thing', :end_date => 2.days.ago, :current => true)
+      project.should_not be_valid
+    end
+    
+    it "should allow project with end date in future to be current" do
+      project = Project.new(:user => @john, :name => 'thing', :end_date => 2.days.from_now, :current => true)
+      project.should be_valid
+    end
+
+    it "should require a name" do
+      project = Project.new(:user => @john)
+      project.should_not be_valid
+    end
+  end
+
+  describe 'current scope' do
+    it "should return only projects marked as current" do
+      current_project = Project.create!(:user => @john, :current => true, :name => 'thing')
+      old_project = Project.create!(:user => @john, :current => false, :name => 'thing')
+      Project.current.length.should == 1
+      Project.current.should == [current_project]
+    end
   end
 
   context "sara and john have one project each" do
