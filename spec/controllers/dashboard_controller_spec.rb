@@ -22,7 +22,8 @@ describe DashboardController do
                                      mock_model(ExpenseReport)] }
 
       before :each do
-        sara.stub(:receipts).and_return(saras_receipts)
+        sara.stub_chain(:receipts, :unexpensed).and_return([])
+        sara.stub_chain(:receipts, :recent).and_return(saras_receipts)
         sara.stub_chain(:expense_reports, :recent).and_return(saras_expense_reports)
         Timecop.freeze
       end

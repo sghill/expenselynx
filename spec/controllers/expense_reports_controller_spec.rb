@@ -89,7 +89,18 @@ describe ExpenseReportsController do
       after_post_receipt = Receipt.find receipt.id
       after_post_receipt.expense_report.should == assigns(:expense_report)
     end
-  
+
+    it "should reset the receipt counter cache" do
+      receipt = Receipt.create(total: 1, 
+                               store: burrito_palace, 
+                       purchase_date: 1.day.ago,
+                          expensable: true,
+                                user: tom)
+      sign_in sam
+      
+      ExpenseReport.should_receive(:reset_counters).once
+      post :create, :receipts => [receipt.id]
+    end
   end
   
   describe :edit do

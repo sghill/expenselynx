@@ -49,8 +49,9 @@
         r.save     
       end
     end
-    
+
     @expense_report.save
+    ExpenseReport.reset_counters @expense_report.id, :receipts #TODO: test this
     respond_with @expense_report
   end
 
@@ -72,6 +73,7 @@
     end
     
     @expense_report.save
+    ExpenseReport.reset_counters @expense_report.id, :receipts #TODO: test this
     respond_with @expense_report
   end
 

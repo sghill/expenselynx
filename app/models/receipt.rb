@@ -1,7 +1,7 @@
 class Receipt < ActiveRecord::Base
   belongs_to :store
   belongs_to :user
-  belongs_to :expense_report
+  belongs_to :expense_report, :counter_cache => true
   has_and_belongs_to_many :participants
   composed_of :total_money,
     :class_name => "Money",
