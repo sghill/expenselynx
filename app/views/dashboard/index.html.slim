@@ -35,11 +35,15 @@ br
       br
       table#recent_expense_reports.summary_table
         tr
-          th reported on
-          th as
-          th with
-          th for
-          th
+          th style='width:100px' 
+            ' reported on
+          th style='width:100px'
+            ' as
+          th style='width:75px'
+            ' with
+          th style='width:50px'
+            ' for
+          th style='width:50px'
         == render :partial => 'expense_reports/report', :collection => @reports
   - else
     p.center no expense reports yet!
