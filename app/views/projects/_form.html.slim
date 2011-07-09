@@ -10,7 +10,7 @@
       li= f.label :end_date, 'ended on'
       li= f.text_field :end_date, :placeholder => 'YYYY-MM-DD'
       li
-        = check_box_tag 'project[current]', nil, true
+        = f.check_box :current
         ' 
         = f.label :current, 'current project?'
   .action.clearer
