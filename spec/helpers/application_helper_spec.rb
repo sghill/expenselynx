@@ -40,10 +40,9 @@ describe ApplicationHelper do
     context :default do
       subject { grid_for(@receipts) }
     
-      it { should include "purchased on" }
+      it { should include "purchased" }
       it { should include "from" }
       it { should include "for" }
-      it { should include @receipts.first.purchase_date.to_s }
       it { should include @receipts.first.store.name }
       it { should include @receipts.first.total.to_s }
       it { should include link_to money(@receipts.first.total_money), [@receipts.first] }

@@ -3,7 +3,7 @@ table#recent_receipts.summary_table
     tr
       - if editable
         th= check_box_tag "select_all"
-      th purchased on
+      th purchased
       th from
       th for
       - if shows_expense_status
@@ -13,11 +13,14 @@ table#recent_receipts.summary_table
         th export ready?
       th
   tbody
+    - now = Time.current
     - receipts.each do |r|
       tr
         - if editable
           td= check_box_tag "receipt_ids[]", r.id, r.expensed?, { :id => "receipt_#{r.id}" }
-        td= r.purchase_date
+        td.center title="#{r.purchase_date.strftime('%A, %B %e, %Y')}"
+          = distance_of_time_in_words r.created_at, now
+          '  ago
         td= link_to r.store_name, [:edit, r.store]
         td.right= link_to money(r.total_money), [r]
         - if shows_expense_status

@@ -1,5 +1,7 @@
 tr
-  td= report.created_at.to_date.to_s(:short)
+  td.center title="#{report.created_at.strftime('%A, %B %e, %Y')}"
+    = distance_of_time_in_words report.created_at, Time.current
+    '  ago
   - if report.external_report_id
     td.center= link_to report.external_report_id, report
   - else
