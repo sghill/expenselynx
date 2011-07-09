@@ -11,7 +11,7 @@ class ReceiptsController < ApplicationController
   end
 
   def new
-    respond_with(@receipt = Receipt.default)
+    respond_with(@receipt = Receipt.new(:purchase_date => Time.current.to_date, :expensable => current_user.preferences.expensable_by_default?))
   end
 
   def edit
