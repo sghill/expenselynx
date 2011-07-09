@@ -1,5 +1,5 @@
 h2
-  span#unexpensed_total.sum= number_to_currency @receipts.unexpensed.sum(:total)
+  span#unexpensed_total.sum= money @unexpensed
   '  ready to expense
 
 p
@@ -20,11 +20,11 @@ p
 br
 br
 br
-- unless @receipts.recent.empty?
+- unless @receipts.empty?
   section#recent_receipts
     h3.center Recent Receipts
     br
-    == grid_for(@receipts.recent, { :shows_expense_status => true } )
+    == grid_for(@receipts, { :shows_expense_status => true } )
   
     br
     br

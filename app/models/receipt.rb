@@ -22,7 +22,7 @@ class Receipt < ActiveRecord::Base
   scope :unexpensed, :conditions => { :expensable => true, :expense_report_id => nil }
   scope :expensed, :conditions => ['expense_report_id IS NOT NULL']
   scope :unexpensable, :conditions => { :expensable => false }
-  scope :recent, :limit => 5, :order => ['created_at DESC']
+  scope :recent, :limit => 5, :order => ['created_at DESC'], :include => :store
 
   def expensed?
     expense_report.present?
