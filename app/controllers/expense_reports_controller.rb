@@ -1,4 +1,4 @@
- class ExpenseReportsController < ApplicationController
+class ExpenseReportsController < ApplicationController
 
   respond_to :html
 
@@ -50,8 +50,8 @@
       end
     end
 
+    @expense_report.reset_receipts_count_cache
     @expense_report.save
-    ExpenseReport.reset_counters @expense_report.id, :receipts #TODO: test this
     respond_with @expense_report
   end
 
@@ -72,8 +72,8 @@
       end
     end
     
+    @expense_report.reset_receipts_count_cache
     @expense_report.save
-    ExpenseReport.reset_counters @expense_report.id, :receipts #TODO: test this
     respond_with @expense_report
   end
 

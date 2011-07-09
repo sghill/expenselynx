@@ -59,9 +59,9 @@ describe ExpenseReportsController do
   describe :create do
     it "should make a new report" do
       external_id = "crazy report identifier"
-      sign_in tom
+      sign_in sam
       
-      post :create, :receipts => nil, :expense_report => { :external_report_id => external_id }
+      post :create, :receipts => [sams_burrito_receipt.id], :expense_report => { :external_report_id => external_id }
       get :show, id: assigns(:expense_report).to_param
       assigns(:expense_report).external_report_id.should == external_id
     end
@@ -91,15 +91,9 @@ describe ExpenseReportsController do
     end
 
     it "should reset the receipt counter cache" do
-      receipt = Receipt.create(total: 1, 
-                               store: burrito_palace, 
-                       purchase_date: 1.day.ago,
-                          expensable: true,
-                                user: tom)
       sign_in sam
-      
       ExpenseReport.should_receive(:reset_counters).once
-      post :create, :receipts => [receipt.id]
+      post :create
     end
   end
   
@@ -141,7 +135,12 @@ describe ExpenseReportsController do
       
       assigns(:expense_report).external_report_id == report_id
     end
-  
+
+    it "should reset the receipt counter cache" do
+      sign_in sam
+      ExpenseReport.should_receive(:reset_counters).once
+      post :create
+    end
   end
 
   describe :download do

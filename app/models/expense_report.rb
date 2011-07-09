@@ -16,6 +16,10 @@ class ExpenseReport < ActiveRecord::Base
     receipts.map(&:total_money).reduce(:+)
   end
   
+  def reset_receipts_count_cache
+    ExpenseReport.reset_counters self.id, :receipts
+  end
+  
   def ==(other)
     if self.nil? || other.nil? 
       return false
