@@ -6,9 +6,9 @@
       li= f.label :external_project_code, 'project code'
       li= f.text_field :external_project_code
       li= f.label :start_date, 'started on'
-      li= f.text_field :start_date, :placeholder => 'YYYY-MM-DD'
+      li= f.date_select :start_date, :order => [:month, :day, :year]
       li= f.label :end_date, 'ended on'
-      li= f.text_field :end_date, :placeholder => 'YYYY-MM-DD'
+      li= f.date_select :end_date, :order => [:month, :day, :year], :include_blank => true
       li
         = f.check_box :current
         ' 

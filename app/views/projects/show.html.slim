@@ -5,9 +5,36 @@ h2
 #act
   ul
     li= link_to 'edit project', [:edit, @project]
+    
+br
 
+- if @project.current? && @project.start_date? && !@project.end_date?
+  p.center
+    ' you've been on this project 
+    = distance_of_time_in_words @project.start_date, Time.now
+- elsif @project.start_date? && @project.end_date?
+  p.center
+    ' you were on this project 
+    = distance_of_time_in_words @project.start_date, @project.end_date
+
+br
 table
   tbody
     tr
       th code
       td= @project.external_project_code
+    tr
+      th started
+      - if @project.start_date?
+        td= @project.start_date.strftime('%A, %B %e, %Y')
+      - else
+        td no start date set!
+    tr
+      th ended
+      - if @project.end_date?
+        td= @project.end_date.strftime('%A, %B %e, %Y')
+      - elsif @project.current?
+        td this project is ongoing
+      - else
+        td no end in sight!
+        
