@@ -34,13 +34,14 @@ h2
           td= receipt.purchase_date
           td= receipt.store_name
           td= receipt.total
-  p.center
-    strong receipts not currently included
-  table
-    tbody
-      - current_user.receipts.unexpensed.each do |receipt|
-        tr
-          td= check_box_tag 'receipts[]', receipt.id
-          td= receipt.purchase_date
-          td= receipt.store_name
-          td= receipt.total
+  - if current_user.receipts.unexpensed.present?
+    p.center
+      strong receipts not currently included
+    table
+      tbody
+        - current_user.receipts.unexpensed.each do |receipt|
+          tr
+            td= check_box_tag 'receipts[]', receipt.id
+            td= receipt.purchase_date
+            td= receipt.store_name
+            td= receipt.total
