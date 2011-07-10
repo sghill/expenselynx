@@ -21,32 +21,17 @@ describe ExpenseCategoriesController do
   end
 
   describe :index do
-    it "should fail without admin signed in" do
+    it "should not require admin" do
       sign_in Factory(:user)
-      get :index
-      response.should be_redirect
-    end
-    
-    it "should require admin" do
-      user = Factory(:user, :admin => true)
-      sign_in user
       get :index
       response.should be_success
     end
   end
   
   describe :show do
-    it "should fail without admin signed in" do
+    it "should not require admin" do
       category = ExpenseCategory.create(:name => 'category1')
       sign_in Factory(:user)
-      get :show, :id => category.to_param
-      response.should be_redirect
-    end
-    
-    it "should require admin" do
-      category = ExpenseCategory.create(:name => 'category1')
-      user = Factory(:user, :admin => true)
-      sign_in user
       get :show, :id => category.to_param
       response.should be_success
     end

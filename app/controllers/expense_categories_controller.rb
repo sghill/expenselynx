@@ -1,5 +1,5 @@
 class ExpenseCategoriesController < ApplicationController
-  before_filter :authenticate_admin!
+  before_filter :authenticate_admin!, :except => [:index, :show]
 
   respond_to :html
 
@@ -8,7 +8,11 @@ class ExpenseCategoriesController < ApplicationController
   end
   
   def show
-    respond_with(@expense_category = ExpenseCategory.find(params[:id]))
+    @expense_category = ExpenseCategory.find(params[:id])
+    receipts = current_user.receipts.where(:store_id => @expense_category.stores).order('created_at')
+    @receipt_count = receipts.count
+    @recent_receipts = receipts.take(5)
+    respond_with(@expense_category, @receipts)
   end
   
   def edit

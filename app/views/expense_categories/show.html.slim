@@ -4,9 +4,17 @@ h2
   
 #act
   ul
-    li= link_to 'edit expense category', [:edit, @expense_category]
+    li= link_to "edit category", [:edit, @expense_category]
 
 table
   tbody
-    th code
-    td= @expense_category.external_category_code || 'none'
+    tr
+      th code
+      td= @expense_category.external_category_code || 'none'
+
+p.center= "you have #{pluralize @receipt_count, 'receipt'} in this expense category"
+- if @receipt_count > 5
+  p.center= "the 5 most recent appear below"
+br
+
+== grid_for @recent_receipts

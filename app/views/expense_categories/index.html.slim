@@ -1,9 +1,16 @@
 h2 expense categories
-
+br
 table
+  thead
+    tr
+      th category
+      th receipts
+      th
   tbody
     - @expense_categories.each do |category|
       tr
         td= link_to category.name, [category]
-        td= link_to :edit, [:edit, category]
-
+        td.center= current_user.receipts.where(:store_id => category.stores).count
+        - if current_user.admin?
+          td style='padding-left:1em;'
+            = link_to :edit, [:edit, category]
