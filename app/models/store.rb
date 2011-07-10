@@ -24,16 +24,7 @@ class Store < ActiveRecord::Base
                                   ['LOWER(name) = ?', options[:name].downcase]
     first(:conditions => conditions)
   end
-  
-  def self.find_all_by_name(*args)
-    options = args.extract_options!
-    options[:name] = args[0] if args[0].is_a?(String)
-    case_sensitive = options.delete(:case_sensitive)
-    conditions = case_sensitive ? ['name = ?', options[:name]] :
-                                  ['LOWER(name) = ?', options[:name].downcase]
-    all(:conditions => conditions)
-  end
-  
+
   def self.search_by_name(*args)
     options = args.extract_options!
     options[:name] = args[0] if args[0].is_a?(String)

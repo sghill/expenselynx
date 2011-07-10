@@ -48,11 +48,9 @@ describe Store do
 
     it { should == Store.find_by_name("typical party stoRE") }
     it { should == Store.find_by_name(:case_sensitive => true, :name => "Typical Party Store") }
-    it { Store.find_all_by_name('typical party stoRE').count.should == 1 }
 
     it "should not create store when one exists case insensitive" do
       Store.find_or_create_by_name(:case_sensitive => false, :name => 'typical party stoRE')
-      Store.find_all_by_name('Typical Party Store').count.should == 1
     end
 
     it "should not create when one with same name exists" do
