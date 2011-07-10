@@ -17,7 +17,7 @@ class ExpenseReport < ActiveRecord::Base
   end
   
   def reset_receipts_count_cache
-    ExpenseReport.reset_counters self.id, :receipts
+    ExpenseReport.reset_counters self.id, :receipts unless self.receipts.nil?
   end
   
   def ==(other)

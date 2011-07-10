@@ -50,8 +50,8 @@ class ExpenseReportsController < ApplicationController
       end
     end
 
-    @expense_report.reset_receipts_count_cache
     @expense_report.save
+    @expense_report.reset_receipts_count_cache
     respond_with @expense_report
   end
 
@@ -72,8 +72,8 @@ class ExpenseReportsController < ApplicationController
       end
     end
     
-    @expense_report.reset_receipts_count_cache
     @expense_report.save
+    @expense_report.reset_receipts_count_cache
     respond_with @expense_report
   end
 

@@ -90,10 +90,16 @@ describe ExpenseReportsController do
       after_post_receipt.expense_report.should == assigns(:expense_report)
     end
 
-    it "should reset the receipt counter cache" do
+    it "should reset the receipt counter cache if receipts present" do
       sign_in sam
       ExpenseReport.should_receive(:reset_counters).once
+      post :create, :receipts => [sams_burrito_receipt.id]
+    end
+    
+    it "should be able to create a new expense report without receipts" do
+      sign_in sam
       post :create
+      assigns(:expense_report).should_not be_nil
     end
   end
   
@@ -139,7 +145,7 @@ describe ExpenseReportsController do
     it "should reset the receipt counter cache" do
       sign_in sam
       ExpenseReport.should_receive(:reset_counters).once
-      post :create
+      post :create, :receipts => [sams_burrito_receipt.id]
     end
   end
 
