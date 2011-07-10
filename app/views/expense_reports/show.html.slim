@@ -17,6 +17,6 @@ h2
     ' you spent 
     = money report.receipt_sum if report.receipt_sum
     '  on 
-    = pluralize report.receipt_count, "receipt"
+    = pluralize report.receipts_count, "receipt"
     
 == grid_for(report.receipts, :shows_export_status => true)

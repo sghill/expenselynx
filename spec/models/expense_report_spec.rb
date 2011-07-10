@@ -91,7 +91,7 @@ describe ExpenseReport do
       report
     end
 
-    its(:receipt_count) { should == 1 }
+    its(:receipts_count) { should == 1 }
   end
 
   context "with two receipts with totals 3.68 and 33.32" do

@@ -8,10 +8,6 @@ class ExpenseReport < ActiveRecord::Base
   
   attr_accessible :external_report_id, :user, :project_id
 
-  def receipt_count
-    return receipts.count
-  end
-
   def receipt_sum
     receipts.map(&:total_money).reduce(:+)
   end
