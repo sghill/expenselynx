@@ -9,7 +9,7 @@ h2 new expense report
     = f.submit 'create expense report'
   p.right
     ' for project 
-    = select_tag 'expense_report[project_id]', options_from_collection_for_select(current_user.projects.current, :id, :name, current_user.preferences.default_project_id), {:include_blank => true}
+    = f.select :project_id, current_user.projects.collect { |p| [p.name, p.id] }, { :include_blank => true }
   table
     thead
       tr

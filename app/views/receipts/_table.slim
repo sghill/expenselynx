@@ -19,7 +19,7 @@ table#recent_receipts.summary_table
         - if editable
           td= check_box_tag "receipt_ids[]", r.id, r.expensed?, { :id => "receipt_#{r.id}" }
         td.center title="#{r.purchase_date.strftime('%A, %B %e, %Y')}"
-          = distance_of_time_in_words r.created_at, now
+          = distance_of_time_in_words r.purchase_date, now
           '  ago
         td= link_to r.store_name, [:edit, r.store]
         td.right= link_to money(r.total_money), [r]
