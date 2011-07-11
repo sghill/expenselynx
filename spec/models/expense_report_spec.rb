@@ -76,24 +76,6 @@ describe ExpenseReport do
     it { should be_invalid }
   end
 
-  context "with one receipt" do
-    let(:sara) { Factory(:sara) }
-    let(:chipotle) { Factory(:chipotle) }
-
-    subject do
-      report = ExpenseReport.create(:user => sara)
-      Receipt.create(:total => 3.68,
-                     :purchase_date => 1.day.ago,
-                     :store => chipotle,
-                     :expensable => true,
-                     :expense_report => report,
-                     :user => sara)
-      report
-    end
-
-    its(:receipts_count) { should == 1 }
-  end
-
   context "with two receipts with totals 3.68 and 33.32" do
     let(:sara) { Factory(:sara) }
     let(:chipotle) { Factory(:chipotle) }
