@@ -18,7 +18,11 @@ class ExpenseReportsController < ApplicationController
   end
   
   def new
-    @expense_report = ExpenseReport.new(:project => current_user.preferences.default_project)
+    if current_user.preferences.default_project?
+      @expense_report = ExpenseReport.new(:project => current_user.preferences.default_project)
+    else
+      @expense_report = ExpenseReport.new
+    end
     respond_with @expense_report
   end
   
