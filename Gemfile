@@ -8,14 +8,13 @@ gem 'representative'
 gem 'representative_view'
 gem 'money'
 
-group :production do
-  gem 'thin'
-  gem 'pg'
-end
+gem 'activerecord-jdbc-adapter'
+gem 'activerecord-jdbcpostgresql-adapter'
+gem 'jdbc-postgres'
 
 # freezing gems just used in testing to reduce moving parts
 group :development, :test do
-  gem 'killer_rspec_rack', '0.0.2.trunk', git: 'git://github.com/akiellor/killer_rspec_rack.git'
+  gem 'killer_rspec_rack', '0.0.2.trunk', git: 'https://github.com/akiellor/killer_rspec_rack.git'
   
   gem 'timecop', '0.3.5'
   gem 'factory_girl_rails', '1.0.1'
@@ -24,11 +23,10 @@ group :development, :test do
   gem 'rspec-core', '2.5.1'
   gem 'rspec-expectations', '2.5'
   gem 'rspec-mocks', '2.5'
-  gem 'capybara', '~> 1.0.0'
+  gem 'capybara', '~> 2.0.0'
   gem 'database_cleaner', '0.6.6'
-  gem 'cucumber-rails', '~> 1.0.0'
-  gem 'cucumber', '~> 1.0.0'
+  gem 'cucumber-rails', '~> 1.3.0'
+  gem 'cucumber', '~> 1.2.1'
   gem 'spork', '0.8.4'
   gem 'launchy', '0.4.0'
-  gem 'sqlite3-ruby', '1.3.3', :require => 'sqlite3'
 end

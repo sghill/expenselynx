@@ -1,1 +1,1 @@
-rvm use 1.9.2-p180@expenselynx
+rvm use jruby-1.7.0@expenselynx-jruby
