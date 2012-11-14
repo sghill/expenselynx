@@ -20,7 +20,7 @@ class Participant < ActiveRecord::Base
   end
   
   def self.search_by_name(partial_name)
-    conditions = ['LOWER(name) LIKE ?', partial_name + '%']
+    conditions = ['name ILIKE ?', partial_name + '%']
     all(:conditions => conditions)
   end
 end

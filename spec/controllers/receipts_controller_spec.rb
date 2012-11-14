@@ -85,19 +85,6 @@ describe ReceiptsController do
     assigns(:receipts).count.should == 7
   end
 
-  it "should show the 5 most recently purchased receipts on index" do
-    sign_in john
-    oldest = Receipt.create(:store => chipotle,:purchase_date => 61.days.ago,:total => 14, :user => john)
-             Receipt.create(:store => chipotle,:purchase_date => 50.days.ago,:total => 13, :user => john)
-    newest = Receipt.create(:store => chipotle,:purchase_date => 2.days.ago, :total => 120,:user => john)
-             Receipt.create(:store => chipotle,:purchase_date => 3.days.ago, :total => 10, :user => john)
-             Receipt.create(:store => chipotle,:purchase_date => 19.days.ago,:total => 14, :user => john)
-
-    get :index
-    assigns(:receipts).first.should == newest
-    assigns(:receipts).last.should == oldest
-  end
-
   #
   # authorization
   #
