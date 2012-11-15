@@ -86,6 +86,7 @@ GEM
       json (>= 1.4.6)
     i18n (0.5.0)
     jdbc-postgres (9.1.901)
+    jruby-rack (1.1.10)
     json (1.7.5)
     json (1.7.5-java)
     launchy (0.4.0)
@@ -166,6 +167,10 @@ GEM
     timecop (0.3.5)
     treetop (1.4.9)
       polyglot (>= 0.3.1)
+    trinidad (1.4.4)
+      jruby-rack (>= 1.1.10)
+      trinidad_jars (>= 1.1.0)
+    trinidad_jars (1.1.1)
     tzinfo (0.3.29)
     warden (1.0.4)
       rack (>= 1.0)
@@ -201,3 +206,4 @@ DEPENDENCIES
   slim
   spork (= 0.8.4)
   timecop (= 0.3.5)
+  trinidad (= 1.4.4)

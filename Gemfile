@@ -11,6 +11,7 @@ gem 'money'
 gem 'activerecord-jdbc-adapter'
 gem 'activerecord-jdbcpostgresql-adapter'
 gem 'jdbc-postgres'
+gem 'trinidad', '1.4.4'
 
 # freezing gems just used in testing to reduce moving parts
 group :development, :test do
